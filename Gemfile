@@ -28,12 +28,13 @@ gem 'simple_form', '~> 3.2.0'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 #log in log out
 gem 'devise', '~> 3.5.2'
-
+#traductions
 gem 'rails-i18n', '~> 4.0', '>= 4.0.5'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-
 gem 'http_accept_language', '~> 2.0', '>= 2.0.5'
+
+gem "pundit"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
