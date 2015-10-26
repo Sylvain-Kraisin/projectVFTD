@@ -21,7 +21,10 @@
 
 en:
   hello: "Hello world"
-  Accueil: "Home"
-  Déconnexion: "Log Out"
-  Connexion: "Log In"
-  S'inscrire: "Sign Up"
+  accueil: "Home"
+  deconnexion: "Sign Out"
+  connexion: "Sign In"
+  s_inscrire: "Sign Up"
+  valider: "Submit"
+  forgotpass: "Forgot your password ?"
+  mincar: "characters minimum"

@@ -1,5 +1,16 @@
 ---
 fr:
+  hello: "Salut tout le monde !"
+  accueil: "Accueil"
+  deconnexion: "Déconnexion"
+  connexion: "Connexion"
+  s_inscrire: "S'inscrire"
+  valider: "Valider"
+  forgotpass: "Mot de passe oublié ?"
+  mincar: "caractères minimum"
+
+
+
   date:
     abbr_day_names:
     - dim
