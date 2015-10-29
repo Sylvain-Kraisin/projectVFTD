@@ -1,7 +1,8 @@
 <h2><%= @post.title %></h2>
 <p><%= @post.content %></p>
 
+
+<%= link_to "Retour", posts_path %>
+<br>
 <%= link_to "Modifier", edit_post_path(@post) %>
 <%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppresion de cet article ?"} %>
-<br>
-<%= link_to "Retour", posts_path %>
