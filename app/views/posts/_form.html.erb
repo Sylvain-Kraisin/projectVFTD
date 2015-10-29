@@ -1,6 +1,6 @@
 <%= simple_form_for @post do |f| %>
-  <%= f.input :title, label: "Titre de l'article" %>
+  <%= f.input :title %>
   <%= f.input :content %>
   <%= f.input :author %>
-  <%= f.button :submit, t('valider')%>
+  <%= f.button :submit %>
 <% end %>
