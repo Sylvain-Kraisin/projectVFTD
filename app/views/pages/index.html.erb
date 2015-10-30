@@ -1,4 +1,10 @@
+<% if user_signed_in? %>
+<h2>username = <%= current_user.username %></h2>
+<% end %>
+
+
 <h1>Pages#index</h1>
+
 
 
 <p><a href="pages/videos">Videos</a></p>
