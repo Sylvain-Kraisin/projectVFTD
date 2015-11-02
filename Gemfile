@@ -41,6 +41,8 @@ gem "pundit"
 
 gem "figaro"
 
+gem 'thin', '~> 1.6', '>= 1.6.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
