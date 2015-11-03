@@ -20,7 +20,6 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.mandrillapp.com',
     port:                 587,
-    domain:               'viensfairetesdevoirs.dev',
     user_name:            'sylvain.kraisin@gmail.com',
     password:             ENV["MANDRILL_API_TEST_KEY"],
     authentication:       'login',
