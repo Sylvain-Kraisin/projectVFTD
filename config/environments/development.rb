@@ -22,7 +22,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'viensfairetesdevoirs.dev',
     user_name:            'sylvain.kraisin@gmail.com',
-    password:             ENV["MANDRILL_API_KEY"],
+    password:             ENV["MANDRILL_API_TEST_KEY"],
     authentication:       'login',
     enable_starttls_auto: true  }
 
