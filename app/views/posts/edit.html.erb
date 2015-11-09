@@ -8,4 +8,10 @@
 
 <h1>Modifier l'Article</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @post, :html => { :multipart => true } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :author %>
+  <%= f.select :category_id, @categories %>
+  <%= f.button :submit %>
+<% end %>

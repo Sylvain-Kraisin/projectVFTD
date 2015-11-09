@@ -1,6 +1,7 @@
-<%= simple_form_for @post do |f| %>
+<%= simple_form_for @post, :html => { :multipart => true } do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
   <%= f.input :author %>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Choisir la matière") %>
   <%= f.button :submit %>
 <% end %>

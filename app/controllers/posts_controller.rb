@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.category_id = params[:category_id]
 
     if @post.save
       redirect_to posts_path
@@ -18,16 +19,19 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @categories = Category.all.map{ |c| [c.name, c.id]}
 
   end
 
   def edit
+    @categories = Category.all.map{ |c| [c.name, c.id]}
   end
 
   def show
   end
 
   def update
+    @categories = Category.all.map{ |c| [c.name, c.id]}
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
@@ -42,7 +46,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :content, :author)
+      params.require(:post).permit(:title, :content, :author, :category_id)
     end
 
     def find_post
