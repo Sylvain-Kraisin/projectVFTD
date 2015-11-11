@@ -17,3 +17,13 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .book {
+   height: 216px;
+   width: 180px;
+ }
+
+ .book-show {
+   height: 288px;
+   width: 240px;
+ }
