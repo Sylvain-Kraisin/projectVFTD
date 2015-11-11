@@ -1,7 +1,9 @@
 <h1>Blog Posts/view/index</h1>
 
 <% @posts.each do |post| %>
-  <h3><%= link_to post.title, post_path(post) %></h3>
+  <a href="/posts/<%= post.id %>">
+    <%= image_tag post.post_img.url(:post_index) %>
+  </a>
 <% end %>
 
 <% if user_signed_in? %>
