@@ -12,6 +12,7 @@
   <%= f.input :title %>
   <%= f.input :content %>
   <%= f.input :author %>
+  <%= f.file_field :post_img %>
   <%= f.select :category_id, @categories %>
   <%= f.button :submit %>
 <% end %>
