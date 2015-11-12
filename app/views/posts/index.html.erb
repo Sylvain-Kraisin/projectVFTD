@@ -2,7 +2,7 @@
   <h1>Le Centre de Documentation et d’Information (CDI)</h1>
 
   <%  @categories.each do |category| %>
-    <%= link_to category.name, posts_path(category: category.name), class: "link" %>
+    <strong><%= link_to category.name, posts_path(category: category.name), class: "link" %></strong>
     <tr> - <tr>
   <% end %>
 
@@ -17,6 +17,7 @@
         <div class="col-lg-2 col-md-2  col-sm-4  col-xs-4 ">
           <a href="/posts/<%= post.id %>">
             <%= image_tag post.post_img.url(:post_index), class: "img-responsive" %>
+            
           </a>
         </div>
       <% end %>
