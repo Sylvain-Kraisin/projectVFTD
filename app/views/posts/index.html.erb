@@ -1,30 +1,39 @@
 <div class="container">
-<h1>Le Centre de Documentation et d’Information (CDI)</h1>
+  <h1>Le Centre de Documentation et d’Information (CDI)</h1>
 
-<%  @categories.each do |category| %>
+  <%  @categories.each do |category| %>
     <%= link_to category.name, posts_path(category: category.name), class: "link" %>
     <tr> - <tr>
-<% end %>
-<br><br>
-
-<div class="row">
-  <% if @posts.count == 0 %>
-    <h1>Il n'y a pas encore de livres dans cette catégorie</h1>
-  <% else %>
-    <% @posts.each do |post| %>
-      <div class="col-lg-2 col-md-2  col-sm-4  col-xs-4 ">
-        <a href="/posts/<%= post.id %>">
-          <%= image_tag post.post_img.url(:post_index), class: "img-responsive" %>
-        </a>
-      </div>
-    <% end %>
   <% end %>
 
+<br>
+<br>
+
+  <div class="row">
+    <% if @posts.count == 0 %>
+      <h1>Il n'y a pas encore de livres dans cette catégorie</h1>
+    <% else %>
+      <% @posts.each do |post| %>
+        <div class="col-lg-2 col-md-2  col-sm-4  col-xs-4 ">
+          <a href="/posts/<%= post.id %>">
+            <%= image_tag post.post_img.url(:post_index), class: "img-responsive" %>
+          </a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="text-center" >
+
+    <%= paginate @posts, :window => 2 %>
+
+  </div>
+
 </div>
+
 
 <% if user_signed_in? %>
   <% if current_user.role == "admin" && current_user.role =! nil %>
     <%= link_to "Créér un article", new_post_path %>
   <% end %>
 <% end %>
-</div>

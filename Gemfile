@@ -1,14 +1,11 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
-
 #gem 'sqlite3'
 #gem postgres
 gem 'pg', '~> 0.18.3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,15 +37,14 @@ gem 'http_accept_language', '~> 2.0', '>= 2.0.5'
 
 #add policies
 gem "pundit"
-
 #password git ignore
 gem "figaro"
-
 #server thin instead of webrick
 gem 'thin', '~> 1.6', '>= 1.6.4'
-
 #paperclip for upload images
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
+#gem for pagination
+gem 'kaminari', '~> 0.16.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

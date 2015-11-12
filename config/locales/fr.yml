@@ -9,6 +9,16 @@ fr:
   forgotpass: "Mot de passe oublié ?"
   mincar: "caractères minimum"
 
+  views:
+    pagination:
+      first: "&laquo; Début"
+      last: "Fin &raquo;"
+      previous: "&lsaquo; Précédent"
+      next: "Suivant &rsaquo;"
+      truncate: "&hellip;"
+
+
+
 
 
   date:
@@ -156,6 +166,14 @@ fr:
       create: Créer un(e) %{model}
       submit: Enregistrer ce(tte) %{model}
       update: Modifier ce(tte) %{model}
+      page_entries_info:
+        one_page:
+          display_entries:
+            zero: "No %{entry_name} found"
+            one: "Affiche <b>1</b> %{entry_name}"
+            other: "Affiche <b>tout %{count}</b> %{entry_name}"
+        more_pages:
+          display_entries: "Affiche %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> au total"
   number:
     currency:
       format:
