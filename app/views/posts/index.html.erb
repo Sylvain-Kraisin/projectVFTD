@@ -1,17 +1,27 @@
+<div class="container">
 <h1>Le Centre de Documentation et d’Information (CDI)</h1>
 <br>
-<br>
-<div class="container">
-<div class="row">
-<% @posts.each do |post| %>
-  <div class="col-lg-2 col-md-2  col-sm-4  col-xs-6 ">
-    <a href="/posts/<%= post.id %>">
-      <%= image_tag post.post_img.url(:post_index), class: "img-responsive" %>
-    </a>
-  </div>
+<%  @categories.each do |category| %>
+    <%= link_to category.name, posts_path(category: category.name), class: "link" %>
+    <tr> - <tr>
 <% end %>
+<br><br><br>
+
+<div class="row">
+  <% if @posts.count == 0 %>
+    <h1>Il n'y a pas encore de livres dans cette catégorie</h1>
+  <% else %>
+    <% @posts.each do |post| %>
+      <div class="col-lg-2 col-md-2  col-sm-4  col-xs-6 ">
+        <a href="/posts/<%= post.id %>">
+          <%= image_tag post.post_img.url(:post_index), class: "img-responsive" %>
+        </a>
+      </div>
+    <% end %>
+  <% end %>
 
 </div>
+
 </div>
 
 <% if user_signed_in? %>
