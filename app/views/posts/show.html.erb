@@ -1,10 +1,17 @@
-<h2><%= @post.title %></h2>
-<p><%=raw @post.content %></p>
-<h4><%= @post.author %></h4>
-<h4><%= @post.category.name %></h4>
+<div class="container">
+
+  <h2><%= @post.title %></h2>
+  <p><%=raw @post.content %></p>
+  <h4><%= @post.author %></h4>
+  <h4><%= @post.category.name %></h4>
 
 
-<%= link_to "Retour", posts_path %>
+  <%= link_to "Retour", posts_path %>
+
+</div>
+
+
+
 <br>
 
 <% if user_signed_in? %>
