@@ -1,20 +1,65 @@
-<% if user_signed_in? %>
-<h2>username = <%= current_user.username %></h2>
-<% end %>
+<div class= "text-center">
+<h1>Home</h1>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <div class= "row text-center">
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
+      <p><a href="pages/videos"><img src="http://i68.servimg.com/u/f68/18/46/92/96/blue11.jpg" alt="VIDEOS" class="img-responsive center-block"></a></p>
+      <h5>Salle de classe</h5>
+    </div>
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-6">
+      <p><a href="/pages/blog"><img src="http://i68.servimg.com/u/f68/18/46/92/96/green11.jpg" alt="CDI" class="img-responsive center-block"></a></p>
+      <h5>Le CDI</h5>
+    </div>
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-6">
+      <p><a href="/pages/dst"><img src="http://i68.servimg.com/u/f68/18/46/92/96/red11.jpg" alt="DST" class="img-responsive center-block"></a></p>
+      <h5>Devoirs sur Table</h5>
+    </div>
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <p><a href="/pages/forum"><img src="http://i68.servimg.com/u/f68/18/46/92/96/yellow11.jpg" alt="FORUM" class="img-responsive center-block"></a></p>
+      <h5>Cour de Récré</h5>
+    </div>
+  </div>
 
 
-<h1>Pages#index</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class= "row text-center">
 
 
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <p><a href="pages/videos"><img src="http://www.dom-web.net/img/ifoune/1.png" alt="Last Vidéo" class="img-responsive center-block"></a></p>
 
-<p><a href="pages/videos">Videos</a></p>
-<p><a href="/pages/blog">Blog</a></p>
-<p><a href="/pages/dst">DST</a></p>
-<p><a href="/pages/forum">Forum</a></p>
+    </div>
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <p><a href="/posts/<%= @post.ids.last %>"><img src="http://www.dom-web.net/img/ifoune/1.png" alt="Last Post" class="img-responsive center-block"></a></p>
+
+    </div>
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <p><a href="/pages/dst"><img src="http://www.dom-web.net/img/ifoune/1.png" alt="Last Note" class="img-responsive center-block"></a></p>
+
+    </div>
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <p><a href="/pages/forum"><img src="http://www.dom-web.net/img/ifoune/1.png" alt="Last Topic" class="img-responsive center-block"></a></p>
+
+    </div>
+
+</div>
 
 
-<% if user_signed_in? %>
-  <% if current_user.role == "admin" && current_user.role =! nil %>
-    <%= link_to "Admin Page", pages_adminpage_path %>
+<br>
+<br>
+  <% if user_signed_in? %>
+    <% if current_user.role == "admin" && current_user.role =! nil %>
+      <%= link_to "Admin Page", pages_adminpage_path %>
+    <% end %>
   <% end %>
-<% end %>
