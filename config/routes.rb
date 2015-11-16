@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root 'pages#index'
-
   get 'pages/videos' => 'pages#videos'
-
   get 'pages/blog' => 'posts#index'
-  
   get 'pages/dst' => 'pages#dst'
-
   get 'pages/forum' => 'pages#forum'
+  get 'pages/adminpage' => 'pages#adminpage'
 
   resources :posts
 

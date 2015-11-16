@@ -11,3 +11,10 @@
 <p><a href="/pages/blog">Blog</a></p>
 <p><a href="/pages/dst">DST</a></p>
 <p><a href="/pages/forum">Forum</a></p>
+
+
+<% if user_signed_in? %>
+  <% if current_user.role == "admin" && current_user.role =! nil %>
+    <%= link_to "Admin Page", pages_adminpage_path %>
+  <% end %>
+<% end %>

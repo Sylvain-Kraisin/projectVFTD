@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+before_action :find_user, only: [:destroy]
+before_filter :admin?, only: [:adminpage]
+
   def index
   end
 
@@ -13,5 +16,11 @@ class PagesController < ApplicationController
 
   def forum
   end
+
+  def adminpage
+    @user = User.all
+    @post = Post.all
+  end
+
 
 end

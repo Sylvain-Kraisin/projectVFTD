@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_filter :admin?, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @categories = Category.all
     if params[:category].blank?
