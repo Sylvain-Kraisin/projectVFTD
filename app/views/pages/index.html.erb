@@ -7,7 +7,6 @@
 <br>
 <br>
 <br>
-<br>
 
   <div class= "row text-center">
     <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
@@ -37,27 +36,24 @@
 
 
     <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <p><a href="pages/videos"><img src="http://www.dom-web.net/img/ifoune/1.png" alt="Last Vidéo" class="img-responsive center-block"></a></p>
+      <p><a href="pages/videos"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Vidéo" class="img-responsive center-block"></a></p>
       <h5>Last Video</h5>
     </div>
     <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <p><a href="/posts/<%= @post.ids.last %>"><img src="http://www.dom-web.net/img/ifoune/1.png" alt="Last Post" class="img-responsive center-block"></a></p>
+      <p><a href="/posts/<%= @post.ids.last %>"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Post" class="img-responsive center-block"></a></p>
       <h5>Last Post</h5>
     </div>
     <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <p><a href="/pages/dst"><img src="http://www.dom-web.net/img/ifoune/1.png" alt="Last Note" class="img-responsive center-block"></a></p>
+      <p><a href="/pages/dst"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Note" class="img-responsive center-block"></a></p>
       <h5>Last Note</h5>
     </div>
     <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <p><a href="/pages/forum"><img src="http://www.dom-web.net/img/ifoune/1.png" alt="Last Topic" class="img-responsive center-block"></a></p>
+      <p><a href="/pages/forum"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Topic" class="img-responsive center-block"></a></p>
       <h5>Last Message</h5>
     </div>
 
 </div>
 
-
-<br>
-<br>
   <% if user_signed_in? %>
     <% if current_user.role == "admin" && current_user.role =! nil %>
       <%= link_to "Admin Page", pages_adminpage_path %>

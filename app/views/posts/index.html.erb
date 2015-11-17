@@ -33,8 +33,6 @@
   </div>
 </div>
 
-
-
 <% if user_signed_in? %>
   <% if current_user.role == "admin" && current_user.role =! nil %>
     <%= link_to "Créér un article", new_post_path %>
