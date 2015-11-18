@@ -19,8 +19,9 @@ before_filter :admin?, only: [:adminpage]
   end
 
   def adminpage
-    @user = User.all
-    @post = Post.all
+    @user = User.all.order("created_at DESC")
+    @post = Post.all.order("created_at DESC")
+    @visit = Visit.all.order("created_at DESC")
   end
 
 
