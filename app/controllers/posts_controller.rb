@@ -34,6 +34,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    if user_signed_in?
+    Visit.create post_id: @post.id, user_username: current_user.username
+    end
   end
 
   def update

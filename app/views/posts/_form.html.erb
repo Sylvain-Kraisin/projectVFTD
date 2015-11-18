@@ -3,6 +3,6 @@
   <%= f.input :content, input_html: {maxlength: 8000} %>
   <%= f.input :author %>
   <%= f.file_field :post_img %>
-  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Choisir la matière") %>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Choisir la matière" ) %>
   <%= f.button :submit %>
 <% end %>
