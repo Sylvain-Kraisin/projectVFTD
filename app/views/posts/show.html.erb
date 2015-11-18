@@ -11,12 +11,12 @@
     <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
       <div>
         <h2>Fiche CDI</h2>
-          <p>Emprunté le : <%= Visit.offset(1).last.updated_at %></p>
-          <p>par : <%= Visit.offset(1).last.user_username %></p>
-          <p>Emprunté le : <%= Visit.offset(2).last.updated_at %></p>
-          <p>par : <%= Visit.offset(2).last.user_username %></p>
-          <p>Emprunté le : <%= Visit.offset(3).last.updated_at %></p>
-          <p>par : <%= Visit.offset(3).last.user_username %></p>
+          <p>Emprunté le : <%= @visit.offset(1).last.updated_at %></p>
+          <p>par : <%= @visit.offset(1).last.user_username %></p>
+          <p>Emprunté le : <%= @visit.offset(2).last.updated_at %></p>
+          <p>par : <%= @visit.offset(2).last.user_username %></p>
+          <p>Emprunté le : <%= @visit.offset(3).last.updated_at %></p>
+          <p>par : <%= @visit.offset(3).last.user_username %></p>
 
 
 

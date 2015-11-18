@@ -34,7 +34,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    if user_signed_in?
+
+    @visit = Visit.where(post_id: @post)
+
+    if user_signed_in? && current_user.role != "admin"
     Visit.create post_id: @post.id, user_username: current_user.username
     end
   end
