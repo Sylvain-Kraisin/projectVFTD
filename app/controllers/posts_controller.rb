@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :create_visit, only: [:show]
   before_filter :admin?, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -35,13 +36,7 @@ class PostsController < ApplicationController
 
   def show
 
-    @visit = Visit.where(post_id: @post)
 
-    if user_signed_in?
-      if current_user.role != "admin"
-        Visit.create post_id: @post.id, user_username: current_user.username
-      end
-    end
   end
 
   def update
@@ -65,5 +60,18 @@ class PostsController < ApplicationController
 
     def find_post
       @post = Post.find(params[:id])
+    end
+
+    def create_visit
+      @visit = Visit.where(post_id: @post)
+
+      if user_signed_in?
+        if current_user.role != "admin"
+          if @visit.exists? == false || @visit.last.user_username != current_user.username
+              Visit.create post_id: @post.id, user_username: current_user.username
+          
+          end
+        end
+      end
     end
 end
