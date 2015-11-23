@@ -45,8 +45,6 @@ gem 'thin', '~> 1.6', '>= 1.6.4'
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
 #gem for pagination
 gem 'kaminari', '~> 0.16.3'
-#gem for markdown in comments and more
-gem 'redcarpet'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
