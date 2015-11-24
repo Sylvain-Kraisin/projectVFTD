@@ -4,7 +4,7 @@
         <h2><%= @post.title %></h2>
         <br>
         <div class="text-justify">
-        <p><%=raw markdown.render @post.content %></p>
+        <p><%=raw markdownadmin.render @post.content %></p>
         </div>
         <h4>écrit par <%= @post.author %> le <%= @post.created_at.strftime("%e %B %Y") %></h4>
       </article>
