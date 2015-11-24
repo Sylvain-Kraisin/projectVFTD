@@ -69,7 +69,7 @@ class PostsController < ApplicationController
         if current_user.role != "admin"
           if @visit.exists? == false || @visit.last.user_username != current_user.username
               Visit.create post_id: @post.id, user_username: current_user.username
-          
+
           end
         end
       end
