@@ -20,7 +20,7 @@ before_filter :admin?, only: [:adminpage]
   def adminpage
     @user = User.all.order("created_at DESC")
     @post = Post.all.order("created_at DESC")
-    @visit = Visit.all.order("created_at DESC")
+    @visit = Visit.all.order("created_at DESC").limit(100)
   end
 
 
