@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   root 'pages#index'
+
   get 'pages/videos' => 'pages#videos'
   get 'pages/blog' => 'posts#index'
   get 'pages/dst' => 'pages#dst'
   get 'pages/forum' => 'pages#forum'
   get 'pages/adminpage' => 'pages#adminpage'
 
-  resources :posts
-  
+  resources :posts do
+    resources :comments
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
