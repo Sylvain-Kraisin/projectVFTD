@@ -44,10 +44,16 @@
         <% end %>
       </div>
     </div>
+    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <%= render @post.comments %>
+    </div>
   </div>
 
+  <br>
 
-  <%= link_to "Retour", posts_path %>
+
+  <p><%= link_to "Ecrire une annotation", new_post_comment_path(@post) %></p>
+  <p><%= link_to "Retour", posts_path %></p>
 
 <br>
 
