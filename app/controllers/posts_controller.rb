@@ -35,6 +35,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    if Comment.last.content == ""
+    Comment.last.destroy
+    end
   end
 
   def update

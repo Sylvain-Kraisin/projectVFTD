@@ -1,8 +1,11 @@
-<p><%=raw markdown.render comment.content %> - <strong><em><%= comment.user_username %></strong></em></p>
-<% if user_signed_in? %>
-  <% if current_user.id == comment.user_id || current_user.role == 'admin' && current_user.role != nil%>
-<p><%= link_to "Editer", edit_post_comment_path(comment.post, comment) %> -
-   <%= link_to "Supprimer", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Êtes-vous sûr(e) de vouloir supprimer cette annotation ?"}  %>
+<p><img src="<%= asset_path('cogreen.png') %>" alt="icone" class="icon"></img>
+  <strong><em><%= comment.user_username %></strong></em>
+  <%=raw markdown.render comment.content %>
+  <% if user_signed_in? %>
+    <% if current_user.id == comment.user_id || current_user.role == 'admin' && current_user.role != nil%>
+      <%= link_to "Editer", edit_post_comment_path(comment.post, comment) %> -
+      <%= link_to "Supprimer", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Êtes-vous sûr(e) de vouloir supprimer cette annotation ?"}  %>
+      <% end %>
+  <% end %>
+<br>
 </p>
-   <% end %>
-<% end %>

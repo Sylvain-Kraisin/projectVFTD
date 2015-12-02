@@ -47,10 +47,11 @@
           <br>
           <br>
           <p><%= render @post.comments %><p>
+
       </div>
-      <div class='text-center'>
-          <p><%= link_to "Ecrire un commentaire", new_post_comment_path(@post) %></p>
-      </div>
+
+
+
     </div>
 
   </div>
@@ -58,7 +59,7 @@
   <br>
 
 
-
+  <p><%= link_to "Ecrire un commentaire", new_post_comment_path(@post) %></p>
   <p><%= link_to "Retour", posts_path %></p>
 
 <br>
