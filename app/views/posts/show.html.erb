@@ -1,5 +1,5 @@
   <div class ="row">
-    <div class= "col-lg-9 col-md-9 col-sm-9 col-xs-12 text-center">
+    <div class= "col-sm-9 col-xs-12 text-center">
       <article>
         <h2><%= @post.title %></h2>
         <br>
@@ -10,7 +10,7 @@
       </article>
     </div>
 
-    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
+    <div class= "col-sm-3 col-xs-12 text-center">
       <div>
         <h3>Fiche CDI</h3>
         <% if @visit.count == 2 %>
@@ -43,7 +43,7 @@
           <p>par  __________</p>
         <% end %>
       </div>
-      <div id="annotations" class='text-justify'>
+      <div id="annotations" class='text-justify '>
           <br>
           <br>
           <p><%= render @post.comments %><p>

@@ -38,7 +38,7 @@ fr:
         new_password: Nouveau mot de passe
       new:
         forgot_your_password: Mot de passe oublié ?
-        send_me_reset_password_instructions: Envoyez-moi des instructions pour réinitialiser mon mot de passe
+        send_me_reset_password_instructions: Envoyez-moi un courriel de réinitialisation
     registrations:
       edit:
         are_you_sure: "Êtes-vous sûr ?"
