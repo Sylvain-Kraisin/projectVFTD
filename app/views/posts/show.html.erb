@@ -12,7 +12,7 @@
 
     <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
       <div>
-        <h2>Fiche CDI</h2>
+        <h3>Fiche CDI</h3>
         <% if @visit.count == 2 %>
               <p>Emprunté le  <%= @visit.offset(1).last.updated_at.strftime("%d %b %y") %></p>
               <p>par  <%= @visit.offset(1).last.user_username %></p>
@@ -43,16 +43,22 @@
           <p>par  __________</p>
         <% end %>
       </div>
+      <div id="annotations" class='text-justify'>
+          <br>
+          <br>
+          <p><%= render @post.comments %><p>
+      </div>
+      <div class='text-center'>
+          <p><%= link_to "Ecrire un commentaire", new_post_comment_path(@post) %></p>
+      </div>
     </div>
-    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <%= render @post.comments %>
-    </div>
+
   </div>
 
   <br>
 
 
-  <p><%= link_to "Ecrire une annotation", new_post_comment_path(@post) %></p>
+
   <p><%= link_to "Retour", posts_path %></p>
 
 <br>

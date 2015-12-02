@@ -1,4 +1,4 @@
-<p><%=raw markdown.render comment.content %> - <%= comment.user_username %></p>
+<p><%=raw markdown.render comment.content %> - <strong><em><%= comment.user_username %></strong></em></p>
 <% if user_signed_in? %>
   <% if current_user.id == comment.user_id || current_user.role == 'admin' && current_user.role != nil%>
 <p><%= link_to "Editer", edit_post_comment_path(comment.post, comment) %> -
