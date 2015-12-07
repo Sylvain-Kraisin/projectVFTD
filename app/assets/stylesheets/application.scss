@@ -28,11 +28,17 @@
 
 
  /* General styles */
-
- body {
- 	background-color: #f5f5f5;
-
+ .posts {
+   background-color: #adebad;
  }
+
+.pages {
+  background-color: #e6e6e6;
+}
+
+.comments {
+  background-color: #ff4d4d;
+}
 
 
 .login-form {
@@ -45,8 +51,8 @@
 }
 
 .bouton {
-  width: 75px;
-  height: 75px;
+  width: 85px;
+  height: 85px;
 }
 
 .icon {

@@ -1,5 +1,5 @@
 <div class= "text-center">
-<h1>Home</h1>
+  <h3><em>Choisis un bouton !</em></h3>
 </div>
 
 <br>
@@ -10,20 +10,20 @@
 
   <div class= "row text-center">
     <div class= "col-sm-3 col-xs-12 ">
-      <p><a href="pages/videos"><img src= "<%= asset_path('green.png') %>" alt="VIDEOS" class="bouton img-responsive center-block"></a></p>
-      <h5>Salle de Classe</h5>
+      <p><a href="pages/videos"><img src= "<%= asset_path('Bleu.png') %>" alt="VIDEOS" class="bouton img-responsive center-block"></a></p>
+      <h5>Cours</h5>
     </div>
-    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-6">
-      <p><a href="/pages/blog"><img src="<%= asset_path('green.png') %>" alt="CDI" class="bouton img-responsive center-block"></a></p>
-      <h5>Le CDI</h5>
+    <div class= "col-sm-3 col-xs-6">
+      <p><a href="/pages/blog"><img src="<%= asset_path('Vert.png') %>" alt="CDI" class="bouton img-responsive center-block"></a></p>
+      <h5>CDI</h5>
     </div>
-    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-6">
-      <p><a href="/pages/dst"><img src="<%= asset_path('green.png') %>" alt="DST" class="bouton img-responsive center-block"></a></p>
-      <h5>Salle d'Examens</h5>
+    <div class= "col-sm-3 col-xs-6">
+      <p><a href="/pages/dst"><img src="<%= asset_path('Jaune.png') %>" alt="DST" class="bouton img-responsive center-block"></a></p>
+      <h5>Examens</h5>
     </div>
-    <div class= "col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <p><a href="/pages/forum"><img src="<%= asset_path('green.png') %>" alt="FORUM" class="bouton img-responsive center-block"></a></p>
-      <h5>Cour de Récré</h5>
+    <div class= "col-sm-3 col-xs-12">
+      <p><a href="/pages/forum"><img src="<%= asset_path('Rouge.png') %>" alt="FORUM" class="bouton img-responsive center-block"></a></p>
+      <h5>Récré</h5>
     </div>
   </div>
 
@@ -52,7 +52,7 @@
       <h5>Last Message</h5>
     </div>
 
-</div>
+  </div>
 
   <% if user_signed_in? %>
     <% if current_user.role == "admin" && current_user.role =! nil %>

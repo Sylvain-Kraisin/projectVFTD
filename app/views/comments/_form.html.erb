@@ -1,4 +1,4 @@
 <%= simple_form_for([@post, @post.comments.build]) do |f| %>
-    <%= f.input :content, input_html: {maxlength: 900}, hint: ("900 caractères maximum") %>
+    <%= f.input :content, as: :text, input_html: {maxlength: 700, rows: 5}, hint: ("700 caractères maximum") %>
   <%= f.button :submit, t('valider') %>
   <% end %>
