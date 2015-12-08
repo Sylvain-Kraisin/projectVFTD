@@ -1,16 +1,31 @@
   <div class ="row">
     <div class= "article col-sm-9 col-xs-12 text-center">
       <article>
+        <br>
         <h2><%= @post.title %></h2>
         <br>
-        <div class="text-justify">
+        <div class="texte text-justify">
         <p><%=raw markdownadmin.render @post.content %></p>
+        <p><%= @post.content.length %></p>
+
+
         </div>
-        <h4>écrit par <%= @post.author %> le <%= @post.created_at.strftime("%e %B %Y") %></h4>
+        <h5><em>écrit par <%= @post.author %> le <%= @post.created_at.strftime("%e %B %Y") %></em></h5>
+        <br>
       </article>
+
+
+      <% if user_signed_in? %>
+        <% if current_user.role == "admin" %>
+          <%= link_to "Modifier", edit_post_path(@post) %>
+          <%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppresion de cet article ?"} %>
+        <% end %>
+      <% end %>
     </div>
 
+
     <div class= "pagedroite col-sm-3 col-xs-12 text-center">
+      <br>
       <div class="fichecdi">
         <br>
         <h4>Fiche CDI</h4>
@@ -58,26 +73,10 @@
           <h4>Annotations</h4>
         </div>
         <p><%= render @post.comments %><p>
+        <p><%= link_to "Annoter le livre", new_post_comment_path(@post) %></p>
 
       </div>
-
-
-
     </div>
-
   </div>
 
-  <br>
-
-
-  <p><%= link_to "Ecrire un commentaire", new_post_comment_path(@post) %></p>
   <p><%= link_to "Retour", posts_path %></p>
-
-<br>
-
-<% if user_signed_in? %>
-  <% if current_user.role == "admin" %>
-    <%= link_to "Modifier", edit_post_path(@post) %>
-    <%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppresion de cet article ?"} %>
-  <% end %>
-<% end %>

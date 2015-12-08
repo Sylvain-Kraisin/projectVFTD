@@ -1,10 +1,10 @@
 <div class="col-md-6 col-md-offset-3">
   <div class="login-form">
 
-    <h1>Editer commentaire</h1>
+    <h1>Editer annotation</h1>
 
     <%= simple_form_for([@post, @comment]) do |f| %>
-      <%= f.input :content, as: :text, input_html: {maxlength: 700, rows: 5}, hint: ("700 caractères maximum") %>
+      <%= f.input :content, as: :text, input_html: {maxlength: 300, rows: 5}, hint: ("300 caractères maximum") %>
       <%= f.button :submit, t('valider') %>
     <% end %>
   </div>

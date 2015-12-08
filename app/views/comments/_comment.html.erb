@@ -1,4 +1,5 @@
-<p><img src="<%= asset_path('cogreen.png') %>" alt="icone" class="icon"></img>
+<p>
+  <img src="<%= asset_path('cogreen.png') %>" alt="icone" class="icon"></img>
   &nbsp;
   <strong><em><%= comment.user_username %></strong></em>
   <%=raw markdown.render comment.content %>
@@ -8,5 +9,5 @@
       <%= link_to "Supprimer", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Êtes-vous sûr(e) de vouloir supprimer cette annotation ?"}  %>
       <% end %>
   <% end %>
-<br>
 </p>
+<br>

@@ -35,6 +35,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @split = @post.content.split(" ")
+
     if Comment.last.content == ""
     Comment.last.destroy
     end

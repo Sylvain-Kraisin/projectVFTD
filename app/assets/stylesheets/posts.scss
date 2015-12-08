@@ -10,7 +10,10 @@
   }
 } */
 .article {
-  background-color: white;
+  background-image: url('page.png');
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .fichecdi {
@@ -21,6 +24,11 @@
   background-color: #e6e6e6;
 }
 
-.pagedroite {
-  background-color: white;
+.texte {
+  margin-left: 110px;
+  margin-right: 35px;
 }
+
+/* .pagedroite {
+  background-color: white;
+} */
