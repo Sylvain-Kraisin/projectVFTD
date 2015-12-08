@@ -1,5 +1,5 @@
   <div class ="row">
-    <div class= "col-sm-9 col-xs-12 text-center">
+    <div class= "article col-sm-9 col-xs-12 text-center">
       <article>
         <h2><%= @post.title %></h2>
         <br>
@@ -10,9 +10,10 @@
       </article>
     </div>
 
-    <div class= "col-sm-3 col-xs-12 text-center">
-      <div>
-        <h3>Fiche CDI</h3>
+    <div class= "pagedroite col-sm-3 col-xs-12 text-center">
+      <div class="fichecdi">
+        <br>
+        <h4>Fiche CDI</h4>
         <% if @visit.count == 2 %>
               <p>Emprunté le  <%= @visit.offset(1).last.updated_at.strftime("%d %b %y") %></p>
               <p>par  <%= @visit.offset(1).last.user_username %></p>
@@ -28,12 +29,14 @@
               <p>Emprunté le  __________</p>
               <p>par  __________</p>
         <% elsif @visit.count >= 4 %>
+              <br>
               <p>Emprunté le  <%= @visit.offset(1).last.updated_at.strftime("%d %b %y") %></p>
               <p>par  <%= @visit.offset(1).last.user_username %></p>
               <p>Emprunté le  <%= @visit.offset(2).last.updated_at.strftime("%d %b %y") %></p>
               <p>par  <%= @visit.offset(2).last.user_username %></p>
               <p>Emprunté le  <%= @visit.offset(3).last.updated_at.strftime("%d %b %y") %></p>
               <p>par  <%= @visit.offset(3).last.user_username %></p>
+              <br>
         <% else  %>
           <p>Emprunté le  __________ </p>
           <p>par  __________</p>
@@ -43,10 +46,12 @@
           <p>par  __________</p>
         <% end %>
       </div>
-      <div id="annotations" class='text-justify '>
-          <br>
-          <br>
-          <p><%= render @post.comments %><p>
+      <br>
+      <div id="annotations" class="annotations text-justify">
+        <div class="text-center">
+          <h4>Annotations</h4>
+        </div>
+        <p><%= render @post.comments %><p>
 
       </div>
 
