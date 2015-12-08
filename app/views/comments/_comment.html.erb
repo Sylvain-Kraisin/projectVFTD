@@ -1,4 +1,5 @@
 <p><img src="<%= asset_path('cogreen.png') %>" alt="icone" class="icon"></img>
+  &nbsp;
   <strong><em><%= comment.user_username %></strong></em>
   <%=raw markdown.render comment.content %>
   <% if user_signed_in? %>
