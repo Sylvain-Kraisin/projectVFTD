@@ -1,4 +1,5 @@
 <%= simple_form_for([@post, @post.comments.build]) do |f| %>
     <%= f.input :content, as: :text, input_html: {maxlength: 300, rows: 5}, hint: ("300 caractères maximum") %>
+    <p><%= @comment.errors[:content].first %></p>
   <%= f.button :submit, t('valider') %>
   <% end %>
