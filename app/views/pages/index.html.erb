@@ -25,6 +25,12 @@
       <p><a href="/pages/forum"><img src="<%= asset_path('Rouge.png') %>" alt="FORUM" class="bouton img-responsive center-block"></a></p>
       <h5>Récré</h5>
     </div>
+    <% if user_signed_in? %>
+      <% if current_user.role == "nanda" && current_user.role =! nil %>
+    <a href="/pages/correspondances"><img src="<%= asset_path('nanda.png') %>" class="bouton img-responsive center-block">
+      <%= link_to "Salle cachée", pages_correspondances_path %>
+      <% end %>
+    <% end %>
   </div>
 
 
@@ -58,4 +64,6 @@
     <% if current_user.role == "admin" && current_user.role =! nil %>
       <%= link_to "Admin Page", pages_adminpage_path %>
     <% end %>
-  <% end %>
+
+
+<% end %>

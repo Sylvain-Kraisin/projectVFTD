@@ -23,5 +23,16 @@ before_filter :admin?, only: [:adminpage]
     @visit = Visit.all.order("created_at DESC").limit(100)
   end
 
+  def correspondances
+    if user_signed_in?
+      if current_user.role =! "nanda" || current_user.role =! "admin"
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+
+  end
+
 
 end

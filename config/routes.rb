@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'pages/dst' => 'pages#dst'
   get 'pages/forum' => 'pages#forum'
   get 'pages/adminpage' => 'pages#adminpage'
+  get 'pages/correspondances' => 'pages#correspondances'
 
   resources :posts do
     resources :comments
