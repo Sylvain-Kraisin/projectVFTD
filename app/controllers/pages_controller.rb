@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 before_action :find_user, only: [:destroy]
 before_filter :admin?, only: [:adminpage]
+before_filter :nanda, only: [:correspondances]
 
   def index
   end
@@ -24,13 +25,16 @@ before_filter :admin?, only: [:adminpage]
   end
 
   def correspondances
+  end
+
+  private
+
+  def nanda
     if signed_in?
       redirect_to root_path unless current_user.role == "admin" || current_user.role == "nanda"
     else
       redirect_to root_path
     end
   end
-
-
 
 end
