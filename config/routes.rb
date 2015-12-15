@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'pages/adminpage' => 'pages#adminpage'
   get 'pages/correspondances' => 'pages#correspondances'
 
+  resources :consoles
+
   resources :posts do
     resources :comments
   end
