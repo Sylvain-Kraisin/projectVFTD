@@ -24,15 +24,13 @@ before_filter :admin?, only: [:adminpage]
   end
 
   def correspondances
-    if user_signed_in?
-      if current_user.role =! "nanda" || current_user.role =! "admin"
-        redirect_to root_path
-      end
+    if signed_in?
+      redirect_to root_path unless current_user.role == "admin" || current_user.role == "nanda"
     else
       redirect_to root_path
     end
-
   end
+
 
 
 end
