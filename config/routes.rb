@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :consoles
 
+  resources :videos
+
   resources :posts do
     resources :comments
   end
