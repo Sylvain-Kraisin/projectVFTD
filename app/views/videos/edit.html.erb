@@ -1,4 +1,6 @@
-<%= simple_form_for @video do |f| %>
+<h1>Modifier la vidéo</h1>
+
+<%= simple_form_for @video, :html => { :multipart => true } do |f| %>
   <%= f.input :title %>
   <%= f.input :console_id %>
   <%= f.input :link %>

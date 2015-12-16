@@ -6,7 +6,7 @@
 
 <div class="row text-center col-xs-6-offset-3">
   <% if @videok.count == 0 %>
-    <h1>Il n'y a pas encore de cours dans ce niveau</h1>
+    <h1>Il n'y a pas encore de cours dans cette classe.</h1>
   <% else %>
     <% @videok.each do |video| %>
 
@@ -14,7 +14,7 @@
           <p><%= image_tag video.video_img.url(:medium), class:"center-block img-responsive" %><p>
           <h5><%= video.title %></h5>
         </a>
-      
+
     <% end %>
   <% end %>
   <div class="text-center" >

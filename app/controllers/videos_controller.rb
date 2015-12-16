@@ -1,9 +1,8 @@
 class VideosController < ApplicationController
 before_filter :admin?, only: [:new, :edit]
+before_action :find_video, only: [:show, :edit, :update, :destroy]
 
   def show
-    @video = Video.find(params[:id])
-
   end
 
   def create
@@ -24,9 +23,21 @@ before_filter :admin?, only: [:new, :edit]
   def edit
   end
 
+  def update
+    if @video.update(video_params)
+      redirect_to pages_videos_path
+    else
+      render 'edit'
+    end
+  end
+
   private
 
+    def find_video
+      @video = Video.find(params[:id])
+    end
+
     def video_params
-      params.require(:video).permit(:title, :console_id, :video_img)
+      params.require(:video).permit(:title, :console_id, :video_img, :link)
     end
 end

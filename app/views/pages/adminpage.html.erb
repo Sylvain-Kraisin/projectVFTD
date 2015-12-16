@@ -10,16 +10,30 @@
 
 
 <div class= "row" >
-  <div class= "col-md-4" >
+  <div class= "col-md-3" >
     <h3>Users List</h3>
-    <% @user.each do |user| %>
+    <% @users.each do |user| %>
       <p><%= user.id %> - <%= user.username %> - <%= user.email %></p>
     <% end %>
   </div>
 
-  <div class= "col-md-4" >
+  <div class= "col-md-3" >
+    <h3>Vidéos List</h3>
+    <% @videos.each do |video| %>
+      <p><%= video.id %> - <%= video.title %></p>
+
+        <p><% if user_signed_in? %>
+            <% if current_user.role == "admin" %>
+              <%= link_to "Editer", edit_video_path(video.id) %>
+            <% end %>
+          <% end %>
+        </p>
+        <% end %>
+  </div>
+
+  <div class= "col-md-3" >
     <h3>Posts List</h3>
-    <% @post.each do |post| %>
+    <% @posts.each do |post| %>
       <p><%= post.id %> - <%= post.title %></p>
       <p><%= post.category.name %></p>
         <p><% if user_signed_in? %>
@@ -31,9 +45,9 @@
         <% end %>
   </div>
 
-  <div class= "col-md-4" >
+  <div class= "col-md-3" >
     <h3>Visits List</h3>
-    <% @visit.each do |visit| %>
+    <% @visits.each do |visit| %>
       <p><%= visit.id %> - <%= visit.post_id %> - <%= visit.user_username %> - <%= visit.updated_at %></p>
 
     <% end %>
