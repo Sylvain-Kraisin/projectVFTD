@@ -8,7 +8,7 @@
     <% @videok.each do |video| %>
       <div col-xs-12>
         <a href="/videos/<%= video.id %>">
-          <p><%= image_tag video.video_img.url(:medium), class:"center-block img-responsive" %><p>
+          <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} center-block img-responsive" %><p>
           <h5><%= video.title %></h5>
         </a>
       </div>
