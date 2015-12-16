@@ -1,11 +1,3 @@
-<!--<% if user_signed_in? %>
-  <% if current_user.role =! "admin" %>
-    <% redirect_to posts_path %>
-  <% end %>
-<% else %>
-  <% redirect_to posts_path %>
-<% end %> -->
-
 <h1>Modifier l'Article</h1>
 
 <%= simple_form_for @post, :html => { :multipart => true } do |f| %>
