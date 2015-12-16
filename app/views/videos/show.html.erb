@@ -4,4 +4,5 @@
 <iframe width="640" height="360" src="<%= @video.link %>" frameborder="0" allowfullscreen></iframe>
 </div>
 
-<%= @video.title %>
+<p>Cours N°<%= @video.id %> : <%= @video.title %></p>
+<p><%= link_to "Retour", console_path(@video.console_id) %></p>
