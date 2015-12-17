@@ -3,6 +3,7 @@ before_filter :admin?, only: [:new, :edit]
 before_action :find_video, only: [:show, :edit, :update, :destroy]
 
   def show
+    @console = Console.where(id: @video.console_id)
   end
 
   def create
