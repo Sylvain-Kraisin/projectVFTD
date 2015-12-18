@@ -2,25 +2,26 @@
 <div class="row text-center">
   <div class="embed-responsive embed-responsive-16by9 col-xs-12 col-md-9">
     <iframe width="640" height="360" src="<%= @video.link %>" frameborder="0" allowfullscreen ></iframe>
-
   </div>
+    <p><%= link_to "Retour", console_path(@video.console_id) %></p>
 
-  <div class="col-xs-12 col-md-3 text-left">
+  <div class="col-xs-12 col-sm-4 col-md-3 text-left">
     <h2>Cours N°<%= @video.id %></h2>
     <h4><%= @video.title %></h4>
     <br>
-    <p>Console : <%= @console.first.title %>
-    <p>Genre : ----- </p>
-    <p>Éditeur : -----</p>
-    <p>Développeur : -----</p>
-    <p>Date de sortie France : -----</p>
-    <br>
-    <div class="text-center">
-      <p>PASSER</p>
-      <p>LE</p>
-      <p>DST</p>
-    </div>
-    <p><%= link_to "Retour", console_path(@video.console_id) %></p>
+    <p><strong>Console :</strong> <%= @console.first.title %>
+    <p><strong>Genre :</strong> ----- </p>
+    <p><strong>Éditeur :</strong> -----</p>
+    <p><strong>Développeur :</strong> -----</p>
+    <p><strong>Date de sortie France :</strong> -----</p>
   </div>
 
-</div
+  <div class="text-center">
+    <div class="col-xs-12 col-sm-8 col-md-3">
+      <br>
+      <a href=""><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
+      </a>
+    </div>
+  </div>
+
+</div>
