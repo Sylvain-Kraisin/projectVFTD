@@ -23,6 +23,8 @@ before_filter :nanda, only: [:correspondances]
     @posts = Post.all.order("created_at DESC")
     @visits = Visit.all.order("created_at DESC").limit(100)
     @videos = Video.all.order("created_at DESC")
+    @comments = Comment.all.order("created_at DESC")
+    @consoles = Console.all.order("created_at DESC")
   end
 
   def correspondances

@@ -10,7 +10,7 @@
 
 
         </div>
-        <h5><em>écrit par <%= @post.author %> le <%= @post.created_at.strftime("%e %B %Y") %></em></h5>
+        <h5><em>écrit par <%= @post.author %> le <%= l(@post.created_at, format: "%e %B %Y" ) %></em></h5>
         <br>
       </article>
 
@@ -31,7 +31,7 @@
         <h4>Fiche CDI</h4>
         <% if @visit.count == 2 %>
               <br>
-              <p>Emprunté le  <%= @visit.offset(1).last.updated_at.strftime("%d %b %y") %></p>
+              <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
               <p>par  <%= @visit.offset(1).last.user_username %></p>
               <p>Emprunté le  __________</p>
               <p>par  __________</p>
@@ -40,20 +40,20 @@
               <br>
         <% elsif @visit.count == 3 %>
               <br>
-              <p>Emprunté le  <%= @visit.offset(1).last.updated_at.strftime("%d %b %y") %></p>
+              <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
               <p>par  <%= @visit.offset(1).last.user_username %></p>
-              <p>Emprunté le  <%= @visit.offset(2).last.updated_at.strftime("%d %b %y") %></p>
+              <p>Emprunté le  <%= l(@visit.offset(2).last.updated_at, format: "%d %b %y") %></p>
               <p>par  <%= @visit.offset(2).last.user_username %></p>
               <p>Emprunté le  __________</p>
               <p>par  __________</p>
               <br>
         <% elsif @visit.count >= 4 %>
               <br>
-              <p>Emprunté le  <%= @visit.offset(1).last.updated_at.strftime("%d %b %y") %></p>
+              <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
               <p>par  <%= @visit.offset(1).last.user_username %></p>
-              <p>Emprunté le  <%= @visit.offset(2).last.updated_at.strftime("%d %b %y") %></p>
+              <p>Emprunté le  <%= l(@visit.offset(2).last.updated_at, format: "%d %b %y") %></p>
               <p>par  <%= @visit.offset(2).last.user_username %></p>
-              <p>Emprunté le  <%= @visit.offset(3).last.updated_at.strftime("%d %b %y") %></p>
+              <p>Emprunté le  <%= l(@visit.offset(3).last.updated_at, format: "%d %b %y") %></p>
               <p>par  <%= @visit.offset(3).last.user_username %></p>
               <br>
         <% else  %>

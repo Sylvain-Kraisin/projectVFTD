@@ -10,14 +10,14 @@
 
 
 <div class= "row" >
-  <div class= "col-md-3" >
+  <div class= "col-md-2" >
     <h3>Users List</h3>
     <% @users.each do |user| %>
       <p><%= user.id %> - <%= user.username %> - <%= user.email %></p>
     <% end %>
   </div>
 
-  <div class= "col-md-3" >
+  <div class= "col-md-2" >
     <h3>Vidéos List</h3>
     <% @videos.each do |video| %>
       <p><%= video.id %> - <%= video.title %></p>
@@ -31,7 +31,14 @@
         <% end %>
   </div>
 
-  <div class= "col-md-3" >
+  <div class= "col-md-2" >
+    <h3>Consoles List</h3>
+    <% @consoles.each do |console| %>
+      <p><%= console.id %> - <%= console.title %></p>
+    <% end %>
+  </div>
+
+  <div class= "col-md-2" >
     <h3>Posts List</h3>
     <% @posts.each do |post| %>
       <p><%= post.id %> - <%= post.title %></p>
@@ -45,8 +52,22 @@
         <% end %>
   </div>
 
-  <div class= "col-md-3" >
-    <h3>Visits List</h3>
+  <div class= "col-md-2" >
+    <h3>Comments List</h3>
+    <% @comments.each do |comment| %>
+      <p><%= comment.content %></p>
+      <p><%= comment.user_username %></p>
+        <p><% if user_signed_in? %>
+            <% if current_user.role == "admin" %>
+              <%= link_to "Editer", post_path(comment.post_id) %>
+            <% end %>
+          <% end %>
+        </p>
+        <% end %>
+  </div>
+
+  <div class= "col-md-2" >
+    <h3>Posts_visits List</h3>
     <% @visits.each do |visit| %>
       <p><%= visit.id %> - <%= visit.post_id %> - <%= visit.user_username %> - <%= visit.updated_at %></p>
 

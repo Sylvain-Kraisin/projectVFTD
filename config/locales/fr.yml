@@ -8,7 +8,6 @@ fr:
   valider: "Valider"
   forgotpass: "Mot de passe oublié ?"
   mincar: "caractères minimum"
-
   views:
     pagination:
       first: "&laquo; Début"
@@ -16,11 +15,6 @@ fr:
       previous: "&lsaquo; Précédent"
       next: "Suivant &rsaquo;"
       truncate: "&hellip;"
-
-
-
-
-
   date:
     abbr_day_names:
     - dim
