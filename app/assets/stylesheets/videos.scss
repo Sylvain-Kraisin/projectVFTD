@@ -6,8 +6,25 @@
   width: 215px;
 }
 
+#dstimg {
+  height: 122px;
+  width: 200px;
+}
+
 .videos {
   background-image: url('tablelow.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.image {
+   position: relative;
+
+}
+
+#dsttext {
+   position: absolute;
+   top: 20%;
+   left: 5%;
+   width: 90%;
 }

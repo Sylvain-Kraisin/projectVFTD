@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @categories = Category.all
     if params[:category].blank?
-      @posts = Post.page(params[:page]).per(6).order("created_at DESC")
+      @posts = Post.page(params[:page]).per(24).order("created_at DESC")
     else
       @category_id = Category.find_by(name: params[:category]).id
       @posts = Post.where(:category_id => @category_id).page(params[:page]).per(6).order("created_at DESC")
