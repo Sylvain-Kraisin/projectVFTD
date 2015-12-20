@@ -42,17 +42,24 @@
 
 
     <div class= "col-sm-3 col-xs-12">
-      <p><a href="/videos/<%= Video.last.id %>"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Vidéo" class="img-responsive center-block"></a></p>
-      <h5>Last Video</h5>
+      <% if Video.exists? %>
+        <p><a href="/videos/<%= Video.last.id %>"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Vidéo" class="img-responsive center-block"></a></p>
+        <h5>Last Video</h5>
+      <% end %>
     </div>
+
     <div class= "col-sm-3 col-xs-12">
-      <p><a href="/posts/<%= Post.last.id %>"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Post" class="img-responsive center-block"></a></p>
-      <h5>Last Post</h5>
+      <% if Post.exists? %>
+        <p><a href="/posts/<%= Post.last.id %>"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Post" class="img-responsive center-block"></a></p>
+        <h5>Last Post</h5>
+      <% end %>
     </div>
+
     <div class= "col-sm-3 col-xs-12">
       <p><a href="/pages/dst"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Note" class="img-responsive center-block"></a></p>
       <h5>Last Note</h5>
     </div>
+    
     <div class= "col-sm-3 col-xs-12">
       <p><a href="/pages/forum"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Topic" class="img-responsive center-block"></a></p>
       <h5>Last Message</h5>
