@@ -11,7 +11,7 @@
 <br>
 <br>
 
-  <div class="row">
+  <div class="row text-center">
     <% if @posts.count == 0 %>
       <h1>Il n'y a pas encore de livres dans cette catégorie</h1>
     <% else %>
@@ -20,7 +20,7 @@
           <a href="/posts/<%= post.id %>">
             <p><%= image_tag post.post_img.url(:post_index), class:"img-responsive" %><p>
             <h5><%= post.title %></h5>
-            <br>
+            <p>-</p>
           </a>
         </div>
       <% end %>
