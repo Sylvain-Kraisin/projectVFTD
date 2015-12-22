@@ -9,17 +9,17 @@
 
     <div class="infogame col-xs-5 text-left">
       <div class="pull-right">
-      <h2>Cours N°<%= video.id %></h2>
-      <h4><%= video.title %></h4>
-      <br>
-      <p><strong>Console :</strong> <%= @console.title %></p>
-      <p><strong>Sortie (Fr) :</strong> <%= l(video.release, format: "%b %y" ) %></p>
-      <p><strong>Genre :</strong> <%= video.genre %></p>
-      <p><strong>Joueur(s) :</strong> <%= video.player %></p>
-      <p><strong>Développeur :</strong> <%= video.developer %></p>
-      <br>
+        <h2>Cours N°<%= video.id %></h2>
+        <h4><%= video.title %></h4>
+        <br>
+        <p><strong>Console :</strong> <%= @console.title %></p>
+        <p><strong>Sortie (Fr) :</strong> <%= l(video.release, format: "%b %y" ) %></p>
+        <p><strong>Genre :</strong> <%= video.genre %></p>
+        <p><strong>Joueur(s) :</strong> <%= video.player %></p>
+        <p><strong>Développeur :</strong> <%= video.developer %></p>
       </div>
     </div>
+    <br>
 
       <div class="col-xs-7">
         <a href="/videos/<%= video.id %>">
