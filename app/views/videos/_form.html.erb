@@ -3,6 +3,10 @@
   <%= f.input :console_id %>
   <%= f.input :link %>
   <%= f.input :style %>
+  <%= f.input :release, start_year: Date.today.year - 110, end_year: Date.today.year %>
+  <%= f.input :genre %>
+  <%= f.input :player %>
+  <%= f.input :developer %>
   <%= f.file_field :video_img %>
   <%= f.button :submit %>
 <% end %>

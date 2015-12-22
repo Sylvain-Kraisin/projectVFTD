@@ -39,6 +39,6 @@ before_action :find_video, only: [:show, :edit, :update, :destroy]
     end
 
     def video_params
-      params.require(:video).permit(:title, :console_id, :video_img, :link, :style)
+      params.require(:video).permit(:title, :console_id, :video_img, :link, :style, :release, :genre, :player, :developer)
     end
 end

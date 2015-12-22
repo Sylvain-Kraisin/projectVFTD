@@ -14,17 +14,18 @@
 .videos {
   background-image: url('tablelow.png');
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 110%;
 }
 
 .image {
    position: relative;
+   border-bottom: 0;
 
 }
 
 #dsttext {
    position: absolute;
-   top: 20%;
+   top: 9%;
    left: 5%;
    width: 90%;
 }

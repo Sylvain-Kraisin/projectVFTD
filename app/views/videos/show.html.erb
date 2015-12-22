@@ -4,33 +4,26 @@
     <iframe src="<%= @video.link %>" frameborder="0" allowfullscreen ></iframe>
   </div>
 
-    <p><%= link_to "Retour", console_path(@video.console_id) %></p>
+<div class="col-xs-12 col-md-3">
+  <br>
+  <p><%= link_to "Retour", console_path(@video.console_id) %></p>
+  <br>
+</div>
 
-  <div class="col-xs-12 col-sm-4 col-md-3 text-left">
-    <h2>Cours N°<%= @video.id %></h2>
-    <h4><%= @video.title %></h4>
-    <br>
-    <p><strong>Console :</strong> <%= @console.first.title %>
-    <p><strong>Sortie France :</strong> -----</p>
-    <p><strong>Genre :</strong> ----- </p>
-    <p><strong>Nbre de joueur(s) :</strong> -----</p>
 
-    <p><strong>Développeur :</strong> -----</p>
 
-  </div>
 
   <div class="text-center">
-    <div class="image col-xs-12 col-sm-8 col-md-3">
-      <br>
+    <div class="image col-xs-12 col-md-3">
       <a href="/pages/dst"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
         <div id="dsttext">
-        <h4 id="dsttext">Passe ton DST<br>une fois le cours<br>visionné<br>
-        <img id="dstimg" src="<%= asset_path( 'pixelsite.png' )%>">
+        <h4 id="dsttext">Passe ton DST<br>une fois le cours<br>visionné...<br>
+        <img id="dstimg" src="<%= asset_path( 'pixelsite.png' )%>"></img>
+        <br>
+        ...Et débloque<br> un nouveau <br>cours !
         </h4>
         </div>
       </a>
+      <br>
     </div>
-  </div>
-
-  <br><br><br><br>
 </div>

@@ -1,30 +1,39 @@
-<div class="row text-center">
+<div class="infogame row text-center">
 
-  <h1>Classe de Niveau <%= @console.id %> : <%= @console.title %></h1>
+  <h1>Niveau <%= @console.id %> : <%= @console.title %></h1>
   <br>
   <% if @videok.count == 0 %>
     <h1>Il n'y a pas encore de cours dans cette classe.</h1>
   <% else %>
     <% @videok.each do |video| %>
-      <div class="col-xs-12">
+
+    <div class="infogame col-xs-5 text-left">
+      <div class="pull-right">
+      <h2>Cours N°<%= video.id %></h2>
+      <h4><%= video.title %></h4>
+      <br>
+      <p><strong>Console :</strong> <%= @console.title %></p>
+      <p><strong>Sortie (Fr) :</strong> <%= l(video.release, format: "%b %y" ) %></p>
+      <p><strong>Genre :</strong> <%= video.genre %></p>
+      <p><strong>Joueur(s) :</strong> <%= video.player %></p>
+      <p><strong>Développeur :</strong> <%= video.developer %></p>
+      <br>
+      </div>
+    </div>
+
+      <div class="col-xs-7">
         <a href="/videos/<%= video.id %>">
           <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} center-block img-responsive" %><p>
-          <h5><%= video.title %></h5>
         </a>
-        <br>
+        <%= paginate @videok %>
       </div>
+
+
     <% end %>
   <% end %>
-  <div class="text-center" >
-    <%= paginate @videok %>
-    <p><%= link_to "Retour", pages_videos_path %></p>
-  </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+</div>
+
+<div class="text-center">
+<p><%= link_to "Retour", pages_videos_path %></p>
 </div>
