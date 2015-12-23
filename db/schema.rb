@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221223725) do
+ActiveRecord::Schema.define(version: 20151223005118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,28 @@ ActiveRecord::Schema.define(version: 20151221223725) do
     t.integer  "post_img_file_size"
     t.datetime "post_img_updated_at"
     t.integer  "comment_id"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string   "user_username"
+    t.integer  "video_id"
+    t.string   "video_title"
+    t.string   "question_1"
+    t.string   "reponse_1"
+    t.string   "answer_1"
+    t.string   "question_2"
+    t.string   "reponse_2"
+    t.string   "answer_2"
+    t.string   "question_3"
+    t.string   "reponse_3"
+    t.string   "answer_3"
+    t.string   "question_4"
+    t.string   "reponse_4"
+    t.string   "answer_4"
+    t.integer  "note"
+    t.boolean  "done"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|

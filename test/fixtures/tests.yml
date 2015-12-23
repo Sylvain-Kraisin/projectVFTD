@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  video_id: 1
+  video_title: MyString
+  question_1: MyString
+  reponse_1: MyString
+  answer_1: MyString
+  question_2: MyString
+  reponse_2: MyString
+  answer_2: MyString
+  question_3: MyString
+  reponse_3: MyString
+  answer_3: MyString
+  question_4: MyString
+  reponse_4: MyString
+  answer_4: MyString
+  note: 1
+  done: false
+
+two:
+  video_id: 1
+  video_title: MyString
+  question_1: MyString
+  reponse_1: MyString
+  answer_1: MyString
+  question_2: MyString
+  reponse_2: MyString
+  answer_2: MyString
+  question_3: MyString
+  reponse_3: MyString
+  answer_3: MyString
+  question_4: MyString
+  reponse_4: MyString
+  answer_4: MyString
+  note: 1
+  done: false
