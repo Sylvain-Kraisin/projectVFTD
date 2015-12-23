@@ -33,20 +33,20 @@
         <ul class="nav navbar-nav navbar-left">
 
           <% if user_signed_in? %>
-            <li><%= link_to t('deconnexion'), destroy_user_session_path, method: :delete %></li>
+            <li class="text-center"><%= link_to t('deconnexion'), destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to t('connexion'), new_user_session_path %></li>
-            <li><%= link_to t("s_inscrire"), new_user_registration_path %></li>
+            <li class="text-center"><%= link_to t('connexion'), new_user_session_path %></li>
+            <li class="text-center"><%= link_to t("s_inscrire"), new_user_registration_path %></li>
           <% end %>
 
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Vidéos", pages_videos_path %></li>
-            <li><%= link_to "Blog", posts_path %></li>
-            <li><%= link_to "DST", pages_dst_path %></li>
-            <li><%= link_to "Forum", pages_forum_path %></li>
-            <li><a href="#">Contact</a></li>
+            <li class="text-center"><%= link_to "Vidéos", pages_videos_path %></li>
+            <li class="text-center"><%= link_to "Blog", posts_path %></li>
+            <li class="text-center"><%= link_to "DST", pages_dst_path %></li>
+            <li class="text-center"><%= link_to "Forum", pages_forum_path %></li>
+            <li class="text-center"><a href="#">Contact</a></li>
         </ul>
 
 
