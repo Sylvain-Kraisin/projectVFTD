@@ -14,6 +14,8 @@
  *= require_self
  */
 
+ $navbar-default-bg: white;
+
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -28,30 +30,12 @@
 
 
  /* General styles */
- .posts {
-   background-color: #adebad;
- }
-
-.pages {
-  background-color: #e6e6e6;
-}
-
-.comments {
-  background-color: #ff4d4d;
-}
-
-.registrations {
-  background-color: black;
-}
-
-
 .login-form {
 	@include background-tile;
 
 	#h2devise {
 		margin-top: 0;
 	}
-
 }
 
 .bouton {
@@ -62,34 +46,4 @@
 .icon {
   width: 15px;
   height: 15px;
-}
-
-.nes {
-  height: 290px;
-  width: 215px;
-}
-
-.gameboy {
-  height: 240px;
-  width: 240px;
-}
-
-.snes {
-  height: 240px;
-  width: 340px;
-}
-
-.nsixtyfour {
-  height:245px;
-  width: 350px;
-}
-
-.gba {
-  height: 230px;
-  width: 230px;
-}
-
-.gamecube {
-  height: 300px;
-  width: 215px;
 }

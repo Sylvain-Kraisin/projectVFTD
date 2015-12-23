@@ -2,7 +2,7 @@
     <div class= "article col-sm-9 col-xs-12 text-center">
       <article>
         <br>
-        <h2><%= @post.title %></h2>
+        <h2 class="posttitle"><%= @post.title %></h2>
         <br>
         <div class="texte text-justify">
         <p><%=raw markdownadmin.render @post.content %></p>
