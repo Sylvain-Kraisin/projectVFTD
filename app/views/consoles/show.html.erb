@@ -25,8 +25,16 @@
         <a href="/videos/<%= video.id %>">
           <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} center-block img-responsive" %><p>
         </a>
-        <%= paginate @videok %>
+        <% paginate @videok %>
+        <p>
+          <a href="http://viensfairetesdevoirs.dev:3000/consoles/<%= @console.id %>?page=1" class="paginatevideos">1&nbsp;|</a>
+          <a href="http://viensfairetesdevoirs.dev:3000/consoles/<%= @console.id %>?page=2" class="paginatevideos">2&nbsp;|</a>
+          <a href="http://viensfairetesdevoirs.dev:3000/consoles/<%= @console.id %>?page=3" class="paginatevideos">3&nbsp;|</a>
+          <a href="http://viensfairetesdevoirs.dev:3000/consoles/<%= @console.id %>?page=4" class="paginatevideos">4&nbsp;|</a>
+        </p>
+
       </div>
+
 
 
     <% end %>
