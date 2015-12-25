@@ -1,25 +1,21 @@
 <br>
-<div class="text-center">
+<div>
   <div class="image">
     <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="img-responsive center-block" id="dstshowlink">
       <div id="dstshowtext">
-        <%= simple_form_for @test, defaults: {:input_html => { style: 'max-width: 550px' }} do |f| %>
-        <h4>Q1 : quel est la couleur du cheval blanc d'Henri 4 ?
-            <p><%= f.input :reponse_1, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 30, id: 'dstshowinput'} %></p>
-            Q2 : quel est la couleur du cheval blanc d'Henri 4 ?
-            <p><%= f.input :reponse_2, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 30, id: 'dstshowinput2'} %></p>
-            Q3 : quel est la couleur du cheval blanc d'Henri 4 ?
-            <p><%= f.input :reponse_3, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 30, id: 'dstshowinput3'} %></p>
-            Q4 : quel est la couleur du cheval blanc d'Henri 4 ?
-            <p><%= f.input :reponse_4, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 30, id: 'dstshowinput4'} %></p>
+        <%= simple_form_for @test do |f| %>
+        <h4>Q1 : <%= @test.question_1 %>
+            <p><%= f.input :reponse_1, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput'} %></p>
+            Q2 : <%= @test.question_2 %>
+            <p><%= f.input :reponse_2, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput2'} %></p>
+            Q3 : <%= @test.question_3 %>
+            <p><%= f.input :reponse_3, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput3'} %></p>
+            Q4 : <%= @test.question_4 %>
+            <p><%= f.input :reponse_4, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput4'} %></p>
         </h4>
         <br>
-        <p><% @test.errors[:reponse_1].first %>
-           <% @test.errors[:reponse_2].first %>
-           <% @test.errors[:reponse_3].first %>
-           <% @test.errors[:reponse_4].first %>
-        </p>
-        <p id="submitdst"><%= f.button :submit, 'Rendre sa copie' %></p>
+        <br>
+        <p id="submitdst" class="text-center"><%= f.button :submit, 'Rendre sa copie' %></p>
         <% end %>
       </div>
   </div>

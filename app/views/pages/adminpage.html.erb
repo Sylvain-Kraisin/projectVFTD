@@ -5,8 +5,10 @@
 </div>
 <br>
 
-<p><%= link_to "Salle cachée", pages_correspondances_path %></p>
+<p><%= link_to "Nouvel article", new_post_path %></p>
 <p><%= link_to "Nouvelle vidéo", new_video_path %></p>
+<p><%= link_to "Nouveau DST", new_test_path %></p>
+<p><%= link_to "Salle cachée", pages_correspondances_path %></p>
 
 
 <div class= "row" >
@@ -28,6 +30,22 @@
           <p><% if user_signed_in? %>
               <% if current_user.role == "admin" %>
                 <%= link_to "Editer", edit_video_path(video.id) %>
+              <% end %>
+            <% end %>
+          </p>
+          <% end %>
+      <% end %>
+  </div>
+
+  <div class= "col-xs-6 col-md-2" >
+    <h3>Tests List</h3>
+    <% if Test.exists? %>
+      <% @tests.each do |test| %>
+        <p><%= test.id %> - <%= test.video_title %></p>
+
+          <p><% if user_signed_in? %>
+              <% if current_user.role == "admin" %>
+                <%= link_to "Editer", edit_test_path(test.id) %>
               <% end %>
             <% end %>
           </p>

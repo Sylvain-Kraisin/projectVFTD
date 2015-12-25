@@ -1,0 +1,14 @@
+<%= simple_form_for @test do |f| %>
+  <%= select_tag(:video_title, options_for_select(@videos2), :prompt => "Choisir la video_id" ) %>
+  <%= select_tag(:video_id, options_for_select(@videos), :prompt => "Choisir la video" ) %>
+  <%= f.input :question_1 %>
+  <%= f.input :answer_1 %>
+  <%= f.input :question_2 %>
+  <%= f.input :answer_2 %>
+  <%= f.input :question_3 %>
+  <%= f.input :answer_3 %>
+  <%= f.input :question_4 %>
+  <%= f.input :answer_4 %>
+  <% f.input :done %>
+  <%= f.button :submit %>
+<% end %>

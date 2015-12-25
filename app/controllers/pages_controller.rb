@@ -25,6 +25,7 @@ before_filter :nanda, only: [:correspondances]
     @videos = Video.all.order("created_at DESC")
     @comments = Comment.all.order("created_at DESC")
     @consoles = Console.all.order("created_at DESC")
+    @tests = Test.all.order("created_at DESC")
   end
 
   def correspondances

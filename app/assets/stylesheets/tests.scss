@@ -1,50 +1,51 @@
 #dstshowlink {
-  height: auto;
-  width: auto;
+
+  width: 80%;
+
+  @media (max-width: 480px) {
+    width: 100%
+    }
 }
 
 #dstshowtext {
    position: absolute;
-   top: 8.5%;
-   left: 5%;
-   width: 90%;
+   top: 9%;
+   left: 24%;
+   width: 65%;
+
+   h4 {
+     font-size: 17px;
+   }
+
 
    @media (max-width: 480px) {
+     position: absolute;
+     top: 7%;
+     left: 17%;
+     width: 80%;
      h4 {
-       font-size: 13px;
+       font-size: 12px;
      }
 
-     position: absolute;
-     top: 3%;
-     left: 5%;
-     width: 90%;
+
+
    }
 }
 
 .tests {
-  background-color: black;
+  background-color: pink;
 }
 
 #dstshowinput, #dstshowinput2, #dstshowinput3, #dstshowinput4 {
   position: relative;
   top: 9%;
-  left: 13%;
+  left: 3%;
   width: 90%;
 
-  @media (min-width: 1200px) {
-    position: relative;
-    top: 9%;
-    left: 27%;
-    width: 90%;
 
-  }
+}
 
-  /* lg */
-  @media (min-width: 992px) and (max-width: 1199px) {
-    position: relative;
-    top: 9%;
-    left: 22%;
-    width: 90%;
-
-  }
+#submitdst {
+  position: relative;
+  width: 90%;
 }
