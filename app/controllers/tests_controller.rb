@@ -9,10 +9,7 @@ before_filter :admin?, only: [:new, :create]
     @test = Test.new(test_params)
     @test.video_id = params[:video_id]
     @test.video_title = params[:video_title]
-    @test.done = false
-
-
-
+    
     if @test.save
       redirect_to pages_adminpage_path
     else
