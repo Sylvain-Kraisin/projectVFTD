@@ -29,6 +29,7 @@ before_filter :admin?, only: [:new, :create, :edit, :update]
   end
 
   def show
+    @reponse = Reponse.new
   end
 
   def update

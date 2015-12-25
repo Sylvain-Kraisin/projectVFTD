@@ -3,7 +3,7 @@
   <div class="image">
     <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="img-responsive center-block" id="dstshowlink">
       <div id="dstshowtext">
-        <%= simple_form_for @test do |f| %>
+        <%= simple_form_for @reponse do |f| %>
         <h4>Q1 : <%= @test.question_1 %>
             <p><%= f.input :reponse_1, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput'} %></p>
             Q2 : <%= @test.question_2 %>

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :tests
 
+  resources :reponses
+
   resources :posts do
     resources :comments
   end

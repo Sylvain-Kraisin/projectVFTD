@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  test_id: 
+  user_username: 
+  reponse_1: 
+  reponse_2: 
+  reponse_3: 
+  reponse_4: MyString
+
+two:
+  test_id: 
+  user_username: 
+  reponse_1: 
+  reponse_2: 
+  reponse_3: 
+  reponse_4: MyString
