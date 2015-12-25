@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 before_action :find_test, only: [:show, :edit, :update]
-before_filter :admin?, only: [:new, :create]
+before_filter :admin?, only: [:new, :create, :edit, :update]
 
   def index
   end
@@ -9,7 +9,7 @@ before_filter :admin?, only: [:new, :create]
     @test = Test.new(test_params)
     @test.video_id = params[:video_id]
     @test.video_title = params[:video_title]
-    
+
     if @test.save
       redirect_to pages_adminpage_path
     else
