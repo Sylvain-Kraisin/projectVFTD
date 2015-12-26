@@ -15,9 +15,9 @@ Rails.application.routes.draw do
 
   resources :videos
 
-  resources :tests
-
-  resources :reponses
+  resources :tests do
+    resources :reponses
+  end
 
   resources :posts do
     resources :comments

@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
 before_action :find_test, only: [:show, :edit, :update]
+before_action :authenticate_user!, only: [:show]
 before_filter :admin?, only: [:new, :create, :edit, :update]
 
   def index
@@ -29,7 +30,7 @@ before_filter :admin?, only: [:new, :create, :edit, :update]
   end
 
   def show
-    @reponse = Reponse.new
+    
   end
 
   def update
@@ -38,7 +39,7 @@ before_filter :admin?, only: [:new, :create, :edit, :update]
     if @test.update(test_params)
       redirect_to pages_adminpage_path
     else
-      render 'show'
+      render 'edit'
     end
   end
 

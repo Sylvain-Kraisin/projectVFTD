@@ -1,22 +1,2 @@
-<br>
-<div>
-  <div class="image">
-    <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="img-responsive center-block" id="dstshowlink">
-      <div id="dstshowtext">
-        <%= simple_form_for @reponse do |f| %>
-        <h4>Q1 : <%= @test.question_1 %>
-            <p><%= f.input :reponse_1, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput'} %></p>
-            Q2 : <%= @test.question_2 %>
-            <p><%= f.input :reponse_2, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput2'} %></p>
-            Q3 : <%= @test.question_3 %>
-            <p><%= f.input :reponse_3, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput3'} %></p>
-            Q4 : <%= @test.question_4 %>
-            <p><%= f.input :reponse_4, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput4'} %></p>
-        </h4>
-        <br>
-        <br>
-        <p id="submitdst" class="text-center"><%= f.button :submit, 'Rendre sa copie' %></p>
-        <% end %>
-      </div>
-  </div>
-</div>
+<p>Merci d'avoir passer votre devoir sur table</p>
+<p>Vous recevrez un mail avec les corrections sous 24h</p>

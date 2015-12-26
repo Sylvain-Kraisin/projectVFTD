@@ -1,0 +1,53 @@
+#dstshowlink {
+
+  width: 80%;
+
+  @media (max-width: 480px) {
+    width: 100%
+    }
+}
+
+#dstshowtext {
+   position: absolute;
+   top: 9%;
+   left: 24%;
+   width: 65%;
+
+   h4 {
+     font-size: 17px;
+   }
+
+
+   @media (max-width: 480px) {
+     position: absolute;
+     top: 7%;
+     left: 17%;
+     width: 80%;
+     h4 {
+       font-size: 12px;
+     }
+
+
+
+   }
+}
+
+.reponses {
+  background-image: url('tablelow.png');
+  background-repeat: no-repeat;
+  background-size: 100% 120%;
+}
+
+#dstshowinput, #dstshowinput2, #dstshowinput3, #dstshowinput4 {
+  position: relative;
+  top: 9%;
+  left: 3%;
+  width: 90%;
+
+
+}
+
+#submitdst {
+  position: relative;
+  width: 90%;
+}

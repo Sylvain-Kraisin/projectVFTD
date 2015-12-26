@@ -10,7 +10,7 @@ before_action :find_video, only: [:show, :edit, :update, :destroy]
     @video = Video.new(video_params)
 
     if @video.save
-      redirect_to pages_videos_path
+      redirect_to pages_adminpage_path
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ before_action :find_video, only: [:show, :edit, :update, :destroy]
 
   def update
     if @video.update(video_params)
-      redirect_to pages_videos_path
+      redirect_to pages_adminpage_path
     else
       render 'edit'
     end
