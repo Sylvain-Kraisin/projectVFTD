@@ -1,6 +1,7 @@
 <h1>Modifier le DST</h1>
 
 <%= simple_form_for @test, :html => { :multipart => true } do |f| %>
+<%= f.input :console_id %>
 <%= f.select :video_title, @videos2 %>
 <%= f.select :video_id, @videos %>
 <%= f.input :question_1 %>

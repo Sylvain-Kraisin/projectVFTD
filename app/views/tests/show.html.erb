@@ -1,2 +1,4 @@
-<p>Merci d'avoir passer votre devoir sur table</p>
-<p>Vous recevrez un mail avec les corrections sous 24h</p>
+<p>Merci d'avoir passer ton devoir sur table <%= current_user.username %> !</p>
+<p>Je t'enverrais un mail dès que j'aurais corrigé ta copie !</p>
+
+<%= link_to "Retourner en classe", console_path(@test.console_id) %>

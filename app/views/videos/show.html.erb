@@ -21,7 +21,9 @@
       <% elsif Reponse.exists?(test_id: @video.id, user_username: @user.username) %>
         <img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink"></img>
         <div id="dsttext"><br>
-        <h4>DST déjà passé<br><br>...<br>Tu as eu<br>X / 10</h4>
+        <h4>DST déjà passé<br><br>...<br>Tu as eu<br><%= @reponse.total %> / 10<br>
+          <br><a href="/tests/<%= @reponse.test_id %>/reponses/<%= @reponse.id %>">Voir la correction</a>
+        </h4>
         </div>
       <% else %>
         <a href="/tests/<%= @video.id %>/reponses/new"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">

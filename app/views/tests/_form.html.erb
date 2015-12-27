@@ -1,4 +1,5 @@
 <%= simple_form_for @test do |f| %>
+  <%= f.input :console_id %>
   <%= select_tag(:video_title, options_for_select(@videos2), :prompt => "Choisir la video_id" ) %>
   <%= select_tag(:video_id, options_for_select(@videos), :prompt => "Choisir la video" ) %>
   <%= f.input :question_1 %>

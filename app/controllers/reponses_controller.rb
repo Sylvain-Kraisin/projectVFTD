@@ -2,13 +2,11 @@ class ReponsesController < ApplicationController
 before_action :find_test
 before_action :find_reponse, only: [:edit, :update, :show]
 before_filter :admin?, only: [:edit, :update, :destroy]
+before_action :reponse_show_user_or_admin_only, only: [:show]
 before_action :authenticate_user!, only: [:new, :create, :show]
 
 
-
-
     def show
-
     end
 
     def new
@@ -60,7 +58,13 @@ before_action :authenticate_user!, only: [:new, :create, :show]
       @reponse = Reponse.find(params[:id])
     end
 
-
+    def reponse_show_user_or_admin_only
+      if signed_in?
+        redirect_to root_path unless current_user.username == @reponse.user_username || current_user.role == "admin"
+      else
+        redirect_to root_path
+      end
+    end
 
 
 end
