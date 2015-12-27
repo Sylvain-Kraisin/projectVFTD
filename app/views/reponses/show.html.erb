@@ -1,0 +1,23 @@
+<br>
+<div>
+  <div class="image">
+    <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="img-responsive center-block" id="dstshowlink">
+      <div id="dstshowtext">
+
+        <%= @reponse.total %>
+        <h4>
+          <p>Q1 : <%= @test.question_1 %></p>
+          <p><%= @reponse.reponse_1 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @reponse.note_1 %> pts</p>
+          <p>Q2 : <%= @test.question_2 %></p>
+          <p><%= @reponse.reponse_2 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @reponse.note_2 %> pts</p>
+          <p>Q3 : <%= @test.question_3 %></p>
+          <p><%= @reponse.reponse_3 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @reponse.note_3 %> pts</p>
+          <p>Q4 : <%= @test.question_4 %></p>
+          <p><%= @reponse.reponse_4 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @reponse.note_4 %> pts</p>
+        </h4>
+        <br>
+        <br>
+
+      </div>
+  </div>
+</div>

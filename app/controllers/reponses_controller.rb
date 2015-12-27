@@ -1,10 +1,14 @@
 class ReponsesController < ApplicationController
 before_action :find_test
-before_action :find_reponse, only: [:edit, :update]
+before_action :find_reponse, only: [:edit, :update, :show]
 before_filter :admin?, only: [:edit, :update, :destroy]
 before_action :authenticate_user!, only: [:new, :create, :show]
 
+
+
+
     def show
+
     end
 
     def new
@@ -30,7 +34,8 @@ before_action :authenticate_user!, only: [:new, :create, :show]
     def update
 
       if @reponse.update(reponse_params)
-        redirect_to pages_adminpage_path
+        @reponse.update total: @reponse.note_1 + @reponse.note_2 + @reponse.note_3 + @reponse.note_4
+        redirect_to test_reponse_path(@test, @reponse)
       else
         render 'edit'
       end
@@ -44,7 +49,7 @@ before_action :authenticate_user!, only: [:new, :create, :show]
   private
 
     def reponse_params
-      params.require(:reponse).permit(:test_id, :user_username, :reponse_1, :reponse_2, :reponse_3, :reponse_4)
+      params.require(:reponse).permit(:test_id, :user_username, :reponse_1, :reponse_2, :reponse_3, :reponse_4, :note_1, :note_2, :note_3, :note_4, :total)
     end
 
     def find_test
@@ -54,5 +59,8 @@ before_action :authenticate_user!, only: [:new, :create, :show]
     def find_reponse
       @reponse = Reponse.find(params[:id])
     end
+
+
+
 
 end
