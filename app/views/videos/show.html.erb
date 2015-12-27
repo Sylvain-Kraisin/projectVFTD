@@ -10,20 +10,36 @@
   <br>
 </div>
 
-
-
-
-  <div class="text-center">
-    <div class="image col-xs-12 col-md-3">
-      <a href="/tests/<%= @video.id %>/reponses/new"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
+<div class="text-center">
+  <div class="image col-xs-12 col-md-3">
+    <% if user_signed_in? %>
+      <% if Reponse.exists?(test_id: @video.id, user_username: @user.username) %>
+        <img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink"></img>
+        <div id="dsttext"><br>
+        <h4>DST déjà passé<br><br>...<br>Correction en cours<br>...</h4>
+        </div>
+      <% else %>
+        <a href="/tests/<%= @video.id %>/reponses/new"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
         <div id="dsttext">
         <h4>Passe ton DST<br>une fois le cours<br>visionné...<br>
         <img id="dstimg" src="<%= asset_path( 'pixelsite.png' )%>"></img>
         <br>
-        ...Et débloque<br> un nouveau <br>cours !
+        ...Et débloque<br> le niveau <br>suivant !
         </h4>
+        </a>
         </div>
-      </a>
+      <% end %>
+    <% else %>
+      <a href="/tests/<%= @video.id %>/reponses/new"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
+      <div id="dsttext">
+      <h4>Passe ton DST<br>une fois le cours<br>visionné...<br>
+      <img id="dstimg" src="<%= asset_path( 'pixelsite.png' )%>"></img>
       <br>
-    </div>
+      ...Et débloque<br> le niveau <br>suivant !
+      </h4>
+      </a>
+      </div>
+    <% end %>
+      <br>
+  </div>
 </div>

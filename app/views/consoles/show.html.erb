@@ -9,7 +9,7 @@
 
     <div class="infogame col-xs-5 text-left">
       <div class="pull-right">
-        <h2>Cours N°<%= video.id %></h2>
+        <h2>Cours #<%= video.id %></h2>
         <h4><%= video.title %></h4>
         <br>
         <p><strong>Console :</strong> <%= @console.title %></p>
@@ -26,7 +26,7 @@
           <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} center-block img-responsive" %><p>
         </a>
         <%= paginate @videok %>
-        
+
 
       </div>
 

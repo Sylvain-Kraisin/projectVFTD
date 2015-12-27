@@ -4,6 +4,7 @@ before_action :find_video, only: [:show, :edit, :update, :destroy]
 
   def show
     @console = Console.where(id: @video.console_id)
+    @user = current_user
   end
 
   def create

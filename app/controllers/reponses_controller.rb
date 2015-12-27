@@ -1,8 +1,11 @@
 class ReponsesController < ApplicationController
 before_action :find_test
 before_action :find_reponse, only: [:edit, :update]
-before_filter :admin?, only: [:edit, :update, :show]
-before_action :authenticate_user!, only: [:new, :create]
+before_filter :admin?, only: [:edit, :update, :destroy]
+before_action :authenticate_user!, only: [:new, :create, :show]
+
+    def show
+    end
 
     def new
       @reponse = Reponse.new
@@ -14,25 +17,28 @@ before_action :authenticate_user!, only: [:new, :create]
       @reponse.user_username = current_user.username
 
       if @reponse.save
-        redirect_to test_path(@test)
+        redirect_to test_path(@test) #show
       else
         render 'new'
       end
     end
 
     def edit
+      @video = Video.where(id: @reponse.test_id).first
     end
 
     def update
 
       if @reponse.update(reponse_params)
-        redirect_to root_path
+        redirect_to pages_adminpage_path
       else
         render 'edit'
       end
     end
 
-    def show
+    def destroy
+      @reponse.destroy
+      redirect_to pages_adminpage_path
     end
 
   private

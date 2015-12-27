@@ -54,6 +54,22 @@
   </div>
 
   <div class= "col-xs-6 col-md-2" >
+    <h3>Reponses List</h3>
+    <% if Reponse.exists? %>
+      <% @reponses.each do |reponse| %>
+        <p><%= reponse.test_id %> - <%= reponse.user_username %></p>
+
+          <p><% if user_signed_in? %>
+              <% if current_user.role == "admin" %>
+                <a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>/edit">Noter</a>
+              <% end %>
+            <% end %>
+          </p>
+          <% end %>
+      <% end %>
+  </div>
+
+  <div class= "col-xs-6 col-md-2" >
     <h3>Consoles List</h3>
     <% if Console.exists? %>
       <% @consoles.each do |console| %>

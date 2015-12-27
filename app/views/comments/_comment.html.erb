@@ -4,10 +4,13 @@
   <strong><em><%= comment.user_username %></strong></em>
   <%=raw markdown.render comment.content %>
   <% if user_signed_in? %>
-    <% if current_user.id == comment.user_id || current_user.role == 'admin' && current_user.role != nil%>
+    <% if current_user.id == comment.user_id %>
+      <%= link_to "Editer", edit_post_comment_path(comment.post, comment) %>
+    <% end %>
+    <% if current_user.role == 'admin' && current_user.role != nil%>
       <%= link_to "Editer", edit_post_comment_path(comment.post, comment) %> -
       <%= link_to "Supprimer", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Êtes-vous sûr(e) de vouloir supprimer cette annotation ?"}  %>
-      <% end %>
+    <% end %>
   <% end %>
 </p>
 <br>

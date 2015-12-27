@@ -1,0 +1,24 @@
+<br>
+<div class="col-md-6 col-md-offset-3">
+  <div class="login-form">
+
+    <h1>Corriger DST</h1>
+
+<h4>Cours N°<%= @reponse.test_id %> - <%= @video.title %> - User : <%= @reponse.user_username %></h4>
+
+<%= simple_form_for ([@test, @reponse]) do |f| %>
+  <p><%= @test.question_1 %></p>
+  <%= f.input :reponse_1, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
+  <p><%= @test.answer_1 %></p><br>
+  <p><%= @test.question_2 %></p>
+  <%= f.input :reponse_2, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
+  <p><%= @test.answer_2 %></p><br>
+  <p><%= @test.question_3 %></p>
+  <%= f.input :reponse_3, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
+  <p><%= @test.answer_3 %></p><br>
+  <p><%= @test.question_4 %></p>
+  <%= f.input :reponse_4, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
+  <p>answer_4 : <%= @test.answer_4 %></p><br>
+
+  <%= f.button :submit, 'Corriger la copie' %>
+<% end %>

@@ -30,7 +30,6 @@ before_filter :admin?, only: [:new, :create, :edit, :update]
   end
 
   def show
-    
   end
 
   def update

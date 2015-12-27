@@ -19,13 +19,14 @@ before_filter :nanda, only: [:correspondances]
   end
 
   def adminpage
-    @users = User.all.order("created_at DESC")
+    @users = User.all.order("created_at DESC").limit(50)
     @posts = Post.all.order("created_at DESC")
-    @visits = Visit.all.order("created_at DESC").limit(100)
+    @visits = Visit.all.order("created_at DESC").limit(50)
     @videos = Video.all.order("created_at DESC")
     @comments = Comment.all.order("created_at DESC")
     @consoles = Console.all.order("created_at DESC")
     @tests = Test.all.order("created_at DESC")
+    @reponses = Reponse.all.order("created_at DESC").limit(50)
   end
 
   def correspondances
