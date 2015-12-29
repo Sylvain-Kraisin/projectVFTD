@@ -3,7 +3,7 @@ belongs_to :test
 belongs_to :user
 
 
-  before_update :correction
+  after_update :correction, :if => :total_changed?
 
 
 
