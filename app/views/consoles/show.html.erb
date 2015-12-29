@@ -22,9 +22,11 @@
     <br>
 
       <div class="col-xs-7">
-        <a href="/videos/<%= video.id %>">
-          <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} center-block img-responsive" %><p>
-        </a>
+        <div class="<%= video.style %> img-responsive">
+          <a href="/videos/<%= video.id %>">
+            <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} img-responsive center-block" %><p>
+          </a>
+        </div>
         <%= paginate @videok %>
 
 
