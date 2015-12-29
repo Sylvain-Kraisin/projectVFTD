@@ -9,7 +9,7 @@
 
 #dstshowtext {
    position: absolute;
-   top: 9%;
+   top: 7%;
    left: 24%;
    width: 65%;
 
@@ -20,7 +20,7 @@
 
    @media (max-width: 480px) {
      position: absolute;
-     top: 7%;
+     top: 2%;
      left: 17%;
      width: 80%;
      h4 {
@@ -56,4 +56,8 @@
   position: relative;
   width: 90%;
   color: red;
+}
+
+.reponsedst {
+  color: green;
 }
