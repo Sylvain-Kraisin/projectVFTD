@@ -1,5 +1,8 @@
-UserMailer#correction
+Bonjour, <%= @reponse.user_username %>
 
-<%= @greeting %>, , votre DST à été corrigé !
+Ton devoir à été corrigé
+
+Pour voir ta note et les corrections, clique sur le lien ci-dessous :
+  http://viensfairetesdevoirs.dev:3000/tests/<%= @reponse.test_id %>/reponses/<%= @reponse.id %>
 
 Signé Papako

@@ -19,6 +19,5 @@
   <p><%= @test.question_4 %></p>
   <%= f.input :reponse_4, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
   <p><%= @test.answer_4 %> <%= f.number_field :note_4, min: 0, max: 4, step: 0.5 %></p><br>
-
   <%= f.button :submit, 'Corriger la copie' %>
 <% end %>

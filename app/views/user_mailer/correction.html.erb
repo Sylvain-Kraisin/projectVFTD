@@ -1,7 +1,10 @@
-<h1>UserMailer#correction</h1>
+<h1>Bonjour, <%= @reponse.user_username %></h1>
 
 <p>
-  <%= @greeting %>, votre DST à été corrigé !
+  Ton devoir à été corrigé
 </p>
+
+<p>Pour voir ta note et les corrections, clique sur le lien ci-dessous :<p>
+  <p><a href="http://viensfairetesdevoirs.dev:3000/tests/<%= @reponse.test_id %>/reponses/<%= @reponse.id %>">Voir ma note</a></p>
 
 <p>Signé Papako</p>

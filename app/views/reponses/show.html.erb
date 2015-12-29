@@ -3,6 +3,8 @@
   <div class="image">
     <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="img-responsive center-block" id="dstshowlink">
       <div id="dstshowtext">
+        <% if @user.username == @reponse.user_username %>
+        <%= @reponse.total %>/10
         <h4>
           <p>Q1 : <%= @test.question_1 %></p>
           <p><%= @reponse.reponse_1 %></p>
@@ -17,9 +19,11 @@
           <p><%= @reponse.reponse_4 %></p>
           <p>Réponse : <%= @test.answer_4 %></p>
         </h4>
+        <% else %>
+        <h4>Ce n'est pas ton devoir, petit curieux !</h4>
+        <% end %>
         <br>
         <br>
-        <%= @reponse.total %>/10
       </div>
   </div>
 </div>
