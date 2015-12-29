@@ -71,7 +71,9 @@ before_action :total, only: [:show]
     end
 
     def total
+      if @reponse.total == nil
       @reponse.update total: @reponse.note_1 + @reponse.note_2 + @reponse.note_3 + @reponse.note_4
+      end
     end
 
 

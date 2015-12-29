@@ -2,7 +2,7 @@ class Reponse < ActiveRecord::Base
 belongs_to :test
 belongs_to :user
 
-
+  
   after_update :correction, only: [:update]
 
 
@@ -11,7 +11,7 @@ belongs_to :user
 
 
   def correction
-    UserMailer.correction(self).deliver_later
+    UserMailer.correction(self).deliver_now
   end
 
 end
