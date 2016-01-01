@@ -12,9 +12,12 @@
 }
 
 .videos {
-  background-image: url('tablelow.png');
-  background-repeat: no-repeat;
-  background-size: 100% 110%;
+  background-image: url('tablelow.gif');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
 }
 
 .image {
