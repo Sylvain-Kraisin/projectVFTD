@@ -73,28 +73,61 @@
 
   <% end %>
 
-  <div class= "hidden-xs row text-center">
+  <br>
+  <br>
 
-    <div class= "col-sm-3 col-xs-12">
+<footer>
+  <div class= "lastban hidden-xs">
+
+    <div class= "lastblue col-sm-3">
       <% if Video.exists? %>
-        <p><a href="/videos/<%= Video.last.id %>"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Vidéo" class="img-responsive center-block"></a></p>
+      <div class="col-sm-5 img-responsive center-block">
+        <br>
+        <p><a href="/videos/<%= Video.last.id %>"><%= image_tag @video.video_img.url(:medium), class:"  img-responsive" %></a></p>
       <% end %>
+      </div>
+      <div class="lasttext col-sm-7">
+        <h4>Dernier cours</h4>
+        <p><%= @video.title %></p>
+      </div>
     </div>
 
-    <div class= "col-sm-3 col-xs-12">
+    <div class= "lastgreen col-sm-3">
       <% if Post.exists? %>
-        <p><a href="/posts/<%= Post.last.id %>"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Post" class="img-responsive center-block"></a></p>
+        <div class="lastimage col-sm-5">
+          <br>
+        <p><a href="/posts/<%= Post.last.id %>"><%= image_tag @post.post_img.url(:post_index), class:"img-responsive" %></a></p>
       <% end %>
+       </div>
+       <div class="lasttext col-sm-7">
+        <h4>Dernier article</h4>
+        <p><%= @post.title %></p>
+        <br>
+       </div>
     </div>
 
-    <div class= "col-sm-3 col-xs-12">
-      <p><a href="/pages/dst"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Note" class="img-responsive center-block"></a></p>
-
+    <div class= "lastyellow col-sm-3">
+      <% if Comment.exists? %>
+        <div class="lastimage col-sm-5">
+          <br>
+        <p><a href="/posts/<%= Post.last.id %>"><%= image_tag @post.post_img.url(:post_index), class:"img-responsive" %></a></p>
+      <% end %>
+       </div>
+       <div class="lasttext col-sm-7">
+        <h4>Dernier sujet</h4>
+        <p><%= @comment.content %></p>
+        <br>
+       </div>
     </div>
 
-    <div class= "col-sm-3 col-xs-12">
-      <p><a href="/pages/forum"><img src="<%= asset_path( 'borderblue.jpg' ) %>" alt="Last Topic" class="img-responsive center-block"></a></p>
-
+    <div class= "lastred col-sm-3 col-xs-12">
+      <% if Reponse.exists? %>
+      <div class="lasttext col-sm-12">
+        <h4>Moyenne de l'école</h4>
+        <p><%= @goodreponses.average(:total).round(2) %> / 10</p>
+        <br>
+       <% end %>
     </div>
 
   </div>
+</footer>

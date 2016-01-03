@@ -6,6 +6,39 @@
 }
 
 .doors {
-  
+
   margin: 0 auto;
+}
+
+.lastban {
+  position: absolute;
+      width: 100%;
+      left: 0;
+}
+
+.lastblue {
+  background-image: url('borderblue.png');
+  height: 150px;
+}
+
+.lastgreen {
+  background-image: url('bordergreen.png');
+  height: 150px;
+}
+
+.lastyellow {
+  background-image: url('borderyellow.png');
+  height: 150px;
+}
+
+.lastred {
+  background-image: url('borderred.png');
+  height: 150px;
+}
+
+.lasttext {
+  position: absolute;
+  top: 7%;
+  width: 90%;
+  color: white;
 }

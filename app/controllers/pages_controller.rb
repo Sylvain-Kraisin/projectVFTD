@@ -4,6 +4,10 @@ before_filter :admin?, only: [:adminpage]
 before_filter :nanda, only: [:correspondances]
 
   def index
+    @video = Video.last
+    @post = Post.last
+    @comment = Comment.last
+    @goodreponses = Reponse.where("total is NOT NULL")
   end
 
   def videos
