@@ -4,10 +4,15 @@ before_filter :admin?, only: [:adminpage]
 before_filter :nanda, only: [:correspondances]
 
   def index
+    @user = current_user
     @video = Video.last
     @post = Post.last
     @comment = Comment.last
     @goodreponses = Reponse.where("total is NOT NULL")
+
+    if signed_in?
+    @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
+    end
   end
 
   def videos

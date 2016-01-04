@@ -23,31 +23,31 @@
 html, body {
  /* xl (mac full size)*/
 @media (min-width: 1200px) {
-  color:black;
+
 
 }
 
 /* lg */
 @media (min-width: 992px) and (max-width: 1199px) {
-  color:red;
+
 
 }
 
 /* md */
 @media (min-width: 768px) and (max-width: 991px) {
-  color: black;
+
 
 }
 
 /* sm */
 @media (max-width: 767px) {
-  color: red;
+
 
 }
 
 /* xs */
 @media (max-width: 480px) {
-  color: black;
+  
 
 }
 }
