@@ -4,7 +4,7 @@
 
     <h1>Corriger DST</h1>
 
-<h4>Cours N°<%= @reponse.test_id %> - <%= @video.title %> - User : <%= @reponse.user_username %></h4>
+<h4>Cours N°<%= @reponse.test_id %> - <%= @test.video_title %> - User : <%= @reponse.user_username %></h4>
 
 <%= simple_form_for ([@test, @reponse]) do |f| %>
   <p><%= @test.question_1 %></p>

@@ -28,7 +28,6 @@ before_action :authenticate_user!, only: [:new, :create, :show]
     end
 
     def edit
-      @video = Video.where(id: @reponse.test_id).first
     end
 
     def update
