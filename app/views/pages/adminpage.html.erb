@@ -56,7 +56,7 @@
   <div class= "col-xs-6 col-md-2" >
     <h3>Reponses List</h3>
     <% if Reponse.exists? %>
-      <% @reponses.each do |reponse| %>
+      <% @reponsesacorriger.each do |reponse| %>
         <p><%= reponse.id %> - test_id :<%= reponse.test_id %> - <%= reponse.user_username %></p>
 
           <p><% if user_signed_in? %>

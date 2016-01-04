@@ -30,7 +30,7 @@ before_filter :nanda, only: [:correspondances]
     @comments = Comment.all.order("created_at DESC")
     @consoles = Console.all.order("created_at DESC")
     @tests = Test.all.order("created_at DESC")
-    @reponses = Reponse.all.order("created_at DESC").limit(50)
+    @reponsesacorriger = Reponse.where(total: nil)
   end
 
   def correspondances
