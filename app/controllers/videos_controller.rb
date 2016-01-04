@@ -5,6 +5,7 @@ before_action :find_video, only: [:show, :edit, :update, :destroy]
   def show
     @console = Console.where(id: @video.console_id)
     @user = current_user
+    @test = Test.where(video_id: @video.id).first
 
     if user_signed_in?
       if Reponse.exists?(test_id: @video.id, user_username: @user.username)

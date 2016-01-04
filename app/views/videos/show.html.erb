@@ -26,7 +26,7 @@
         </h4>
         </div>
       <% else %>
-        <a href="/tests/<%= @video.id %>/reponses/new"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
+        <a href="/tests/<%= @test.id %>/reponses/new"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
         <div id="dsttext">
         <h4>Passe ton DST<br>une fois le cours<br>visionné...<br>
         <img id="dstimg" src="<%= asset_path( 'pixelsite.png' )%>"></img>
@@ -37,7 +37,7 @@
         </div>
       <% end %>
     <% else %>
-      <a href="/tests/<%= @video.id %>/reponses/new"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
+      <a href="/tests/<%= @test.id %>/reponses/new"><img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink">
       <div id="dsttext">
       <h4>Passe ton DST<br>une fois le cours<br>visionné...<br>
       <img id="dstimg" src="<%= asset_path( 'pixelsite.png' )%>"></img>
