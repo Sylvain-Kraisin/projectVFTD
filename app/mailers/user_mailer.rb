@@ -9,4 +9,9 @@ class UserMailer < ApplicationMailer
     @reponse = reponse
     mail to: reponse.email
   end
+
+  def acorriger reponse
+    @reponse = reponse
+    mail to: "viensfairetesdevoirs@gmail.com"
+  end
 end
