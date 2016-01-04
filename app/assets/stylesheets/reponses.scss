@@ -20,16 +20,27 @@
 
    @media (max-width: 480px) {
      position: absolute;
-     top: 2%;
+     top: 3%;
      left: 17%;
      width: 80%;
      h4 {
        font-size: 12px;
      }
-
-
-
    }
+}
+
+.noteimg {
+  color: red;
+  position: absolute;
+  right: 5%;
+  top: -7%;
+
+  @media (max-width: 480px) {
+    position: absolute;
+    right: 5%;
+    top: -4%;
+
+  }
 }
 
 .reponses {

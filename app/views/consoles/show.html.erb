@@ -1,6 +1,7 @@
 <div class="infogame row text-center">
 
   <h1>Niveau <%= @console.id %> : <%= @console.title %></h1>
+  <h4><em>clique sur l'image pour commencer le cours</em></h4>
   <br>
   <% if @videok.count == 0 %>
     <h1>Il n'y a pas encore de cours dans cette classe.</h1>
@@ -35,5 +36,5 @@
 </div>
 
 <div class="text-center">
-  <p><%= link_to "Retour", pages_videos_path %></p>
+  <a class="btn btn-default" href="/pages/videos" role="button">Retour</a>
 </div>

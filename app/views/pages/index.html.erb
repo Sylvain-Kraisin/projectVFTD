@@ -75,59 +75,59 @@
 
   <br>
   <br>
+  <br>
 
-<footer>
+
   <div class= "lastban hidden-xs">
 
-    <div class= "lastblue col-sm-3">
-      <% if Video.exists? %>
-      <div class="col-sm-5 img-responsive center-block">
-        <br>
-        <p><a href="/videos/<%= Video.last.id %>"><%= image_tag @video.video_img.url(:medium), class:"  img-responsive" %></a></p>
-      <% end %>
-      </div>
-      <div class="lasttext col-sm-7">
-        <h4>Dernier cours</h4>
-        <p><%= @video.title %></p>
-      </div>
-    </div>
-
-    <div class= "lastgreen col-sm-3">
-      <% if Post.exists? %>
-        <div class="lastimage col-sm-5">
+    <a href="/videos/<%= Video.last.id %>">
+      <div class= "lastblue col-sm-3">
+        <% if Video.exists? %>
+        <div class="col-sm-5 img-responsive center-block">
           <br>
-        <p><a href="/posts/<%= Post.last.id %>"><%= image_tag @post.post_img.url(:post_index), class:"img-responsive" %></a></p>
-      <% end %>
-       </div>
-       <div class="lasttext col-sm-7">
-        <h4>Dernier article</h4>
-        <p><%= @post.title %></p>
-        <br>
-       </div>
-    </div>
+          <p><%= image_tag @video.video_img.url(:medium), class:"  img-responsive" %></p>
+        <% end %>
+        </div>
+        <div class="lasttext col-sm-7">
+          <h4>Dernier cours</h4>
+          <p><%= @video.title %></p>
+        </div>
+      </div>
+    </a>
+
+    <a href="/posts/<%= Post.last.id %>">
+      <div class= "lastgreen col-sm-3">
+        <% if Post.exists? %>
+          <div class="lastimage col-sm-5">
+            <br>
+          <p><%= image_tag @post.post_img.url(:post_index), class:"img-responsive" %></p>
+        <% end %>
+         </div>
+         <div class="lasttext col-sm-7">
+          <h4>Dernier article</h4>
+          <p><%= @post.title %></p>
+          <br>
+         </div>
+      </div>
+    </a>
 
     <div class= "lastyellow col-sm-3">
       <% if Comment.exists? %>
-        <div class="lastimage col-sm-5">
-          <br>
-        <p><a href="/posts/<%= Post.last.id %>"><%= image_tag @post.post_img.url(:post_index), class:"img-responsive" %></a></p>
-      <% end %>
-       </div>
-       <div class="lasttext col-sm-7">
+       <div class="lasttext col-sm-12">
         <h4>Dernier sujet</h4>
-        <p><%= @comment.content %></p>
+        <p>En construction...</p>
         <br>
        </div>
+       <% end %>
     </div>
 
-    <div class= "lastred col-sm-3 col-xs-12">
+    <div class= "lastred col-sm-3">
       <% if Reponse.exists? %>
       <div class="lasttext col-sm-12">
         <h4>Moyenne de l'école</h4>
         <p><%= @goodreponses.average(:total).round(2) %> / 10</p>
         <br>
        <% end %>
+      </div>
     </div>
-
   </div>
-</footer>
