@@ -13,12 +13,12 @@
 <div class="text-center">
   <div class="image col-xs-12 col-md-3">
     <% if user_signed_in? %>
-      <% if Reponse.exists?(test_id: @video.id, user_username: @user.username, total: nil) %>
+      <% if Reponse.exists?(test_id: @test.id, user_username: @user.username, total: nil) %>
         <img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink"></img>
         <div id="dsttext"><br>
         <h4>DST déjà passé<br><br>...<br>Correction en cours<br>...</h4>
         </div>
-      <% elsif Reponse.exists?(test_id: @video.id, user_username: @user.username) %>
+      <% elsif Reponse.exists?(test_id: @test.id, user_username: @user.username) %>
         <img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink"></img>
         <div id="dsttext"><br>
         <h4>DST déjà passé<br><br>...<br>Tu as eu<br><%= @reponse.total %> / 10<br>
@@ -40,7 +40,7 @@
       <div id="dsttext">
       <h4>Passe ton DST<br>une fois le cours<br>visionné...<br>
       <img id="dstimg" src="<%= asset_path( 'pixelsite.png' )%>"></img>
-      
+
       </h4>
       </a>
       </div>
