@@ -3,11 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .pages {
   background-color: #e6e6e6;
+  background-image: url('blackboard.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
 }
 
 .doors {
-
+  width: 128px;
+  height: 128px;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .lastban {
@@ -19,27 +27,27 @@
 
 .lastblue {
   background-image: url('borderblue.png');
-  height: 150px;
+  height: 140px;
 }
 
 .lastgreen {
   background-image: url('bordergreen.png');
-  height: 150px;
+  height: 140px;
 }
 
 .lastyellow {
   background-image: url('borderyellow.png');
-  height: 150px;
+  height: 140px;
 }
 
 .lastred {
   background-image: url('borderred.png');
-  height: 150px;
+  height: 140px;
 }
 
 .lasttext {
   position: absolute;
-  top: 7%;
+  top: 5%;
   width: 90%;
   color: white;
 }

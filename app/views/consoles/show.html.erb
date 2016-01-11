@@ -1,14 +1,14 @@
 <div class="infogame row text-center">
 
-  <h1>Niveau <%= @console.id %> : <%= @console.title %></h1>
+  <h1><%= @console.title %></h1>
   <h4><em>clique sur l'image pour commencer le cours</em></h4>
   <br>
   <% if @videok.count == 0 %>
-    <h1>Il n'y a pas encore de cours dans cette classe.</h1>
+    <h1>Il n'y a pas encore de cours dans cette salle.</h1>
   <% else %>
     <% @videok.each do |video| %>
 
-    <div class="infogame col-xs-5 text-left">
+    <div class="infogame hidden-xs col-xs-5 text-left">
       <div class="pull-right">
         <h2>Cours #<%= video.id %></h2>
         <h4><%= video.title %></h4>
@@ -22,7 +22,7 @@
     </div>
     <br>
 
-      <div class="col-xs-7">
+      <div class="col-xs-12 col-sm-7">
         <div class="<%= video.style %> img-responsive">
           <a href="/videos/<%= video.id %>">
             <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} img-responsive center-block" %><p>

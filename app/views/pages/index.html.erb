@@ -1,10 +1,10 @@
 <div class="hidden-xs row text-center">
   <div class= "col-sm-2">
-  <img src="<%= asset_path('notice.jpg') %>" alt="notice" class="img-responsive center-block"><img>
+  <img src="<%= asset_path('Notice1.gif') %>" alt="notice" class="img-responsive center-block"><img>
     <h5><em>en construction</em></h5>
   </div>
   <div class= "col-sm-8">
-    <img src="<%= asset_path('logofull.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block"><img>
+    <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block"><img>
   </div>
   <div class="col-sm-2">
     <br>
@@ -16,16 +16,16 @@
 
 <div class="hidden-sm hidden-lg hidden-md">
 <div class= "col-sm-6">
-  <img src="<%= asset_path('logofull.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block"><img>
+  <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block"><img>
 </div>
 </div>
 
-  <div class= "row text-center">
+  <div class= "row text-center" style="color:white">
 
     <div class= "col-sm-3 col-xs-12">
       <div class="bouton">
         <p><a href="pages/videos"><img src="<%= asset_path('Bleu.png') %>" alt="CDI" class="bouton" onmouseover="this.src='<%= asset_path('Bleu2.png') %>'" onmouseout="this.src='<%= asset_path('Bleu.png') %>'"></a></p>
-        <h5>Cours</h5>
+            <h5>Cours</h5>
       </div>
     </div>
 
@@ -116,7 +116,7 @@
     <div class= "lastred col-sm-3">
       <% if Reponse.exists? %>
       <div class="lasttext col-sm-12">
-        <h4>Moyenne de l'école</h4>
+        <h4>Moyenne générale</h4>
         <p><%= @goodreponses.average(:total).round(2) %> / 10</p>
       <% end %>
       <% if signed_in? %>
