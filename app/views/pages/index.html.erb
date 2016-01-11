@@ -1,13 +1,15 @@
 <div class="hidden-xs row text-center">
   <div class= "col-sm-2">
-  <p>Manuel d'utilisation<p>
+  <img src="<%= asset_path('notice.jpg') %>" alt="notice" class="img-responsive center-block"><img>
     <h5><em>en construction</em></h5>
   </div>
   <div class= "col-sm-8">
     <img src="<%= asset_path('logofull.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block"><img>
   </div>
   <div class="col-sm-2">
-    <p>Coopérative de l'école</p>
+    <br>
+    <br>
+    <img src="<%= asset_path('donate2.png') %>" alt="cooperative" class="img-responsive center-block"><img>
     <h5><em>en construction</em></h5>
   </div>
 </div>
@@ -58,9 +60,8 @@
 
   </div>
 
+  <br>
 
-  <br>
-  <br>
   <% if user_signed_in? %>
     <% if current_user.role == "admin" && current_user.role =! nil %>
       <%= link_to "Admin Page", pages_adminpage_path %>
@@ -68,11 +69,6 @@
 
 
   <% end %>
-
-  <br>
-  <br>
-  <br>
-
 
   <div class= "lastban hidden-xs">
 
