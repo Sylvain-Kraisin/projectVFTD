@@ -11,7 +11,10 @@
 } */
 .posts {
   background-image: url('blackboard.jpg');
-  background-size: 100% 120%;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
   background-repeat: no-repeat !important;
 }
 
