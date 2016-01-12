@@ -4,7 +4,7 @@ belongs_to :user
 
 
   after_update :correction, :if => :total_changed?
-  after_save :acorriger
+  after_create :acorriger
 
   @bigtotal = Reponse.all.map { |reponse| reponse.total }
 
