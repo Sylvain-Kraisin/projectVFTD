@@ -14,7 +14,7 @@
   width: 128px;
   height: 128px;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .lastban {
@@ -46,7 +46,11 @@
 
 .lasttext {
   position: absolute;
-  top: 5%;
-  width: 90%;
+  top: 10%;
+  width: 100%;
   color: white;
+}
+
+.craietext {
+  font-family: "PWChalk";
 }

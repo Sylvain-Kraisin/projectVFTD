@@ -25,28 +25,28 @@
     <div class= "col-sm-3 col-xs-12">
       <div class="bouton">
         <p><a href="pages/videos"><img src="<%= asset_path('Bleu.png') %>" alt="CDI" class="bouton" onmouseover="this.src='<%= asset_path('Bleu2.png') %>'" onmouseout="this.src='<%= asset_path('Bleu.png') %>'"></a></p>
-            <h5>Cours</h5>
+            <h5 class="craietext">COURS</h5>
       </div>
     </div>
 
     <div class= "col-sm-3 col-xs-6">
       <div class="bouton">
         <p><a href="/pages/blog"><img src="<%= asset_path('Vert.png') %>" alt="CDI" class="bouton" onmouseover="this.src='<%= asset_path('Vert2.png') %>'" onmouseout="this.src='<%= asset_path('Vert.png') %>'"></a></p>
-        <h5>CDI</h5>
+        <h5 class="craietext">CDI</h5>
       </div>
     </div>
 
     <div class= "col-sm-3 col-xs-6">
       <div class="bouton">
         <p><a href="/pages/forum"><img src="<%= asset_path('Jaunehaut.png') %>" alt="FORUM" class="bouton" onmouseover="this.src='<%= asset_path('Jaune2.png') %>'" onmouseout="this.src='<%= asset_path('Jaunehaut.png') %>'"></a></p>
-        <h5>Récré</h5>
+        <h5 class="craietext">RECRE</h5>
       </div>
     </div>
 
     <div class= "col-sm-3 col-xs-12">
       <div class="bouton">
         <p><a href=""><img src="<%= asset_path('Rouge.png') %>" alt="FORUM" class="bouton" onmouseover="this.src='<%= asset_path('Rouge2.png') %>'" onmouseout="this.src='<%= asset_path('Rouge.png') %>'"></a></p>
-        <h5>Mon Casier</h5>
+        <h5 class="craietext">CASIER</h5>
       </div>
     </div>
 
@@ -72,61 +72,56 @@
 
   <% end %>
 
-  <div class= "lastban hidden-xs">
+  <div class= "text-center" style="color:white" >
 
     <a href="/videos/<%= Video.last.id %>">
-      <div class= "lastblue col-sm-3">
+      <div class= " col-sm-3 col-xs-12">
         <% if Video.exists? %>
-        <div class="col-sm-5 img-responsive center-block">
-          <br>
-          <p><%= image_tag @video.video_img.url(:medium), class:"  img-responsive" %></p>
+
+        <div class="lasttext col-sm-12">
+          <h4 class="craietext">DERNIER COURS</h4>
+          <p class="craietext"><%= @video.title.upcase %></p>
+        </div>
         <% end %>
-        </div>
-        <div class="lasttext col-sm-7">
-          <h4>Dernier cours</h4>
-          <p><%= @video.title %></p>
-        </div>
       </div>
     </a>
 
     <a href="/posts/<%= Post.last.id %>">
-      <div class= "lastgreen col-sm-3">
+      <div class= " col-sm-3 col-xs-12">
         <% if Post.exists? %>
-          <div class="lastimage col-sm-5">
-            <br>
-          <p><%= image_tag @post.post_img.url(:post_index), class:"img-responsive" %></p>
-        <% end %>
-         </div>
-         <div class="lasttext col-sm-7">
-          <h4>Dernier article</h4>
-          <p><%= @post.title %></p>
+
+         <div class="lasttext col-sm-12">
+          <h4 class="craietext">DERNIER LIVRE</h4>
+          <p class="craietext"><%= @post.title.upcase %></p>
           <br>
          </div>
+         <% end %>
       </div>
     </a>
 
-    <div class= "lastyellow col-sm-3">
+    <div class= " col-sm-3 col-xs-12">
       <% if Comment.exists? %>
        <div class="lasttext col-sm-12">
-        <h4>Dernier sujet</h4>
-        <p>En construction...</p>
+        <h4 class="craietext">DERNIER SUJET</h4>
+        <p class="craietext">EN CONSTRUCTION...</p>
         <br>
        </div>
        <% end %>
     </div>
 
-    <div class= "lastred col-sm-3">
+    <div class= " col-sm-3 col-xs-12">
       <% if Reponse.exists? %>
       <div class="lasttext col-sm-12">
-        <h4>Moyenne générale</h4>
-        <p><%= @goodreponses.average(:total).round(2) %> / 10</p>
+        <h4 class="craietext">MOYENNE GENERALE</h4>
+        <p class="craietext"><%= @goodreponses.average(:total).round(2) %> / 10</p>
       <% end %>
       <% if signed_in? %>
         <% if @userreponse.exists? %>
-        <h4>Ta moyenne</h4>
-        <p><%= @userreponse.average(:total).round(1) %> / 10</p>
+        <h4 class="craietext">TA MOYENNE</h4>
+        <p class="craietext"><%= @userreponse.average(:total).round(1) %> / 10</p>
         <% end %>
       <% end %>
       </div>
     </div>
   </div>
+  <br>

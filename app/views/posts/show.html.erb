@@ -69,11 +69,9 @@
       </div>
       <br>
       <div id="annotations" class="annotations text-justify">
-        <div class="text-center">
-          <h4>Annotations</h4>
-        </div>
+
         <p><%= render @post.comments %><p>
-        <p><%= link_to "Annoter le livre", new_post_comment_path(@post) %></p>
+        <p><%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %></p>
 
       </div>
     </div>

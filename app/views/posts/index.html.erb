@@ -1,11 +1,11 @@
-<div class="text-center" style="color:white">
-  <h1>Centre de Documentation et d’Information (CDI)</h1>
-  <strong>Matières : <%= link_to "Toutes -", posts_path %>
+<div class="text-center" style="color:white" class="craietext">
+  <h2 class="craietext"><em>CENTRE DE DOCUMENTATION ET D'INFORMATION</em></h2>
+  <h4 class="craietext">MATIERES : <%= link_to "Toutes -".upcase, posts_path, class: "craietext" %>
   <%  @categories.each do |category| %>
-    <strong><%= link_to category.name, posts_path(category: category.name), class: "link" %></strong>
+    <%= link_to category.name.upcase, posts_path(category: category.name), class: "link" %>
     <tr> - <tr>
   <% end %>
-
+  </h4>
 <br>
 <br>
 <br>

@@ -20,6 +20,11 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @font-face {
+       font-family: "PWChalk";
+       src: url(PWChalk.ttf) format("truetype");
+   }
+
 html, body {
  /* xl (mac full size)*/
 @media (min-width: 1200px) {
