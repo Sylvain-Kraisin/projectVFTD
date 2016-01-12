@@ -1,6 +1,6 @@
 <div class="text-center" style="color:white" class="craietext">
   <h2 class="craietext"><em>CENTRE DE DOCUMENTATION ET D'INFORMATION</em></h2>
-  <h4 class="craietext">MATIERES : <%= link_to "Toutes -".upcase, posts_path, class: "craietext" %>
+  <h4 class="craietext">CATEGORIES : <%= link_to "Toutes -".upcase, posts_path, class: "craietext" %>
   <%  @categories.each do |category| %>
     <%= link_to category.name.upcase, posts_path(category: category.name), class: "link" %>
     <tr> - <tr>
@@ -13,7 +13,7 @@
 
   <div class="row text-center">
     <% if @posts.count == 0 %>
-      <h1>Il n'y a pas encore de livres dans cette catégorie</h1>
+      <h3 class="craietext">IL N'Y A PAS ENCORE DE LIVRE DANS CETTE CATEGORIE</h3>
     <% else %>
       <% @posts.each do |post| %>
         <div class="col-lg-2 col-md-2  col-sm-4  col-xs-4 ">
