@@ -26,9 +26,17 @@
    }
 
 html, body {
- /* xl (mac full size)*/
-@media (min-width: 1200px) {
 
+  @media (min-width: 1301px) {
+  .container {
+    width: 80%;
+    margin-top: 5%;
+  }
+
+ /* xl (mac full size)*/
+@media (min-width: 1200px) and (max-width: 1300px) {
+
+}
 
 }
 

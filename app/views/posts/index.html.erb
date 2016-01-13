@@ -16,7 +16,7 @@
       <h3 class="craietext">IL N'Y A PAS ENCORE DE LIVRE DANS CETTE CATEGORIE</h3>
     <% else %>
       <% @posts.each do |post| %>
-        <div class="col-lg-2 col-md-2  col-sm-4  col-xs-4 ">
+        <div class="col-sm-2  col-xs-4 ">
           <a href="/posts/<%= post.id %>">
             <p><%= image_tag post.post_img.url(:post_index), class:"img-responsive" %><p>
             <h5><%= post.title %></h5>

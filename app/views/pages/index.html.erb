@@ -20,7 +20,7 @@
 </div>
 </div>
 
-<div class="hidden-xs hidden-sm hidden-md">
+<div class="hidden-xs">
   <br>
   <br>
   <br>
@@ -118,13 +118,11 @@
     <div class= " col-sm-3 col-xs-12">
       <% if Reponse.exists? %>
       <div class="lasttext col-sm-12">
-        <h4 class="craietext">MOYENNE GENERALE</h4>
-        <p class="craietext"><%= @goodreponses.average(:total).round(2) %> / 10</p>
+        <h4 class="craietext">MOYENNE GEN. = <%= @goodreponses.average(:total).round(1) %>/10</h4>
       <% end %>
       <% if signed_in? %>
         <% if @userreponse.exists? %>
-        <h4 class="craietext">TA MOYENNE</h4>
-        <p class="craietext"><%= @userreponse.average(:total).round(1) %> / 10</p>
+        <p class="craietext">TA MOYENNE = <%= @userreponse.average(:total).round(1) %>/10</p>
         <% end %>
       <% end %>
       </div>
