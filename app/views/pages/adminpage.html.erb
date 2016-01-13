@@ -1,12 +1,13 @@
 <div class= "text-center" style="color:white">
 
-    <h1>Master Page</h1>
+    <h1 class="craietext">MASTER PAGE</h1>
 
 </div>
 <br>
 
 <div style="color:white">
 
+<p>Total des élèves = <%= User.count %></p>
 <p><%= link_to "Nouvel article", new_post_path %></p>
 <p><%= link_to "Nouvelle vidéo", new_video_path %></p>
 <p><%= link_to "Nouveau DST", new_test_path %></p>
