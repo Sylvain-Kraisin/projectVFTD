@@ -2,6 +2,8 @@ class PagesController < ApplicationController
 before_action :find_user, only: [:destroy]
 before_filter :admin?, only: [:adminpage]
 before_filter :nanda, only: [:correspondances]
+layout :resolve_layout
+
 
   def index
     @user = current_user
@@ -18,13 +20,16 @@ before_filter :nanda, only: [:correspondances]
   def videos
   end
 
-  def blog
-  end
-
-  def dst
+  def casier
   end
 
   def forum
+  end
+
+  def faq
+  end
+
+  def cooperative
   end
 
   def adminpage
@@ -48,6 +53,24 @@ before_filter :nanda, only: [:correspondances]
       redirect_to root_path unless current_user.role == "admin" || current_user.role == "nanda"
     else
       redirect_to root_path
+    end
+  end
+
+
+  def resolve_layout
+    case action_name
+    when "videos"
+      "videos"
+    when "forum"
+      "forum"
+    when "casier"
+      "casier"
+    when "faq"
+      "faq"
+    when "cooperative"
+      "cooperative"
+    else
+      "application"
     end
   end
 

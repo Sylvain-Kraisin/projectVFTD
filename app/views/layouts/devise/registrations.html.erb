@@ -36,7 +36,7 @@
             <li class="text-center"><%= link_to t('deconnexion').upcase, destroy_user_session_path, method: :delete, style: "color: white", class: "craietext", onmouseover: "this.style.color='#ff471a'", onmouseout: "this.style.color='white'" %></li>
           <% else %>
             <li class="text-center"><%= link_to t('connexion').upcase, new_user_session_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
-            <li class="text-center"><%= link_to t("s_inscrire").upcase, new_user_registration_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#e5e600'", onmouseout: "this.style.color='white'" %></li>
+            <li class="text-center"><%= link_to t("s_inscrire").upcase, new_user_registration_path, style: "color: #e5e600", class: "craietext" %></li>
           <% end %>
 
         </ul>
