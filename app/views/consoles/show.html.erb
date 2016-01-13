@@ -1,26 +1,25 @@
 <div class="infogame row text-center">
-    <h3 style="color:white" class="craietext"><em>CHOISIS UN JEU</em></h3>
-  <br>
+    <h1 style="color:white" class="feutretext"><em>CHOISIS UN JEU</em></h1>
+    <%= image_tag 'GBicon.png', class:"img-responsive center-block" %>
   <% if @videok.count == 0 %>
-    <h1>Il n'y a pas encore de cours dans cette salle.</h1>
+    <h1 style="color:white" class="feutretext">Il n'y a pas encore de cours dans cette salle.</h1>
   <% else %>
     <% @videok.each do |video| %>
 
-    <div class="infogame hidden-xs col-xs-5 text-left">
-      <div class="pull-right">
-        <h2>Cours #<%= video.id %></h2>
-        <h4><%= video.title %></h4>
+    <div class="hidden-xs col-sm-6 text-left">
+      <div class="infogame pull-right">
+        <h1 class="feutretext"><%= video.title %></h1>
         <br>
-        <p><strong>Console :</strong> <%= @console.title %></p>
-        <p><strong>Sortie (Fr) :</strong> <%= l(video.release, format: "%b %y" ) %></p>
-        <p><strong>Genre :</strong> <%= video.genre %></p>
-        <p><strong>Joueur(s) :</strong> <%= video.player %></p>
-        <p><strong>Développeur :</strong> <%= video.developer %></p>
+        <h3 class="feutretext"><strong>Console :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= @console.title %></h3>
+        <h3 class="feutretext"><strong>Sortie (Fr) :&nbsp; &nbsp; &nbsp;</strong> <%= l(video.release, format: "%B %Y" ) %></h3>
+        <h3 class="feutretext"><strong>Genre :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.genre %></h3>
+        <h3 class="feutretext"><strong>Joueur(s) :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.player %></h3>
+        <h3 class="feutretext"><strong>Développeur :&nbsp; &nbsp; &nbsp;</strong> <%= video.developer %></h3>
       </div>
     </div>
     <br>
 
-      <div class="col-xs-12 col-sm-7">
+      <div class="col-xs-12 col-sm-6">
         <div class="<%= video.style %> img-responsive" id="wrapper">
           <a href="/videos/<%= video.id %>">
             <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p></a>
@@ -29,6 +28,8 @@
         </div>
         <%= paginate @videok %>
       </div>
+
+
     <% end %>
   <% end %>
 
@@ -37,6 +38,4 @@
 <div class="text-center">
   <a class="btn btn-default" href="/pages/videos" role="button">Retour</a>
 </div>
-<br>
-<br>
 <br>

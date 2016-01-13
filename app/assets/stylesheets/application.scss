@@ -23,7 +23,12 @@
  @font-face {
        font-family: "PWChalk";
        src: url(PWChalk.ttf) format("truetype");
-   }
+ }
+
+ @font-face {
+        font-family: "Stabilo";
+        src: url(Lenka_stabilo.ttf) format("truetype");
+ }
 
 html, body {
 
@@ -92,6 +97,10 @@ visibility:visible;
 
 .craietext {
   font-family: "PWChalk";
+}
+
+.feutretext {
+  font-family: "Stabilo";
 }
 
 
