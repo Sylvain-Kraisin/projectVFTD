@@ -1,6 +1,11 @@
 <div class="infogame row text-center">
-    <h1 style="color:white" class="feutretext"><em>CHOISIS UN JEU</em></h1>
-    <%= image_tag @console.console_img.url(:thumb), class:"img-responsive center-block" %>
+    <div class="col-xs-6 text-justify">
+      <h2 style="color:white" class="feutretext"><em>CHOISIS UN COURS</em></h2>
+    </div>
+    <div class="col-xs-6">
+    <p><%= image_tag @console.console_img.url, class:"consoleimg img-responsive center-block" %></p>
+    </div>
+
   <% if @videok.count == 0 %>
     <h1 style="color:white" class="feutretext">Il n'y a pas encore de cours dans cette salle.</h1>
   <% else %>
@@ -9,7 +14,7 @@
     <div class="hidden-xs col-sm-6 text-left">
       <div class="infogame pull-right">
         <h1 class="feutretext"><%= video.title %></h1>
-        <br>
+
         <h3 class="feutretext"><strong>Console :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= @console.title %></h3>
         <h3 class="feutretext"><strong>Sortie (Fr) :&nbsp; &nbsp; &nbsp;</strong> <%= l(video.release, format: "%B %Y" ) %></h3>
         <h3 class="feutretext"><strong>Genre :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.genre %></h3>
@@ -38,4 +43,3 @@
 <div class="text-center">
   <a class="btn btn-default" href="/pages/videos" role="button">Retour</a>
 </div>
-<br>
