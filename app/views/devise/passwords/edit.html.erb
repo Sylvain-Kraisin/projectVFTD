@@ -1,25 +1,27 @@
 <div class="col-md-6 col-md-offset-3">
   <div class="login-form">
 
-    <h2 id="h2devise"><%= t('.change_your_password') %></h2>
-
+    <h2 id="h2devise" class="craietext text-center"><%= t('.change_your_password') %></h2>
+    <br>
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
       <%= f.input :reset_password_token, as: :hidden %>
       <%= f.full_error :reset_password_token %>
 
-      <div class="form-inputs">
+      <div>
         <%= f.input :password, label: t('.new_password'), required: true, autofocus: true, hint: ("#{@minimum_password_length} #{t('mincar')}" if @minimum_password_length) %>
         <%= f.input :password_confirmation, label: t('.confirm_new_password'), required: true %>
       </div>
 
-      <div class="form-actions">
+      <div>
         <%= f.button :submit, t('.change_my_password') %>
       </div>
     <% end %>
     <br>
-    <%= render "devise/shared/links" %>
+    <p class="craietext"><%= render "devise/shared/links" %></p>
 
   </div>
 </div>
+<br>
+<br>

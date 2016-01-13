@@ -6,8 +6,10 @@ Rails.application.routes.draw do
 
   get 'pages/videos' => 'pages#videos'
   get 'pages/blog' => 'posts#index'
-  get 'pages/dst' => 'pages#dst'
+  get 'pages/casier' => 'pages#casier'
   get 'pages/forum' => 'pages#forum'
+  get 'pages/faq' => 'pages#faq'
+  get 'pages/cooperative' => 'pages#cooperative'
   get 'pages/adminpage' => 'pages#adminpage'
   get 'pages/correspondances' => 'pages#correspondances'
 

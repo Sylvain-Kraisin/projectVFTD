@@ -1,22 +1,25 @@
-<div class="hidden-xs row text-center">
+<div class="hidden-xs row  text-center">
   <div class= "col-sm-2">
-  <img src="<%= asset_path('Notice1.gif') %>" alt="notice" class="img-responsive center-block"><img>
-    <h5><em>en construction</em></h5>
+    <a href="/pages/faq">
+      <img src="<%= asset_path('faq1.png') %>" alt="notice" class="img-responsive center-block" onmouseover="this.src='<%= asset_path('faq2.png') %>'" onmouseout="this.src='<%= asset_path('faq1.png') %>'"></a>
+      <h4 class="craietext" style="color:white"><em>F.A.Q</em></h4>
+
   </div>
   <div class= "col-sm-8">
-    <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block"><img>
+    <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block">
   </div>
   <div class="col-sm-2">
     <br>
     <br>
-    <img src="<%= asset_path('donate2.png') %>" alt="cooperative" class="img-responsive center-block"><img>
-    <h5><em>en construction</em></h5>
+    <a href="/pages/cooperative">
+    <img src="<%= asset_path('cooperative.png') %>" alt="cooperative" class="img-responsive center-block"></a>
+    <h5 class="craietext" style="color:white"><em>COOPERATIVE</em></h5>
   </div>
 </div>
 
 <div class="hidden-sm hidden-lg hidden-md">
 <div class= "col-sm-6">
-  <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block"><img>
+  <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block">
 </div>
 </div>
 
@@ -51,7 +54,7 @@
 
     <div class= "col-sm-3 col-xs-12">
       <div class="bouton">
-        <p><a href=""><img src="<%= asset_path('Rouge.png') %>" alt="FORUM" class="bouton" onmouseover="this.src='<%= asset_path('Rouge2.png') %>'" onmouseout="this.src='<%= asset_path('Rouge.png') %>'"></a></p>
+        <p><a href="/pages/casier"><img src="<%= asset_path('Rouge.png') %>" alt="FORUM" class="bouton" onmouseover="this.src='<%= asset_path('Rouge2.png') %>'" onmouseout="this.src='<%= asset_path('Rouge.png') %>'"></a></p>
         <h5 class="craietext">CASIER</h5>
       </div>
     </div>

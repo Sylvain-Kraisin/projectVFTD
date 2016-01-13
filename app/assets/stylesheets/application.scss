@@ -65,22 +65,26 @@ html, body {
 }
 }
 
- @mixin background-tile {
- 	box-sizing: border-box;
- 	background-color: #fff;
- 	border-radius: 5px;
- 	box-shadow: 3px 3px 5px 6px #ccc;
- 	padding: 1.5em 1.25em;
- }
+
 
 
  /* General styles */
 .login-form {
-	@include background-tile;
+	color:white;
+  text-transform: uppercase;
 
 	#h2devise {
 		margin-top: 0;
 	}
+}
+
+.transparent-input {
+   background-color: rgba(0, 0, 0, 0);
+   border:none;
+}
+
+.craietext {
+  font-family: "PWChalk";
 }
 
 
