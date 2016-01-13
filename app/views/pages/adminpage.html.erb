@@ -77,6 +77,7 @@
     <% if Console.exists? %>
       <% @consoles.each do |console| %>
         <p><%= console.id %> - <%= console.title %></p>
+        <%= link_to "Editer", edit_console_path(console.id) %>
       <% end %>
     <% end %>
   </div>

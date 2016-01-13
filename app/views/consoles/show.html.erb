@@ -1,6 +1,6 @@
 <div class="infogame row text-center">
     <h1 style="color:white" class="feutretext"><em>CHOISIS UN JEU</em></h1>
-    <%= image_tag 'GBicon.png', class:"img-responsive center-block" %>
+    <%= image_tag @console.console_img.url(:thumb), class:"img-responsive center-block" %>
   <% if @videok.count == 0 %>
     <h1 style="color:white" class="feutretext">Il n'y a pas encore de cours dans cette salle.</h1>
   <% else %>
