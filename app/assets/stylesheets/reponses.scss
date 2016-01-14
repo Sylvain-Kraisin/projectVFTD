@@ -44,9 +44,11 @@
 }
 
 .reponses {
-  background-image: url('tablelow.gif');
-  background-repeat: no-repeat;
-  background-size: 100% 114%;
+  background-image: url('backgroundwood.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
 }
 
 #dstshowinput, #dstshowinput2, #dstshowinput3, #dstshowinput4 {
