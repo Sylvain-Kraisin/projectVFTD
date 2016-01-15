@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 before_action :find_user, only: [:destroy]
 before_filter :admin?, only: [:adminpage]
+before_action :authenticate_user!, only: [:casier]
 before_filter :nanda, only: [:correspondances]
 layout :resolve_layout
 
@@ -21,6 +22,7 @@ layout :resolve_layout
   end
 
   def casier
+    @user = current_user
   end
 
   def forum
