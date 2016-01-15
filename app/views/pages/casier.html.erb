@@ -4,7 +4,7 @@
 <br>
 <div class="col-xs-12 col-sm-6">
   <% if @userreponse.count == 0 %>
-    <h1 style="color:white" class="craietext">Va d'abord travailler !</h1>
+    <h1 style="color:white" class="craietext">VA D'ABORD TRAVAILLER !</h1>
   <% else %>
   <% @userreponse.each do |reponse| %>
   <% @test = Test.where(id: reponse.test_id).first %>
@@ -17,7 +17,7 @@
 
   <div class="col-xs-12 col-sm-6">
     <% if @userreponse.count == 0 %>
-      <h1 style="color:white" class="craietext">Va d'abord travailler !</h1>
+      <h1 style="color:white" class="craietext">VA D'ABORD TRAVAILLER !</h1>
       <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
       <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
     <% else %>
