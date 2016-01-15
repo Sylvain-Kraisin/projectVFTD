@@ -1,4 +1,7 @@
-<p>Merci d'avoir passer ton devoir sur table <%= current_user.username %> !</p>
-<p>Je t'enverrais un mail dès que j'aurais corrigé ta copie !</p>
-
-<%= link_to "Retourner en classe", console_path(@test.console_id) %>
+<br>
+<br>
+<div class="feutretext text-center">
+  <h2>Merci d'avoir passer ton devoir sur table <%= current_user.username %> !</h2>
+  <h2>Je t'enverrais un mail dès que j'aurais corrigé ta copie.</h2>
+  <h3><%= link_to "Retourner en classe", console_path(@test.console_id) %></h3>
+</div>

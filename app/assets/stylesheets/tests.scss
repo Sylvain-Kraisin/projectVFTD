@@ -1,1 +1,7 @@
-
+.tests {
+  background-image: url('backgroundwood.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
+}
