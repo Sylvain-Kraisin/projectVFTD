@@ -3,17 +3,30 @@
 <br>
 <br>
 <div class="col-xs-12 col-sm-6">
-  <% @userreponse.exists? %>
+  <% if @userreponse.count == 0 %>
+    <h1 style="color:white" class="craietext">Va d'abord travailler !</h1>
+  <% else %>
   <% @userreponse.each do |reponse| %>
   <% @test = Test.where(id: reponse.test_id).first %>
   <div>
     <h4><%= @test.video_title.upcase %> = <%= reponse.total %>/10</h4>
   </div>
     <% end %>
+    <% end %>
   </div>
 
   <div class="col-xs-12 col-sm-6">
-    <h4>TA MOYENNE GENERALE= <%= @userreponse.average(:total).round(1) %>/10</h4>
+    <% if @userreponse.count == 0 %>
+      <h1 style="color:white" class="craietext">Va d'abord travailler !</h1>
+      <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
+      <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
+    <% else %>
+    <h4 style="color:red">TA MOYENNE GENERALE= <%= @userreponse.average(:total).round(1) %>/10</h4>
+    <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
+    <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
+
   </div>
+
+<% end %>
 
 </div>
