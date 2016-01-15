@@ -104,6 +104,13 @@ visibility:visible;
   color: white;
 }
 
+.transtext {
+  background-color: rgba(26, 26, 26, 0.7);
+  border-radius: 4px; /* propriété CSS3 */
+  -moz-border-radius: 4px; /* compatibilité avec Firefox */
+  -webkit-border-radius: 4px; /* compatibilité avec les navigateurs Webkit */
+}
+
 
 .bouton {
   width: 85px;

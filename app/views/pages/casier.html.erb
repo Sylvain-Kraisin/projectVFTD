@@ -1,7 +1,19 @@
-<h2 style="color:white" class="craietext"><em>CASIER DE <%= @user.username.upcase %></em></h2>
+<div style="color:white" class="row transtext craietext text-center">
+  <h2 ><em>CASIER DE <%= @user.username.upcase %></em></h2>
+<br>
+<br>
+<div class="col-xs-12 col-sm-6">
+  <% @userreponse.exists? %>
+  <% @userreponse.each do |reponse| %>
+  <% @test = Test.where(id: reponse.test_id).first %>
+  <div>
+    <h4><%= @test.video_title.upcase %> = <%= reponse.total %>/10</h4>
+  </div>
+    <% end %>
+  </div>
 
+  <div class="col-xs-12 col-sm-6">
+    <h4>TA MOYENNE GENERALE= <%= @userreponse.average(:total).round(1) %>/10</h4>
+  </div>
 
-<% @userreponse.each do |reponse| %>
-  <%= reponse.test_id %>
-
-<% end %>
+</div>
