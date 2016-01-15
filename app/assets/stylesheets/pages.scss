@@ -10,6 +10,15 @@
   background-repeat: no-repeat !important;
 }
 
+.casier {
+  background-image: url('casier.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+}
+
 .doors {
   width: 128px;
   height: 128px;
