@@ -50,7 +50,7 @@ before_action :authenticate_user!, only: [:new, :create, :show]
   private
 
     def reponse_params
-      params.require(:reponse).permit(:test_id, :user_username, :reponse_1, :reponse_2, :reponse_3, :reponse_4, :note_1, :note_2, :note_3, :note_4, :total, :email)
+      params.require(:reponse).permit(:test_id, :user_username, :reponse_1, :reponse_2, :reponse_3, :reponse_4, :note_1, :note_2, :note_3, :note_4, :total, :email, :appreciation)
     end
 
     def find_test
