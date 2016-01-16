@@ -144,6 +144,8 @@ en:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      in_between: "must be in between %{min} and %{max}"
+      spoofed_media_type: "has contents that are not what they are reported to be"
       accepted: must be accepted
       blank: can't be blank
       present: must be blank
