@@ -24,6 +24,7 @@ layout :resolve_layout
   def casier
     @user = current_user
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
+    @goodreponses = Reponse.where("total is NOT NULL")
   end
 
   def forum

@@ -19,7 +19,7 @@
         <div class="col-sm-2  col-xs-4 ">
           <a href="/posts/<%= post.id %>">
             <p><%= image_tag post.post_img.url(:post_index), class:"img-responsive" %><p>
-            <h5><%= post.title %></h5>
+            <h5 style="color:white" class="craietext"><%= post.title.upcase %></h5>
           </a>
         </div>
       <% end %>

@@ -1,6 +1,28 @@
 <div style="color:white" class="row transtext craietext text-center">
   <h2 ><em>CASIER DE <%= @user.username.upcase %></em></h2>
+  <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
 <br>
+<br>
+<div class="col-xs-12 col-sm-6">
+  <% if @userreponse.count == 0 %>
+    <h4>MOYENNE DE L'ECOLE = <%= @goodreponses.average(:total).round(1) %>/10</h4>
+    <h4 style="color:red">TA MOYENNE = ? /10</h4>
+    <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
+
+  <% elsif @userreponse.average(:total) < @goodreponses.average(:total) %>
+    <h4>MOYENNE DE L'ECOLE = <%= @goodreponses.average(:total).round(1) %>/10</h4>
+    <h4 style="color:red">TA MOYENNE = <%= @userreponse.average(:total).round(1) %>/10</h4>
+    <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
+
+
+  <% elsif %>
+    <h4>MOYENNE DE L'ECOLE = <%= @goodreponses.average(:total).round(1) %>/10</h4>
+    <h4 style="color:green">TA MOYENNE = <%= @userreponse.average(:total).round(1) %>/10</h4>
+    <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
+
+    <% end %>
+
+</div>
 <br>
 <div class="col-xs-12 col-sm-6">
   <% if @userreponse.count == 0 %>
@@ -10,23 +32,12 @@
   <% @test = Test.where(id: reponse.test_id).first %>
   <div>
     <h4><%= @test.video_title.upcase %> = <%= reponse.total %>/10</h4>
+    <h5><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a>
   </div>
     <% end %>
     <% end %>
   </div>
 
-  <div class="col-xs-12 col-sm-6">
-    <% if @userreponse.count == 0 %>
-      <h1 style="color:white" class="craietext">VA D'ABORD TRAVAILLER !</h1>
-      <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
-      <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
-    <% else %>
-    <h4 style="color:red">TA MOYENNE GENERALE= <%= @userreponse.average(:total).round(1) %>/10</h4>
-    <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
-    <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
 
-  </div>
-
-<% end %>
 
 </div>
