@@ -33,28 +33,28 @@
 
     <div class= "col-sm-3 col-xs-12">
       <div class="bouton">
-        <p><a href="pages/videos"><img src="<%= asset_path('Bleu.png') %>" alt="CDI" class="bouton" onmouseover="this.src='<%= asset_path('Bleu2.png') %>'" onmouseout="this.src='<%= asset_path('Bleu.png') %>'"></a></p>
+        <p><a href="pages/videos"><img src="<%= asset_path('Bleu2.png') %>" alt="CDI" class="bouton" onmouseover="this.src='<%= asset_path('Bleu.png') %>'" onmouseout="this.src='<%= asset_path('Bleu2.png') %>'"></a></p>
             <h5 class="craietext">COURS</h5>
       </div>
     </div>
 
     <div class= "col-sm-3 col-xs-6">
       <div class="bouton">
-        <p><a href="/pages/blog"><img src="<%= asset_path('Vert.png') %>" alt="CDI" class="bouton" onmouseover="this.src='<%= asset_path('Vert2.png') %>'" onmouseout="this.src='<%= asset_path('Vert.png') %>'"></a></p>
+        <p><a href="/pages/blog"><img src="<%= asset_path('Vert2.png') %>" alt="CDI" class="bouton" onmouseover="this.src='<%= asset_path('Vert.png') %>'" onmouseout="this.src='<%= asset_path('Vert2.png') %>'"></a></p>
         <h5 class="craietext">CDI</h5>
       </div>
     </div>
 
     <div class= "col-sm-3 col-xs-6">
       <div class="bouton">
-        <p><a href="/pages/forum"><img src="<%= asset_path('Jaunehaut.png') %>" alt="FORUM" class="bouton" onmouseover="this.src='<%= asset_path('Jaune2.png') %>'" onmouseout="this.src='<%= asset_path('Jaunehaut.png') %>'"></a></p>
+        <p><a href="/pages/forum"><img src="<%= asset_path('Jaune2.png') %>" alt="FORUM" class="bouton" onmouseover="this.src='<%= asset_path('Jaunehaut.png') %>'" onmouseout="this.src='<%= asset_path('Jaune2.png') %>'"></a></p>
         <h5 class="craietext">RECRE</h5>
       </div>
     </div>
 
     <div class= "col-sm-3 col-xs-12">
       <div class="bouton">
-        <p><a href="/pages/casier"><img src="<%= asset_path('Rouge.png') %>" alt="FORUM" class="bouton" onmouseover="this.src='<%= asset_path('Rouge2.png') %>'" onmouseout="this.src='<%= asset_path('Rouge.png') %>'"></a></p>
+        <p><a href="/pages/casier"><img src="<%= asset_path('Rouge2.png') %>" alt="FORUM" class="bouton" onmouseover="this.src='<%= asset_path('Rouge.png') %>'" onmouseout="this.src='<%= asset_path('Rouge2.png') %>'"></a></p>
         <h5 class="craietext">CASIER</h5>
       </div>
     </div>
@@ -124,11 +124,7 @@
       <div class="lasttext col-sm-12">
         <h4 class="craietext">MOYENNE GEN. = <%= @goodreponses.average(:total).round(1) %>/10</h4>
       <% end %>
-      <% if signed_in? %>
-        <% if @userreponse.exists? %>
-        <p class="craietext">TA MOYENNE = <%= @userreponse.average(:total).round(1) %>/10</p>
-        <% end %>
-      <% end %>
+        <p class="craietext">NOMBRE D'ELEVES = <%= User.count %></p>
       <br>
       </div>
     </div>

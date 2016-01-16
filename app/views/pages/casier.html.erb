@@ -3,7 +3,7 @@
   <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
 <br>
 <br>
-<div class="col-xs-12 col-sm-6">
+<div class="col-xs-12 col-sm-4">
   <% if @userreponse.count == 0 %>
     <h4>MOYENNE DE L'ECOLE = <%= @goodreponses.average(:total).round(1) %>/10</h4>
     <h4 style="color:red">TA MOYENNE = ? /10</h4>
@@ -22,21 +22,45 @@
 
     <% end %>
 
+    <h4> INSCRIT(E) DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span> </h4>
+    <h4><span style="color:#bfbfbf"><%= @user.sign_in_count %></span> PRESENCE(S) A L'APPEL</h4>
+
 </div>
 <br>
-<div class="col-xs-12 col-sm-6">
+<div class="col-xs-12 col-sm-4">
+
   <% if @userreponse.count == 0 %>
     <h1 style="color:white" class="craietext">VA D'ABORD TRAVAILLER !</h1>
+    <a href="/pages/videos"> <h5>ALLER EN COURS</h5></a>
   <% else %>
   <% @userreponse.each do |reponse| %>
   <% @test = Test.where(id: reponse.test_id).first %>
   <div>
-    <h4><%= @test.video_title.upcase %> = <%= reponse.total %>/10</h4>
+    <h4><%= @test.video_title.upcase %> = <span style="color:red"><%= reponse.total %>/10</span></h4>
     <h5><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a>
   </div>
     <% end %>
     <% end %>
-  </div>
+</div>
+<br>
+<div class="col-xs-12 col-sm-4 text-center">
+  <% if @uservisits.count == 0 %>
+  <h4>DERNIER LIVRE EMPRUNTE : </h4>
+  <h4 style="color:red">AUCUN</h4>
+  <a href="/posts"> <h5>EMPRUNTER UN LIVRE AU C.D.I</h5></a>
+  <% else %>
+  <% @lastpost = Post.where(id: @uservisits.last.post_id).last %>
+  <h4>DERNIER LIVRE EMPRUNTE : </h4>
+  <h4><a href="/posts/<%= @lastpost.id %>"><%= image_tag @lastpost.post_img.url(:post_index) %></a></h4>
+  <h4><%= @lastpost.title.upcase %></h4>
+  <% end %>
+
+
+</div>
+
+
+
+
 
 
 

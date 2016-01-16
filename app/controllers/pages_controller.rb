@@ -25,6 +25,8 @@ layout :resolve_layout
     @user = current_user
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
     @goodreponses = Reponse.where("total is NOT NULL")
+    @uservisits = Visit.where(user_username: @user.username)
+
   end
 
   def forum

@@ -111,7 +111,9 @@ visibility:visible;
   -webkit-border-radius: 4px; /* compatibilité avec les navigateurs Webkit */
 }
 
-
+.marginzero {
+    margin: 0 auto;
+}
 .bouton {
   width: 85px;
   height: 85px;
