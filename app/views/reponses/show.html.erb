@@ -1,27 +1,30 @@
 <br>
 <div>
   <div class="image">
-    <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="img-responsive center-block" id="dstshowlink">
+    <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="center-block" id="dstshowlink">
 
 
       <div id="dstshowtext">
         <div class="noteimg">
         <% if @user.username == @reponse.user_username || @user.role == "admin" %>
-        <h4><%= @reponse.total %>/10</h4>
+        <h4 > <%= @reponse.total %>/10</h4>
+
         </div>
         <h4>
+        <p style="color:red"><%= @reponse.appreciation %></p>
+        <br>
           <p>Q1 : <%= @test.question_1 %></p>
-          <p><%= @reponse.reponse_1 %></p>
-          <p class="reponsedst"><%= @test.answer_1 %></p><br>
+          <p style="color:blue"><%= @reponse.reponse_1 %></p>
+          <p class="reponsedst"><%= @test.answer_1 %> <span style="color:red"><%= @reponse.note_1 %>pts</span></p><br>
           <p>Q2 : <%= @test.question_2 %></p>
-          <p><%= @reponse.reponse_2 %></p>
-          <p class="reponsedst"><%= @test.answer_2 %></p><br>
+          <p style="color:blue"><%= @reponse.reponse_2 %></p>
+          <p class="reponsedst"><%= @test.answer_2 %> <span style="color:red"><%= @reponse.note_2 %>pts</span></p><br>
           <p>Q3 : <%= @test.question_3 %></p>
-          <p><%= @reponse.reponse_3 %></p>
-          <p class="reponsedst"><%= @test.answer_3 %></p><br>
+          <p style="color:blue"><%= @reponse.reponse_3 %></p>
+          <p class="reponsedst"><%= @test.answer_3 %> <span style="color:red"><%= @reponse.note_3 %>pts</span></p><br>
           <p>Q4 : <%= @test.question_4 %></p>
-          <p><%= @reponse.reponse_4 %></p>
-          <p class="reponsedst"><%= @test.answer_4 %></p>
+          <p style="color:blue"><%= @reponse.reponse_4 %></p>
+          <p class="reponsedst"><%= @test.answer_4 %> <span style="color:red"><%= @reponse.note_4 %>pts</span></p>
         </h4>
         <% else %>
         <h4>Ce n'est pas ton devoir, petit curieux !</h4>

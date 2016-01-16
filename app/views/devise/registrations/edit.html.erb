@@ -10,13 +10,13 @@
 
   <div class="form-inputs">
     <p>CHANGER SON AVATAR</p>
-    <%= f.file_field :avatar %>
+    <%= f.input :avatar, hint: "Taille Max : 1 Mo" %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 <br>
-    
+
     <%= f.input :current_password, hint: "#{t('.we_need_your_current_password_to_confirm_your_changes')}", required: true %>
 
   </div>

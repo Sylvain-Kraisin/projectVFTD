@@ -1,7 +1,7 @@
 <br>
 <div>
   <div class="image">
-    <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="img-responsive center-block" id="dstshowlink">
+    <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="center-block" id="dstshowlink">
       <div id="dstshowtext">
         <%= simple_form_for ([@test, @reponse]) do |f| %>
         <p id="submitdst2" class="text-center"><%= @reponse.errors[:user_username].first %></p>

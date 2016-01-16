@@ -7,24 +7,24 @@
   </div>
 
   <div class="image">
-    <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="img-responsive center-block" id="dstshowlink">
+    <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="center-block" id="dstshowlink">
 
     <div id="dstshowtext">
     <%= simple_form_for ([@test, @reponse]) do |f| %>
       <p><%= @test.question_1 %></p>
-      <%= f.input :reponse_1, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
+      <%= f.input :reponse_1, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
       <p><%= @test.answer_1 %> <%= f.number_field :note_1, min: 0, max: 4, step: 0.5 %></p><br>
       <p><%= @test.question_2 %></p>
-      <%= f.input :reponse_2, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
+      <%= f.input :reponse_2, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
       <p><%= @test.answer_2 %> <%= f.number_field :note_2, min: 0, max: 4, step: 0.5 %></p><br>
       <p><%= @test.question_3 %></p>
-      <%= f.input :reponse_3, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
+      <%= f.input :reponse_3, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
       <p><%= @test.answer_3 %> <%= f.number_field :note_3, min: 0, max: 4, step: 0.5 %></p><br>
       <p><%= @test.question_4 %></p>
-      <%= f.input :reponse_4, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
+      <%= f.input :reponse_4, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
       <p><%= @test.answer_4 %> <%= f.number_field :note_4, min: 0, max: 4, step: 0.5 %></p><br>
-      <%= f.input :appreciation, label: false, :input_html => {maxlength: 100, id: 'dstshowinput'} %>
-      
+      <%= f.input :appreciation, :input_html => {maxlength: 50, id: 'dstshowinput'} %>
+
       <%= f.button :submit, 'Corriger la copie' %>
     <% end %>
     </div>
