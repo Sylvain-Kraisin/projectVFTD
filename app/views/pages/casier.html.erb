@@ -24,7 +24,11 @@
 
     <h4> INSCRIT(E) DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span> </h4>
     <h4><span style="color:#bfbfbf"><%= @user.sign_in_count %></span> PRESENCE(S) A L'APPEL</h4>
-
+    <% if @rank == 1 %>
+    <h4>ASSIDUITE : <span style="color:green"><%= @rank %> ERE</span> SUR <%= User.count %>, <span style="color:green">BRAVO !</span></h4>
+    <% else %>
+    <h4>ASSIDUITE : <span style="color:#bfbfbf"><%= @rank %> EME</span> SUR <%= User.count %></h4>
+    <% end %>
 </div>
 <br>
 <div class="col-xs-12 col-sm-4">

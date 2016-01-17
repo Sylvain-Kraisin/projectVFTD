@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 before_action :find_user, only: [:destroy]
+#before_action :update_presence, only: [:index]
 before_filter :admin?, only: [:adminpage]
 before_action :authenticate_user!, only: [:casier]
 before_filter :nanda, only: [:correspondances]
@@ -12,6 +13,9 @@ layout :resolve_layout
     @post = Post.last
     @comment = Comment.last
     @goodreponses = Reponse.where("total is NOT NULL")
+    @goodusers = User.where(role:nil)
+    @maxcount =  @goodusers.maximum(:sign_in_count)
+    @usermax = User.where(sign_in_count:@maxcount).first
 
     if signed_in?
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
@@ -26,6 +30,7 @@ layout :resolve_layout
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
     @goodreponses = Reponse.where("total is NOT NULL")
     @uservisits = Visit.where(user_username: @user.username)
+    @rank = User.order('sign_in_count desc').index(@user)
 
   end
 
@@ -53,6 +58,17 @@ layout :resolve_layout
   end
 
   private
+
+  #def update_presence
+  #  if user_signed_in?
+  #    if current_user.role != "admin"
+  #    @user = current_user
+  #    @presence = @user.presence
+  #    @presence = @presence + 1
+  #    end
+  #  end
+  #end
+
 
   def nanda
     if signed_in?
