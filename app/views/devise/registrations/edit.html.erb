@@ -10,20 +10,23 @@
 
   <div class="form-inputs">
 
-    <%= f.input :avatar, label: "CHANGER SON AVATAR", hint: "Taille Max : 2 Mo" %>
-
+    <%= f.input :avatar, label: "CHANGER SON AVATAR"%>
+    <p>Taille Max : 2 Mo</p>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 <br>
 
-    <%= f.input :current_password, hint: "#{t('.we_need_your_current_password_to_confirm_your_changes')}", required: true %>
+    <%= f.input :current_password, required: true %>
+    <p><%= t('.we_need_your_current_password_to_confirm_your_changes') %></p>
 
   </div>
-
-  <div class="form-actions">
+<br>
+  <div class="form-actions text-center">
     <%= f.button :submit, t('.update') %>
+    <p>(PEUT PRENDRE 1 A 2 MINUTES)</p>
   </div>
+
 <% end %>
 <br>
 <p class="craietext"><%= t('.unhappy') %> ? <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
