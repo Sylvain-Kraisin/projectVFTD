@@ -17,6 +17,10 @@ layout :resolve_layout
     @maxcount =  @goodusers.maximum(:sign_in_count)
     @usermax = User.where(sign_in_count:@maxcount).first
 
+    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
+    @maxaverage =  @goodusers_average.maximum(:average)
+    @firstclass = User.where(average:@maxaverage).first
+
     if signed_in?
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
     end
@@ -30,7 +34,10 @@ layout :resolve_layout
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
     @goodreponses = Reponse.where("total is NOT NULL")
     @uservisits = Visit.where(user_username: @user.username)
-    @rank = User.order('sign_in_count desc').index(@user)
+    @goodusers = User.where(["average is NOT NULL"]).where(role:nil)
+    @goodusers_two = User.where(role:nil)
+    @rank = @goodusers_two.order('sign_in_count desc').index(@user)
+    @ranknote = @goodusers.order('average desc').index(@user)
 
   end
 
@@ -66,7 +73,7 @@ layout :resolve_layout
       if @user.presence == nil
         @user.update presence: 1
 
-      elsif @user.role != "admin" && @user.updated_at != Time.now 
+      elsif @user.role != "admin" && @user.updated_at != Time.now
       @user.update presence: @user.presence + 1
       end
 

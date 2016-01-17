@@ -2,12 +2,12 @@ class ReponsesController < ApplicationController
 before_action :find_test
 before_action :find_reponse, only: [:edit, :update, :show]
 before_filter :admin?, only: [:edit, :update, :destroy]
-before_action :authenticate_user!, only: [:new, :create, :show]
+before_filter :authenticate_user!, only: [:new, :create, :show]
+before_action :user_average, only: [:show]
 
 
 
     def show
-      @user = current_user
     end
 
     def new
@@ -47,6 +47,8 @@ before_action :authenticate_user!, only: [:new, :create, :show]
 
 
 
+
+
   private
 
     def reponse_params
@@ -61,10 +63,16 @@ before_action :authenticate_user!, only: [:new, :create, :show]
       @reponse = Reponse.find(params[:id])
     end
 
+    def user_average
+      @user = User.where(username: @reponse.user_username).first
+      @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
 
-
-
-
+        if @user.average == nil
+          @user.update average: @reponse.note_1 + @reponse.note_2 + @reponse.note_3 + @reponse.note_4
+        else
+          @user.update average: @userreponse.average(:total).round(1)
+        end
+    end
 
 
 end

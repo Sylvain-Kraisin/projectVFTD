@@ -11,7 +11,9 @@
 
         </div>
         <h4>
-        <p style="color:red" class="craietext"><%= @reponse.appreciation %></p>
+        <% if @reponse.appreciation != nil %>
+        <p style="color:red" class="craietext"><%= @reponse.appreciation.upcase %></p>
+        <% end %>
         <br>
           <p>Q1 : <%= @test.question_1 %></p>
           <p style="color:blue"><%= @reponse.reponse_1 %>&nbsp;<span style="color:red" class="craietext"><%= @reponse.note_1 %></span></p>
