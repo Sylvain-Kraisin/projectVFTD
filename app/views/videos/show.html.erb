@@ -21,7 +21,7 @@
       <% elsif Reponse.exists?(test_id: @test.id, user_username: @user.username) %>
         <img src="<%= asset_path( 'dstlink.png' ) %>" alt="DST" id="dstlink"></img>
         <div id="dsttext"><br>
-        <h4>DST déjà passé<br><br>...<br>Tu as eu<br><span class="craietext" style="color:red"><%= @reponse.total %> / 10</span><br>
+        <h4>DST déjà passé<br><br>...<br>Tu as eu<br><span class="craietext" style="color:red"><%= @reponse.total %>/10</span><br>
           <br><a href="/tests/<%= @reponse.test_id %>/reponses/<%= @reponse.id %>">Voir la correction</a>
         </h4>
         </div>
