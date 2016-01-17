@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 before_action :find_user, only: [:destroy]
-#before_action :update_presence, only: [:index]
+before_action :update_presence, only: [:index]
 before_filter :admin?, only: [:adminpage]
 before_action :authenticate_user!, only: [:casier]
 before_filter :nanda, only: [:correspondances]
@@ -59,15 +59,19 @@ layout :resolve_layout
 
   private
 
-  #def update_presence
-  #  if user_signed_in?
-  #    if current_user.role != "admin"
-  #    @user = current_user
-  #    @presence = @user.presence
-  #    @presence = @presence + 1
-  #    end
-  #  end
-  #end
+  def update_presence
+    if signed_in?
+      @user = current_user
+
+      if @user.presence == nil
+        @user.update presence: 1
+
+      elsif @user.role != "admin" && @user.updated_at != Time.now 
+      @user.update presence: @user.presence + 1
+      end
+
+    end
+  end
 
 
   def nanda
