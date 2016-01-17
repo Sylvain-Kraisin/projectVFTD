@@ -8,6 +8,7 @@ before_action :user_average, only: [:show]
 
 
     def show
+      @user = current_user
     end
 
     def new
