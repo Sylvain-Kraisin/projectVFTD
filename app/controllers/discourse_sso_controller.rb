@@ -7,8 +7,8 @@ class DiscourseSsoController < ApplicationController
     secret = ENV["DISCOURSE_SSO_SECRET_KEY"]
     sso = SingleSignOn.parse(request.query_string, secret)
     sso.email = current_user.email # from devise
-    sso.name = current_user.username # this is a custom method on the User class
-    sso.username = current_user.email # from devise
+    sso.name = current_user.mail # this is a custom method on the User class
+    sso.username = current_user.username # from devise
     sso.external_id = current_user.id # from devise
     sso.sso_secret = secret
 
