@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'pages/adminpage' => 'pages#adminpage'
   get 'pages/correspondances' => 'pages#correspondances'
 
+  get 'discourse/sso' => 'discourse_sso#sso'
+
   resources :consoles
 
   resources :videos
