@@ -1,5 +1,11 @@
-<h2>Resend confirmation instructions</h2>
+<br>
 
+<div class="col-md-6 col-md-offset-3">
+  <div class="login-form">
+
+<h2 id="h2devise" class="craietext text-center"><%= t('.resend_confirmation_instructions') %></h2>
+<br>
+<br>
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :confirmation_token %>
@@ -9,8 +15,23 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
+    <%= f.button :submit, t('valider') %>
   </div>
 <% end %>
+<br>
+<br>
+<p class="craietext"><%= render "devise/shared/links" %></p>
 
-<%= render "devise/shared/links" %>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
