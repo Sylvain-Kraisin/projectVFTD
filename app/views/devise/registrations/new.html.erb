@@ -9,7 +9,7 @@
       <%= f.error_notification %>
 
       <div>
-        <%= f.input :username, required: true, autofocus: true, input_html: {maxlength: 25} %>
+        <%= f.input :username, required: true, autofocus: true, input_html: {maxlength: 25}, label: "PSEUDO" %>
         <%= f.input :email, required: true, autofocus: true, input_html: {maxlength: 99} %>
         <%= f.input :password, required: true, input_html: {maxlength: 30}, hint: ("#{@minimum_password_length} #{t('mincar')} " if @minimum_password_length) %>
         <%= f.input :password_confirmation, required: true, input_html: {maxlength: 30} %>
