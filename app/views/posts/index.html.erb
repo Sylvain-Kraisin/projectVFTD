@@ -32,7 +32,9 @@
 
   </div>
 </div>
+<br>
 
+<p class="craietext" style="color:#ffffff">VOUS VOULEZ AJOUTER VOTRE ARTICLE ?<br> ENVOYER LE A PAPAKO@VIENSFAIRETESDEVOIRS.COM</p>
 <% if user_signed_in? %>
   <% if current_user.role == "admin" && current_user.role =! nil %>
     <%= link_to "Créér un article", new_post_path %>
