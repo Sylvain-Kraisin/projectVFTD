@@ -33,7 +33,6 @@ before_action :user_average, only: [:show]
 
     def update
       if @reponse.update(reponse_params)
-        #@reponse.update total: @reponse.note_1 + @reponse.note_2 + @reponse.note_3 + @reponse.note_4
         redirect_to test_reponse_path(@test, @reponse)
       else
         render 'edit'
@@ -45,8 +44,6 @@ before_action :user_average, only: [:show]
       @reponse.destroy
       redirect_to pages_adminpage_path
     end
-
-
 
 
 

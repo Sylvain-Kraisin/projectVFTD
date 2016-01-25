@@ -2,18 +2,23 @@ class Reponse < ActiveRecord::Base
 belongs_to :test
 belongs_to :user
 
-  validates :note_1, :inclusion => {:in => 1..4, :only_integer => true, :allow_blank => true}
+  #ne valide que les notes entre 1 et 4
+  validates :note_1, :inclusion => {:in => 1..4, :only_float => true, :allow_blank => true}
+  validates :note_2, :inclusion => {:in => 1..4, :only_float => true, :allow_blank => true}
+  validates :note_3, :inclusion => {:in => 1..4, :only_float => true, :allow_blank => true}
+  validates :note_4, :inclusion => {:in => 1..4, :only_float => true, :allow_blank => true}
 
-  after_update :correction, :if => :total_changed?
-  after_create :acorriger
-
-  @bigtotal = Reponse.all.map { |reponse| reponse.total }
+  #un meme user e peut creer 2 fois une reponse
+  validates :user_username, uniqueness: { scope: [:user_username, :test_id], message: "Tu as déjà passé ce DST !"}
 
   after_validation :update_total
 
+  after_update :correction, :if => :total_changed?
 
-  validates :user_username, uniqueness: { scope: [:user_username, :test_id], message: "Tu as déjà passé ce DST !"}
+  after_create :acorriger
 
+  #mis de coté pour l'instant
+  #@bigtotal = Reponse.all.map { |reponse| reponse.total }
 
 
   def correction
@@ -29,6 +34,7 @@ belongs_to :user
     @arraygoodtotal = @goodreponses.map { |reponse| reponse.total }
   end
 
+  #after_validation reponse.total s'update avec reponse.notes only si elles existents
   def update_total
     self.total = self.note_1 + self.note_2 + self.note_3 + self.note_4 if self.note_1 && self.note_2 && self.note_3 && self.note_4
  end
