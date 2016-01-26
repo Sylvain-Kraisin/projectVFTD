@@ -4,76 +4,78 @@
 
 <br>
 <br>
-<div class="col-xs-12 col-sm-4">
-    <% if @user.average == nil %>
-    <h4>NOUVEL ELEVE</h4>
-    <% elsif @user.role == "admin" %>
-    <h4><span style="color:green">DIRECTEUR</span> DE L ECOLE !</h4>
-    <% elsif @ranknote == 0 %>
-    <h4><span style="color:green"><%= @ranknote + 1 %> ER(E)</span> DE LA CLASSE !</h4>
-    <% elsif @ranknote + 1 == @goodusers.count %>
-    <h4><span style="color:red">DERNIER(E)</span> DE LA CLASSE !</h4>
 
-    <% else %>
-    <h4>CLASSEMENT GENERAL</4>
-    <h4><span style="color:#bfbfbf"><%= @ranknote + 1 %> EME</span> SUR <%= User.count %></h4>
-    <% end %>
+  <div class="col-xs-12 col-sm-4">
+      <% if @user.average == nil %>
+      <h4>NOUVEL ELEVE</h4>
+      <% elsif @user.role == "admin" %>
+      <h4><span style="color:green">DIRECTEUR</span> DE L ECOLE !</h4>
+      <% elsif @ranknote == 0 %>
+      <h4><span style="color:green"><%= @ranknote + 1 %> ER(E)</span> DE LA CLASSE !</h4>
+      <% elsif @ranknote + 1 == @goodusers.count %>
+      <h4><span style="color:red">DERNIER(E)</span> DE LA CLASSE !</h4>
 
-    <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
+      <% else %>
+      <h4>CLASSEMENT GENERAL</4>
+      <h4><span style="color:#bfbfbf"><%= @ranknote + 1 %> EME</span> SUR <%= User.count %></h4>
+      <% end %>
 
-    <h4> INSCRIT(E) DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span> </h4>
-    <h4><span style="color:#bfbfbf"><%= @user.sign_in_count %></span> PRESENCE(S) A L'APPEL</h4>
-    <% if @rank == 0 %>
-    <h4>ASSIDUITE : <span style="color:green"><%= @rank + 1 %> ERE</span> SUR <%= User.count %>, <span style="color:green">BRAVO !</span></h4>
-    <% elsif @user.role == "admin" %>
-    <h4>ASSIDUITE : <span style="color:#bfbfbf">X EME</span> SUR <%= User.count %></h4>
-    <% else %>
-    <h4>ASSIDUITE : <span style="color:#bfbfbf"><%= @rank + 1 %> EME</span> SUR <%= User.count %></h4>
-    <% end %>
-</div>
-<br>
-<div class="col-xs-12 col-sm-4">
+      <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
 
-  <% if @userreponse.count == 0 %>
-    <h1 style="color:white" class="craietext">VA D'ABORD TRAVAILLER !</h1>
-    <a href="/pages/videos"> <h5>ALLER EN COURS</h5></a>
-  <% else %>
-  <% @userreponse.each do |reponse| %>
-  <% @test = Test.where(id: reponse.test_id).first %>
-  <div>
-    <h4><%= @test.video_title.upcase %> = <span style="color:red"><%= number_to_human(reponse.total) %>/10</span></h4>
-    <h5><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a>
+      <h4> INSCRIT(E) DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span> </h4>
+      <h4><span style="color:#bfbfbf"><%= @user.sign_in_count %></span> PRESENCE(S) A L'APPEL</h4>
+      <% if @rank == 0 %>
+      <h4>ASSIDUITE : <span style="color:green"><%= @rank + 1 %> ERE</span> SUR <%= User.count %>, <span style="color:green">BRAVO !</span></h4>
+      <% elsif @user.role == "admin" %>
+      <h4>ASSIDUITE : <span style="color:#bfbfbf">X EME</span> SUR <%= User.count %></h4>
+      <% else %>
+      <h4>ASSIDUITE : <span style="color:#bfbfbf"><%= @rank + 1 %> EME</span> SUR <%= User.count %></h4>
+      <% end %>
   </div>
+
+  <br>
+
+  <div class="col-xs-12 col-sm-4">
+
+    <% if @userreponse.count == 0 %>
+      <h1 style="color:white" class="craietext">VA D'ABORD TRAVAILLER !</h1>
+      <a href="/pages/videos"> <h5>ALLER EN COURS</h5></a>
+    <% else %>
+    <% @userreponse.each do |reponse| %>
+    <% @test = Test.where(id: reponse.test_id).first %>
+    <div>
+      <h4><%= @test.video_title.upcase %> = <span style="color:red"><%= number_to_human(reponse.total) %>/10</span></h4>
+      <h5><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a>
+    </div>
+      <% end %>
+      <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-4 text-center">
+    <h4>MOYENNE DE L'ECOLE = <%= number_to_human(@goodreponses.average(:total).round(1)) %>/10</h4>
+    <% if @user.average == nil %>
+      <h4 style="color:red">TA MOYENNE = ? /10</h4>
+
+    <% elsif @user.average < @goodreponses.average(:total) %>
+      <h4 style="color:red">TA MOYENNE = <%= number_to_human(@user.average) %>/10</h4>
+
+    <% elsif %>
+      <h4 style="color:green">TA MOYENNE = <%= number_to_human(@user.average) %>/10</h4>
+
     <% end %>
+
+  <br>
+    <% if @uservisits.count == 0 %>
+    <h4>DERNIER LIVRE EMPRUNTE : </h4>
+    <h4 style="color:red">AUCUN</h4>
+    <a href="/posts"> <h5>EMPRUNTER UN LIVRE AU C.D.I</h5></a>
+    <% else %>
+    <% @lastpost = Post.where(id: @uservisits.last.post_id).last %>
+    <h4>DERNIER LIVRE EMPRUNTE : </h4>
+    <h4><a href="/posts/<%= @lastpost.id %>"><%= image_tag @lastpost.post_img.url(:post_show), class:"img-responsive center-block" %></a></h4>
+    <h4><%= @lastpost.title.upcase %></h4>
     <% end %>
-</div>
-<div class="col-xs-12 col-sm-4 text-center">
-  <h4>MOYENNE DE L'ECOLE = <%= number_to_human(@goodreponses.average(:total).round(1)) %>/10</h4>
-  <% if @user.average == nil %>
-    <h4 style="color:red">TA MOYENNE = ? /10</h4>
 
-  <% elsif @user.average < @goodreponses.average(:total) %>
-    <h4 style="color:red">TA MOYENNE = <%= number_to_human(@user.average) %>/10</h4>
-
-  <% elsif %>
-    <h4 style="color:green">TA MOYENNE = <%= number_to_human(@user.average) %>/10</h4>
-
-  <% end %>
-
-<br>
-  <% if @uservisits.count == 0 %>
-  <h4>DERNIER LIVRE EMPRUNTE : </h4>
-  <h4 style="color:red">AUCUN</h4>
-  <a href="/posts"> <h5>EMPRUNTER UN LIVRE AU C.D.I</h5></a>
-  <% else %>
-  <% @lastpost = Post.where(id: @uservisits.last.post_id).last %>
-  <h4>DERNIER LIVRE EMPRUNTE : </h4>
-  <h4><a href="/posts/<%= @lastpost.id %>"><%= image_tag @lastpost.post_img.url(:post_show), class:"img-responsive center-block" %></a></h4>
-  <h4><%= @lastpost.title.upcase %></h4>
-  <% end %>
-
-
-</div>
+  </div>
 
 
 
