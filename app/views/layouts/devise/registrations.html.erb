@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <!-- for Google -->
-  <meta name="description" content="Viens Faire Tes Devoirs">
-  <meta name="keywords" content="" />
+  <!-- for Google -->
+<meta name="description" content="Ecole de Retrogaming">
+<meta name="keywords" content="retrogaming" />
 
-  <meta name="author" content="Sylvain Kraisin">
-  <meta name="copyright" content="VFTD" />
-  <meta name="application-name" content="" />
+<meta name="author" content="VFTD">
+<meta name="copyright" content="Sylvain Kraisin" />
+<meta name="application-name" content="" />
 
-  <!-- for Facebook -->
-  <!-- <meta property="og:title" content="" />
-  <meta property="og:type" content="article" /> -->
-  <meta property="og:image" content="<%= asset_path('mudorapost.png') %>" />
-  <!-- <meta property="og:url" content="" />
-  <meta property="og:description" content="" /> -->
+<!-- for Facebook -->
+<!-- <meta property="og:title" content="" />
+<meta property="og:type" content="article" /> -->
+<meta property="og:image" content="<%= asset_path('mudorapost.png') %>" />
+<!-- <meta property="og:url" content="" />
+<meta property="og:description" content="" /> -->
 
-  <!-- for Twitter
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="" />
-  <meta name="twitter:description" content="" /> -->
-  <meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
+<!-- for Twitter
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="" />
+<meta name="twitter:description" content="" /> -->
+<meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
 
-    <link rel="icon" href="<%= asset_path('mudorapost.png') %>">
-    <title>ViensFaireTesDevoirs</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+  <link rel="icon" href="<%= asset_path('mudorapost.png') %>">
+  <link rel="shortcut icon" href="<%= asset_path('mudorapost.png') %>">
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('mudorapost.png') %>">
+  <title>ViensFaireTesDevoirs</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
-  </head>
-  
+</head>
 <body class="<%= controller.controller_name %>">
 
   <nav class="navbar navbar-default">
