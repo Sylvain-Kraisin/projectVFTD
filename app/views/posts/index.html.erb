@@ -1,9 +1,10 @@
 <div class="text-center" style="color:white" class="craietext">
   <h2 class="craietext"><em>CENTRE DE DOCUMENTATION ET D'INFORMATION</em></h2>
-  <h4 class="craietext">CATEGORIES : <%= link_to "Toutes -".upcase, posts_path, class: "craietext" %>
+  <h4 class="craietext">CATEGORIES : <%= link_to "Toutes".upcase, posts_path, class: "craietext" %>
   <%  @categories.each do |category| %>
+    <tr> - </tr>
     <%= link_to category.name.upcase, posts_path(category: category.name), class: "link" %>
-    <tr> - <tr>
+
   <% end %>
   </h4>
 <br>
