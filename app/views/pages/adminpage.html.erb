@@ -60,8 +60,8 @@
     <h3>Reponses List</h3>
     <% if Reponse.exists? %>
       <% @reponsesacorriger.each do |reponse| %>
-      <% @useraccount = User.where(username: reponse.user_username).first %>
-        <% if @useraccount.username.present? %>
+
+        <% if User.where(username: reponse.user_username).exists? %>
         <p><%= reponse.id %> - test_id :<%= reponse.test_id %> - <%= reponse.user_username %></p>
 
           <p><% if user_signed_in? %>
