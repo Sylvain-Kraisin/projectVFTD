@@ -1,5 +1,6 @@
 <p>
-  <img src="<%= asset_path('cogreen.png') %>" alt="icone" class="icon"></img>
+  <% @useravatar = User.where(username: comment.user_username).first %>
+  <span><%= image_tag @useravatar.avatar.url(:medium), class:"avatar_annotations" %></span>
   &nbsp;
   <strong><em><%= comment.user_username %></strong></em>
   <%=raw markdown.render comment.content %>
