@@ -1,6 +1,6 @@
 <p>
   <% @useravatar = User.where(username: comment.user_username).first %>
-  <span><%= image_tag @useravatar.avatar.url, class:"avatar_annotations" %></span>
+  <span><%= image_tag @useravatar.avatar.url(:thumb) %></span>
   &nbsp;
   <strong><em><%= comment.user_username %></strong></em>
   <%=raw markdown.render comment.content %>
