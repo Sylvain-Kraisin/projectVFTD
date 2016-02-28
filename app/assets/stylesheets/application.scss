@@ -30,20 +30,38 @@
         src: url(Lenka_stabilo.ttf) format("truetype");
  }
 
+.navbar-nav, .navbar-brand {
+  margin-top: 10px;
+}
+
+.navbar-brand {
+  margin-left: 8px !important;
+}
+
+.navbar {
+  margin-bottom: 0 !important;
+}
+
 html, body {
 
   @media (min-width: 1301px) {
-  .container {
-    width: 80%;
-    margin-top: 5%;
+    .container {
+      width: 80%;
+      margin-top: 5%;
+    }
+    .navbar-nav, .navbar-brand {
+      margin-top: 20px;
+    }
   }
 
  /* xl (mac full size)*/
 @media (min-width: 1200px) and (max-width: 1300px) {
-
+  .navbar-nav, .navbar-brand {
+    margin-top: 15px;
+  }
 }
 
-}
+
 
 /* lg */
 @media (min-width: 992px) and (max-width: 1199px) {
