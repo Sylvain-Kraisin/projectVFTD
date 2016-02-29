@@ -109,23 +109,29 @@
       </div>
     </a>
 
+
+
+    <a href="/pages/halloffame">
+    <div class= " col-sm-3 col-xs-12">
+      <% if Reponse.exists? %>
+      <div class="lasttext col-sm-12">
+        <h4 class="craietext">HALL OF FAME</h4>
+      <% end %>
+        <p class="craietext">TOP 10</p>
+      <br>
+      </div>
+    </a>
+    </div>
+
     <div class= " col-sm-3 col-xs-12">
       <% if Comment.exists? %>
        <div class="lasttext col-sm-12">
-        <h4 class="craietext">ELEVES INSCRITS</h4>
-        <p class="craietext"><%= User.count %></p>
+        <h4 class="craietext">MOY. DE L'ECOLE</h4>
+        <p class="craietext"><%= number_to_human(@goodreponses.average(:total).round(1)) %>/10</p>
         <br>
        </div>
        <% end %>
     </div>
 
-    <div class= " col-sm-3 col-xs-12">
-      <% if Reponse.exists? %>
-      <div class="lasttext col-sm-12">
-        <h4 class="craietext">BON POINT D'ASSIDUITE</h4>
-      <% end %>
-        <p class="craietext"><%= @usermax.username.upcase  %> </p>
-      <br>
-      </div>
-    </div>
+
   </div>

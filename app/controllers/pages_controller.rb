@@ -20,6 +20,7 @@ layout :resolve_layout
     @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
     @maxaverage =  @goodusers_average.maximum(:average)
     @firstclass = User.where(average:@maxaverage).first
+    @topten = @goodusers_average.order('average desc').first(10)
 
     if signed_in?
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
@@ -41,8 +42,8 @@ layout :resolve_layout
 
   end
 
-  def forum
-  end
+  #def forum
+  #end
 
   def faq
   end
@@ -62,6 +63,11 @@ layout :resolve_layout
   end
 
   def correspondances
+  end
+
+  def halloffame
+    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
+    @topten = @goodusers_average.order('average desc').first(10)
   end
 
   private

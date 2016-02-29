@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'pages/videos' => 'pages#videos'
   get 'pages/blog' => 'posts#index'
   get 'pages/casier' => 'pages#casier'
-  get 'pages/forum' => 'pages#forum'
+  get 'pages/halloffame' => 'pages#halloffame'
   get 'pages/faq' => 'pages#faq'
   get 'pages/cooperative' => 'pages#cooperative'
   get 'pages/adminpage' => 'pages#adminpage'

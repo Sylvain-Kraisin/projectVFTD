@@ -25,11 +25,11 @@
       <h4> INSCRIT(E) DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span> </h4>
       <h4><span style="color:#bfbfbf"><%= @user.sign_in_count %></span> PRESENCE(S) A L'APPEL</h4>
       <% if @rank == 0 %>
-      <h4>ASSIDUITE : <span style="color:green"><%= @rank + 1 %> ERE</span> SUR <%= User.count %>, <span style="color:green">BRAVO !</span></h4>
+      <h4>ASSIDUITE : <span style="color:green"><%= @rank + 1 %> ERE</span>, <span style="color:green">BRAVO !</span></h4>
       <% elsif @user.role == "admin" %>
-      <h4>ASSIDUITE : <span style="color:#bfbfbf">X EME</span> SUR <%= User.count %></h4>
+      <h4>ASSIDUITE : <span style="color:#bfbfbf">X EME</span></h4>
       <% else %>
-      <h4>ASSIDUITE : <span style="color:#bfbfbf"><%= @rank + 1 %> EME</span> SUR <%= User.count %></h4>
+      <h4>ASSIDUITE : <span style="color:#bfbfbf"><%= @rank + 1 %> EME</span></h4>
       <% end %>
   </div>
 
