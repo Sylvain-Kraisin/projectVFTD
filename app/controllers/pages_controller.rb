@@ -12,7 +12,7 @@ layout :resolve_layout
     @video = Video.last
     @post = Post.last
     @comment = Comment.last
-    @goodreponses = Reponse.where("total is NOT NULL")
+    @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
     @goodusers = User.where(role:nil)
     @maxcount =  @goodusers.maximum(:sign_in_count)
     @usermax = User.where(sign_in_count:@maxcount).first
@@ -33,7 +33,7 @@ layout :resolve_layout
   def casier
     @user = current_user
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
-    @goodreponses = Reponse.where("total is NOT NULL")
+    @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
     @uservisits = Visit.where(user_username: @user.username)
     @goodusers = User.where(["average is NOT NULL"]).where(role:nil)
     @goodusers_two = User.where(role:nil)
