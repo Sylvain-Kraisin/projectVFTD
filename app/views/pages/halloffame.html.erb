@@ -5,7 +5,7 @@
 <br>
 <ol>
 <% @topten.each do |top| %>
-<h4><li style="color:white" class="text-center craietext"> <%= top.username.upcase %>   <%= top.average %> </li></h4>
+<h4><li style="color:white" class="text-center craietext"> <%= top.username.upcase %>  <span style="color:red"> <%= top.average %> </span></li></h4>
 <% end %>
 </ol>
 </div>
@@ -14,5 +14,9 @@
 <br>
 
 <% if user_signed_in? %>
-<h4 style="color:white" class="craietext"> <%= current_user.username.upcase %>  <%= current_user.average %> </h4>
+  <% if current_user.average != nil %>
+<h4 style="color:white" class="craietext"> TON SCORE = <%= current_user.average %> </h4>
+  <% else %>
+<h4 style="color:white" class="craietext"> FAIS AU MOINS 2 DEVOIRS POUR ETRE DANS LE CLASSEMENT </h4>
+  <% end %>
 <% end %>
