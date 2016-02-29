@@ -8,7 +8,7 @@ belongs_to :user
   validates :note_3, :inclusion => {:in => 0..4, :only_float => true, :allow_blank => true}
   validates :note_4, :inclusion => {:in => 0..4, :only_float => true, :allow_blank => true}
 
-  #un meme user e peut creer 2 fois une reponse
+  #un meme user ne peut creer 2 fois une reponse
   validates :user_username, uniqueness: { scope: [:user_username, :test_id], message: "Tu as déjà passé ce DST !"}
 
   after_validation :update_total

@@ -6,6 +6,7 @@
 <ol>
 <% @topten.each do |top| %>
 <h4><li style="color:white" class="text-center craietext"> <%= top.username.upcase %>  <span style="color:red"> <%= top.average %> </span></li></h4>
+<%= image_tag top.avatar.url(:thumb), class:"img-responsive center-block" %>
 <% end %>
 </ol>
 </div>

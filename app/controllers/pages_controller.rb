@@ -52,7 +52,7 @@ layout :resolve_layout
   end
 
   def adminpage
-    @users = User.all.order("created_at DESC").limit(50)
+    @users = User.all.order("created_at DESC")
     @posts = Post.all.order("created_at DESC")
     @visits = Visit.all.order("created_at DESC").limit(50)
     @videos = Video.all.order("created_at DESC")
