@@ -23,7 +23,7 @@
 
 <% if user_signed_in? %>
   <% if current_user.average != nil %>
-<h4 style="color:white" class="craietext"> TON SCORE = <%= current_user.average %> </h4>
+<h4 style="color:white" class="craietext"> TON SCORE = <%= current_user.score %> </h4>
   <% else %>
 <h4 style="color:white" class="craietext"> FAIS AU MOINS 2 DEVOIRS POUR ETRE DANS LE CLASSEMENT </h4>
   <% end %>
