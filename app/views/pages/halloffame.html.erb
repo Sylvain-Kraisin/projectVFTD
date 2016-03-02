@@ -1,3 +1,9 @@
+
+<% @goodusers_average.each do |youser| %>
+<% @score = youser.average * youser.reponses.count %>
+<% youser.update score:@score %>
+<% end %>
+
 <div class="text-center">
 <h2 style="color:white" class="text-center craietext"><em>LE TABLEAU DE LA GLOIRE</em></h2>
 
