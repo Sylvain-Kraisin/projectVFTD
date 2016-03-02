@@ -67,7 +67,7 @@ layout :resolve_layout
 
   def halloffame
     @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
-    @topten = @goodusers_average.order('average desc').first(10)
+    @topten = @goodusers_average.order('score desc').first(10)
   end
 
   private
