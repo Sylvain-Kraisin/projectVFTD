@@ -4,9 +4,10 @@
 <br>
 <br>
 <ol>
-<% @topten.each do |top| %>
-<%= image_tag top.avatar.url(:thumb) %>
-<h4><li style="color:white" class="text-center craietext"> <%= top.username.upcase %>  <span style="color:red"> <%= top.average %> </span></li></h4>
+<% @goodusers_average.each do |user| %>
+<% image_tag user.avatar.url(:thumb) %>
+<% @score = user.average * user.reponses.count %>
+<h4><li style="color:white" class="text-center craietext"> <%= user.username.upcase %>  <span style="color:green"><%= @score.round(4)%> </span><span style="color:red"> <%= user.average %> X <%= user.reponses.count %> </span></li></h4>
 
 <% end %>
 </ol>
@@ -21,4 +22,6 @@
   <% else %>
 <h4 style="color:white" class="craietext"> FAIS AU MOINS 2 DEVOIRS POUR ETRE DANS LE CLASSEMENT </h4>
   <% end %>
+<% else %>
+  <h4 style="color:white" class="craietext"> FAIS AU MOINS 2 DEVOIRS POUR ETRE DANS LE CLASSEMENT </h4>
 <% end %>
