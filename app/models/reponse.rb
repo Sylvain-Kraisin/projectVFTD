@@ -13,7 +13,7 @@ belongs_to :user
 
   after_validation :update_total
 
-  after_update :correction, :if => :total_changed?
+  # after_update :correction, :if => :total_changed?
 
   after_create :acorriger
 

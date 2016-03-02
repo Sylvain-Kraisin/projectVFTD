@@ -33,11 +33,11 @@ before_action :user_average, only: [:show]
     end
 
     def update
-      if @reponse.update(reponse_params)
-        redirect_to test_reponse_path(@test, @reponse)
-      else
-        render 'edit'
-      end
+    #  if @reponse.update(reponse_params)
+    #    redirect_to test_reponse_path(@test, @reponse)
+    #  else
+    #    render 'edit'
+    #  end
     end
 
 
