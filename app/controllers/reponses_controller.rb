@@ -18,6 +18,7 @@ before_action :user_average, only: [:show]
     def create
       @reponse = Reponse.new(reponse_params)
       @reponse.test_id = @test.id
+      @reponse.user_id = current_user.id
       @reponse.user_username = current_user.username
       @reponse.email = current_user.email
 

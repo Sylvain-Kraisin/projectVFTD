@@ -1,3 +1,15 @@
+<% @reponsus = Reponse.all %>
+<%= @reponsus.count %>
+
+<% @reponsus.each do |reponse| %>
+  <% @user = User.where(username: reponse.user_username).first %>
+  <% if @user.present? %>
+    <% reponse.update user_id: @user.id %>
+  <% else %>
+    <p>nope</p>
+  <% end %>
+<% end %>
+
 <div class="text-center">
 <h2 style="color:white" class="text-center craietext"><em>LE TABLEAU DE LA GLOIRE</em></h2>
 
@@ -6,7 +18,7 @@
 <ol>
 <% @topten.each do |top| %>
 <%= image_tag top.avatar.url(:thumb) %>
-<h4><li style="color:white" class="text-center craietext"> <%= top.username.upcase %>  <span style="color:red"> <%= top.average %> </span></li></h4>
+<h4><li style="color:white" class="text-center craietext"> <%= top.username.upcase %>  <span style="color:red"> <%= top.average %> <%= top.reponses.count %></span></li></h4>
 
 <% end %>
 </ol>

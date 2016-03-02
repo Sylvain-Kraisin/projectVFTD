@@ -37,7 +37,7 @@ belongs_to :user
   #after_validation reponse.total s'update avec reponse.notes only si elles existents
   def update_total
     self.total = self.note_1 + self.note_2 + self.note_3 + self.note_4 if self.note_1 && self.note_2 && self.note_3 && self.note_4
- end
+  end
 
 
 end
