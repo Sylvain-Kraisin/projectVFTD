@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 before_action :find_user, only: [:destroy]
 before_action :update_presence, only: [:index]
+before_action :update_score, only: [:halloffame]
 before_filter :admin?, only: [:adminpage]
 before_action :authenticate_user!, only: [:casier]
 before_filter :nanda, only: [:correspondances]
@@ -38,7 +39,7 @@ layout :resolve_layout
     @goodusers = User.where(["average is NOT NULL"]).where(role:nil)
     @goodusers_two = User.where(role:nil)
     @rank = @goodusers_two.order('sign_in_count desc').index(@user)
-    @ranknote = @goodusers.order('average desc').index(@user)
+    @ranknote = @goodusers.order('score desc').index(@user)
 
   end
 
@@ -66,8 +67,7 @@ layout :resolve_layout
   end
 
   def halloffame
-    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
-    @topten = @goodusers_average.order('score desc').first(10)
+
   end
 
   private
@@ -83,6 +83,15 @@ layout :resolve_layout
       @user.update presence: @user.presence + 1
       end
 
+    end
+  end
+
+  def update_score
+    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
+    @topten = @goodusers_average.order('score desc').first(10)
+    @goodusers_average.each do |youser|
+      @score = youser.average * youser.reponses.count
+      youser.update score:@score
     end
   end
 
