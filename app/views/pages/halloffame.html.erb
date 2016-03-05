@@ -3,13 +3,13 @@
 
 <br>
 <br>
-<ol>
+<% i = 0 %>
 <% @topten.each do |user| %>
 <%= image_tag user.avatar.url(:thumb) %>
-<h4><li style="color:white" class="text-center craietext"> <span style="color:#33cc33"><%= user.username.upcase %> </span> <%= user.score.round(4)%> PTS <span style="color:red"> <%= user.average %> X <%= user.reponses.count %> </span></li></h4>
+<% i += 1 %>
+<h4 style="color:white" class="text-center craietext"> <%= i %>. <span style="color:#33cc33"> <%= user.username.upcase %> </span> <%= user.score.round(4)%> PTS <span style="color:red"> <%= user.average %> X <%= user.reponses.count %> </span></h4>
 
 <% end %>
-</ol>
 </div>
 
 <br>

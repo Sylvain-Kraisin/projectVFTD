@@ -1,27 +1,47 @@
 <div class="hidden-xs row  text-center">
   <div class= "col-sm-2">
-    <a href="/pages/faq">
-      <img src="<%= asset_path('faq1.png') %>" alt="notice" class="img-responsive center-block" onmouseover="this.src='<%= asset_path('faq2.png') %>'" onmouseout="this.src='<%= asset_path('faq1.png') %>'"></a>
-      <h4 class="craietext" style="color:white"><em>F.A.Q</em></h4>
 
+    <% if signed_in? %>
+    <a href="/pages/casier">
+      <p><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></p>
+    </a>
+    <h4 class="craietext" style="color:white"><em><%= @user.username.upcase %><br>
+      <span style="color:#bfbfbf"><%= @user.sign_in_count %></span> PRESENCE(S)</em></h4>
+    <% else %>
+    <a href="/pages/faq">
+      <img src="<%= asset_path('faq1.png') %>" alt="notice" class="img-responsive center-block" onmouseover="this.src='<%= asset_path('faq2.png') %>'" onmouseout="this.src='<%= asset_path('faq1.png') %>'">
+    </a>
+    <h4 class="craietext" style="color:white"><em>F.A.Q</em></h4>
+    <% end %>
   </div>
+
   <div class= "col-sm-8">
     <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block">
+    <!-- <div class="fb-like" data-href="https://www.facebook.com/Viensfairetesdevoirs" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+    <div><a href="https://twitter.com/ViensFTD" class="twitter-follow-button" data-show-count="false" data-lang="fr">Suivre @ViensFTD</a></div>
+    <div class="g-ytsubscribe" data-channelid="UCBvviNTt-zg4vv-UHv2eRFA" data-layout="default" data-count="default" data-onytevent="onYtEvent"></div> -->
   </div>
+
   <div class="col-sm-2">
     <br>
     <br>
     <a href="/pages/cooperative">
     <img src="<%= asset_path('cooperative.png') %>" alt="cooperative" class="img-responsive center-block"></a>
     <h5 class="craietext" style="color:white"><em>COOPERATIVE</em></h5>
+    <a href='https://www.facebook.com/Viensfairetesdevoirs' target='_blank'><img alt='Facebook' src='http://3.bp.blogspot.com/-18yCDnUn7FA/UxxchSRUbQI/AAAAAAAADT0/oH_hGSkscPE/s1600/1facebook.png' title='Facebook'/></a>
+    <a href='http://twitter.com/ViensFTD' target='_blank'><img alt='Twitter' src='http://4.bp.blogspot.com/-ChSrBZvwcXs/UxxcheOZexI/AAAAAAAADT4/_cIL6RnuyaM/s1600/2twitter.png' title='Twitter'/></a>
+    <a href='https://www.youtube.com/c/Viensfairetesdevoirs' target='_blank'><img alt='Youtube' src='http://2.bp.blogspot.com/-V4ZB-xu0hnc/Uxxciq1UqQI/AAAAAAAADUM/OXGTlimaU68/s1600/4youtube.png' title='Youtube'/></a>
   </div>
+
 </div>
 
 <div class="hidden-sm hidden-lg hidden-md">
 <div class= "col-sm-6">
   <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block">
 </div>
+
 </div>
+
 
 <div class="hidden-xs">
   <br>
@@ -120,8 +140,8 @@
         <p class="craietext">TOP 10</p>
       <br>
       </div>
-    </a>
     </div>
+    </a>
 
     <div class= " col-sm-3 col-xs-12">
       <% if Comment.exists? %>
@@ -132,6 +152,8 @@
        </div>
        <% end %>
     </div>
+
+
 
 
   </div>
