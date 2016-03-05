@@ -6,7 +6,11 @@
       <p><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></p>
     </a>
     <h4 class="craietext" style="color:white"><em><%= @user.username.upcase %><br>
-      <span style="color:#bfbfbf"><%= @user.sign_in_count %></span> PRESENCE(S)</em></h4>
+      <% if @user.score == nil %>
+        <span style="color:#bfbfbf"><%= @user.score %> 0 PTS</span></em></h4>
+      <% else %>
+      <span style="color:#bfbfbf"><%= @user.score %> PTS</span></em></h4>
+      <% end %>
     <% else %>
     <a href="/pages/faq">
       <img src="<%= asset_path('faq1.png') %>" alt="notice" class="img-responsive center-block" onmouseover="this.src='<%= asset_path('faq2.png') %>'" onmouseout="this.src='<%= asset_path('faq1.png') %>'">
