@@ -30,6 +30,11 @@
         src: url(Lenka_stabilo.ttf) format("truetype");
  }
 
+ @font-face {
+        font-family: "Arcade";
+        src: url(ARCADE_N.ttf) format("truetype");
+ }
+
 .navbar-nav {
   margin-top: 10px;
 }
@@ -121,6 +126,10 @@ visibility:visible;
 .feutretext {
   font-family: "Stabilo";
   color: white;
+}
+
+.arcadetext {
+  font-family: "Arcade";
 }
 
 .transtext {
