@@ -32,9 +32,10 @@
     <a href="/pages/cooperative">
     <img src="<%= asset_path('cooperative.png') %>" alt="cooperative" class="img-responsive center-block"></a>
     <h5 class="craietext" style="color:white"><em>COOPERATIVE</em></h5>
-    <a href='https://www.facebook.com/Viensfairetesdevoirs' target='_blank'><img alt='Facebook' src='http://3.bp.blogspot.com/-18yCDnUn7FA/UxxchSRUbQI/AAAAAAAADT0/oH_hGSkscPE/s1600/1facebook.png' title='Facebook'/></a>
-    <a href='http://twitter.com/ViensFTD' target='_blank'><img alt='Twitter' src='http://4.bp.blogspot.com/-ChSrBZvwcXs/UxxcheOZexI/AAAAAAAADT4/_cIL6RnuyaM/s1600/2twitter.png' title='Twitter'/></a>
-    <a href='https://www.youtube.com/c/Viensfairetesdevoirs' target='_blank'><img alt='Youtube' src='http://2.bp.blogspot.com/-V4ZB-xu0hnc/Uxxciq1UqQI/AAAAAAAADUM/OXGTlimaU68/s1600/4youtube.png' title='Youtube'/></a>
+    <a href='https://www.facebook.com/Viensfairetesdevoirs' target='_blank'><img alt='Facebook' src='<%= asset_path('facebook.png') %>' title='Facebook'/></a> &nbsp;
+    <a href='https://www.youtube.com/c/Viensfairetesdevoirs' target='_blank'><img alt='Youtube' src='<%= asset_path('youtube.png') %>' title='Youtube'/></a> &nbsp;
+    <a href='http://twitter.com/ViensFTD' target='_blank'><img alt='Twitter' src='<%= asset_path('twitter.png') %>' title='Twitter'/></a>
+
   </div>
 
 </div>
@@ -139,7 +140,7 @@
     <div class= " col-sm-3 col-xs-12">
       <% if Reponse.exists? %>
       <div class="lasttext col-sm-12">
-        <h4 class="craietext">HALL OF FAME</h4>
+        <h4 class="craietext">SCORES</h4>
       <% end %>
         <p class="craietext">TOP 10</p>
       <br>
