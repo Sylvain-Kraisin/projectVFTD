@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 before_action :find_user, only: [:destroy]
 before_action :update_presence, only: [:index]
-before_action :update_score, only: [:halloffame]
+before_filter :update_score, only: [:halloffame]
 before_filter :admin?, only: [:adminpage]
 before_action :authenticate_user!, only: [:casier]
 before_filter :nanda, only: [:correspondances]
@@ -90,7 +90,7 @@ layout :resolve_layout
     @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
     @topten = @goodusers_average.order('score desc').first(10)
     @goodusers_average.each do |youser|
-      @score = youser.average * youser.reponses.count
+      @score = youser.average.round(2) * youser.reponses.count
       youser.update score:@score
     end
   end
