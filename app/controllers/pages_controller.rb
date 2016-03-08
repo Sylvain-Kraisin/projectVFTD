@@ -90,7 +90,8 @@ layout :resolve_layout
     @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
     @topten = @goodusers_average.order('score desc').first(10)
     @goodusers_average.each do |youser|
-      @score = youser.average.round(2) * youser.reponses.count
+      youser.update average: youser.reponses.average(:total).round(2)
+      @score = youser.average.round(3) * youser.reponses.count
       youser.update score:@score
     end
   end
