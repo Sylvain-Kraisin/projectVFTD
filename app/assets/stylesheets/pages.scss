@@ -70,5 +70,33 @@
 }
 
 #top10-margin {
-  padding-top: 1.2%;
+  //padding-top: 1%;
+  margin-top: 15px !important;
+
+}
+
+.cadeau {
+  max-width: 150px;
+  height: auto;
+  transform: rotate(10deg);
+  -ms-transform: rotate(10deg); /* IE 9 */
+  -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
+  position: relative;
+  z-index: 2;
+}
+
+
+.cadeau_du_mois {
+  margin-top: -50px;
+
+}
+
+.title_top {
+  margin-top: 50px;
+  //margin-bottom: 20px;
+}
+
+.text_gift {
+  position: relative;
+  z-index: 6;
 }
