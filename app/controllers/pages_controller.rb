@@ -92,11 +92,8 @@ layout :resolve_layout
 
     @goodusers_average.each do |youser|
       @dst_notnil = Reponse.where("total is NOT NULL").where(user_username: youser.username)
-      # uncomment to update all averages
-      #youser.update average:youser.reponses.average(:total)
-
-      @score = youser.average.round(5) * @dst_notnil.count
-      youser.update score:@score
+      @score = youser.average * @dst_notnil.count
+      youser.update score:@score.round(3)
     end
   end
 
