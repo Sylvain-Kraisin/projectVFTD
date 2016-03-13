@@ -95,8 +95,8 @@ layout :resolve_layout
       # uncomment to update all averages
       #youser.update average:youser.reponses.average(:total)
 
-      @score = youser.average * @dst_notnil.count
-      youser.update score:@score.round(5)
+      @score = youser.average.round(5) * @dst_notnil.count
+      youser.update score:@score
     end
   end
 
