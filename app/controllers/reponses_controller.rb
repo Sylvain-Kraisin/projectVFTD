@@ -67,7 +67,7 @@ before_action :user_average, only: [:show]
       @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
 
         if @userreponse.count >= 2
-          @user.update average: @userreponse.average(:total).round(2)
+          @user.update average: @userreponse.average(:total)
         end
     end
 
