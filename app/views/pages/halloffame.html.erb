@@ -75,13 +75,13 @@
       <h4 style="color:white" id="top10-margin"><%= image_tag user.avatar.url(:thumb), class:"topten_avatar" %> <%= user.username.first(12) %> </h4>
     </div>
     <div class="col-xs-2 text-center">
-      <h3 style="color:white"><%= number_with_precision(user.average, precision: 3) %></h3>
+      <h3 style="color:white"><%= user.average.round(2) %></h3>
     </div>
     <div class="col-xs-2">
       <h3 style="color:white">X <%= @dst_notnill.count %></h3>
     </div>
     <div class="col-xs-2">
-      <h3 style="color:white"><%= number_with_precision(user.score, precision: 3) %></h3>
+      <h3 style="color:white"><%= user.score.round(2) %>0</h3>
     </div>
   </div>
 
@@ -94,7 +94,7 @@
     </div>
 
     <div class="col-xs-5">
-      <h4 style="color:white"><%= number_with_precision(user.score, precision: 3)%></h4>
+      <h4 style="color:white"><%= user.score.round(2) %>0</h4>
     </div>
   </div>
 
