@@ -7,7 +7,7 @@ class DiscourseSsoController < ApplicationController
     secret = ENV["DISCOURSE_SSO_SECRET_KEY"]
     sso = SingleSignOn.parse(request.query_string, secret)
     sso.email = current_user.email # from devise
-    sso.name = "#{current_user.score.round(2)}0 Pts" # this is a custom method on the User class
+    sso.name = "#{current_user.score}0 Pts" # this is a custom method on the User class
     sso.username = current_user.username # from devise
     sso.avatar_url = "http://viensfairetesdevoirs.com#{current_user.avatar.url(:original)}"
     sso.avatar_force_update = true
