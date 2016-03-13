@@ -51,15 +51,15 @@
       <% end %>
   </div>
   <div class="col-xs-12 col-sm-4 text-center">
-    <h4>MOYENNE DE L'ECOLE = <%= number_to_human(@goodreponses.average(:total).round(1)) %>/10</h4>
+    <h4>MOYENNE DE L'ECOLE = <%= number_with_precision(@goodreponses.average(:total), precision: 2) %>/10</h4>
     <% if @user.average == nil %>
       <h4 style="color:red">PASSE AU MOINS 2 DEVOIRS POUR AVOIR TA MOYENNE</h4>
 
     <% elsif @user.average < @goodreponses.average(:total) %>
-      <h4 style="color:red">TA MOYENNE = <%= number_to_human(@user.average) %>/10</h4>
+      <h4 style="color:red">TA MOYENNE = <%= number_with_precision(@user.average, precision: 2) %>/10</h4>
 
     <% elsif %>
-      <h4 style="color:green">TA MOYENNE = <%= number_to_human(@user.average) %>/10</h4>
+      <h4 style="color:green">TA MOYENNE = <%= number_with_precision(@user.average, precision: 2) %>/10</h4>
 
     <% end %>
 
