@@ -96,7 +96,7 @@ layout :resolve_layout
       #youser.update average:youser.reponses.average(:total)
 
       @score = youser.average * @dst_notnil.count
-      youser.update score:@score
+      youser.update score:@score.round(5)
     end
   end
 
