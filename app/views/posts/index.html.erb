@@ -19,7 +19,7 @@
     </div>
     <% else %>
       <% @posts.each do |post| %>
-        <div class="col-sm-2  col-xs-4 ">
+        <div class="col-md-2  col-xs-4 ">
           <a href="/posts/<%= post.id %>">
             <p><%= image_tag post.post_img.url(:post_index), class:"img-responsive center-block mudora_index" %></p>
             <h5 style="color:white" class="craietext"><%= post.title.upcase %></h5>
