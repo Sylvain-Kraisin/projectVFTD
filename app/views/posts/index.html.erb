@@ -12,9 +12,11 @@
 <br>
 <br>
 
-  <div class="row text-center">
+
     <% if @posts.count == 0 %>
+    <div class="row text-center">
       <h3 class="craietext">IL N'Y A PAS ENCORE DE LIVRE DANS CETTE CATEGORIE</h3>
+    </div>
     <% else %>
       <% @posts.each do |post| %>
         <div class="col-sm-2  col-xs-4 ">
@@ -25,7 +27,7 @@
         </div>
       <% end %>
     <% end %>
-  </div>
+
 
   <div class="text-center" >
 
@@ -34,13 +36,14 @@
   </div>
 </div>
 <br>
-
+<div class="col-xs-12 text-center">
 <p class="craietext" style="color:#ffffff">VOUS VOULEZ AJOUTER VOTRE ARTICLE ?<br> ENVOYER LE A PAPAKO@VIENSFAIRETESDEVOIRS.COM</p>
 <% if user_signed_in? %>
   <% if current_user.role == "admin" && current_user.role =! nil %>
     <%= link_to "Créér un article", new_post_path %>
   <% end %>
 <% end %>
+</div>
 
 <br>
 <br>
