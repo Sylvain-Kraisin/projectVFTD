@@ -152,7 +152,7 @@
       <% if Comment.exists? %>
        <div class="lasttext col-sm-12">
         <h4 class="craietext">MOY. DE L'ECOLE</h4>
-        <p class="craietext"><%= number_to_human(@goodreponses.average(:total).round(1)) %>/10</p>
+        <p class="craietext"><%= number_with_precision(@goodreponses.average(:total), precision: 2) %>/10</p>
         <br>
        </div>
        <% end %>

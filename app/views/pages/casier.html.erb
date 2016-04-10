@@ -50,8 +50,13 @@
     <% @userreponse.each do |reponse| %>
     <% @test = Test.where(id: reponse.test_id).first %>
     <div>
-      <h4><%= @test.video_title.upcase %> = <span style="color:red"><%= number_to_human(reponse.total) %>/10</span></h4>
-      <h5><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a>
+      <% if reponse.console_id != nil %>
+      <% @console = Console.where(id:reponse.console_id).first %>
+      <h4><%= image_tag @console.console_img.url, class:"consoleimg_small" %><%= @test.video_title.upcase %> = <span style="color:red"><%= number_to_human(reponse.total) %>/10</span><br><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a></h4>
+      <% else %>
+      <h4><%= @test.video_title.upcase %> = <span style="color:red"><%= number_to_human(reponse.total) %>/10</span><br><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a></h4>
+      <% end %>
+      <!-- <h5><span style="color:red"><%= number_to_human(reponse.total) %>/10</span> - <a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a></h5> -->
     </div>
       <% end %>
       <% end %>
@@ -82,10 +87,6 @@
     <% end %>
 
   </div>
-
-
-
-
 
 
 

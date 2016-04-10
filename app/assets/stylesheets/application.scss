@@ -137,6 +137,7 @@ visibility:visible;
   border-radius: 4px; /* propriété CSS3 */
   -moz-border-radius: 4px; /* compatibilité avec Firefox */
   -webkit-border-radius: 4px; /* compatibilité avec les navigateurs Webkit */
+  margin-bottom: 50px;
 }
 
 .marginzero {
@@ -193,6 +194,11 @@ visibility:visible;
   height: auto;
   width: 128px;
   margin-top: -10px;
+}
+
+.consoleimg_small {
+  width: 64px;
+  height: auto;
 }
 
 .navbar-toggle, .navbar-toggle.collapsed {

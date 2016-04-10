@@ -21,6 +21,7 @@ before_filter :authenticate_user!, only: [:new, :create, :show]
       @reponse.user_id = current_user.id
       @reponse.user_username = current_user.username
       @reponse.email = current_user.email
+      @reponse.console_id = @test.console_id
 
       if @reponse.save
         redirect_to test_path(@test) #show

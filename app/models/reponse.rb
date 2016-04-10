@@ -12,6 +12,8 @@ belongs_to :user
   validates :user_username, uniqueness: { scope: [:user_username, :test_id], message: "Tu as déjà passé ce DST !"}
 
   after_validation :update_total
+  after_update :user_average
+  after_update :update_score
 
   after_update :correction, :if => :total_changed?
 
@@ -29,21 +31,22 @@ belongs_to :user
     UserMailer.acorriger(self).deliver_later
   end
 
-  def moyenne
-    @goodreponses = Reponse.where("total is NOT NULL")
-    @arraygoodtotal = @goodreponses.map { |reponse| reponse.total }
-  end
 
   #after_validation reponse.total s'update avec reponse.notes only si elles existents
   def update_total
     self.total = self.note_1 + self.note_2 + self.note_3 + self.note_4 if self.note_1 && self.note_2 && self.note_3 && self.note_4
+  end
+
+  def user_average
     @user = User.where(username:self.user_username).first
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
 
     if @userreponse.count >= 2
-        @user.update average: @userreponse.average(:total).round(2)
+      @user.update average:(@userreponse.average(:total).round(2))
     end
+  end
 
+  def update_score
     if @user.average != nil
       @user.update score:(@user.average * @user.reponses.count)
     end
