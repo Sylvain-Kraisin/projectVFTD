@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 before_action :find_user, only: [:destroy]
 before_action :update_presence, only: [:index]
-before_filter :update_score, only: [:halloffame]
+#before_filter :update_score, only: [:halloffame]
 before_filter :admin?, only: [:adminpage]
 before_action :authenticate_user!, only: [:casier]
 before_filter :nanda, only: [:correspondances]
@@ -67,7 +67,8 @@ layout :resolve_layout
   end
 
   def halloffame
-
+    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
+    @topten = @goodusers_average.order('score desc').first(10)
   end
 
   private
@@ -86,7 +87,8 @@ layout :resolve_layout
     end
   end
 
-  def update_score
+=begin a supprimer si pas de bug en prod pour update score
+
     @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
     @topten = @goodusers_average.order('score desc').first(10)
 
@@ -96,6 +98,7 @@ layout :resolve_layout
       youser.update score:@score.round(3)
     end
   end
+=end
 
 
   def nanda
