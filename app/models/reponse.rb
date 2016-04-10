@@ -38,7 +38,15 @@ belongs_to :user
   def update_total
     self.total = self.note_1 + self.note_2 + self.note_3 + self.note_4 if self.note_1 && self.note_2 && self.note_3 && self.note_4
     @user = User.where(username:self.user_username).first
-    @user.update score:(@user.average * @user.reponses.count)
+    @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
+
+    if @userreponse.count >= 2
+        @user.update average: @userreponse.average(:total).round(2)
+    end
+
+    if @user.average != nil
+      @user.update score:(@user.average * @user.reponses.count)
+    end
   end
 
 

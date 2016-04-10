@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_create :set_default_score
   has_many :visits
   has_many :comments
   has_many :reponses, dependent: :destroy
@@ -17,4 +18,10 @@ class User < ActiveRecord::Base
     :uniqueness => {
     :case_sensitive => false
     }
+
+
+   def set_default_score
+     self.score  ||= 0
+     #self.score = true if self.score.nil?
+   end
 end

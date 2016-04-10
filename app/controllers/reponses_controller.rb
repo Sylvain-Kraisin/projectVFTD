@@ -3,7 +3,7 @@ before_action :find_test
 before_action :find_reponse, only: [:edit, :update, :show]
 before_filter :admin?, only: [:edit, :update, :destroy]
 before_filter :authenticate_user!, only: [:new, :create, :show]
-before_action :user_average, only: [:show]
+#before_action :user_average, only: [:show]
 
 
 
@@ -62,6 +62,7 @@ before_action :user_average, only: [:show]
       @reponse = Reponse.find(params[:id])
     end
 
+=begin
     def user_average
       @user = User.where(username: @reponse.user_username).first
       @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
@@ -70,6 +71,6 @@ before_action :user_average, only: [:show]
           @user.update average: @userreponse.average(:total).round(2)
         end
     end
-
+=end
 
 end

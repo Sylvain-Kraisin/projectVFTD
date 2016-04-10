@@ -7,11 +7,11 @@ class UserMailer < ApplicationMailer
   #
   def correction reponse
     @reponse = reponse
-    mail to: reponse.email
+    mail to: reponse.email, subject: 'Ton devoir à été corrigé'
   end
 
   def acorriger reponse
     @reponse = reponse
-    mail to: "viensfairetesdevoirs@gmail.com"
+    mail to: "viensfairetesdevoirs@gmail.com", subject: 'Nouveau Devoir à corriger'
   end
 end
