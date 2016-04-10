@@ -28,6 +28,7 @@ en:
   valider: "Submit"
   forgotpass: "Forgot your password ?"
   mincar: "characters minimum"
+  maxcar: "characters maximum"
 
   views:
     pagination:

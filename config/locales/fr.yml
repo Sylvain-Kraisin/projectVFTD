@@ -9,6 +9,7 @@ fr:
   valider: "Valider"
   forgotpass: "Mot de passe oublié ?"
   mincar: "caractères minimum"
+  maxcar: "caractères maximum"
   views:
     pagination:
       first: "&laquo; Début"
