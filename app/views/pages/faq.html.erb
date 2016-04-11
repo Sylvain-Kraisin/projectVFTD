@@ -16,7 +16,7 @@
 <br>
 
 
-<div class="text-justify">
+<div class="text-justify faq_div">
 
   <h4 style="color:#33cc33" class="craietext" id="answer1">QU'EST CE QUE C'EST QUE CE SITE ?</h4>
   <br>
@@ -69,10 +69,3 @@
   <br>
 
 </div>
-
-<% @users = User.all %>
-<% @users.each do |user| %>
-<% if user.score == nil %>
-<% user.update score:0 %>
-<% end %>
-<% end %>
