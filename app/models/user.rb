@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   before_create :set_default_score
-  has_many :visits
+  has_many :visits, , dependent: :destroy
   has_many :comments
   has_many :reponses, dependent: :destroy
   # Include default devise modules. Others available are:
