@@ -69,3 +69,13 @@
   <br>
 
 </div>
+
+<% @reponses = Reponse.where(test_id: [1, 2, 3, 4]) %>
+<% @reponses.each do |reponse| %>
+<% reponse.update console_id:1 %>
+<% end %>
+
+<% @reponses = Reponse.where(test_id: [5, 6, 7, 8]) %>
+<% @reponses.each do |reponse| %>
+<% reponse.update console_id:2 %>
+<% end %>
