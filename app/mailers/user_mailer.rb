@@ -7,11 +7,16 @@ class UserMailer < ApplicationMailer
   #
   def correction reponse
     @reponse = reponse
-    mail to: reponse.email, subject: 'Ton devoir à été corrigé'
+    @test = Test.where(id:@reponse.test_id).first
+    @subject = 'Correction DST ' + @test.video_title
+    mail to: reponse.email, subject: @subject
   end
 
   def acorriger reponse
     @reponse = reponse
-    mail to: "viensfairetesdevoirs@gmail.com", subject: 'Nouveau Devoir à corriger'
+    @test = Test.where(id:@reponse.test_id).first
+    @user = @reponse.user_username
+    @subject = 'Nouveau DST de ' + @user + ' à corriger'
+    mail to: "viensfairetesdevoirs@gmail.com", subject: @subject
   end
 end
