@@ -27,7 +27,7 @@
     <h3>Users List</h3>
     <% if User.exists? %>
       <% @users.each do |user| %>
-        <p><%= user.id %> - <%= user.username %></p>
+        <p><%= user.id %> - <%= user.username %> <%= image_tag user.avatar.url(:thumb), class:"topten_avatar" %></p>
         <p><%= user.email %></p>
       <% end %>
     <% end %>
