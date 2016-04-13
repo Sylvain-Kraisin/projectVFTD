@@ -1,25 +1,34 @@
-<div class= "text-center" style="color:white">
+<div class= "text-center" style="color:#B3B1B2">
 
     <h1 class="craietext">MASTER PAGE</h1>
 
 </div>
 <br>
 
-<div style="color:white">
-
-<p>Total des élèves = <%= User.count %></p>
-<p><%= link_to "Nouvel article", new_post_path %></p>
-<p><%= link_to "Nouvelle vidéo", new_video_path %></p>
-<p><%= link_to "Nouveau DST", new_test_path %></p>
-<p><%= link_to "Salle cachée", pages_correspondances_path %></p>
+<div style="color:#B3B1B2">
+  <div class="col-xs-12">
+    <div class="col-xs-6 text-left">
+      <p>Total Users = <%= User.count %></p>
+      <p>Total Reponses = <%= Reponse.count %></p>
+      <p>Total Posts = <%= Post.count %></p>
+      <p>Total Comments = <%= Comment.count %></p>
+    </div>
+    <div class="col-xs-6 text-right">
+      <p><%= link_to "Nouvel article", new_post_path %></p>
+      <p><%= link_to "Nouvelle vidéo", new_video_path %></p>
+      <p><%= link_to "Nouveau DST", new_test_path %></p>
+      <p><%= link_to "Salle cachée", pages_correspondances_path %></p>
+    </div>
+  </div>
 
 
 <div class= "row" >
-  <div class= "col-xs-6 col-md-2" >
+  <div class= "col-xs-6 col-md-4" >
     <h3>Users List</h3>
     <% if User.exists? %>
       <% @users.each do |user| %>
-        <p><%= user.id %> - <%= user.username %> - <%= user.email %></p>
+        <p><%= user.id %> - <%= user.username %></p>
+        <p><%= user.email %></p>
       <% end %>
     <% end %>
   </div>
@@ -85,7 +94,7 @@
     <% end %>
   </div>
 
-  <div class= "col-xs-6 col-md-2" >
+  <div class= "col-xs-6 col-md-4" >
     <h3>Posts List</h3>
     <% if Post.exists? %>
       <% @posts.each do |post| %>
@@ -102,7 +111,7 @@
 
   </div>
 
-  <div class= "col-xs-6 col-md-2" >
+  <div class= "col-xs-6 col-md-4" >
     <h3>Comments List</h3>
     <% if Comment.exists? %>
       <% @comments.each do |comment| %>
@@ -118,7 +127,7 @@
     <% end %>
   </div>
 
-  <div class= "col-xs-6 col-md-2" >
+  <div class= "col-xs-6 col-md-4" >
     <h3>Posts_visits List</h3>
     <% if Visit.exists? %>
       <% @visits.each do |visit| %>

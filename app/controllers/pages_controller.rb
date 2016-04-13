@@ -53,6 +53,7 @@ layout :resolve_layout
   end
 
   def adminpage
+
     @users = User.all.order("created_at DESC")
     @posts = Post.all.order("created_at DESC")
     @visits = Visit.all.order("created_at DESC").limit(50)
@@ -114,8 +115,8 @@ layout :resolve_layout
     case action_name
     when "videos"
       "videos"
-    when "forum"
-      "forum"
+    when "adminpage"
+      "adminpage"
     when "casier"
       "casier"
     when "faq"
