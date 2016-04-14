@@ -50,10 +50,10 @@
     <% else %>
 
       <% @userreponse.each do |reponse| %>
-      <% @test = Test.where(id: reponse.test_id).first %>
+      <% @test = Test.find(reponse.test_id) %>
     <div>
 
-      <% @console = Console.where(id:reponse.console_id).first %>
+      <% @console = Console.find(reponse.console_id) %>
       <h4><%= image_tag @console.console_img.url, class:"consoleimg_small" %><%= @test.video_title.upcase %> = <span style="color:red"><%= number_to_human(reponse.total) %>/10</span><br><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a></h4>
 
       <!-- <h5><span style="color:red"><%= number_to_human(reponse.total) %>/10</span> - <a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a></h5> -->

@@ -7,14 +7,14 @@ class UserMailer < ApplicationMailer
   #
   def correction reponse
     @reponse = reponse
-    @test = Test.where(id:@reponse.test_id).first
+    @test = Test.find(@reponse.test_id)
     @subject = 'Correction DST ' + @test.video_title
     mail to: reponse.email, subject: @subject
   end
 
   def acorriger reponse
     @reponse = reponse
-    @test = Test.where(id:@reponse.test_id).first
+    @test = Test.find(@reponse.test_id)
     @user = @reponse.user_username
     @subject = 'Nouveau DST de ' + @user + ' à corriger'
     mail to: "viensfairetesdevoirs@gmail.com", subject: @subject
