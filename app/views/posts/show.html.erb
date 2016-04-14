@@ -29,7 +29,7 @@
       <br>
       <div class="fichecdi">
         <br>
-        <h4>Fiche CDI</h4>
+        <h4>Fiche C.D.I</h4>
         <% if @visit.count == 2 %>
               <br>
               <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
