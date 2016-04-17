@@ -1,5 +1,5 @@
 <div class="infogame row">
-    <div class="col-xs-12 text-left">
+    <div class="col-xs-12 text-center">
       <h2 style="color:white" class="feutretext"><em>CHOISIS UN COURS</em> <%= image_tag @console.console_img.url, class:"consoleimg" %></h2>
     </div>
 </div>
@@ -7,11 +7,14 @@
   <% if @videok.count == 0 %>
     <h1 style="color:white" class="feutretext text-center">Il n'y a pas encore de cours dans cette salle.</h1>
   <% else %>
+    <% i = 0 %>
     <% @videok.each do |video| %>
+    <% i += 1 %>
+    <h1 style="color:white" class="col-xs-12 feutretext text-center">------------</h1>
     <div class="col-sm-12">
     <div class="hidden-xs col-sm-6 text-left">
       <div class="infogame pull-right">
-        <h1 class="feutretext"><%= video.title %></h1>
+        <h1 class="feutretext"><%= i %>) <%= video.title %></h1>
 
         <h3 class="feutretext"><strong>Console :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= @console.title %></h3>
         <h3 class="feutretext"><strong>Sortie (Fr) :&nbsp; &nbsp; &nbsp;</strong> <%= l(video.release, format: "%B %Y" ) %></h3>
@@ -32,7 +35,7 @@
 
       </div>
       <a href="/videos/<%= video.id %>"><h1 style="color:white" class="col-xs-12 feutretext text-center">START !</h1></a>
-      <h1 style="color:white" class="col-xs-12 feutretext text-center">-------------</h1>
+
 
       </div>
     <% end %>
