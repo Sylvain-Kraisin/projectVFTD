@@ -2,15 +2,13 @@
     <div class="col-xs-12 text-left">
       <h2 style="color:white" class="feutretext"><em>CHOISIS UN COURS</em> <%= image_tag @console.console_img.url, class:"consoleimg" %></h2>
     </div>
-    <!-- <div class="col-xs-6 col-lg-4">
-    <p></p>
-  </div> -->
+</div>
 
   <% if @videok.count == 0 %>
     <h1 style="color:white" class="feutretext text-center">Il n'y a pas encore de cours dans cette salle.</h1>
   <% else %>
     <% @videok.each do |video| %>
-
+    <div class="col-sm-12">
     <div class="hidden-xs col-sm-6 text-left">
       <div class="infogame pull-right">
         <h1 class="feutretext"><%= video.title %></h1>
@@ -25,20 +23,22 @@
     <br>
 
       <div class="col-xs-12 col-sm-6 text-center">
-        <div class="<%= video.style %> img-responsive" id="wrapper">
+        <div class="<%= video.style %> " id="wrapper">
           <a href="/videos/<%= video.id %>">
             <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p></a>
             <a href="/videos/<%= video.id %>"><h1 class="text craietext" style="color:red"><strong>START !</strong></h1></a>
 
         </div>
-        <%= paginate @videok %>
+
       </div>
+      <a href="/videos/<%= video.id %>"><h1 style="color:white" class="col-xs-12 feutretext text-center">START !</h1></a>
+      <h1 style="color:white" class="col-xs-12 feutretext text-center">-------------</h1>
 
-
+      </div>
     <% end %>
   <% end %>
 
-</div>
+
 <br>
 <div class="text-center">
   <a class="btn btn-default" href="/pages/videos" role="button">Retour</a>
