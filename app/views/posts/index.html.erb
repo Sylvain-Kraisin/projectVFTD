@@ -19,10 +19,15 @@
     </div>
     <% else %>
       <% @posts.each do |post| %>
-        <div class="col-sm-2  col-xs-6 ">
+        <div class="col-sm-2  col-xs-12 ">
           <a href="/posts/<%= post.id %>">
             <p><%= image_tag post.post_img.url(:post_index), class:"img-responsive center-block mudora_index" %></p>
-            <h5 style="color:white" class="craietext"><%= post.title.upcase %></h5>
+            <span class="hidden-lg hidden-md">
+              <h5 style="color:white" class="craietext"><%= post.title.upcase %><br>---</h5>
+            </span>
+            <span class="hidden-xs hidden-sm">
+              <h5 style="color:white" class="craietext"><%= truncate(post.title.upcase, length: 30) %></h5>
+            </span>
           </a>
         </div>
       <% end %>

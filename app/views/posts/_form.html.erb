@@ -1,5 +1,5 @@
 <%= simple_form_for @post do |f| %>
-  <%= f.input :title, input_html: {maxlength: 30}%>
+  <%= f.input :title, input_html: {maxlength: 50}%>
   <%= f.input :content, as: :text, input_html: {maxlength: 99999999, rows: 14} %>
   <%= f.input :author %>
   <%= f.file_field :post_img %>
