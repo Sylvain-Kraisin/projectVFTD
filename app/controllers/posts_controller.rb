@@ -66,7 +66,7 @@ class PostsController < ApplicationController
       @visit = Visit.where(post_id: @post)
 
       if user_signed_in?
-        if current_user.role != "admin"
+        if current_user.role != "admin" || current_user.username != @post.author
           if !@visit.exists? || @visit.last.user_username != current_user.username
               Visit.create post_id: @post.id, user_username: current_user.username
 
