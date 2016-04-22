@@ -204,3 +204,26 @@ visibility:visible;
 .navbar-toggle, .navbar-toggle.collapsed {
   margin-top: 25px !important;
 }
+
+.modal-content {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: #FFFFFF;
+}
+
+.gift_modal {
+  background-image: url('https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/10517391_313369258836761_6469924826876162744_o.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+}
+
+.home_modal {
+  background-image: url('https://wizarddojo.files.wordpress.com/2015/08/4291495-6150563226-get_image.png');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+}

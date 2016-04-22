@@ -51,6 +51,8 @@ gem 'kaminari', '~> 0.16.3'
 gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 #gem for social links
 gem 'jssocials-rails'
+#gem for bootstrap modals alert confirm dialog
+gem 'bootbox-rails', '~>0.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

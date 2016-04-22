@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootbox
 //= require turbolinks
 //= require countdown
 //= require_tree .
