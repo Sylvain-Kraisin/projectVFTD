@@ -227,3 +227,17 @@ visibility:visible;
   background-position: top center !important;
   background-repeat: no-repeat !important;
 }
+
+.dbz_modal {
+  background-image: url('http://s1.dmcdn.net/AYidA/1280x720-daV.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  //width: 200%;
+}
+
+.margin_ten {
+  margin-top: 5px;
+}
