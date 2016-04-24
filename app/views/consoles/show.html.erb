@@ -29,21 +29,21 @@
         <div class="<%= video.style %> " id="wrapper">
           <a href="/videos/<%= video.id %>">
             <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p></a>
-            <a href="/videos/<%= video.id %>"><h1 class="text craietext" style="color:red"><strong>START !</strong></h1></a>
+            <a href="/videos/<%= video.id %>"><h1 class="text craietext"><strong>START !</strong></h1></a>
 
         </div>
 
       </div>
-      <a href="/videos/<%= video.id %>"><h1 style="color:white" class="col-xs-12 feutretext text-center">START !</h1></a>
+      <!-- <a href="/videos/<%= video.id %>"><h1 style="color:white" class="col-xs-12 feutretext text-center">START !</h1></a> -->
 
 
       </div>
     <% end %>
   <% end %>
 
-
 <br>
-<div class="text-center">
+<br>
+<div class="text-center margin_bot20 margin_top20">
   <a class="btn btn-default" href="/pages/videos" role="button">Retour</a>
 </div>
 
