@@ -109,7 +109,7 @@
 
 <div class="pad_bot text-center">
 <% if user_signed_in? %>
-  <% if current_user.average > 0 %>
+  <% if current_user.score > 0 %>
 
 <h4 style="color:white" class="craietext"> TON SCORE = <%= number_with_precision(current_user.score, precision: 3) %>  </h4>
   <% else %>
