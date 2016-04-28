@@ -121,38 +121,6 @@
 <br>
 </div>
 
-<script>
-
-  var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-  n = 0;
-  var audio = new Audio('<%= audio_path('kirby.mp3') %>');
-
-  $(document).keydown(function (e) {
-    if (e.keyCode === k[n++]) {
-        if (n === k.length) {
-            audio.play();
-            bootbox.dialog({
-              className: "gift_modal",
-              title: "Cadeau Du Mois : l'Amiibo Meta Knight",
-              message: '<div class="text-justify">' +
-              "<p>Meta Knight est un personnage récurrent de la série Kirby.<br><br>Ce mystérieux personnage, considéré comme le rival de Kirby, possède un fort sentiment de fierté. Quand il se bat à 100 % de ses capacités, il retire sa cape.<br><br>Même s'il se bat souvent contre Kirby, ils ont également travaillé main dans la main à de nombreuses reprises.<br><br>Bien que de caractère solitaire, Meta Knight n'en est pas moins le chef d'une petite armée (Les Metaminnions) et le propriétaire d'un immense vaisseau, le Halberd. Dans Super Smash Bros. Brawl sur Wii, il se fait d'ailleurs dérober ce vaisseau par l'armée subspatiale, et ce dernier est également détruit par Kirby dans Kirby Super Star Ultra (La vengeance de Meta Knight).<br><br>Dans Kirby's Adventure, on aperçoit le visage de Meta Knight après que Kirby l'ait battu : il ressemble en fait à Kirby, mais en bleu avec des yeux jaunes.<br><br>Au fur et à mesure des jeux, et si l'on se fie au dessin animé, Meta Knight serait en fait un adulte de la même race que Kirby, ce dernier n'étant encore qu'un bébé. C'est pourquoi il est capable de parler contrairement à Kirby.<br><br>Première apparition : Kirby's Adventure - Nes - 1993</p>" +
-              '</div>',
-              onEscape: function() {
-                audio.pause();
-                audio.currentTime = 0;
-              }
-            });
-
-            n = 0;
-            return false;
-        }
-    }
-    else {
-        n = 0;
-    }
-  });
-</script>
-
 <!-- countdown script -->
 <script type="text/javascript">
 $("#countdown")

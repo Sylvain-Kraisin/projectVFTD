@@ -53,6 +53,8 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 gem 'jssocials-rails'
 #gem for bootstrap modals alert confirm dialog
 gem 'bootbox-rails', '~>0.4'
+#jquery turbolinks
+gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
