@@ -1,0 +1,121 @@
+$(".halloffame").ready(function() {
+  var Konami = function (callback) {
+    var konami = {
+      addEvent: function (obj, type, fn, ref_obj) {
+        if (obj.addEventListener)
+          obj.addEventListener(type, fn, false);
+        else if (obj.attachEvent) {
+          // IE
+          obj["e" + type + fn] = fn;
+          obj[type + fn] = function () {
+            obj["e" + type + fn](window.event, ref_obj);
+          }
+          obj.attachEvent("on" + type, obj[type + fn]);
+        }
+      },
+      input: "",
+      pattern: "38384040373937396665",
+      load: function (link) {
+        this.addEvent(document, "keydown", function (e, ref_obj) {
+          if (ref_obj) konami = ref_obj; // IE
+          konami.input += e ? e.keyCode : event.keyCode;
+          if (konami.input.length > konami.pattern.length)
+            konami.input = konami.input.substr((konami.input.length - konami.pattern.length));
+          if (konami.input == konami.pattern) {
+            konami.code(link);
+            konami.input = "";
+            e.preventDefault();
+            return false;
+          }
+        }, this);
+        this.iphone.load(link);
+      },
+      code: function (link) {
+        window.location = link
+      },
+      iphone: {
+        start_x: 0,
+        start_y: 0,
+        stop_x: 0,
+        stop_y: 0,
+        tap: false,
+        capture: false,
+        orig_keys: "",
+        keys: ["UP", "UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT", "TAP", "TAP"],
+        code: function (link) {
+          konami.code(link);
+        },
+        load: function (link) {
+          this.orig_keys = this.keys;
+          konami.addEvent(document, "touchmove", function (e) {
+            if (e.touches.length == 1 && konami.iphone.capture == true) {
+              var touch = e.touches[0];
+              konami.iphone.stop_x = touch.pageX;
+              konami.iphone.stop_y = touch.pageY;
+              konami.iphone.tap = false;
+              konami.iphone.capture = false;
+              konami.iphone.check_direction();
+            }
+          });
+          konami.addEvent(document, "touchend", function (evt) {
+            if (konami.iphone.tap == true) konami.iphone.check_direction(link);
+          }, false);
+          konami.addEvent(document, "touchstart", function (evt) {
+            konami.iphone.start_x = evt.changedTouches[0].pageX;
+            konami.iphone.start_y = evt.changedTouches[0].pageY;
+            konami.iphone.tap = true;
+            konami.iphone.capture = true;
+          });
+        },
+        check_direction: function (link) {
+          x_magnitude = Math.abs(this.start_x - this.stop_x);
+          y_magnitude = Math.abs(this.start_y - this.stop_y);
+          x = ((this.start_x - this.stop_x) < 0) ? "RIGHT" : "LEFT";
+          y = ((this.start_y - this.stop_y) < 0) ? "DOWN" : "UP";
+          result = (x_magnitude > y_magnitude) ? x : y;
+          result = (this.tap == true) ? "TAP" : result;
+
+          if (result == this.keys[0]) this.keys = this.keys.slice(1, this.keys.length);
+          if (this.keys.length == 0) {
+            this.keys = this.orig_keys;
+            this.code(link);
+          }
+        }
+      }
+    }
+
+    typeof callback === "string" && konami.load(callback);
+    if (typeof callback === "function") {
+      konami.code = callback;
+      konami.load();
+    }
+
+    return konami;
+  };
+
+  var audio = new Audio('<%= audio_path('kirby.mp3') %>');
+
+  var easter_egg = new Konami(function() {
+            //location.reload();
+            //bootbox.hideAll();
+            audio.play();
+
+            bootbox.dialog({
+              className: "gift_modal",
+              title: "Cadeau Du Mois : l'Amiibo Meta Knight",
+              message: '<div class="text-justify">' +
+              "<p>Meta Knight est un personnage récurrent de la série Kirby.<br><br>Ce mystérieux personnage, considéré comme le rival de Kirby, possède un fort sentiment de fierté. Quand il se bat à 100 % de ses capacités, il retire sa cape.<br><br>Même s'il se bat souvent contre Kirby, ils ont également travaillé main dans la main à de nombreuses reprises.<br><br>Bien que de caractère solitaire, Meta Knight n'en est pas moins le chef d'une petite armée (Les Metaminnions) et le propriétaire d'un immense vaisseau, le Halberd. Dans Super Smash Bros. Brawl sur Wii, il se fait d'ailleurs dérober ce vaisseau par l'armée subspatiale, et ce dernier est également détruit par Kirby dans Kirby Super Star Ultra (La vengeance de Meta Knight).<br><br>Dans Kirby's Adventure, on aperçoit le visage de Meta Knight après que Kirby l'ait battu : il ressemble en fait à Kirby, mais en bleu avec des yeux jaunes.<br><br>Au fur et à mesure des jeux, et si l'on se fie au dessin animé, Meta Knight serait en fait un adulte de la même race que Kirby, ce dernier n'étant encore qu'un bébé. C'est pourquoi il est capable de parler contrairement à Kirby.<br><br>Première apparition : Kirby's Adventure - Nes - 1993</p>" +
+              '</div>',
+              onEscape: function() {
+                audio.pause();
+                audio.currentTime = 0;
+                //location.reload();
+                //bootbox.hideAll();
+                //return false;
+                //bootbox.hideAll()
+              }
+            });
+
+            return false;
+    });
+});
