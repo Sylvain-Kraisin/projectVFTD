@@ -1,4 +1,4 @@
-<div class="hidden-xs row  text-center">
+<div class="hidden-xs row  text-center" id="homehome">
   <div class= "col-sm-2">
 
     <% if signed_in? %>
@@ -36,7 +36,7 @@
     <a href='https://www.youtube.com/c/Viensfairetesdevoirs' target='_blank'><img alt='Youtube' src='<%= asset_path('youtube.png') %>' title='Youtube'/></a> &nbsp;
     <a href='http://twitter.com/ViensFTD' target='_blank'><img alt='Twitter' src='<%= asset_path('twitter.png') %>' title='Twitter'/></a>
 
-  </div>
+</div>
 
 </div>
 
@@ -157,8 +157,34 @@
        </div>
        <% end %>
     </div>
-
-
-
-
   </div>
+
+<script>
+  var audio = new Audio('<%= audio_path('starfox_titlescreen.mp3') %>');
+
+  var easter_egg2 = new Konami(function() {
+            //bootbox.hideAll();
+            audio.play();
+            bootbox.dialog({
+              className: "home_modal",
+              title: "Le Savais-tu ?",
+              message: '<div class="text-center">' +
+              '<p>Tape "do a barrel roll" (fais un tonneau),<br> la phrase culte de la série Starfox,<br> dans la barre de recherche de Google...<br>Et attends toi à être surpris !</p>' +
+              '<img src="https://49.media.tumblr.com/2bd3e8f68a296e64571a37020bf08c68/tumblr_nqvq8on6yS1u0rseao1_540.gif" class="img-responsive center-block"/>' +
+              '</div>',
+              onEscape: function() {
+                audio.pause();
+                audio.currentTime = 0;
+                //location.reload();
+                //bootbox.hideAll();
+                //n = 0;
+                //return false;
+                //setTimeout(function(){
+                //  location.reload();
+                //}, 500);
+                //$( '.home_modal' ).modal( 'hide' ).data( 'bs.modal', null );
+              }
+            });
+            return false;
+  });
+</script>

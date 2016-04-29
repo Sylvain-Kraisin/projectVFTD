@@ -1,4 +1,4 @@
-$('.index').ready(function() {
+
   var Konami = function (callback) {
   	var konami = {
   		addEvent: function (obj, type, fn, ref_obj) {
@@ -92,32 +92,3 @@ $('.index').ready(function() {
 
   	return konami;
   };
-
-  var audio = new Audio('<%= audio_path('starfox_titlescreen.mp3') %>');
-
-  var easter_egg2 = new Konami(function() {
-            //bootbox.hideAll();
-            audio.play();
-            bootbox.dialog({
-              className: "home_modal",
-              title: "Le Savais-tu ?",
-              message: '<div class="text-center">' +
-              '<p>Tape "do a barrel roll" (fais un tonneau),<br> la phrase culte de la série Starfox,<br> dans la barre de recherche de Google...<br>Et attends toi à être surpris !</p>' +
-              '<img src="https://49.media.tumblr.com/2bd3e8f68a296e64571a37020bf08c68/tumblr_nqvq8on6yS1u0rseao1_540.gif" class="img-responsive center-block"/>' +
-              '</div>',
-              onEscape: function() {
-                audio.pause();
-                audio.currentTime = 0;
-                //location.reload();
-                //bootbox.hideAll();
-                //n = 0;
-                //return false;
-                //bootbox.hideAll()
-
-              }
-            });
-
-
-            return false;
-  });
-});

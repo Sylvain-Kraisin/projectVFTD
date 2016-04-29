@@ -7,13 +7,13 @@
         <p id="submitdst2" class="text-center"><%= @reponse.errors[:user_username].first %></p>
         <h4>
           Q1 : <%= @test.question_1 %>
-          <p><%= f.input :reponse_1, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput'} %></p>
+          <p><%= f.input :reponse_1, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput', class:'stylotext'} %></p>
           Q2 : <%= @test.question_2 %>
-          <p><%= f.input :reponse_2, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput2'} %></p>
+          <p><%= f.input :reponse_2, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput2', class:'stylotext'} %></p>
           Q3 : <%= @test.question_3 %>
-          <p><%= f.input :reponse_3, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput3'} %></p>
+          <p><%= f.input :reponse_3, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput3', class:'stylotext'} %></p>
           Q4 : <%= @test.question_4 %>
-          <p><%= f.input :reponse_4, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput4'} %></p>
+          <p><%= f.input :reponse_4, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput4', class:'stylotext'} %></p>
         </h4>
         <br>
         <br>

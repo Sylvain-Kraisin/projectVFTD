@@ -35,6 +35,11 @@
         src: url(ARCADE_N.ttf) format("truetype");
  }
 
+ @font-face {
+        font-family: "Stylo";
+        src: url(handwrited.ttf) format("truetype");
+ }
+
 .navbar-nav {
   margin-top: 10px;
 }
@@ -137,6 +142,12 @@ border-radius: 3px;
 
 .arcadetext {
   font-family: "Arcade";
+}
+
+.stylotext {
+  font-family: "Stylo";
+  color: #0000FF;
+  font-weight: bold;
 }
 
 .transtext {
