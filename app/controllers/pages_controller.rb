@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-before_action :find_user, only: [:destroy]
+#before_action :find_user, only: [:destroy]
 before_action :update_presence, only: [:index]
 #before_filter :update_score, only: [:halloffame]
 before_filter :admin?, only: [:adminpage]
