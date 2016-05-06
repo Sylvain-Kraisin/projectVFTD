@@ -9,7 +9,7 @@
       <% if @user.score == nil || @user.score == 0  %>
         <span style="color:#bfbfbf"> 0 PTS</span></em></h4>
       <% else %>
-      <a href="/pages/halloffame"/><%= (@user.score * 1000).round %> PTS</em></h4></a>
+      <span style="color:#bfbfbf"><%= number_with_precision(@user.score, precision: 3) %> PTS</span></em></h4>
       <% end %>
     <% else %>
     <a href="/pages/faq">
