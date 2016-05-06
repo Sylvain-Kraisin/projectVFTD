@@ -22,21 +22,14 @@
       <% end %>
 
       <% if @user.score == nil || @user.score == 0  %>
-      <h4>0 POINTS</h4>
+      <a href="/pages/halloffame"><h4>0 POINTS</h4></a>
       <% else %>
-      <h4><%= (@user.score * 1000).round %> POINTS</h4>
+      <a href="/pages/halloffame"><h4><%= (@user.score * 1000).round %> POINTS</h4></a>
       <% end %>
       <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
 
       <h4> INSCRIT(E) DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span> </h4>
-      <h4><span style="color:#bfbfbf"><%= @user.sign_in_count %></span> PRESENCE(S) A L'APPEL</h4>
-      <% if @rank == 0 %>
-      <h4>ASSIDUITE : <span style="color:green"><%= @rank + 1 %> ER(E)</span>, <span style="color:green">BRAVO</span> !</h4>
-      <% elsif @user.role == "admin" %>
-      <h4>ASSIDUITE : <span style="color:#bfbfbf">X EME</span></h4>
-      <% else %>
-      <h4>ASSIDUITE : <span style="color:#bfbfbf"><%= @rank + 1 %> EME</span></h4>
-      <% end %>
+      <a href="http://discourse.viensfairetesdevoirs.com/t/officiel-top-10-score-eleves/132/79"/><h4>POINTS BONUS : <%= 0 %> PTS</h4></a>
   </div>
 
   <br>
