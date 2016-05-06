@@ -21,7 +21,25 @@
     </div>
   </div>
 
+  <div class= "col-xs-6 col-md-2" >
+    <h3>A Corriger</h3>
+    <% if Reponse.exists? %>
+      <% @reponsesacorriger.each do |reponse| %>
 
+        <% if User.where(username: reponse.user_username).exists? %>
+        <p><%= reponse.id %> - test_id :<%= reponse.test_id %> - <%= reponse.user_username %></p>
+
+          <p><% if user_signed_in? %>
+              <% if current_user.role == "admin" %>
+                <a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>/edit">Noter</a>
+              <% end %>
+            <% end %>
+          </p>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+  
 <div class= "row" >
   <div class= "col-xs-6 col-md-4" >
     <h3>Users List</h3>
@@ -62,25 +80,6 @@
             <% end %>
           </p>
           <% end %>
-      <% end %>
-  </div>
-
-  <div class= "col-xs-6 col-md-2" >
-    <h3>A Corriger</h3>
-    <% if Reponse.exists? %>
-      <% @reponsesacorriger.each do |reponse| %>
-
-        <% if User.where(username: reponse.user_username).exists? %>
-        <p><%= reponse.id %> - test_id :<%= reponse.test_id %> - <%= reponse.user_username %></p>
-
-          <p><% if user_signed_in? %>
-              <% if current_user.role == "admin" %>
-                <a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>/edit">Noter</a>
-              <% end %>
-            <% end %>
-          </p>
-          <% end %>
-        <% end %>
       <% end %>
   </div>
 

@@ -24,7 +24,7 @@
       <% if @user.score == nil || @user.score == 0  %>
       <h4>0 POINTS</h4>
       <% else %>
-      <h4><%= number_with_precision(@user.score, precision: 3)%> POINTS</h4>
+      <h4><%= (@user.score * 1000).round %> POINTS</h4>
       <% end %>
       <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
 

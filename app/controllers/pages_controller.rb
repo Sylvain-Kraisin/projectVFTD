@@ -62,6 +62,7 @@ layout :resolve_layout
     @consoles = Console.all.order("created_at DESC")
     @tests = Test.all.order("created_at DESC")
     @reponsesacorriger = Reponse.where(total: nil)
+    #@testsrandom = Test.all.order("RANDOM()").limit(3)
   end
 
   def correspondances

@@ -12,7 +12,7 @@
 <h1 class="arcadetext text-center" style="color:green">TOP SCORES</h1>
 </div>
 
-<a href="http://discourse.viensfairetesdevoirs.com/t/officiel-top-10-score-eleves/132/41">
+<a href="http://discourse.viensfairetesdevoirs.com/t/officiel-top-10-score-eleves/132/78">
   <div class="cadeau_du_mois col-sm-3 hidden-xs">
 
   <img class="cadeau" src="<%= asset_path('meta_gift.png') %>" alt="Comment gagner ?">
@@ -36,8 +36,11 @@
     <div class="col-xs-2">
       <h2 style="color:#F79B1E">MOY.</h2>
     </div>
-    <div class="col-xs-2">
-      <h2 style="color:#F79B1E">DST</h2>
+    <div class="col-xs-1">
+      <h3 style="color:#F79B1E">DST</h3>
+    </div>
+    <div class="col-xs-1">
+      <h3 style="color:#F79B1E">BNS</h3>
     </div>
     <div class="col-xs-2">
       <h2 style="color:#F79B1E">SCORE</h2>
@@ -52,7 +55,7 @@
     <div class="col-xs-5">
       <h4 style="color:#F79B1E">NOM</h4>
     </div>
-    <div class="col-xs-5">
+    <div class="col-xs-5 text-right">
       <h4 style="color:#F79B1E">SCORE</h4>
       <br>
     </div>
@@ -62,7 +65,7 @@
 <br>
 
 
-<div class="col-xs-12 text-center arcadetext pad_bot">
+<div class="col-xs-12 arcadetext pad_bot">
 
 
   <% i = 0 %>
@@ -81,11 +84,14 @@
     <div class="col-xs-2 text-center">
       <h3 style="color:white"><%= number_with_precision(user.average, precision: 2) %></h3>
     </div>
-    <div class="col-xs-2">
-      <h3 style="color:white">X <%= @dst_notnill.count %></h3>
+    <div class="col-xs-1 text-center">
+      <h3 style="color:white">X<%= @dst_notnill.count %></h3>
     </div>
-    <div class="col-xs-2">
-      <h3 style="color:white"><%= number_with_precision(user.score, precision: 3) %></h3>
+    <div class="col-xs-1 text-left">
+      <h3 style="color:white">+<%= 50 %></h3>
+    </div>
+    <div class="col-xs-2 text-right">
+      <h3 style="color:white"><%= (user.score * 1000).round %></h3>
     </div>
   </div>
 
@@ -97,8 +103,8 @@
       <h4 style="color:white"><%= user.username.first(3) %> </h4>
     </div>
 
-    <div class="col-xs-5">
-      <h4 style="color:white"><%= number_with_precision(user.score, precision: 3) %></h4>
+    <div class="col-xs-5 text-right">
+      <h4 style="color:white"><%= (user.score * 1000).round %> </h4>
     </div>
   </div>
 
@@ -111,7 +117,7 @@
 <% if user_signed_in? %>
   <% if current_user.score > 0 %>
 
-<h4 style="color:white" class="craietext"> TON SCORE = <%= number_with_precision(current_user.score, precision: 3) %>  </h4>
+<h4 style="color:white" class="craietext"> TON SCORE = <%= (current_user.score * 1000).round %>  </h4>
   <% else %>
 <h4 style="color:white" class="craietext"> FAIS AU MOINS 2 DEVOIRS POUR ETRE DANS LE CLASSEMENT </h4>
   <% end %>
@@ -131,7 +137,7 @@
 
             bootbox.dialog({
               className: "gift_modal",
-              title: "Cadeau Du Mois : l'Amiibo Meta Knight",
+              title: "Cadeau Du Mois : l'Amiibo Pac Man",
               message: '<div class="text-justify">' +
               "<p>Meta Knight est un personnage récurrent de la série Kirby.<br><br>Ce mystérieux personnage, considéré comme le rival de Kirby, possède un fort sentiment de fierté. Quand il se bat à 100 % de ses capacités, il retire sa cape.<br><br>Même s'il se bat souvent contre Kirby, ils ont également travaillé main dans la main à de nombreuses reprises.<br><br>Bien que de caractère solitaire, Meta Knight n'en est pas moins le chef d'une petite armée (Les Metaminnions) et le propriétaire d'un immense vaisseau, le Halberd. Dans Super Smash Bros. Brawl sur Wii, il se fait d'ailleurs dérober ce vaisseau par l'armée subspatiale, et ce dernier est également détruit par Kirby dans Kirby Super Star Ultra (La vengeance de Meta Knight).<br><br>Dans Kirby's Adventure, on aperçoit le visage de Meta Knight après que Kirby l'ait battu : il ressemble en fait à Kirby, mais en bleu avec des yeux jaunes.<br><br>Au fur et à mesure des jeux, et si l'on se fie au dessin animé, Meta Knight serait en fait un adulte de la même race que Kirby, ce dernier n'étant encore qu'un bébé. C'est pourquoi il est capable de parler contrairement à Kirby.<br><br>Première apparition : Kirby's Adventure - Nes - 1993</p>" +
               '</div>',
@@ -153,7 +159,7 @@
 <!-- countdown script -->
 <script type="text/javascript">
 $("#countdown")
-.countdown("2016/04/30 20:00:00", function(event) {
+.countdown("2016/05/31 20:00:00", function(event) {
   $(this).text(
     event.strftime('%D JOUR(S) ET %H:%M:%S')
   );
