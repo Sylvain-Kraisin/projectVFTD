@@ -128,7 +128,7 @@
 </div>
 
 <script>
-  var audio = new Audio('<%= audio_path('kirby.mp3') %>');
+  var audio = new Audio('<%= audio_path('pac-man-intro.mp3') %>');
 
   var easter_egg = new Konami(function() {
             //location.reload();
@@ -137,9 +137,9 @@
 
             bootbox.dialog({
               className: "gift_modal",
-              title: "Cadeau Du Mois : l'Amiibo Pac Man",
+              title: "Cadeau Du Mois : l'Amiibo Pac-Man",
               message: '<div class="text-justify">' +
-              "<p>Meta Knight est un personnage récurrent de la série Kirby.<br><br>Ce mystérieux personnage, considéré comme le rival de Kirby, possède un fort sentiment de fierté. Quand il se bat à 100 % de ses capacités, il retire sa cape.<br><br>Même s'il se bat souvent contre Kirby, ils ont également travaillé main dans la main à de nombreuses reprises.<br><br>Bien que de caractère solitaire, Meta Knight n'en est pas moins le chef d'une petite armée (Les Metaminnions) et le propriétaire d'un immense vaisseau, le Halberd. Dans Super Smash Bros. Brawl sur Wii, il se fait d'ailleurs dérober ce vaisseau par l'armée subspatiale, et ce dernier est également détruit par Kirby dans Kirby Super Star Ultra (La vengeance de Meta Knight).<br><br>Dans Kirby's Adventure, on aperçoit le visage de Meta Knight après que Kirby l'ait battu : il ressemble en fait à Kirby, mais en bleu avec des yeux jaunes.<br><br>Au fur et à mesure des jeux, et si l'on se fie au dessin animé, Meta Knight serait en fait un adulte de la même race que Kirby, ce dernier n'étant encore qu'un bébé. C'est pourquoi il est capable de parler contrairement à Kirby.<br><br>Première apparition : Kirby's Adventure - Nes - 1993</p>" +
+              "<p>Pac-Man, personnage emblématique de l’histoire du jeu vidéo, est un personnage en forme de rond jaune doté d’une bouche. Il doit manger des pac-gommes et des bonus (sous forme de fruits, et d’une clé à 5 000 points) dans un labyrinthe hanté par quatre fantômes.<br><br>Quatre pac-gommes spéciales (super pac-gommes) rendent les fantômes vulnérables pendant une courte période au cours de laquelle Pac-Man peut les manger. Les fantômes deviennent alors bleus et affichent une expression de peur signalée par des petits yeux et une bouche en ligne cassée et quand un fantôme se fait manger, ses yeux retournent dans la salle centrale du labyrinthe pour le faire redevenir normal.<br><br> Le jeu original comprend 255 labyrinthes différents (le jeu était considéré comme allant à l’infini, mais le 256e niveau est injouable à cause d’un bug qui noie la moitié droite du niveau sous un gros amas de symboles, ce bug vient du fait que le nombre de niveaux était codé sur un seul octet6).<br><br>Anecdote : Le nom original de ce personnage, PuckMan (l'homme qui fait 'Puck'), a été renommé en Pac-Man pour le marché Américain pour éviter que des petits malins griffonnent le 'P' sur les bornes d'arcade, rebaptisant notre héros 'Fuck-Man'<br><br>Première apparition : Pac-Man- Arcade - 1980</p>" +
               '</div>',
               onEscape: function() {
                 audio.pause();
