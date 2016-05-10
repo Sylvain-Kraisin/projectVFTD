@@ -88,10 +88,10 @@
       <h3 style="color:white">X<%= @dst_notnill.count %></h3>
     </div>
     <div class="col-xs-1 text-center">
-      <h3 style="color:white">+<%= 0 %></h3>
+      <h3 style="color:white">+<%= user.bonus %></h3>
     </div>
     <div class="col-xs-2 text-right">
-      <h3 style="color:white"><%= (user.score * 1000).round %></h3>
+      <h3 style="color:white"><%= (user.score).round %></h3>
     </div>
   </div>
 
@@ -104,7 +104,7 @@
     </div>
 
     <div class="col-xs-5 text-right">
-      <h4 style="color:white"><%= (user.score * 1000).round %> </h4>
+      <h4 style="color:white"><%= (user.score).round %> </h4>
     </div>
   </div>
 
@@ -117,7 +117,7 @@
 <% if user_signed_in? %>
   <% if current_user.score > 0 %>
 
-<h4 style="color:white" class="craietext"> TON SCORE = <%= (current_user.score * 1000).round %>  </h4>
+<h4 style="color:white" class="craietext"> TON SCORE = <%= (current_user.score).round %>  </h4>
   <% else %>
 <h4 style="color:white" class="craietext"> FAIS AU MOINS 2 DEVOIRS POUR ETRE DANS LE CLASSEMENT </h4>
   <% end %>

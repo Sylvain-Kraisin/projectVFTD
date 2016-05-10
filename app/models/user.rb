@@ -13,15 +13,21 @@ class User < ActiveRecord::Base
   validates_attachment_size :avatar, :in => 0.megabytes..2.megabytes
 
 
+
   validates :username,
     :presence => true,
     :uniqueness => {
     :case_sensitive => false
     }
 
+  private
 
    def set_default_score
      self.score  ||= 0
      #self.score = true if self.score.nil?
    end
+
+
+
+
 end

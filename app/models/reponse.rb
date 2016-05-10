@@ -51,7 +51,7 @@ belongs_to :user
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
 
     if @user.average != nil
-      @user.update score:(@user.average * @userreponse.count)
+      @user.update score:(((@user.average * @userreponse.count) * 1000) + @user.bonus)
     end
   end
 
