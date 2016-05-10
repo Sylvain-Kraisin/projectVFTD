@@ -41,14 +41,4 @@
 <p><span style="color:#33cc33">MERCI</span> D'AVOIR PRIS LE TEMPS DE LIRE, QUE TU AIES PARTICIPE OU NON !</p>
 <p>ET MAINTENANT, <span style="color:#33cc33">VIENS FAIRE TES DEVOIRS !</span><p/>
 
-  <!-- A retirer apres update -->
-
-      <% @users = User.where("average is NOT NULL") %>
-      <% @users.each do |user| %>
-      <%  user.update score:((user.average * user.reponses.where(["total is NOT NULL"]).count) * 1000) %>
-      <% end %>
-
-
-
-  <!-- A retirer apres update -->
 </div>
