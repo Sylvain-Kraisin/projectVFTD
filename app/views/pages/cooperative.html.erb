@@ -42,9 +42,7 @@
 <p>ET MAINTENANT, <span style="color:#33cc33">VIENS FAIRE TES DEVOIRS !</span><p/>
 
   <!-- A retirer apres update -->
-  <% if user_signed_in? %>
-    <p>temp</p>
-    <% elsif @user.role == "admin" %>
+
       <% @users = User.where("average is NOT NULL") %>
       <% @users.each do |user| %>
       <%  user.update score:((user.average * user.reponses.where(["total is NOT NULL"]).count) * 1000) %>
@@ -52,7 +50,5 @@
 
 
 
-
-  <% end %>
   <!-- A retirer apres update -->
 </div>
