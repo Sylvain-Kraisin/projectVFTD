@@ -9,12 +9,13 @@
       <h4>CLASSEMENT GENERAL</4>
       <% if @user.average == nil %>
       <h4>NOUVEL ELEVE</h4>
+      <% elsif @user.role == "admin" %>
+      <h4><span style="color:green">DIRECTEUR</span> DE L ECOLE !</h4>
       <% elsif @ranknote == 0 %>
       <h4><span style="color:green"><%= @ranknote + 1 %> ER(E)</span> DE LA CLASSE !</h4>
       <% elsif @ranknote + 1 == @goodusers.count %>
       <h4><span style="color:red">DERNIER(E)</span> DE LA CLASSE !</h4>
-      <% elsif @user.role == "admin" %>
-      <h4><span style="color:green">DIRECTEUR</span> DE L ECOLE !</h4>
+
 
       <% else %>
 
