@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
    end
 
    def add_bonus_to_score
-     self.score = ((self.average * self.reponses.where("total is NOT NULL").count) * 1000) + self.bonus
+     self.score = ((average * self.reponses.where("total is NOT NULL").count) * 1000) + bonus
    end
 
 

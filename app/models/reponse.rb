@@ -38,20 +38,20 @@ belongs_to :user
   end
 
   def user_average
-    @user = User.where(username:self.user_username).first
-    @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
+    user = User.where(username:self.user_username).first
+    userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: user.username)
 
-    if @userreponse.count >= 2
-      @user.update average:(@userreponse.average(:total).round(2))
+    if userreponse.count >= 2
+      user.update average:(userreponse.average(:total).round(2))
     end
   end
 
   def update_score
-    @user = User.where(username:self.user_username).first
-    @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
+    user = User.where(username:self.user_username).first
+    userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: user.username)
 
-    if @user.average != nil
-      @user.update score:(((@user.average * @userreponse.count) * 1000) + @user.bonus)
+    if user.average != nil
+      user.update score:(((user.average * userreponse.count) * 1000) + user.bonus)
     end
   end
 
