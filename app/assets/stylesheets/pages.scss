@@ -32,31 +32,34 @@
       bottom: 0;
 }
 
-.lastblue {
-  background-image: url('borderblue.png');
-  height: 140px;
-}
-
-.lastgreen {
-  background-image: url('bordergreen.png');
-  height: 140px;
-}
-
-.lastyellow {
-  background-image: url('borderyellow.png');
-  height: 140px;
-}
-
-.lastred {
-  background-image: url('borderred.png');
-  height: 140px;
-}
-
 .lasttext {
   position: absolute;
   top: 10%;
   width: 100%;
   color: white;
+  max-height: 93.8px;
+  border: 2px white solid;
+  margin-bottom: 5px;
+  background-color: rgba(26, 26, 26, 0.2);
+  border-radius: 20px; /* propriété CSS3 */
+  -moz-border-radius: 20px; /* compatibilité avec Firefox */
+  -webkit-border-radius: 20px;
+}
+
+.lastblue:hover {
+    background-color: rgba(43,74,213, 0.5);
+}
+
+.lastgreen:hover {
+    background-color: rgba(45,149,48, 0.5);
+}
+
+.lastyellow:hover {
+    background-color: rgba(253,200,62, 0.5);
+}
+
+.lastred:hover {
+    background-color: rgba(251,71,51, 0.5);
 }
 
 .topten_avatar {

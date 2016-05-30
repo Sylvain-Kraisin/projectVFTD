@@ -116,7 +116,7 @@
       <div class= " col-sm-3 col-xs-12">
         <% if Video.exists? %>
 
-        <div class="lasttext col-sm-12">
+        <div class="lasttext lastblue col-sm-12">
           <h4 class="craietext">DERNIER COURS</h4>
           <p class="craietext"><%= @video.title.upcase %></p>
           <br>
@@ -129,7 +129,7 @@
       <div class= " col-sm-3 col-xs-12">
         <% if Post.exists? %>
 
-         <div class="lasttext col-sm-12">
+         <div class="lasttext lastgreen col-sm-12">
           <h4 class="craietext">DERNIER LIVRE</h4>
           <p class="craietext"><%= @post.title.upcase %></p>
           <br>
@@ -143,7 +143,7 @@
     <a href="/pages/halloffame">
     <div class= " col-sm-3 col-xs-12">
       <% if Reponse.exists? %>
-      <div class="lasttext col-sm-12">
+      <div class="lasttext lastyellow col-sm-12">
         <h4 class="craietext">SCORES</h4>
       <% end %>
         <p class="craietext">TOP 10</p>
@@ -154,7 +154,7 @@
 
     <div class= " col-sm-3 col-xs-12">
       <% if Comment.exists? %>
-       <div class="lasttext col-sm-12">
+       <div class="lasttext lastred col-sm-12">
         <h4 class="craietext">MOY. DE L'ECOLE</h4>
         <p class="craietext"><%= number_with_precision(@goodreponses.average(:total), precision: 2) %>/10</p>
         <br>
