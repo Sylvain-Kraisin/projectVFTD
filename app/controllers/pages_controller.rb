@@ -11,17 +11,14 @@ layout :resolve_layout
   def index
     @user = current_user
     @video = Video.last
+    @console = Console.find(@video.console_id)
     @post = Post.last
     @comment = Comment.last
     @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
-    @goodusers = User.where(role:nil)
-    @maxcount =  @goodusers.maximum(:sign_in_count)
-    @usermax = User.where(sign_in_count:@maxcount).first
 
-    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
-    @maxaverage =  @goodusers_average.maximum(:average)
-    @firstclass = User.where(average:@maxaverage).first
-    @topten = @goodusers_average.order('average desc').first(10)
+    @goodusers = User.where(role:nil)
+    @topten = @goodusers.order('score desc').first(10)
+    #@topten2 = @topten.order('score asc')
 
     if signed_in?
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)

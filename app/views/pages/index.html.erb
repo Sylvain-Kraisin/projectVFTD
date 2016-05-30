@@ -118,7 +118,7 @@
 
         <div class="lasttext lastblue col-sm-12">
           <h4 class="craietext">DERNIER COURS</h4>
-          <p class="craietext"><%= @video.title.upcase %></p>
+          <p class="craietext"><%= @video.title.upcase %> <%= image_tag @console.console_img.url, class:"consoleimg_small" %></p>
           <br>
         </div>
         <% end %>
@@ -144,9 +144,14 @@
     <div class= " col-sm-3 col-xs-12">
       <% if Reponse.exists? %>
       <div class="lasttext lastyellow col-sm-12">
-        <h4 class="craietext">SCORES</h4>
+        <h4 class="craietext">TOP 10</h4>
       <% end %>
-        <p class="craietext">TOP 10</p>
+      <p>
+        <% @topten.each do |eleve| %>
+          <%= image_tag eleve.avatar.url(:thumb), class:"topten_avatar2" %>
+        <% end %>
+      </p>
+
       <br>
       </div>
     </div>
