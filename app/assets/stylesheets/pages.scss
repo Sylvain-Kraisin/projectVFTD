@@ -92,13 +92,13 @@
 }
 
 .cadeau {
-  max-width: 150px;
-  height: auto;
+  max-height: 250px;
+  width: auto;
   transform: rotate(10deg);
   -ms-transform: rotate(10deg); /* IE 9 */
   -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
   position: relative;
-  z-index: 2;
+  z-index: -2;
 }
 
 
@@ -123,4 +123,8 @@
 
 .faq_div {
   margin-bottom: 30px;
+}
+
+.title_score {
+  margin-bottom: 15px;
 }

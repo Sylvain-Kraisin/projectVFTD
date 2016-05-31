@@ -20,7 +20,7 @@
   </div>
 
   <div class= "col-sm-8">
-    <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block">
+    <img src="<%= asset_path('logofull2.png') %>" alt="viens faire tes devoirs" class="img-responsive center-block animated slideInDown">
     <!-- <div class="fb-like" data-href="https://www.facebook.com/Viensfairetesdevoirs" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
     <div><a href="https://twitter.com/ViensFTD" class="twitter-follow-button" data-show-count="false" data-lang="fr">Suivre @ViensFTD</a></div>
     <div class="g-ytsubscribe" data-channelid="UCBvviNTt-zg4vv-UHv2eRFA" data-layout="default" data-count="default" data-onytevent="onYtEvent"></div> -->
@@ -144,7 +144,7 @@
     <div class= " col-sm-3 col-xs-12">
       <% if Reponse.exists? %>
       <div class="lasttext lastyellow col-sm-12">
-        <h4 class="craietext">TOP 10</h4>
+        <h4 class="craietext">TABLEAU DES SCORES</h4>
       <% end %>
       <p>
         <% @topten.each do |eleve| %>

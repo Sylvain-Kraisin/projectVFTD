@@ -26,10 +26,10 @@
     <br>
 
       <div class="col-xs-12 col-sm-6 text-center">
-        <div class="<%= video.style %> " id="wrapper">
-          <a href="/videos/<%= video.id %>">
-            <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p></a>
-            <a href="/videos/<%= video.id %>"><h1 class="text craietext"><strong>START !</strong></h1></a>
+        <div class="<%= video.style %> " >
+            <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p>
+            <br>
+            <a href="/videos/<%= video.id %>" role="button" class="select_button" ><strong>PRESS START</strong></a>
 
         </div>
 
@@ -41,10 +41,9 @@
     <% end %>
   <% end %>
 
-<br>
-<br>
+
 <div class="text-center margin_bot20 margin_top20">
-  <a class="btn btn-default" href="/pages/videos" role="button">Retour</a>
+  <a class="btn btn-default margin_top20" href="/pages/videos" role="button">Retour</a>
 </div>
 
 <% if @console.id == 3 %>
