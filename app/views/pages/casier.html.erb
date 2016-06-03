@@ -19,7 +19,7 @@
 
       <% else %>
 
-      <h4><span style="color:#bfbfbf"><%= @ranknote + 1 %> EME</span> SUR <%= User.count %></h4>
+      <h4><span style="color:#bfbfbf"><%= @ranknote + 1 %> EME</span> SUR <%= @goodusers.count %></h4>
       <% end %>
 
       <% if @user.score == nil || @user.score == 0  %>
@@ -27,7 +27,7 @@
       <% else %>
       <a href="/pages/halloffame"><h4><%= (@user.score).round %> POINTS</h4></a>
       <% end %>
-      <a href="http://discourse.viensfairetesdevoirs.com/t/officiel-top-10-score-eleves/132/79"/><h4>(DONT <%= @user.bonus %> BONS POINTS)</h4></a>
+      <a href="http://viensfairetesdevoirs.com/pages/faq#answer8"/><h4>(DONT <%= @user.bonus %> BONS POINTS)</h4></a>
       <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
 
       <h4> INSCRIT(E) DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span> </h4>
