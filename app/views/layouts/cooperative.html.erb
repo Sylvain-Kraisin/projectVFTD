@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <!-- for Google -->
-<meta name="description" content="Ecole de Retrogaming">
-<meta name="keywords" content="retrogaming" />
+    <!-- for Google -->
+  <meta name="description" content="Ecole de Retrogaming" />
+  <meta name="keywords" content="retrogaming ecole mario zelda nintendo dst" />
 
-<meta name="author" content="VFTD">
-<meta name="copyright" content="Sylvain Kraisin" />
-<meta name="application-name" content="" />
+  <meta name="author" content="VFTD" />
+  <meta name="copyright" content="Sylvain Kraisin" />
+  <meta name="application-name" content="ViensFaireTesDevoirs" />
 
-<!-- for Facebook -->
-<!-- <meta property="og:title" content="" />
-<meta property="og:type" content="article" /> -->
-<meta property="og:image" content="<%= asset_path('mudorapost.png') %>" />
-<!-- <meta property="og:url" content="" />
-<meta property="og:description" content="" /> -->
+  <!-- for Facebook -->
+  <meta property="og:title" content="L'Ecole du Retrogaming" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="<%= asset_path('pixelsite.png') %>" />
+  <meta property="og:url" content="www.viensfairetesdevoirs.com" />
+  <meta property="og:description" content="Rejoins la première école de retrogaming du net" />
 
-<!-- for Twitter
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="" />
-<meta name="twitter:description" content="" /> -->
-<meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
 
-  <link rel="icon" href="<%= asset_path('mudorapost.png') %>">
+  <meta name="twitter:card" content="L'Ecole du Retrogaming" />
+  <meta name="twitter:title" content="Ecole de Retrogaming" />
+  <meta name="twitter:description" content="La 1ere école de Retrogaming du net" />
+  <meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
+
+  <link rel="icon" href="<%= asset_path('mudorapost.png') %>" />
+  <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
   <link rel="shortcut icon" href="<%= asset_path('mudorapost.png') %>"  type="image/x-icon" />
-  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('mudorapost.png') %>">
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('mudorapost.png') %>" />
+  <meta name="msapplication-TileImage" content="<%= asset_path('mudorapost.png') %>" />
   <title>ViensFaireTesDevoirs</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-</head>
+  </head>
 
 <body class="<%= controller.controller_name %> <%= controller.action_name %>">
   <script>
@@ -60,7 +62,7 @@
   method: 'share_open_graph',
   action_type: 'og.likes',
   action_properties: JSON.stringify({
-    object:'https://www.viensfairetesdevoirs.com',
+    object:'http://www.viensfairetesdevoirs.com',
   })
 }, function(response){
   // Debug response (optional)
