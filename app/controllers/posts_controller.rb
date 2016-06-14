@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :create_visit, only: [:show]
-  before_filter :admin?, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :bibliothequaire?, only: [:new, :create, :edit, :update]
+  before_filter :admin?, only: :destroy
 
   def index
     @categories = Category.all
