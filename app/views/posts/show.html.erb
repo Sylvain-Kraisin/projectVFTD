@@ -71,7 +71,7 @@
       <br>
       <div id="annotations" class="annotations text-justify">
 
-        <p><%= render @post.comments %><p>
+        <p><%= render @post.comments.order('created_at ASC' ) %><p>
         <p><%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %></p>
 
       </div>
