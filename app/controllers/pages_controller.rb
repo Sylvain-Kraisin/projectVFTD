@@ -16,7 +16,7 @@ layout :resolve_layout
     @comment = Comment.last
     @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
 
-    @goodusers = User.where("role != 'admin'")
+    @goodusers = User.where("role is NOT NULL || role != 'admin'")
     @topten = @goodusers.order('score desc').first(10)
     #@topten2 = @topten.order('score asc')
 
@@ -31,10 +31,10 @@ layout :resolve_layout
   def casier
     @user = current_user
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
-    @goodreponses = Reponse.where("total is NOT NULL").where("role != 'admin'")
+    @goodreponses = Reponse.where("total is NOT NULL").where("role is NOT NULL || role != 'admin'")
     @uservisits = Visit.where(user_username: @user.username)
-    @goodusers = User.where(["average is NOT NULL"]).where("role != 'admin'")
-    @goodusers_two = User.where("role != 'admin'")
+    @goodusers = User.where(["average is NOT NULL"]).where("role is NOT NULL || role != 'admin'")
+    @goodusers_two = User.where("role is NOT NULL || role != 'admin'")
     @rank = @goodusers_two.order('sign_in_count desc').index(@user)
     @ranknote = @goodusers.order('score desc').index(@user)
 
@@ -66,7 +66,7 @@ layout :resolve_layout
   end
 
   def halloffame
-    @goodusers_average = User.where(["average is NOT NULL"]).where("role != 'admin'")
+    @goodusers_average = User.where(["average is NOT NULL"]).where("role is NOT NULL || role is NOT NULL || role != 'admin'")
     @topten = @goodusers_average.order('score desc')
   end
 
@@ -85,6 +85,19 @@ layout :resolve_layout
 
     end
   end
+
+=begin a supprimer si pas de bug en prod pour update score
+
+    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
+    @topten = @goodusers_average.order('score desc').first(10)
+
+    @goodusers_average.each do |youser|
+      @dst_notnil = Reponse.where("total is NOT NULL").where(user_username: youser.username)
+      @score = youser.average * @dst_notnil.count
+      youser.update score:@score.round(3)
+    end
+  end
+=end
 
 
   def nanda
