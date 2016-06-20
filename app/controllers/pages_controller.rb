@@ -16,7 +16,7 @@ layout :resolve_layout
     @comment = Comment.last
     @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
 
-    @goodusers = User.where("role is NOT NULL || role != 'admin'")
+    @goodusers = User.where(role:nil)
     @topten = @goodusers.order('score desc').first(10)
     #@topten2 = @topten.order('score asc')
 
@@ -31,10 +31,10 @@ layout :resolve_layout
   def casier
     @user = current_user
     @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
-    @goodreponses = Reponse.where("total is NOT NULL").where("role is NOT NULL || role != 'admin'")
+    @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
     @uservisits = Visit.where(user_username: @user.username)
-    @goodusers = User.where(["average is NOT NULL"]).where("role is NOT NULL || role != 'admin'")
-    @goodusers_two = User.where("role is NOT NULL || role != 'admin'")
+    @goodusers = User.where(["average is NOT NULL"]).where(role:nil)
+    @goodusers_two = User.where(role:nil)
     @rank = @goodusers_two.order('sign_in_count desc').index(@user)
     @ranknote = @goodusers.order('score desc').index(@user)
 
@@ -66,7 +66,7 @@ layout :resolve_layout
   end
 
   def halloffame
-    @goodusers_average = User.where(["average is NOT NULL"]).where("role is NOT NULL || role is NOT NULL || role != 'admin'")
+    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
     @topten = @goodusers_average.order('score desc')
   end
 
