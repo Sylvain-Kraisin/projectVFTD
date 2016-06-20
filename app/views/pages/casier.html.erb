@@ -10,7 +10,9 @@
       <% if @user.average == nil %>
       <h4>NOUVEL ELEVE</h4>
       <% elsif @user.role == "admin" %>
-      <h4><span style="color:green">DIRECTEUR</span> DE L ECOLE !</h4>
+      <h4><span style="color:green">DIRECTEUR</h4>
+      <% elsif @user.role == "bibliothequaire" %>
+      <h4><span style="color:green">BIBLIOTHEQUAIRE</h4>
       <% elsif @ranknote == 0 %>
       <h4><span style="color:green"><%= @ranknote + 1 %> ER(E)</span> DE LA CLASSE !</h4>
       <% elsif @ranknote + 1 == @goodusers.count %>
