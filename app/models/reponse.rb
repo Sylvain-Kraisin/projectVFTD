@@ -8,10 +8,10 @@ belongs_to :user, dependent: :destroy
   validates :note_3, inclusion: {in: 0..4, only_float: true, allow_blank: true}
   validates :note_4, inclusion: {in: 0..4, only_float: true, allow_blank: true}
 
-  validates :reponse_1, length: { minimum: 2, maximum: 128 }
-  validates :reponse_2, length: { minimum: 2, maximum: 128 }
-  validates :reponse_3, length: { minimum: 2, maximum: 128 }
-  validates :reponse_4, length: { minimum: 2, maximum: 128 }
+  validates :reponse_1, length: { minimum: 2, maximum: 120 }
+  validates :reponse_2, length: { minimum: 2, maximum: 120 }
+  validates :reponse_3, length: { minimum: 2, maximum: 120 }
+  validates :reponse_4, length: { minimum: 2, maximum: 120 }
 
   #un meme user ne peut creer 2 fois une reponse
   validates :user_username, uniqueness: { scope: [:user_username, :test_id], message: 'Tu as déjà passé ce DST !'}
