@@ -17,5 +17,4 @@
 //= require bootbox
 //= require turbolinks
 //= require jquery-readyselector
-//= require countdown
 //= require_tree .
