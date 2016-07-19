@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   after_validation :add_bonus_to_score, if: :bonus_changed?
+  after_commit :add_classroom, unless: :classroom?
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ":style/avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -33,6 +34,45 @@ class User < ActiveRecord::Base
      self.score = ((average * self.reponses.where("total is NOT NULL").count) * 1000) + bonus
    end
 
+  def add_classroom
+    if User.first(32).map(&:id).include? self.id
+      self.classroom = 'Hanafuda'
+      save
+    end
+    if (User.order(created_at: :asc).offset(32).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(64).map(&:id).include? self.id)
+      self.classroom = 'Game&Watch'
+      save
+    end
+    if (User.order(created_at: :asc).offset(64).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(96).map(&:id).include? self.id)
+      self.classroom = 'DonkeyKong'
+      save
+    end
+    if (User.order(created_at: :asc).offset(96).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(128).map(&:id).include? self.id)
+      self.classroom = 'Jumpman'
+      save
+    end
+    if (User.order(created_at: :asc).offset(128).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(160).map(&:id).include? self.id)
+      self.classroom = 'Excitebike'
+      save
+    end
+    if (User.order(created_at: :asc).offset(160).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(192).map(&:id).include? self.id)
+      self.classroom = 'DuckHunt'
+      save
+    end
+    if (User.order(created_at: :asc).offset(192).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(224).map(&:id).include? self.id)
+      self.classroom = 'Gyromite'
+      save
+    end
+    if (User.order(created_at: :asc).offset(224).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(256).map(&:id).include? self.id)
+      self.classroom = 'Metroid'
+      save
+    end
+    if (User.order(created_at: :asc).offset(256).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(288).map(&:id).include? self.id)
+      self.classroom = 'Zelda'
+      save
+    end
+
+  end
 
 
 end
