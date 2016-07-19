@@ -15,6 +15,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootbox
-//= require turbolinks
-//= require jquery-readyselector
-//= require_tree .
+//= require konami
+//= require countdown
