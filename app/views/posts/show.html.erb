@@ -1,92 +1,110 @@
-  <div class ="row">
-    <div class= "article col-sm-9 col-xs-12 text-center">
-      <article>
-        <br>
-        <h2 class="posttitle"><%= @post.title %></h2>
-        <br>
-        <div class="texte text-justify">
-        <p><%=raw markdownadmin.render @post.content %></p>
-        <!-- <p><%= @post.content.length %></p> -->
+<% content_for :google, flush: true do %>
+  <meta name="description" content="Le C.D.I" />
+  <meta name="keywords" content="ecole retrogaming mario zelda nintendo cdi" />
+  <meta name="author" content="<%= @post.author %>" />
+  <meta name="copyright" content="Sylvain Kraisin" />
+  <meta name="application-name" content="ViensFaireTesDevoirs" />
+<% end %>
 
 
-        <br>
-        <h5 class="text-center"><em>écrit par <%= @post.author %> le <%= l(@post.created_at, format: "%e %B %Y" ) %></em></h5>
+<% content_for :facebook, flush: true do %>
+  <meta property="og:title" content="<%= @post.title %>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://viensfairetesdevoirs.com/pages/blog" />
+  <meta property="og:image" content="<%= image_tag @post.post_img.url(:post_show) %>" />
+  <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
+<% end %>
 
-        </div>
-      </article>
+
+<div class ="row">
+  <div class= "article col-sm-9 col-xs-12 text-center">
+    <article>
+      <br>
+      <h2 class="posttitle"><%= @post.title %></h2>
+      <br>
+      <div class="texte text-justify">
+      <p><%=raw markdownadmin.render @post.content %></p>
+      <!-- <p><%= @post.content.length %></p> -->
 
 
-      <% if user_signed_in? %>
-        <% if current_user.role == "admin" || current_user.role == 'bibliothequaire' %>
-          <%= link_to "Modifier", edit_post_path(@post) %>
-          <%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppresion de cet article ?"} %>
-        <% end %>
+      <br>
+      <h5 class="text-center"><em>écrit par <%= @post.author %> le <%= l(@post.created_at, format: "%e %B %Y" ) %></em></h5>
+
+      </div>
+    </article>
+
+
+    <% if user_signed_in? %>
+      <% if current_user.role == "admin" || current_user.role == 'bibliothequaire' %>
+        <%= link_to "Modifier", edit_post_path(@post) %>
+        <%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppresion de cet article ?"} %>
       <% end %>
-    </div>
-
-
-    <div class= "pagedroite col-sm-3 col-xs-12 text-center">
-      <br>
-      <div class="fichecdi">
-        <br>
-        <h4>Fiche C.D.I</h4>
-        <% if @visit.count == 2 %>
-              <br>
-              <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
-              <p>par  <%= @visit.offset(1).last.user_username %></p>
-              <p>Emprunté le  __________</p>
-              <p>par  __________</p>
-              <p>Emprunté le  __________</p>
-              <p>par  __________</p>
-              <br>
-        <% elsif @visit.count == 3 %>
-              <br>
-              <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
-              <p>par  <%= @visit.offset(1).last.user_username %></p>
-              <p>Emprunté le  <%= l(@visit.offset(2).last.updated_at, format: "%d %b %y") %></p>
-              <p>par  <%= @visit.offset(2).last.user_username %></p>
-              <p>Emprunté le  __________</p>
-              <p>par  __________</p>
-              <br>
-        <% elsif @visit.count >= 4 %>
-              <br>
-              <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
-              <p>par  <%= @visit.offset(1).last.user_username %></p>
-              <p>Emprunté le  <%= l(@visit.offset(2).last.updated_at, format: "%d %b %y") %></p>
-              <p>par  <%= @visit.offset(2).last.user_username %></p>
-              <p>Emprunté le  <%= l(@visit.offset(3).last.updated_at, format: "%d %b %y") %></p>
-              <p>par  <%= @visit.offset(3).last.user_username %></p>
-              <br>
-        <% else  %>
-          <br>
-          <p>Emprunté le  __________ </p>
-          <p>par  __________</p>
-          <p>Emprunté le  __________</p>
-          <p>par  __________</p>
-          <p>Emprunté le  __________</p>
-          <p>par  __________</p>
-          <br>
-        <% end %>
-      </div>
-      <br>
-      <div id="annotations" class="annotations text-justify">
-
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://viensfairetesdevoirs.com/posts/<%= @post.id %>" target="_blank">
-          <button class="btn btn-primary">
-            <i class="fa fa-facebook"></i> Partager
-          </button>
-        </a>
-        <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au C.D.I" %>&url=http://viensfairetesdevoirs.com/posts/<%= @post.id %>&via=ViensFTD" target="blank" class="decoration_none">
-          <button class="btn btn-info">
-            <i class="fa fa-twitter"></i> Twitter
-          </button>
-        </a>
-
-        <p><%= render @post.comments.order('created_at ASC' ) %><p>
-        <p><%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %></p>
-
-      </div>
-    </div>
+    <% end %>
   </div>
 
-  <p><a class="btn btn-default" href="/posts" role="button">Retour</a></p>
+
+  <div class= "pagedroite col-sm-3 col-xs-12 text-center">
+    <br>
+    <div class="fichecdi">
+      <br>
+      <h4>Fiche C.D.I</h4>
+      <% if @visit.count == 2 %>
+            <br>
+            <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visit.offset(1).last.user_username %></p>
+            <p>Emprunté le  __________</p>
+            <p>par  __________</p>
+            <p>Emprunté le  __________</p>
+            <p>par  __________</p>
+            <br>
+      <% elsif @visit.count == 3 %>
+            <br>
+            <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visit.offset(1).last.user_username %></p>
+            <p>Emprunté le  <%= l(@visit.offset(2).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visit.offset(2).last.user_username %></p>
+            <p>Emprunté le  __________</p>
+            <p>par  __________</p>
+            <br>
+      <% elsif @visit.count >= 4 %>
+            <br>
+            <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visit.offset(1).last.user_username %></p>
+            <p>Emprunté le  <%= l(@visit.offset(2).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visit.offset(2).last.user_username %></p>
+            <p>Emprunté le  <%= l(@visit.offset(3).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visit.offset(3).last.user_username %></p>
+            <br>
+      <% else  %>
+        <br>
+        <p>Emprunté le  __________ </p>
+        <p>par  __________</p>
+        <p>Emprunté le  __________</p>
+        <p>par  __________</p>
+        <p>Emprunté le  __________</p>
+        <p>par  __________</p>
+        <br>
+      <% end %>
+    </div>
+    <br>
+    <div id="annotations" class="annotations text-justify">
+
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://viensfairetesdevoirs.com/posts/<%= @post.id %>" target="_blank">
+        <button class="btn btn-primary">
+          <i class="fa fa-facebook"></i> Partager
+        </button>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au C.D.I" %>&url=http://viensfairetesdevoirs.com/posts/<%= @post.id %>&via=ViensFTD" target="blank" class="decoration_none">
+        <button class="btn btn-info">
+          <i class="fa fa-twitter"></i> Twitter
+        </button>
+      </a>
+
+      <p><%= render @post.comments.order('created_at ASC' ) %><p>
+      <p><%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %></p>
+
+    </div>
+  </div>
+</div>
+
+<p><a class="btn btn-default" href="/posts" role="button">Retour</a></p>
