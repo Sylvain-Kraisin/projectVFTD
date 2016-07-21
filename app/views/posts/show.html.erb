@@ -7,7 +7,7 @@
 <% end %>
 
 
-<% content_for :facebook do %>
+<% content_for :facebook, flush: true do %>
   <meta property="og:title" content="<%= @post.title %>" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="http://viensfairetesdevoirs.com/pages/blog" />
