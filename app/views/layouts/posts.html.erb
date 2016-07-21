@@ -8,42 +8,27 @@
 
 
   <!-- for Google -->
-  <% if @post.present? %>
     <meta name="description" content="Le C.D.I" />
     <meta name="keywords" content="ecole retrogaming mario zelda nintendo cdi" />
     <meta name="author" content="<%= @post.author %>" />
     <meta name="copyright" content="Sylvain Kraisin" />
     <meta name="application-name" content="ViensFaireTesDevoirs" />
-  <% else %>
-    <meta name="description" content="Ecole de Retrogaming" />
-    <meta name="keywords" content="retrogaming ecole mario zelda nintendo dst" />
-    <meta name="author" content="VFTD" />
-    <meta name="copyright" content="Sylvain Kraisin" />
-    <meta name="application-name" content="ViensFaireTesDevoirs" />
-  <% end %>
+
 
   <!-- for Facebook -->
 
-  <% if @post.present? %>
     <meta property="og:title" content="<%= @post.title %>" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://viensfairetesdevoirs.com/pages/blog" />
-    <meta property="og:image" content="<%= image_tag @post.post_img.url(:post_show) %>" />
+    <meta property="og:image" content="<%= @post.post_img.url(:post_show) %>" />
     <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
-  <% else %>
-    <meta property="og:title" content="L'Ecole du Retrogaming" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="<%= asset_path('pixelsite.png') %>" />
-    <meta property="og:url" content="http://viensfairetesdevoirs.com" />
-    <meta property="og:description" content="Rejoins la première école de retrogaming du net" />
-
-  <% end %>
 
 
-  <meta name="twitter:card" content="L'Ecole du Retrogaming" />
-  <meta name="twitter:title" content="Ecole de Retrogaming" />
-  <meta name="twitter:description" content="La 1ere école de Retrogaming du net" />
-  <meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
+
+  <meta name="twitter:card" content="Le CDI" />
+  <meta name="twitter:title" content="<%= @post.title %>" />
+  <meta name="twitter:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
+  <meta name="twitter:image" content="<%= @post.post_img.url(:post_show) %>" />
 
   <link rel="icon" href="<%= asset_path('mudorapost.png') %>" />
   <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
