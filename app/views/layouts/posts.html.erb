@@ -20,16 +20,9 @@
 
   <!-- for Facebook -->
 
-  <% if content_for?(:facebook) %>
-    <%= yield :facebook %>
-  <% else %>
-    <meta property="og:title" content="L'Ecole du Retrogaming" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="<%= asset_path('pixelsite.png') %>" />
-    <meta property="og:url" content="www.viensfairetesdevoirs.com" />
-    <meta property="og:description" content="Rejoins la première école de retrogaming du net" />
 
-  <% end %>
+    <%= yield :facebook %>
+
 
 
   <meta name="twitter:card" content="L'Ecole du Retrogaming" />
