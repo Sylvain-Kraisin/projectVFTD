@@ -1,3 +1,20 @@
+<% content_for :google do %>
+  <meta name="description" content="Le C.D.I" />
+  <meta name="keywords" content="ecole retrogaming mario zelda nintendo cdi" />
+  <meta name="author" content="<%= @post.author %>" />
+  <meta name="copyright" content="Sylvain Kraisin" />
+  <meta name="application-name" content="ViensFaireTesDevoirs" />
+<% end %>
+
+
+<% content_for :facebook do %>
+  <meta property="og:title" content="<%= @post.title %>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://viensfairetesdevoirs.com/pages/blog" />
+  <meta property="og:description" content="Rejoins la première école de retrogaming du net" />
+<% end %>
+
+
   <div class ="row">
     <div class= "article col-sm-9 col-xs-12 text-center">
       <article>
@@ -70,6 +87,17 @@
       </div>
       <br>
       <div id="annotations" class="annotations text-justify">
+
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank">
+          <button class="btn btn-primary">
+            <i class="fa fa-facebook"></i> Partager
+          </button>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au C.D.I" %>&url=<%= request.original_url %>&via=ViensFTD" target="blank" class="decoration_none">
+          <button class="btn btn-info">
+            <i class="fa fa-twitter"></i> Twitter
+          </button>
+        </a>
 
         <p><%= render @post.comments.order('created_at ASC' ) %><p>
         <p><%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %></p>

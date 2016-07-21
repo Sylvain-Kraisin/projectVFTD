@@ -35,39 +35,39 @@ class User < ActiveRecord::Base
    end
 
   def add_classroom
-    if User.first(32).map(&:id).include? self.id
+    if User.first(32).pluck(:id).include? self.id
       self.classroom = 'Hanafuda'
       save
     end
-    if (User.order(created_at: :asc).offset(32).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(64).map(&:id).include? self.id)
+    if User.order(created_at: :asc).offset(32).limit(32).pluck(:id).include? self.id
       self.classroom = 'Game&Watch'
       save
     end
-    if (User.order(created_at: :asc).offset(64).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(96).map(&:id).include? self.id)
+    if User.order(created_at: :asc).offset(64).limit(32).pluck(:id).include? self.id
       self.classroom = 'DonkeyKong'
       save
     end
-    if (User.order(created_at: :asc).offset(96).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(128).map(&:id).include? self.id)
+    if User.order(created_at: :asc).offset(96).limit(32).pluck(:id).include? self.id
       self.classroom = 'Jumpman'
       save
     end
-    if (User.order(created_at: :asc).offset(128).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(160).map(&:id).include? self.id)
+    if User.order(created_at: :asc).offset(128).limit(32).pluck(:id).include? self.id
       self.classroom = 'Excitebike'
       save
     end
-    if (User.order(created_at: :asc).offset(160).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(192).map(&:id).include? self.id)
+    if User.order(created_at: :asc).offset(160).limit(32).pluck(:id).include? self.id
       self.classroom = 'DuckHunt'
       save
     end
-    if (User.order(created_at: :asc).offset(192).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(224).map(&:id).include? self.id)
+    if User.order(created_at: :asc).offset(192).limit(32).pluck(:id).include? self.id
       self.classroom = 'Gyromite'
       save
     end
-    if (User.order(created_at: :asc).offset(224).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(256).map(&:id).include? self.id)
+    if User.order(created_at: :asc).offset(224).limit(32).pluck(:id).include? self.id
       self.classroom = 'Metroid'
       save
     end
-    if (User.order(created_at: :asc).offset(256).map(&:id).include? self.id) && (!User.order(created_at: :asc).offset(288).map(&:id).include? self.id)
+    if User.order(created_at: :asc).offset(256).limit(32).pluck(:id).include? self.id
       self.classroom = 'Zelda'
       save
     end

@@ -49,25 +49,49 @@
 }
 
 .lastblue:hover {
-    background-color: rgba(43,74,213, 0.5);
+  background-color: rgba(43,74,213, 0.5);
+
+  -moz-box-shadow: 10px 10px 5px #656565;
+  -webkit-box-shadow: 10px 10px 5px #656565;
+  -o-box-shadow: 10px 10px 5px #656565;
+  box-shadow: 10px 10px 5px #656565;
+filter:progid:DXImageTransform.Microsoft.Shadow(color='#6565', Direction=135, Strength=5);
 }
 
 .lastgreen:hover {
-    background-color: rgba(45,149,48, 0.5);
-    background-image: url('thumb/mudorapost.png');
-    -moz-background-size: contain;
-    -webkit-background-size: contain;
-    background-size: contain;
-    //background-position: top center !important;
-    background-repeat: no-repeat !important;
+  background-color: rgba(45,149,48, 0.5);
+  background-image: url('thumb/mudorapost.png');
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
+  background-size: contain;
+  //background-position: top center !important;
+  background-repeat: no-repeat !important;
+
+  -moz-box-shadow: 10px 10px 5px #656565;
+  -webkit-box-shadow: 10px 10px 5px #656565;
+  -o-box-shadow: 10px 10px 5px #656565;
+  box-shadow: 10px 10px 5px #656565;
+filter:progid:DXImageTransform.Microsoft.Shadow(color='#6565', Direction=135, Strength=5);
 }
 
 .lastyellow:hover {
-    background-color: rgba(253,200,62, 0.5);
+  background-color: rgba(253,200,62, 0.5);
+
+  -moz-box-shadow: 10px 10px 5px #656565;
+  -webkit-box-shadow: 10px 10px 5px #656565;
+  -o-box-shadow: 10px 10px 5px #656565;
+  box-shadow: 10px 10px 5px #656565;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color='#6565', Direction=135, Strength=5);
 }
 
 .lastred:hover {
-    background-color: rgba(251,71,51, 0.5);
+  background-color: rgba(251,71,51, 0.5);
+
+  -moz-box-shadow: 10px 10px 5px #656565;
+  -webkit-box-shadow: 10px 10px 5px #656565;
+  -o-box-shadow: 10px 10px 5px #656565;
+  box-shadow: 10px 10px 5px #656565;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color='#6565', Direction=135, Strength=5);
 }
 
 .topten_avatar {
