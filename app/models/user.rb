@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
    end
 
   def add_classroom
-    if User.first(32).pluck(:id).include? self.id
+    if User.order(created_at: :asc).limit(32).pluck(:id).include? self.id
       self.classroom = 'Hanafuda'
       save
     end
