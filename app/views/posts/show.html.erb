@@ -88,12 +88,12 @@
       <br>
       <div id="annotations" class="annotations text-justify">
 
-        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://viensfairetesdevoirs.com/posts/<%= @post.id %>" target="_blank">
           <button class="btn btn-primary">
             <i class="fa fa-facebook"></i> Partager
           </button>
         </a>
-        <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au C.D.I" %>&url=<%= request.original_url %>&via=ViensFTD" target="blank" class="decoration_none">
+        <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au C.D.I" %>&url=http://viensfairetesdevoirs.com/posts/<%= @post.id %>&via=ViensFTD" target="blank" class="decoration_none">
           <button class="btn btn-info">
             <i class="fa fa-twitter"></i> Twitter
           </button>
