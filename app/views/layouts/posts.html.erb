@@ -20,7 +20,7 @@
     <meta property="og:title" content="<%= @post.title %>" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://viensfairetesdevoirs.com/pages/blog" />
-    <meta property="og:image" content="<%= @post.post_img.url(:post_show) %>" />
+    <meta property="og:image" content="http://viensfairetesdevoirs.com/<%= @post.post_img.url(:post_show) %>" />
     <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
 
 
@@ -28,7 +28,7 @@
   <meta name="twitter:card" content="Le CDI" />
   <meta name="twitter:title" content="<%= @post.title %>" />
   <meta name="twitter:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
-  <meta name="twitter:image" content="<%= @post.post_img.url(:post_show) %>" />
+  <meta name="twitter:image" content="http://viensfairetesdevoirs.com/<%= @post.post_img.url(:post_show) %>" />
 
   <link rel="icon" href="<%= asset_path('mudorapost.png') %>" />
   <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
