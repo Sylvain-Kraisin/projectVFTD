@@ -8,7 +8,7 @@
 
 
   <!-- for Google -->
-  <% if @project.present? %>
+  <% if @post.present? %>
     <meta name="description" content="Le C.D.I" />
     <meta name="keywords" content="ecole retrogaming mario zelda nintendo cdi" />
     <meta name="author" content="<%= @post.author %>" />
@@ -24,7 +24,7 @@
 
   <!-- for Facebook -->
 
-  <% if @project.present? %>
+  <% if @post.present? %>
     <meta property="og:title" content="<%= @post.title %>" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://viensfairetesdevoirs.com/pages/blog" />
