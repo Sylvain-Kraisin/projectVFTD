@@ -1,4 +1,4 @@
-<% content_for :google, flush: true do %>
+<% content_for :google do%>
   <meta name="description" content="Le C.D.I" />
   <meta name="keywords" content="ecole retrogaming mario zelda nintendo cdi" />
   <meta name="author" content="<%= @post.author %>" />
@@ -7,7 +7,7 @@
 <% end %>
 
 
-<% content_for :facebook, flush: true do %>
+<% content_for :facebook do %>
   <meta property="og:title" content="<%= @post.title %>" />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="http://viensfairetesdevoirs.com/<%= @post.post_img.url(:post_index) %>" />
