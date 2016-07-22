@@ -10,7 +10,7 @@
   }
 } */
 .posts {
-  background-image: url('blackboard.jpg');
+  background-image: asset_url('blackboard.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
@@ -19,13 +19,13 @@
 }
 
 .article {
-  background-image: url('page.png');
+  background-image: asset_url('page.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
 .fichecdi {
-  background-image: url('bristol.gif');
+  background-image: asset_url('bristol.gif');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin-left: 10%;

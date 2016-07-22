@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .consoles {
-  background-image: url('backgroundwood.jpg');
+  background-image: asset_url('backgroundwood.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;

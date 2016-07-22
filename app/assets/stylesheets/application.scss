@@ -276,7 +276,7 @@ html, body {
 }
 
 .home_modal {
-  background-image: url('wallpaper-milky.jpg');
+  background-image: asset_url('wallpaper-milky.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;

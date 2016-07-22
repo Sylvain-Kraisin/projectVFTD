@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .comments {
-  background-image: url('blackboard.jpg');
+  background-image: asset_url('blackboard.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
