@@ -22,6 +22,18 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url("pages.scss");
+ @import url("adminpage.scss");
+ @import url("comments.scss");
+ @import url("confirmations.scss");
+ @import url("consoles.scss");
+ @import url("passwords.scss");
+ @import url("posts.scss");
+ @import url("registrations.scss");
+ @import url("reponses.scss");
+ @import url("sessions.scss");
+ @import url("tests.scss");
+ @import url("videos.scss");
 
  body {
    .navbar-default {
