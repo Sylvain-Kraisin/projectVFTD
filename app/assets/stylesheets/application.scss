@@ -45,22 +45,22 @@
 
  @font-face {
        font-family: "PWChalk";
-       src: font-url(PWChalk.ttf) format("truetype");
+       src: asset_url("PWChalk.ttf") format("truetype");
  }
 
  @font-face {
         font-family: "Stabilo";
-        src: font-url(Lenka_stabilo.ttf) format("truetype");
+        src: asset_url("Lenka_stabilo.ttf") format("truetype");
  }
 
  @font-face {
         font-family: "Arcade";
-        src: font-url(ARCADE_N.ttf) format("truetype");
+        src: asset_url("ARCADE_N.ttf") format("truetype");
  }
 
  @font-face {
         font-family: "Stylo";
-        src: font-url(handwrited.ttf) format("truetype");
+        src: asset_url("handwrited.ttf") format("truetype");
  }
 
 .navbar-nav {
