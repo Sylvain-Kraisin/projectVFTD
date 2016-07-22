@@ -20,20 +20,20 @@
 
 
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import url("pages.scss");
- @import url("adminpage.scss");
- @import url("comments.scss");
- @import url("confirmations.scss");
- @import url("consoles.scss");
- @import url("passwords.scss");
- @import url("posts.scss");
- @import url("registrations.scss");
- @import url("reponses.scss");
- @import url("sessions.scss");
- @import url("tests.scss");
- @import url("videos.scss");
+ // @import "bootstrap-sprockets";
+ // @import "bootstrap";
+ // @import url("pages.scss");
+ // @import url("adminpage.scss");
+ // @import url("comments.scss");
+ // @import url("confirmations.scss");
+ // @import url("consoles.scss");
+ // @import url("passwords.scss");
+ // @import url("posts.scss");
+ // @import url("registrations.scss");
+ // @import url("reponses.scss");
+ // @import url("sessions.scss");
+ // @import url("tests.scss");
+ // @import url("videos.scss");
 
  body {
    .navbar-default {
@@ -45,22 +45,22 @@
 
  @font-face {
        font-family: "PWChalk";
-       src: url(PWChalk.ttf) format("truetype");
+       src: asset_url(PWChalk.ttf) format("truetype");
  }
 
  @font-face {
         font-family: "Stabilo";
-        src: url(Lenka_stabilo.ttf) format("truetype");
+        src: asset_url(Lenka_stabilo.ttf) format("truetype");
  }
 
  @font-face {
         font-family: "Arcade";
-        src: url(ARCADE_N.ttf) format("truetype");
+        src: asset_url(ARCADE_N.ttf) format("truetype");
  }
 
  @font-face {
         font-family: "Stylo";
-        src: url(handwrited.ttf) format("truetype");
+        src: asset_url(handwrited.ttf) format("truetype");
  }
 
 .navbar-nav {
