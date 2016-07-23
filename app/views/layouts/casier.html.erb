@@ -75,7 +75,11 @@
           <ul class="nav navbar-nav navbar-right">
               <li class="text-center"><%= link_to "COURS", pages_videos_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
               <li class="text-center"><%= link_to "C.D.I", posts_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
+            <% if user_signed_in? %>
+              <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com/login" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
+            <% else %>
               <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
+            <% end %>
               <li class="text-center"><%= link_to "CASIER", pages_casier_path, style: "color: #ff471a", class: "craietext" %></li>
               <li class="text-center"><%= link_to "F.A.Q", pages_faq_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
               <li class="text-center"><%= link_to "COOPERATIVE", pages_cooperative_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>

@@ -37,6 +37,7 @@ layout :resolve_layout
     @goodusers_two = User.where(role:nil)
     @rank = @goodusers_two.order('sign_in_count desc').index(@user)
     @ranknote = @goodusers.order('score desc').index(@user)
+    @camarades = User.where(classroom:@user.classroom).where.not(username:@user.username)
 
   end
 

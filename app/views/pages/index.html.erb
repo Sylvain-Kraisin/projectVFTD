@@ -6,6 +6,9 @@
       <p><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></p>
     </a>
     <h4 class="craietext" style="color:white"><em><%= @user.username.upcase %><br>
+      <% if @user.classroom.present? %>
+        <h4>CLASSE <%= @user.classroom.upcase %></h4>
+      <% end %>
       <% if @user.score == nil || @user.score == 0  %>
         <span style="color:#bfbfbf"> 0 PTS</span></em></h4>
       <% else %>

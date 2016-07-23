@@ -1,5 +1,8 @@
 <div style="color:white" class="row transtext craietext text-center">
   <h2 ><em>CASIER DE "<%= @user.username.upcase %>"</em></h2>
+  <% if @user.classroom.present? %>
+    <h4>CLASSE <%= @user.classroom.upcase %></h4>
+  <% end %>
   <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
 
 <br>
@@ -82,6 +85,23 @@
     <h4><a href="/posts/<%= @lastpost.id %>"><%= image_tag @lastpost.post_img.url(:post_show), class:"img-responsive center-block" %></a></h4>
     <h4><%= @lastpost.title.upcase %></h4>
     <% end %>
+
+  <br>
+    <h4>MES CAMARADES DE CLASSE</h4>
+    <br>
+    <div class="col-xs-12" >
+
+      <% @camarades.each do | camarade | %>
+
+        <div class="col-xs-6 col-md-4 col-xl-3">
+          <p><%= image_tag camarade.avatar.url(:thumb), class:"topten_avatar" %></p>
+          <a href="http://discourse.viensfairetesdevoirs.com/users/<%= camarade.username %>/activity" target="_blank">
+            <%= camarade.username.upcase %>
+          </a>
+        </div>
+
+      <% end %>
+    </div>
 
   </div>
 
