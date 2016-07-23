@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   after_validation :add_bonus_to_score, if: :bonus_changed?
   after_commit :add_classroom, unless: :classroom?
+  after_create :open_forum
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ":style/avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -24,6 +25,10 @@ class User < ActiveRecord::Base
     }
 
   private
+
+  def open_forum
+      open("http://discourse.viensfairetesdevoirs.com/login")
+  end
 
    def set_default_score
      self.score  ||= 0
