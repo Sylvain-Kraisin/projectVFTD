@@ -60,14 +60,18 @@ class User < ActiveRecord::Base
       save
     end
     if User.order(created_at: :asc).offset(192).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Gyromite'
+      self.classroom = 'R.O.B'
       save
     end
     if User.order(created_at: :asc).offset(224).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Metroid'
+      self.classroom = 'Luigi'
       save
     end
     if User.order(created_at: :asc).offset(256).limit(32).pluck(:id).include? self.id
+      self.classroom = 'Metroid'
+      save
+    end
+    if User.order(created_at: :asc).offset(288).limit(32).pluck(:id).include? self.id
       self.classroom = 'Zelda'
       save
     end
