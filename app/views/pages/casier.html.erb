@@ -93,10 +93,9 @@
 
       <% @camarades.each do | camarade | %>
 
-        <div class="col-xs-6 col-md-4 col-xl-3">
-          <p><%= image_tag camarade.avatar.url(:thumb), class:"topten_avatar" %></p>
+        <div class="col-xs-4 col-md-3 col-lg-2">
           <a href="http://discourse.viensfairetesdevoirs.com/users/<%= camarade.username %>/activity" target="_blank">
-            <%= camarade.username.upcase %>
+            <p><%= image_tag camarade.avatar.url(:thumb), class:"topten_avatar", title:camarade.username %></p>
           </a>
         </div>
 
