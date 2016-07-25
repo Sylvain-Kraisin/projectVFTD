@@ -5,34 +5,29 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <!-- for Google -->
+<!-- for Google -->
   <meta name="description" content="Ecole de Retrogaming" />
   <meta name="keywords" content="retrogaming ecole mario zelda nintendo dst" />
-
   <meta name="author" content="VFTD" />
   <meta name="copyright" content="Sylvain Kraisin" />
   <meta name="application-name" content="ViensFaireTesDevoirs" />
-
 <!-- for Facebook -->
-<% if content_for?(:facebook) %>
-  <%= content_for :facebook %>
-<% else %>
   <meta property="og:title" content="L'Ecole du Retrogaming" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="<%= asset_path('pixelsite.png') %>" />
   <meta property="og:url" content="http://viensfairetesdevoirs.com" />
   <meta property="og:description" content="Rejoins la première école de retrogaming du net" />
-<% end %>
-
-
+<!-- for Twitter -->
   <meta name="twitter:card" content="L'Ecole du Retrogaming" />
   <meta name="twitter:title" content="Ecole de Retrogaming" />
   <meta name="twitter:description" content="La 1ere école de Retrogaming du net" />
   <meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
+<!-- for favicon -->
+  <link rel="icon" type="image/png" href="<%= asset_path('/medium/avatar.png') %>" sizes="32x32" />
+  <link rel="icon" type="image/png" href="<%= asset_path('/medium/avatar.png') %>" sizes="16x16" />
+  <link rel="icon" type="image/png" href="<%= asset_path('/medium/avatar.png') %>" />
 
-  <link rel="icon" href="<%= asset_path('mudorapost.png') %>" />
+
   <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
   <link rel="shortcut icon" href="<%= asset_path('mudorapost.png') %>"  type="image/x-icon" />
   <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('mudorapost.png') %>" />
@@ -92,11 +87,8 @@
           <ul class="nav navbar-nav navbar-right">
               <li class="text-center"><%= link_to "COURS", pages_videos_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
               <li class="text-center"><%= link_to "C.D.I", posts_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
-            <% if user_signed_in? %>
-              <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com/login" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
-            <% else %>
+              <
               <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
-            <% end %>
               <li class="text-center"><%= link_to "CASIER", pages_casier_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#ff471a'", onmouseout: "this.style.color='white'" %></li>
               <li class="text-center"><%= link_to "F.A.Q", pages_faq_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
               <li class="text-center"><%= link_to "COOPERATIVE", pages_cooperative_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
