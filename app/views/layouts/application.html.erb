@@ -23,15 +23,18 @@
   <meta name="twitter:description" content="La 1ere école de Retrogaming du net" />
   <meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
 <!-- for favicon -->
-  <link rel="icon" type="image/png" href="<%= asset_path('/medium/avatar.png') %>" sizes="32x32" />
-  <link rel="icon" type="image/png" href="<%= asset_path('/medium/avatar.png') %>" sizes="16x16" />
-  <link rel="icon" type="image/png" href="<%= asset_path('/medium/avatar.png') %>" />
+  <link rel="icon" type="image/png" href="<%= asset_path('medium/avatar.png') %>" sizes="32x32" />
+  <link rel="icon" type="image/png" href="<%= asset_path('medium/avatar.png') %>" sizes="16x16" />
+  <link rel="icon" type="image/png" href="<%= asset_path('medium/avatar.png') %>" />
+
+  <link rel="shortcut icon" href="<%= asset_path('medium/avatar.png') %>"  type="image/x-icon" />
+  <meta name="msapplication-TileImage" content="<%= asset_path('medium/avatar.png') %>" />
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('medium/avatar.png') %>" />
+
+
 
 
   <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
-  <link rel="shortcut icon" href="<%= asset_path('mudorapost.png') %>"  type="image/x-icon" />
-  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('mudorapost.png') %>" />
-  <meta name="msapplication-TileImage" content="<%= asset_path('mudorapost.png') %>" />
   <title>ViensFaireTesDevoirs</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
