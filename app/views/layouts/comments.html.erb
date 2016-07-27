@@ -5,38 +5,29 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <!-- for Google -->
+<!-- for Google -->
   <meta name="description" content="Ecole de Retrogaming" />
   <meta name="keywords" content="retrogaming ecole mario zelda nintendo dst" />
-
   <meta name="author" content="VFTD" />
   <meta name="copyright" content="Sylvain Kraisin" />
   <meta name="application-name" content="ViensFaireTesDevoirs" />
-
 <!-- for Facebook -->
-<% if content_for?(:facebook) %>
   <%= content_for :facebook %>
-<% else %>
-  <meta property="og:title" content="L'Ecole du Retrogaming" />
+  <!-- <meta property="og:title" content="L'Ecole du Retrogaming" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="<%= asset_path('pixelsite.png') %>" />
   <meta property="og:url" content="http://viensfairetesdevoirs.com" />
-  <meta property="og:description" content="Rejoins la première école de retrogaming du net" />
-<% end %>
-
-
+  <meta property="og:description" content="Rejoins la première école de retrogaming du net" /> -->
+<!-- for Twitter -->
   <meta name="twitter:card" content="L'Ecole du Retrogaming" />
   <meta name="twitter:title" content="Ecole de Retrogaming" />
   <meta name="twitter:description" content="La 1ere école de Retrogaming du net" />
   <meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
+<!-- for favicon -->
+  <%= render 'favicon' %>
 
-  <link rel="icon" href="<%= asset_path('mudorapost.png') %>" />
+
   <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
-  <link rel="shortcut icon" href="<%= asset_path('mudorapost.png') %>"  type="image/x-icon" />
-  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('mudorapost.png') %>" />
-  <meta name="msapplication-TileImage" content="<%= asset_path('mudorapost.png') %>" />
   <title>ViensFaireTesDevoirs</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
