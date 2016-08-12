@@ -121,7 +121,6 @@
     <a href="/videos/<%= Video.last.id %>">
       <div class= " col-sm-3 col-xs-12">
         <% if Video.exists? %>
-
         <div class="lasttext lastblue col-sm-12">
           <h4 class="craietext">DERNIER COURS</h4>
           <p class="craietext"><%= @video.title.upcase %> <%= image_tag @console.console_img.url, class:"consoleimg_small" %></p>
@@ -134,7 +133,6 @@
     <a href="/posts/<%= Post.last.id %>">
       <div class= " col-sm-3 col-xs-12">
         <% if Post.exists? %>
-
          <div class="lasttext lastgreen col-sm-12">
           <h4 class="craietext">DERNIER LIVRE</h4>
           <p class="craietext"><%= @post.title.upcase %></p>

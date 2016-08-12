@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to t('accueil').upcase, root_path, class: "navbar-brand craietext", style: "color: white", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+
+        <% if user_signed_in? %>
+          <li class="text-center"><%= link_to t('deconnexion').upcase, destroy_user_session_path, method: :delete, style: "color: white", class: "craietext", onmouseover: "this.style.color='#ff471a'", onmouseout: "this.style.color='white'" %></li>
+        <% else %>
+          <li class="text-center"><%= link_to t('connexion').upcase, new_user_session_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
+          <li class="text-center"><%= link_to t("s_inscrire").upcase, new_user_registration_path, style: "color: #e5e600", class: "craietext" %></li>
+        <% end %>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li class="text-center"><%= link_to "COURS", pages_videos_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
+          <li class="text-center"><%= link_to "C.D.I", posts_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
+        <% if user_signed_in? %>
+          <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com/login" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
+        <% else %>
+          <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
+        <% end %>
+          <li class="text-center"><%= link_to "CASIER", pages_casier_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#ff471a'", onmouseout: "this.style.color='white'" %></li>
+          <li class="text-center"><%= link_to "F.A.Q", pages_faq_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
+          <li class="text-center"><%= link_to "COOPERATIVE", pages_cooperative_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
+      </ul>
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  add_template_helper(EmailHelper)
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -18,5 +19,13 @@ class UserMailer < ApplicationMailer
     @user = @reponse.user_username
     @subject = 'Nouveau DST de ' + @user + ' à corriger'
     mail to: "viensfairetesdevoirs@gmail.com", subject: @subject
+  end
+
+  def notify_author comment
+    @comment = comment
+    @post = @comment.post
+    @author_email = User.find_by(username:@post.author).email
+    @subject =  @comment.user_username + ' à annoter ton livre'
+    mail to: @author_email, subject: @subject
   end
 end

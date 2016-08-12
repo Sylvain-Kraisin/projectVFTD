@@ -55,8 +55,6 @@ gem 'jssocials-rails'
 gem 'bootbox-rails', '~>0.4'
 #jquery turbolinks
 gem 'jquery-turbolinks'
-#favicon gestion
-gem 'rails_real_favicon'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
