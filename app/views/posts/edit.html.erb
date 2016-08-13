@@ -7,7 +7,7 @@
   <%= f.input :content, as: :text, input_html: {maxlength: 99999999, rows: 15} %>
   <%= f.input :author %>
   <%= f.file_field :post_img %>
-  <%= f.select :category_id, @categories %>
+  <%= f.association :category, prompt:("Choisir la matière") %>
   <%= f.button :submit %>
 <% end %>
 

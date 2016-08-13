@@ -1,7 +1,6 @@
 <%= simple_form_for @test do |f| %>
-  <%= f.input :console_id %>
-  <%= select_tag(:video_title, options_for_select(@videos2), :prompt => "Choisir la video_id" ) %>
-  <%= select_tag(:video_id, options_for_select(@videos), :prompt => "Choisir la video" ) %>
+  <%= f.association :console, prompt:('Choisir la console') %>
+  <%= f.association :video, prompt:('Choisir la vidéo') %>
   <%= f.input :question_1 %>
   <%= f.input :answer_1 %>
   <%= f.input :question_2 %>

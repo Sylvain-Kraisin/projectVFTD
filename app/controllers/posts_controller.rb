@@ -10,13 +10,16 @@ class PostsController < ApplicationController
       @posts = Post.page(params[:page]).per(24).order("created_at DESC")
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @posts = Post.where(:category_id => @category_id).page(params[:page]).per(6).order("created_at DESC")
+      @posts = Post.where(:category_id => @category_id).page(params[:page]).per(24).order("created_at DESC")
     end
+  end
+
+  def new
+    @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
-    @post.category_id = params[:category_id]
 
     if @post.save
       redirect_to posts_path
@@ -25,14 +28,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    @post = Post.new
-    @categories = Category.all.map{ |c| [c.name, c.id]}
-
-  end
-
   def edit
-    @categories = Category.all.map{ |c| [c.name, c.id]}
   end
 
   def show
@@ -41,7 +37,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @categories = Category.all.map{ |c| [c.name, c.id]}
     if @post.update(post_params)
       redirect_to post_path(@post)
     else

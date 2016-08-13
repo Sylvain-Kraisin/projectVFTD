@@ -1,7 +1,7 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.index, .cooperative, .correspondances, .faq, .halloffame, .pages.videos {
+.index, .cooperative, .correspondances, .halloffame, .faq, .pages.videos {
   background-image: asset_url('blackboard.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -17,6 +17,10 @@
   background-size: cover;
   background-position: top center !important;
 }
+
+// .faq {
+//   background-color: #1a1a1a
+// }
 
 .doors {
   width: 128px;

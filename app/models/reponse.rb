@@ -16,16 +16,13 @@ belongs_to :user, dependent: :destroy
   #un meme user ne peut creer 2 fois une reponse
   validates :user_username, uniqueness: { scope: [:user_username, :test_id], message: 'Tu as déjà passé ce DST !'}
 
-  after_validation :update_total
-  after_update :user_average, if: :total_changed?
-  after_update :update_score, if: :total_changed?
-
-  after_update :correction, if: :total_changed?
-
   after_create :acorriger
 
-  #mis de coté pour l'instant
-  #@bigtotal = Reponse.all.map { |reponse| reponse.total }
+  after_validation :update_total
+
+  after_update :user_average, if: :total_changed?
+  after_update :update_score, if: :total_changed?
+  after_update :correction, if: :total_changed?
 
 
   def correction

@@ -6,10 +6,13 @@ before_filter :admin?, only: [:new, :create, :edit, :update]
   def index
   end
 
+  def new
+    @test = Test.new
+  end
+
   def create
     @test = Test.new(test_params)
-    @test.video_id = params[:video_id]
-    @test.video_title = params[:video_title]
+    @test.video_title = Video.find(@test.video_id).title
 
     if @test.save
       redirect_to pages_adminpage_path
@@ -18,23 +21,13 @@ before_filter :admin?, only: [:new, :create, :edit, :update]
     end
   end
 
-  def new
-    @test = Test.new
-    @videos = Video.all.map{ |c| [c.title, c.id]}
-    @videos2 = Video.all.map{ |v| [v.id, v.title]}
-  end
-
   def edit
-    @videos = Video.all.map{ |c| [c.title, c.id]}
-    @videos2 = Video.all.map{ |v| [v.id, v.title]}
   end
 
   def show
   end
 
   def update
-    @videos = Video.all.map{ |c| [c.title, c.id]}
-    @videos2 = Video.all.map{ |v| [v.id, v.title]}
     if @test.update(test_params)
       redirect_to pages_adminpage_path
     else
