@@ -9,7 +9,7 @@
 <%= simple_form_for @post, :html => { :multipart => true } do |f| %>
   <%= f.input :title %>
   <%= f.input :content, as: :text, input_html: {maxlength: 99999999, rows: 15} %>
-  <%= f.input :author %>
+  <%= f.input :author, value: current_user.username  %>
   <%= f.file_field :post_img %>
   <%= f.association :category, prompt:("Choisir la matière") %>
   <%= f.button :submit %>
