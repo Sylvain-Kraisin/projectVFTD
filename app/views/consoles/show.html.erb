@@ -10,7 +10,6 @@
     <% i = 0 %>
     <% @videok.each do |video| %>
     <% i += 1 %>
-    <h1 style="color:white" class="col-xs-12 feutretext text-center">------------</h1>
     <div class="col-sm-12">
     <div class="hidden-xs col-sm-6 text-left">
       <div class="infogame pull-right">
@@ -26,11 +25,12 @@
     <br>
 
       <div class="col-xs-12 col-sm-6 text-center">
-        <div class="<%= video.style %> " >
+        <div class="<%= video.style %>" >
+            <br>
             <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p>
             <br>
             <a href="/videos/<%= video.id %>" role="button" class="select_button" ><strong>PRESS START</strong></a>
-
+            <p></p>
         </div>
 
       </div>
