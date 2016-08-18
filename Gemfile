@@ -60,6 +60,9 @@ gem 'carrierwave'
 #image management
 gem "mini_magick"
 
+#for posts/publication
+gem 'redactor-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
