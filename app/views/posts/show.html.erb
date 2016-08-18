@@ -23,7 +23,7 @@
       <h2 class="posttitle text-center"><%= @post.title %></h2>
       <br>
       <div class="texte text-justify">
-      <p><%=raw markdownadmin.render @post.content %></p>
+      <p><%= @post.content.html_safe %></p>
       <!-- <p><%= @post.content.length %></p> -->
 
 

@@ -18,4 +18,5 @@
 //= require konami
 //= require countdown
 //= require redactor-rails
-//= require config
+//= require redactor-rails/config
+//= require redactor-rails/langs/fr
