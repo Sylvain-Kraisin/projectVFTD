@@ -56,6 +56,9 @@ gem 'bootbox-rails', '~>0.4'
 #jquery turbolinks
 gem 'jquery-turbolinks'
 
+#better than paperclip
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
