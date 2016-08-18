@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818100937) do
+ActiveRecord::Schema.define(version: 20160818122528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,11 +58,9 @@ ActiveRecord::Schema.define(version: 20160818100937) do
   end
 
   create_table "redactor_assets", force: :cascade do |t|
-    t.integer  "user_id"
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
     t.integer  "data_file_size"
-    t.datetime "data_updated_at"
     t.integer  "assetable_id"
     t.string   "assetable_type",    limit: 30
     t.string   "type",              limit: 30

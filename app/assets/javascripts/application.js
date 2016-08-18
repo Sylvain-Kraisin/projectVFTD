@@ -17,6 +17,5 @@
 //= require bootbox
 //= require konami
 //= require countdown
-//= require redactor
+//= require redactor-rails
 //= require config
-//= require plugins
