@@ -46,7 +46,22 @@
     "accessibility-help-label": "Editeur de texte enrichi",
     "caption": "Caption",
     "bulletslist": "Bullets",
-    "numberslist": "Numbers"
+    "numberslist": "Numbers",
+    "alignment": "Aligner",
+    "align_left": "Aligner à gauche",
+    "align_center": "Aligner au centre",
+    "align_right": "Aligner à droite",
+    "align_justify": "Justifier le texte",
+    "formatting": 'Formats',
+    "normal-text": "Normal",
+    "normal": "Normal",
+    "quote": "Citation",
+    "code": "Code",
+    "header1": "Titre 1",
+    "header2": "Titre 2"
+
+
+
 };
 
 })(jQuery);
