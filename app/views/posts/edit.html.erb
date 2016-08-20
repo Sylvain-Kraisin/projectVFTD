@@ -4,14 +4,19 @@
 
 <div>
 
-<h1 class="craietext">Modifier l'Article</h1>
+<h1 style="color:#FFFFFF">Modifier l'Article</h1>
 
 <%= simple_form_for @post, :html => { :multipart => true } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content, as: :text, input_html: {maxlength: 99999999, rows: 15, class:'redactor'} %>
-  <%= f.input :author, value: current_user.username  %>
-  <%= f.file_field :post_img %>
-  <%= f.association :category, prompt:("Choisir la matière") %>
+  <label style="color:#FFFFFF">TITRE</label>
+  <%= f.input :title, label: false, input_html: {maxlength: 50} %>
+  <label style="color:#FFFFFF">CONTENU</label>
+  <%= f.input :content, as: :text, input_html: {maxlength: 999999, rows: 15, class:'redactor'}, label: false %>
+  <label style="color:#FFFFFF">AUTEUR</label>
+  <%= f.input :author, label: false  %>
+  <label style="color:#FFFFFF">IMAGE DE L'ARTICLE</label>
+  <%= f.file_field :post_img, label: false %>
+  <label style="color:#FFFFFF">CATEGORIE</label>
+  <%= f.association :category, prompt:("Choisir la matière"), label: false %>
   <%= f.button :submit %>
 <% end %>
 
