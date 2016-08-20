@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :create_visit, only: [:show]
-  before_filter :bibliothequaire?, only: [:new, :create, :edit, :update]
-  before_filter :admin?, only: :destroy
+  before_filter :librarian?, only: [:edit, :update]
+  before_filter :admin?, only: [:new, :create, :destroy]
 
   def index
     @categories = Category.all
@@ -50,6 +50,15 @@ class PostsController < ApplicationController
   end
 
   private
+
+    def librarian?
+      if signed_in?
+        redirect_to root_path unless current_user.librarian? && current_user.username == @post.author || current_user.role == "admin"
+      else
+        redirect_to root_path
+      end
+    end
+
     def post_params
       params.require(:post).permit(:title, :content, :author, :category_id, :post_img)
     end

@@ -18,14 +18,6 @@ class ApplicationController < ActionController::Base
    end
  end
 
- def bibliothequaire?
-   if signed_in?
-     redirect_to root_path unless current_user.role == "admin" || current_user.role == "bibliothequaire"
-   else
-     redirect_to root_path
-   end
- end
-
  def configure_permitted_parameters
   devise_parameter_sanitizer.for(:sign_up) << :username
   devise_parameter_sanitizer.for(:sign_up) << :presence
