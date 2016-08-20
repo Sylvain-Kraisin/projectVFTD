@@ -58,9 +58,10 @@
     "quote": "Citation",
     "code": "Code",
     "header1": "Titre 1",
-    "header2": "Titre 2"
-
-
+    "header2": "Titre 2",
+    "header3": "Titre 3",
+    "header4": "Titre 4",
+    "header5": "Titre 5"
 
 };
 
