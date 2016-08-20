@@ -43,7 +43,6 @@ gem "figaro"
 gem 'thin', '~> 1.6', '>= 1.6.4'
 #paperclip for upload images
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
-
 gem 'paperclip_i18n', '~> 0.1.0'
 #gem for pagination
 gem 'kaminari', '~> 0.16.3'
@@ -55,6 +54,15 @@ gem 'jssocials-rails'
 gem 'bootbox-rails', '~>0.4'
 #jquery turbolinks
 gem 'jquery-turbolinks'
+
+#better than paperclip
+gem 'carrierwave'
+#image management
+gem "mini_magick"
+
+#for posts/publication
+gem 'redactor-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
