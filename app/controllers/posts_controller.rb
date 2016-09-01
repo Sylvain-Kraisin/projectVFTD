@@ -33,7 +33,6 @@ class PostsController < ApplicationController
 
   def show
     @split = @post.content.split(" ")
-
   end
 
   def update
