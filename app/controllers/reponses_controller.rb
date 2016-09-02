@@ -8,6 +8,9 @@ before_filter :authenticate_user!, only: [:new, :create, :show]
 
 
     def show
+      if @reponse.test_id != @test.id
+        redirect_to root_path
+      end
       @user = current_user
     end
 
