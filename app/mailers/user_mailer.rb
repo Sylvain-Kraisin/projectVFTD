@@ -23,9 +23,9 @@ class UserMailer < ApplicationMailer
 
   def notify_author comment
     @comment = comment
-    @post = @comment.post
+    @post = comment.post
     @author_email = User.find_by(username:@post.author).email
-    @subject =  @comment.user_username + ' à annoter ton livre'
+    @subject =  comment.user_username + ' à annoter ton livre'
     mail to: @author_email, subject: @subject
   end
 end
