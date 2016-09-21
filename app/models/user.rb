@@ -38,51 +38,39 @@ class User < ActiveRecord::Base
     if User.order(created_at: :asc).limit(32).pluck(:id).include? self.id
       self.classroom = 'Hanafuda'
       save
-    end
-    if User.order(created_at: :asc).offset(32).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(32).limit(32).pluck(:id).include? self.id
       self.classroom = 'Game&Watch'
       save
-    end
-    if User.order(created_at: :asc).offset(64).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(64).limit(32).pluck(:id).include? self.id
       self.classroom = 'DonkeyKong'
       save
-    end
-    if User.order(created_at: :asc).offset(96).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(96).limit(32).pluck(:id).include? self.id
       self.classroom = 'Jumpman'
       save
-    end
-    if User.order(created_at: :asc).offset(128).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(128).limit(32).pluck(:id).include? self.id
       self.classroom = 'Excitebike'
       save
-    end
-    if User.order(created_at: :asc).offset(160).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(160).limit(32).pluck(:id).include? self.id
       self.classroom = 'DuckHunt'
       save
-    end
-    if User.order(created_at: :asc).offset(192).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(192).limit(32).pluck(:id).include? self.id
       self.classroom = 'R.O.B'
       save
-    end
-    if User.order(created_at: :asc).offset(224).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(224).limit(32).pluck(:id).include? self.id
       self.classroom = 'Luigi'
       save
-    end
-    if User.order(created_at: :asc).offset(256).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(256).limit(32).pluck(:id).include? self.id
       self.classroom = 'Metroid'
       save
-    end
-    if User.order(created_at: :asc).offset(288).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(288).limit(32).pluck(:id).include? self.id
       self.classroom = 'Zelda'
       save
-    end
-    if User.order(created_at: :asc).offset(320).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(320).limit(32).pluck(:id).include? self.id
       self.classroom = 'Link'
       save
-    end
-    if User.order(created_at: :asc).offset(352).limit(32).pluck(:id).include? self.id
+    elsif User.order(created_at: :asc).offset(352).limit(32).pluck(:id).include? self.id
       self.classroom = 'Koopa'
       save
-    end
     else
       self.classroom = 'à définir'
     end
