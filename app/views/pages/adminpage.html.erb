@@ -43,7 +43,7 @@
   <div class= "col-xs-6 col-md-4" >
     <h3>Comments List</h3>
     <% if Comment.exists? %>
-      <% @comments.last(10).each do |comment| %>
+      <% @comments.first(10).each do |comment| %>
         <p><%= comment.content %></p>
         <p><%= comment.user_username %></p>
         <p><% if user_signed_in? %>
@@ -59,7 +59,7 @@
   <div class= "col-xs-6 col-md-4" >
     <h3>Posts_visits List</h3>
     <% if Visit.exists? %>
-      <% @visits.last(10).each do |visit| %>
+      <% @visits.first(10).each do |visit| %>
         <p><%= visit.id %> - <%= visit.post_id %> - <%= visit.user_username %> - <%= visit.updated_at %></p>
       <% end %>
     <% end %>
