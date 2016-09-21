@@ -69,7 +69,7 @@
 
 
   <% i = 0 %>
-  <% @topten.each do |user| %>
+  <% @tophundred.each do |user| %>
   <% @dst_notnill = Reponse.where("total is NOT NULL").where(user_username: user.username) %>
 
   <% i += 1 %>

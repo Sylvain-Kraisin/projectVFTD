@@ -9,17 +9,16 @@ layout :resolve_layout
   def index
     @user = current_user
     @video = Video.last
-    @console = Console.find(@video.console_id)
+    @console = @video.console
     @post = Post.last
     @comment = Comment.last
     @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
 
-    @goodusers = User.where(role:nil)
-    @topten = @goodusers.order('score desc').first(10)
+    @topten = User.order('score desc').where(role:nil).first(10)
     #@topten2 = @topten.order('score asc')
 
     if signed_in?
-    @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
+      @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
     end
   end
 
@@ -65,8 +64,7 @@ layout :resolve_layout
   end
 
   def halloffame
-    @goodusers_average = User.where(["average is NOT NULL"]).where(role:nil)
-    @topten = @goodusers_average.order('score desc')
+    @tophundred = User.where(["average is NOT NULL"]).where(role:nil).order('score desc').first(100)
   end
 
   private
