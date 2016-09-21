@@ -75,6 +75,17 @@ class User < ActiveRecord::Base
       self.classroom = 'Zelda'
       save
     end
+    if User.order(created_at: :asc).offset(320).limit(32).pluck(:id).include? self.id
+      self.classroom = 'Link'
+      save
+    end
+    if User.order(created_at: :asc).offset(352).limit(32).pluck(:id).include? self.id
+      self.classroom = 'Koopa'
+      save
+    end
+    else
+      self.classroom = 'à définir'
+    end
 
   end
 
