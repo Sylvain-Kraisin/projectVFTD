@@ -168,7 +168,7 @@ html, body {
   margin-bottom: 50px;
 }
 
-.margin_left_10 h4, p {
+.margin_left_10 h4 p {
   margin-left: 10px !important;
 }
 
@@ -331,4 +331,8 @@ html, body {
   background-image: linear-gradient(to bottom, #636363, #636363);
   text-decoration: none;
   color: #ffffff;
+}
+
+.white_text h1 h2 h3 h4 label p {
+  color: #FFFFFF;
 }

@@ -1,11 +1,11 @@
-<h3>Bonjour <%= @post.author %>,</h3>
+<p>Bonjour <%= @post.author %>,</p>
 
 <p>
   <%= @comment.user_username %> a annoté ton livre intitulé <strong>'<%= @post.title %>'</strong>
 </p>
 
 <p>Pour voir ce qui a été écrit, clique sur le lien ci-dessous :<p>
-  
+
 <p>
   <a href="http://viensfairetesdevoirs.com/posts/<%= @post.id %>">Lire l'annotation</a>
 </p>

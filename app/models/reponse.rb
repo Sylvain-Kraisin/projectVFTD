@@ -13,7 +13,7 @@ belongs_to :user, dependent: :destroy
   validates :reponse_3, length: { minimum: 2, maximum: 120 }
   validates :reponse_4, length: { minimum: 2, maximum: 120 }
 
-  #un meme user ne peut creer 2 fois une reponse
+  #un meme user ne peut creer 2 fois une reponse avec le meme test_id
   validates :user_username, uniqueness: { scope: [:user_username, :test_id], message: 'Tu as déjà passé ce DST !'}
 
   after_create :acorriger

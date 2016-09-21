@@ -39,14 +39,28 @@
         <% end %>
       <% end %>
   </div>
-  
-<div class= "row" >
+
   <div class= "col-xs-6 col-md-4" >
-    <h3>Users List</h3>
-    <% if User.exists? %>
-      <% @users.each do |user| %>
-        <p><%= user.id %> - <%= user.username %> <%= image_tag user.avatar.url(:thumb), class:"topten_avatar" %></p>
-        <p><%= user.email %></p>
+    <h3>Comments List</h3>
+    <% if Comment.exists? %>
+      <% @comments.last(10).each do |comment| %>
+        <p><%= comment.content %></p>
+        <p><%= comment.user_username %></p>
+        <p><% if user_signed_in? %>
+             <% if current_user.role == "admin" %>
+             <a href="/posts/<%= comment.post_id %>/comments/<%= comment.id %>/edit">Editer</a>
+             <% end %>
+           <% end %>
+        </p>
+       <% end %>
+    <% end %>
+  </div>
+
+  <div class= "col-xs-6 col-md-4" >
+    <h3>Posts_visits List</h3>
+    <% if Visit.exists? %>
+      <% @visits.last(10).each do |visit| %>
+        <p><%= visit.id %> - <%= visit.post_id %> - <%= visit.user_username %> - <%= visit.updated_at %></p>
       <% end %>
     <% end %>
   </div>
@@ -110,30 +124,16 @@
 
   </div>
 
-  <div class= "col-xs-6 col-md-4" >
-    <h3>Comments List</h3>
-    <% if Comment.exists? %>
-      <% @comments.each do |comment| %>
-        <p><%= comment.content %></p>
-        <p><%= comment.user_username %></p>
-        <p><% if user_signed_in? %>
-             <% if current_user.role == "admin" %>
-             <a href="/posts/<%= comment.post_id %>/comments/<%= comment.id %>/edit">Editer</a>
-             <% end %>
-           <% end %>
-        </p>
-       <% end %>
-    <% end %>
-  </div>
-
-  <div class= "col-xs-6 col-md-4" >
-    <h3>Posts_visits List</h3>
-    <% if Visit.exists? %>
-      <% @visits.each do |visit| %>
-        <p><%= visit.id %> - <%= visit.post_id %> - <%= visit.user_username %> - <%= visit.updated_at %></p>
+  <div class= "row" >
+    <div class= "col-xs-6 col-md-4" >
+      <h3>Users List</h3>
+      <% if User.exists? %>
+        <% @users.each do |user| %>
+          <p><%= user.id %> - <%= user.username %> <%= image_tag user.avatar.url(:thumb), class:"topten_avatar" %></p>
+          <p><%= user.email %></p>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
 </div>
 </div>
