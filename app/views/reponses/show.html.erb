@@ -7,36 +7,45 @@
       <div id="dstshowtext">
         <div class="noteimg">
         <% if @user.username == @reponse.user_username || @user.role == "admin" %>
-        <h4 class="craietext"> <%= number_to_human(@reponse.total) %>/10</h4>
+          <h3 class="craietext"> <%= number_to_human(@reponse.total) %>/10</h3>
 
-        </div>
+          </div>
 
 
-        <h4>
-        <% if @reponse.appreciation != nil %>
-        <p style="color:red" class="craietext"><%= @reponse.appreciation.upcase %></p>
-        <% end %>
-        <!-- <div class="hidden-xs col-lg-12">
-          <p class="col-md-12 text-left stylotext margin-left-minus"><%= @reponse.user.username %><br><br><%= l(@reponse.created_at, format: "%e/%m/%Y") %><p>
-        </div> -->
-        <br>
-          <p>Q1 : <%= @test.question_1 %></p>
-          <p class="stylotext"><%= @reponse.reponse_1 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_1) %></span></p>
-          <p class="reponsedst"><%= @test.answer_1 %> </p><br>
-          <p>Q2 : <%= @test.question_2 %></p>
-          <p class="stylotext"><%= @reponse.reponse_2 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_2) %></span></p>
-          <p class="reponsedst"><%= @test.answer_2 %> </p><br>
-          <p>Q3 : <%= @test.question_3 %></p>
-          <p class="stylotext"><%= @reponse.reponse_3 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_3) %></span></p>
-          <p class="reponsedst"><%= @test.answer_3 %> </p><br>
-          <p>Q4 : <%= @test.question_4 %></p>
-          <p class="stylotext"><%= @reponse.reponse_4 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_4) %></span></p>
-          <p class="reponsedst"><%= @test.answer_4 %> </p>
-        </h4>
+          <h4>
+          <% if @reponse.appreciation? %>
+            <p style="color:red" class="craietext"><%= @reponse.appreciation.upcase %></p>
+          <% end %>
+          <!-- <div class="hidden-xs col-lg-12">
+            <br>
+            <br>
+
+            <p class="col-md-12 text-left stylotext margin-left-minus">
+              <%= l(@reponse.created_at, format: "%e/%m/%Y") %><br><br>
+              <%= @reponse.user.classroom %><br><br>
+              <%= @reponse.user.username %>
+            <p>
+          </div> -->
+          <br>
+            <p>Q1 : <%= @test.question_1 %></p>
+            <p class="stylotext"><%= @reponse.reponse_1 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_1) %></span></p>
+            <p class="reponsedst"><%= @test.answer_1 %> </p><br>
+            <p>Q2 : <%= @test.question_2 %></p>
+            <p class="stylotext"><%= @reponse.reponse_2 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_2) %></span></p>
+            <p class="reponsedst"><%= @test.answer_2 %> </p><br>
+            <p>Q3 : <%= @test.question_3 %></p>
+            <p class="stylotext"><%= @reponse.reponse_3 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_3) %></span></p>
+            <p class="reponsedst"><%= @test.answer_3 %> </p><br>
+            <p>Q4 : <%= @test.question_4 %></p>
+            <p class="stylotext"><%= @reponse.reponse_4 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_4) %></span></p>
+            <p class="reponsedst"><%= @test.answer_4 %> </p>
+          </h4>
         <% else %>
-
-        <h4 style="color:red" class="craietext"><%= "Ce n'est pas ton devoir, petit(e) curieux(se) !".upcase %></h4>
-
+          <% if @user.female? %>
+            <h2 style="color:red" class="craietext"><%= "Ce n'est pas ton devoir, petite curieuxse !".upcase %></h2>
+          <% else %>
+            <h2 style="color:red" class="craietext"><%= "Ce n'est pas ton devoir, petit curieux !".upcase %></h2>
+          <% end %>
         <% end %>
         <br>
         <br>

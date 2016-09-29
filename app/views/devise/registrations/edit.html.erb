@@ -10,11 +10,22 @@
 
   <div class="form-inputs">
 
-    <%= f.input :avatar, label: "CHANGER SON AVATAR"%>
-    <p>Taille Max : 2 Mo</p>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+    <%= f.input :avatar, label: "Changer mon avatar"%>
+    <p>Taille Max : 1 Mo</p>
+
+    <%= f.input :female, as: :radio_buttons, collection: [['Féminin', true ],['Masculin', false]], label: "Je me conjugue au" %>
+
+    <%= f.input :bio, input_html: {maxlength: 2500, rows: 6}, label: "Mon message de présentation" %>
+
+    <%= f.input :birthdate, start_year: Date.today.year - 6, end_year: Date.today.year - 100, label: "Ma date d'anniversaire" %>
+
+    <%= f.input :newsletter, label: "Recevoir mon bulletin mensuel" %>
+
+    <%= f.input :mail_correction, label: "Recevoir un mail quand mon devoir est corrigé" %>
+    <%= f.input :mail_new_test, label: "Recevoir un mail quand un nouveau cours est disponible" %>
+    <%= f.input :mail_new_post, label: "Recevoir un mail quand un nouveau livre est disponible" %>
+
+
 <br>
 
 

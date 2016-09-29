@@ -5,38 +5,46 @@
   <% end %>
   <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
 
-<br>
-<br>
+  <br>
+  <br>
 
   <div class="col-xs-12 col-sm-4">
-      <h4>CLASSEMENT GENERAL</4>
-      <% if @user.average == nil %>
-      <h4>NOUVEL ELEVE</h4>
-      <% elsif @user.role == "admin" %>
-      <h4><span style="color:green">DIRECTEUR</h4>
-      <% elsif @user.role == "bibliothequaire" %>
-      <h4><span style="color:green">BIBLIOTHEQUAIRE</h4>
-      <% elsif @ranknote == 0 %>
-      <h4><span style="color:green"><%= @ranknote + 1 %> ER(E)</span> DE LA CLASSE !</h4>
-      <% elsif @ranknote + 1 == @goodusers.count %>
-      <h4><span style="color:red">DERNIER(E)</span> DE LA CLASSE !</h4>
-
-
+    <h4>CLASSEMENT GENERAL</4>
+    <% if @user.average == nil %>
+    <h4>NOUVEL ELEVE</h4>
+    <% elsif @user.role == "admin" %>
+    <h4><span style="color:green">DIRECTEUR</h4>
+    <% elsif @user.role == "bibliothequaire" %>
+    <h4><span style="color:green">BIBLIOTHEQUAIRE</h4>
+    <% elsif @ranknote == 0 %>
+      <% if @user.female? %>
+        <h4><span style="color:green"><%= @ranknote + 1 %> ERE</span> DE LA CLASSE !</h4>
       <% else %>
-
-      <h4><span style="color:#bfbfbf"><%= @ranknote + 1 %> EME</span> SUR <%= @goodusers.count %></h4>
+        <h4><span style="color:green"><%= @ranknote + 1 %> ER</span> DE LA CLASSE !</h4>
       <% end %>
-
-      <% if @user.score == nil || @user.score == 0  %>
-      <a href="/pages/halloffame"><h4>0 POINTS</h4></a>
+    <% elsif @ranknote + 1 == @goodusers.count %>
+      <% if @user.female? %>
+        <h4><span style="color:red">DERNIERE</span> DE LA CLASSE !</h4>
       <% else %>
-      <a href="/pages/halloffame"><h4><%= (@user.score).round %> POINTS</h4></a>
+        <h4><span style="color:red">DERNIER</span> DE LA CLASSE !</h4>
       <% end %>
-      <a href="http://viensfairetesdevoirs.com/pages/faq#answer8"/><h4>(DONT <%= @user.bonus %> BONS POINTS)</h4></a>
-      <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
+    <% else %>
 
-      <h4> INSCRIT(E) DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span> </h4>
+    <h4><span style="color:#bfbfbf"><%= @ranknote + 1 %> EME</span> SUR <%= @goodusers.count %></h4>
+    <% end %>
 
+    <% if @user.score == nil || @user.score == 0  %>
+    <a href="/pages/halloffame"><h4>0 POINTS</h4></a>
+    <% else %>
+    <a href="/pages/halloffame"><h4><%= (@user.score).round %> POINTS</h4></a>
+    <% end %>
+    <a href="http://viensfairetesdevoirs.com/pages/faq#answer8"/><h4>(DONT <%= @user.bonus %> BONS POINTS)</h4></a>
+    <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
+    <% if @user.female? %>
+      <h4> INSCRITE DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span></h4>
+    <% else %>
+      <h4> INSCRIT DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span></h4>
+    <% end %>
   </div>
 
   <br>

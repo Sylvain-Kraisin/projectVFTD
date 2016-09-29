@@ -10,19 +10,26 @@ class ApplicationController < ActionController::Base
 
   protected
 
- def admin?
-   if signed_in?
-     redirect_to root_path unless current_user.role == "admin"
-   else
-     redirect_to root_path
+   def admin?
+     if signed_in?
+       redirect_to root_path unless current_user.role == "admin"
+     else
+       redirect_to root_path
+     end
    end
- end
 
- def configure_permitted_parameters
-  devise_parameter_sanitizer.for(:sign_up) << :username
-  devise_parameter_sanitizer.for(:sign_up) << :presence
-  devise_parameter_sanitizer.for(:account_update) << :role
-  devise_parameter_sanitizer.for(:account_update) << :avatar
- end
+   def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :username
+    devise_parameter_sanitizer.for(:sign_up) << :presence
+    devise_parameter_sanitizer.for(:sign_up) << :female
+
+    devise_parameter_sanitizer.for(:account_update) << :role
+    devise_parameter_sanitizer.for(:account_update) << :avatar
+    devise_parameter_sanitizer.for(:account_update) << :bio
+    devise_parameter_sanitizer.for(:account_update) << :newsletter
+    devise_parameter_sanitizer.for(:account_update) << :birthdate
+    devise_parameter_sanitizer.for(:account_update) << :female
+
+   end
 
 end

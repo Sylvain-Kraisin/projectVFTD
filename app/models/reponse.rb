@@ -26,7 +26,9 @@ belongs_to :user, dependent: :destroy
 
 
   def correction
-    UserMailer.correction(self).deliver_later
+    if self.mail_correction?
+      UserMailer.correction(self).deliver_later
+    end
   end
 
   def acorriger

@@ -8,7 +8,9 @@ class Comment < ActiveRecord::Base
 
   def notify_author
     if self.user_username != self.post.author
-      UserMailer.notify_author(self).deliver_later
+      if User.where(username:self.post.author).present?
+        UserMailer.notify_author(self).deliver_later
+      end
     end
   end
 end
