@@ -1,5 +1,5 @@
 class ConsolesController < ApplicationController
-  before_filter :admin?, only: [:new, :edit]
+  before_filter :admin?, only: [:new, :edit, :draft]
   before_action :find_console, only: [:edit, :update, :destroy]
 
   def index
@@ -34,8 +34,12 @@ class ConsolesController < ApplicationController
 
   def show
     @console = Console.find(params[:id])
-    @videos = Video.all
-    @videok = @videos.where(console_id: @console.id).page(params[:page]).per(5).order("created_at ASC")
+    @videos = @console.videos.online
+  end
+
+  def draft
+    @console = Console.find(params[:id])
+    @videos = @console.videos.draft
   end
 
   private

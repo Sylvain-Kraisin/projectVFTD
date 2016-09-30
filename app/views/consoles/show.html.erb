@@ -4,42 +4,48 @@
     </div>
 </div>
 
-  <% if @videok.count == 0 %>
-    <h1 style="color:white" class="feutretext text-center">Il n'y a pas encore de cours dans cette salle.</h1>
-  <% else %>
-    <% i = 0 %>
-    <% @videok.each do |video| %>
-    <% i += 1 %>
-    <div class="col-sm-12">
-    <div class="hidden-xs col-sm-6 text-left">
-      <div class="infogame pull-right">
-        <h1 class="feutretext"><%= i %>) <%= video.title %></h1>
-
-        <h3 class="feutretext"><strong>Console :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= @console.title %></h3>
-        <h3 class="feutretext"><strong>Sortie (Fr) :&nbsp; &nbsp; &nbsp;</strong> <%= l(video.release, format: "%B %Y" ) %></h3>
-        <h3 class="feutretext"><strong>Genre :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.genre %></h3>
-        <h3 class="feutretext"><strong>Joueur(s) :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.player %></h3>
-        <h3 class="feutretext"><strong>Développeur :&nbsp; &nbsp; &nbsp;</strong> <%= video.developer %></h3>
-      </div>
-    </div>
-    <br>
-
-      <div class="col-xs-12 col-sm-6 text-center">
-        <div class="<%= video.style %>" >
-            <br>
-            <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p>
-            <br>
-            <a href="/videos/<%= video.id %>" role="button" class="select_button" ><strong>PRESS START</strong></a>
-            <p></p>
-        </div>
-
-      </div>
-      <!-- <a href="/videos/<%= video.id %>"><h1 style="color:white" class="col-xs-12 feutretext text-center">START !</h1></a> -->
-
-
-      </div>
-    <% end %>
+<% if user_signed_in? %>
+  <% if current_user.role == "admin" && current_user.role =! nil %>
+    <%= link_to "Videos Draft", draft_videos_show_path %>
   <% end %>
+<% end %>
+
+<% if @videos.count == 0 %>
+  <h1 style="color:white" class="feutretext text-center">Il n'y a pas encore de cours dans cette salle.</h1>
+<% else %>
+  <% i = 0 %>
+  <% @videos.each do |video| %>
+  <% i += 1 %>
+  <div class="col-sm-12">
+  <div class="hidden-xs col-sm-6 text-left">
+    <div class="infogame pull-right">
+      <h1 class="feutretext"><%= i %>) <%= video.title %></h1>
+
+      <h3 class="feutretext"><strong>Console :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= @console.title %></h3>
+      <h3 class="feutretext"><strong>Sortie (Fr) :&nbsp; &nbsp; &nbsp;</strong> <%= l(video.release, format: "%B %Y" ) %></h3>
+      <h3 class="feutretext"><strong>Genre :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.genre %></h3>
+      <h3 class="feutretext"><strong>Joueur(s) :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.player %></h3>
+      <h3 class="feutretext"><strong>Développeur :&nbsp; &nbsp; &nbsp;</strong> <%= video.developer %></h3>
+    </div>
+  </div>
+  <br>
+
+    <div class="col-xs-12 col-sm-6 text-center">
+      <div class="<%= video.style %>" >
+          <br>
+          <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p>
+          <br>
+          <a href="/videos/<%= video.id %>" role="button" class="select_button" ><strong>PRESS START</strong></a>
+          <p></p>
+      </div>
+
+    </div>
+    <!-- <a href="/videos/<%= video.id %>"><h1 style="color:white" class="col-xs-12 feutretext text-center">START !</h1></a> -->
+
+
+    </div>
+  <% end %>
+<% end %>
 
 
 <div class="text-center margin_bot20 margin_top20">
@@ -47,43 +53,41 @@
 </div>
 
 <% if @console.id == 3 %>
+  <script>
+    var d = [38, 88, 40, 66, 76, 89, 82, 65];
+    var m = 0;
+    var audioo = new Audio('<%= audio_path('kakarotto.mp3') %>');
+    //var reload = location.reload();
 
-<script>
-  var d = [38, 88, 40, 66, 76, 89, 82, 65];
-  var m = 0;
-  var audioo = new Audio('<%= audio_path('kakarotto.mp3') %>');
-  //var reload = location.reload();
+    $(document).keydown(function (f) {
+      if (f.keyCode === d[m++]) {
+          if (m === d.length) {
+              //bootbox.hideAll()
+              audioo.play(); // à remplacer par votre code
+              bootbox.dialog({
+                className: "dbz_modal",
+                title: "DBZ La Légende Saien - Trucs et Astuces",
+                message: '<div class="text-justify">' +
+                "<p>Les persos cachés<br><br>Vous ne le savez peut-être pas mais, dans la version Japonaise du jeu, sorti sur Super Nintendo en 1993, San Goku et Broly sont des persos cachés. Si vous ne les avez pas, essayez ce code pendant la présentation où San Goku vole vers le palais :<br>'Haut' 'X' 'Bas' 'B' 'L' 'Y' 'R' 'A'<br>Ce code fonctionne également dans la version française (on entend bien le son 'Kakaroto') mais il ne sert à rien vu que les persos sont déja débloqués !<br><br>Changer les dialogues après une victoire<br><br>Un truc complètement inutile mais plutôt sympathique. Pour cela, il suffit de maintenir select et un des 4 boutons pendant la pose victorieuse de votre personnage.<br><br>'Select'	+	'A'	: phrase marrantes<br>'Select'	+	'B'	: phrase gentille pour votre adversaire<br>'Select'	+	'Y'	: phrase qui n'a rien à voir avec le contexte<br>'Select'	+	'X'	: phrase de moquerie<br><br>Mode Turbo et super turbo<br><br>Il suffit pour l'enclencher de maintenir les boutons 'R'	et 'L'	de la manette 2 en allumant la console (super turbo) ou seulement un des deux (mode turbo).<br><br>Mode petit<br><br>Pour ce battre avec des persos de la taille de ceux du radar, il suffit d'appuyer 5 fois vers le 'Bas' pendant que les persos se parle avant le combat. Les coups seront exactement les mêmes que quand on est grand, du coup il n'est pas facile de voir la portée. En fait, c'est presque comme si on ne jouait qu'avec l'ombre des personnages.<br><br>Changer de manette<br><br>Vous êtes en train de faire un championnat avec un pote, chacun posé confortablement dans un fauteuil, et vous vous apercevez (malheur!) que vous n'avez pas la bonne manette pour le prochain match. Pas question de vous lever et encore moins de vous faire une passe avec votre manette (une manette supernes, c'est sacré). Il existe une solution toute bête : appuyer sur select (qu'est-ce qu'il ne faut pas raconter pour justifier des astuces qui ne servent à rien).<br><br>Etudier les matchs de l'ordinateur<br><br>Si au lieu d'entendre seulement 2, 3 bruitages vous voulez voir les combats de la console en mode championnat (perso, je trouve ça long et chiant mais bon ça peut aider à progresser), il faut au moment de la sélection des personnages maintenir 'X' avant d'appuyer sur 'Start' (on appuie sur start après avoir choisi tous les persos humains).<br><br>Abandonner un combat<br><br>Il suffit de maintenir 'Select'	+	'A'	+	'B'	+	'Y'	+	'X'. Votre perso perd tous ses points de vie. Un code à ne pas donner au mauvais joueur.<br><br>Changer le niveau en mode championnat<br><br>Si vous en avez marre de faire le tournoi dans le stage normal, vous pouvez le faire dans le stage final beaucoup plus grand que celui du tournoi. Pour cela, maintenez 'R'	et 'L'	enfoncé quand vous appuyez sur 'A'	pour selectionnez le mode championnat. Si la manip' a marché, il s'affichera spécial au lieu de championnat à l'écran du tableau des rencontres. </p>" +
+                '</div>',
+                onEscape: function() {
+                  audioo.pause();
+                  audioo.currentTime = 0;
+                  m = 0;
+                  //setTimeout(function(){
+                  //  location.reload();
+                  //}, 500);
 
-  $(document).keydown(function (f) {
-    if (f.keyCode === d[m++]) {
-        if (m === d.length) {
-            //bootbox.hideAll()
-            audioo.play(); // à remplacer par votre code
-            bootbox.dialog({
-              className: "dbz_modal",
-              title: "DBZ La Légende Saien - Trucs et Astuces",
-              message: '<div class="text-justify">' +
-              "<p>Les persos cachés<br><br>Vous ne le savez peut-être pas mais, dans la version Japonaise du jeu, sorti sur Super Nintendo en 1993, San Goku et Broly sont des persos cachés. Si vous ne les avez pas, essayez ce code pendant la présentation où San Goku vole vers le palais :<br>'Haut' 'X' 'Bas' 'B' 'L' 'Y' 'R' 'A'<br>Ce code fonctionne également dans la version française (on entend bien le son 'Kakaroto') mais il ne sert à rien vu que les persos sont déja débloqués !<br><br>Changer les dialogues après une victoire<br><br>Un truc complètement inutile mais plutôt sympathique. Pour cela, il suffit de maintenir select et un des 4 boutons pendant la pose victorieuse de votre personnage.<br><br>'Select'	+	'A'	: phrase marrantes<br>'Select'	+	'B'	: phrase gentille pour votre adversaire<br>'Select'	+	'Y'	: phrase qui n'a rien à voir avec le contexte<br>'Select'	+	'X'	: phrase de moquerie<br><br>Mode Turbo et super turbo<br><br>Il suffit pour l'enclencher de maintenir les boutons 'R'	et 'L'	de la manette 2 en allumant la console (super turbo) ou seulement un des deux (mode turbo).<br><br>Mode petit<br><br>Pour ce battre avec des persos de la taille de ceux du radar, il suffit d'appuyer 5 fois vers le 'Bas' pendant que les persos se parle avant le combat. Les coups seront exactement les mêmes que quand on est grand, du coup il n'est pas facile de voir la portée. En fait, c'est presque comme si on ne jouait qu'avec l'ombre des personnages.<br><br>Changer de manette<br><br>Vous êtes en train de faire un championnat avec un pote, chacun posé confortablement dans un fauteuil, et vous vous apercevez (malheur!) que vous n'avez pas la bonne manette pour le prochain match. Pas question de vous lever et encore moins de vous faire une passe avec votre manette (une manette supernes, c'est sacré). Il existe une solution toute bête : appuyer sur select (qu'est-ce qu'il ne faut pas raconter pour justifier des astuces qui ne servent à rien).<br><br>Etudier les matchs de l'ordinateur<br><br>Si au lieu d'entendre seulement 2, 3 bruitages vous voulez voir les combats de la console en mode championnat (perso, je trouve ça long et chiant mais bon ça peut aider à progresser), il faut au moment de la sélection des personnages maintenir 'X' avant d'appuyer sur 'Start' (on appuie sur start après avoir choisi tous les persos humains).<br><br>Abandonner un combat<br><br>Il suffit de maintenir 'Select'	+	'A'	+	'B'	+	'Y'	+	'X'. Votre perso perd tous ses points de vie. Un code à ne pas donner au mauvais joueur.<br><br>Changer le niveau en mode championnat<br><br>Si vous en avez marre de faire le tournoi dans le stage normal, vous pouvez le faire dans le stage final beaucoup plus grand que celui du tournoi. Pour cela, maintenez 'R'	et 'L'	enfoncé quand vous appuyez sur 'A'	pour selectionnez le mode championnat. Si la manip' a marché, il s'affichera spécial au lieu de championnat à l'écran du tableau des rencontres. </p>" +
-              '</div>',
-              onEscape: function() {
-                audioo.pause();
-                audioo.currentTime = 0;
-                m = 0;
-                //setTimeout(function(){
-                //  location.reload();
-                //}, 500);
+                }
+              });
 
-              }
-            });
-
-            m = 0;
-            return false;
+              m = 0;
+              return false;
+        }
       }
-    }
-    else {
-        m = 0;
-    }
-  });
-</script>
-
+      else {
+          m = 0;
+      }
+    });
+  </script>
 <% end %>

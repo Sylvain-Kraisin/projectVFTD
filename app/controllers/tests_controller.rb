@@ -3,8 +3,6 @@ before_action :find_test, only: [:show, :edit, :update]
 before_action :authenticate_user!, only: [:show]
 before_filter :admin?, only: [:new, :create, :edit, :update]
 
-  def index
-  end
 
   def new
     @test = Test.new

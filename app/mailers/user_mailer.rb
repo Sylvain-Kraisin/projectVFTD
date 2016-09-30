@@ -21,6 +21,13 @@ class UserMailer < ApplicationMailer
     mail to: "viensfairetesdevoirs@gmail.com", subject: @subject
   end
 
+  def new_test_available (video, user)
+    @video = video
+    @user = user
+    @subject = 'Un nouveau cours ' + @video.console.title + ' est disponible'
+    mail to: user.email, subject: @subject
+  end
+
   def notify_author comment
     @comment = comment
     @post = comment.post

@@ -15,6 +15,7 @@ before_filter :authenticate_user!, only: [:new, :create, :show]
     end
 
     def new
+      redirect_to root_path unless @test.video.online? || current_user.role == 'admin'
       @reponse = Reponse.new
     end
 

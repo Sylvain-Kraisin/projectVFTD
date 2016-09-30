@@ -69,16 +69,21 @@
     <h3>Vidéos List</h3>
     <% if Video.exists? %>
       <% @videos.each do |video| %>
-        <p><%= video.id %> - <%= video.title %></p>
+        <p><%= video.id %> - <%= video.title %><br><%= video.aasm_state %></p>
 
-          <p><% if user_signed_in? %>
+          <p>
+            <% if user_signed_in? %>
               <% if current_user.role == "admin" %>
                 <%= link_to "Editer", edit_video_path(video.id) %>
               <% end %>
             <% end %>
           </p>
+          <% if video.draft? %>
+            <%= button_to "Publier", {:controller => :videos, :action => 'publish', :id => video.id }, :method => :post %>
           <% end %>
+          <br>
       <% end %>
+    <% end %>
   </div>
 
   <div class= "col-xs-6 col-md-2" >

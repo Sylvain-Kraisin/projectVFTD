@@ -8,7 +8,7 @@ layout :resolve_layout
 
   def index
     @user = current_user
-    @video = Video.last
+    @video = Video.online.last
     @console = @video.console
     @post = Post.last
     @comment = Comment.last

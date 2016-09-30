@@ -1,14 +1,16 @@
 class VideosController < ApplicationController
-before_filter :admin?, only: [:new, :edit]
+before_filter :admin?, only: [:new, :edit, :update, :publish]
 before_action :find_video, only: [:show, :edit, :update]
 
   def show
+    redirect_to root_path unless @video.online? || current_user.role == 'admin'
+
     @user = current_user
-    @test = Test.where(video_id: @video.id).first
+    @test = @video.test
 
     if user_signed_in?
       if Reponse.exists?(test_id: @test.id, user_username: @user.username)
-      @reponse = Reponse.where(test_id: @test.id, user_username: @user.username).first
+        @reponse = Reponse.find_by(test_id: @test.id, user_username: @user.username)
       end
     end
   end
@@ -37,6 +39,14 @@ before_action :find_video, only: [:show, :edit, :update]
     else
       render 'edit'
     end
+  end
+
+  def publish
+    @video = Video.find(params[:id])
+
+    @video.run!
+    flash[:notice] = "Post successfully published"
+    redirect_to pages_adminpage_path
   end
 
   private

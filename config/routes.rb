@@ -13,10 +13,14 @@ Rails.application.routes.draw do
   get 'pages/cooperative' => 'pages#cooperative'
   get 'pages/adminpage' => 'pages#adminpage'
   get 'pages/correspondances' => 'pages#correspondances'
+  post 'videos/publish' => 'videos#publish'
+
 
   get 'discourse/sso' => 'discourse_sso#sso'
 
   resources :consoles
+  get 'consoles/draft/:id', to: 'consoles#draft', as: 'draft_videos_show'
+
 
   resources :videos
 
