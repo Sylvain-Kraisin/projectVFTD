@@ -45,7 +45,7 @@ before_action :find_video, only: [:show, :edit, :update]
     @video = Video.find(params[:id])
 
     @video.run!
-    flash[:notice] = "Post successfully published"
+    flash[:notice] = "La vidéo #{@video.title} est maintenant publié"
     redirect_to pages_adminpage_path
   end
 
