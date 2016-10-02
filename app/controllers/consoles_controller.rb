@@ -34,7 +34,7 @@ class ConsolesController < ApplicationController
 
   def show
     @console = Console.find(params[:id])
-    @videos = @console.videos.online
+    @videos = @console.videos.online.order("created_at ASC")
   end
 
   def draft
