@@ -1,15 +1,3 @@
 <h1>Modifier le DST</h1>
 
-<%= simple_form_for @test, :html => { :multipart => true } do |f| %>
-  <%= f.association :console, prompt:('Choisir la console') %>
-  <%= f.association :video, prompt:('Choisir la vidéo') %>
-  <%= f.input :question_1 %>
-  <%= f.input :answer_1 %>
-  <%= f.input :question_2 %>
-  <%= f.input :answer_2 %>
-  <%= f.input :question_3 %>
-  <%= f.input :answer_3 %>
-  <%= f.input :question_4 %>
-  <%= f.input :answer_4 %>
-  <%= f.button :submit %>
-<% end %>
+<%= render 'form' %>
