@@ -1,6 +1,9 @@
 <div class="infogame row">
     <div class="col-xs-12 text-center">
-      <h2 style="color:white" class="feutretext"><em>CHOISIS UN COURS</em> <%= image_tag @console.console_img.url, class:"consoleimg" %></h2>
+      <h2 style="color:white" class="feutretext">
+        <em><%= pluralize(@videos.count, 'cours disponible').upcase %></em>
+        <%= image_tag @console.console_img.url, class:"consoleimg" %>
+      </h2>
     </div>
 </div>
 
@@ -12,45 +15,21 @@
 
 <% if @videos.count == 0 %>
   <h1 style="color:white" class="feutretext text-center">Il n'y a pas encore de cours dans cette salle.</h1>
-<% else %>
-  <% i = 0 %>
-  <% @videos.each do |video| %>
-  <% i += 1 %>
-  <div class="col-sm-12">
-  <div class="hidden-xs col-sm-6 text-left">
-    <div class="infogame pull-right">
-      <h1 class="feutretext"><%= i %>) <%= video.title %></h1>
-
-      <h3 class="feutretext"><strong>Console :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= @console.title %></h3>
-      <h3 class="feutretext"><strong>Sortie (Fr) :&nbsp; &nbsp; &nbsp;</strong> <%= l(video.release, format: "%B %Y" ) %></h3>
-      <h3 class="feutretext"><strong>Genre :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.genre %></h3>
-      <h3 class="feutretext"><strong>Joueur(s) :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.player %></h3>
-      <h3 class="feutretext"><strong>Développeur :&nbsp; &nbsp; &nbsp;</strong> <%= video.developer %></h3>
-    </div>
+  <div class="text-center margin_bot20 margin_top20">
+    <a class="btn btn-default margin_top20" href="/pages/videos" role="button">Retour</a>
   </div>
-  <br>
-
-    <div class="col-xs-12 col-sm-6 text-center">
-      <div class="<%= video.style %>" >
-          <br>
-          <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p>
-          <br>
-          <a href="/videos/<%= video.id %>" role="button" class="select_button" ><strong>PRESS START</strong></a>
-          <p></p>
-      </div>
-
-    </div>
-    <!-- <a href="/videos/<%= video.id %>"><h1 style="color:white" class="col-xs-12 feutretext text-center">START !</h1></a> -->
-
-
-    </div>
-  <% end %>
+<% else %>
+  <div class="owl-carousel margin_bot20">
+    <%= render 'slide_videos' %>
+  </div>
 <% end %>
 
 
-<div class="text-center margin_bot20 margin_top20">
+<!-- <div class="text-center margin_bot20 margin_top20">
   <a class="btn btn-default margin_top20" href="/pages/videos" role="button">Retour</a>
-</div>
+</div> -->
+
+<%= javascript_include_tag('videos_slide.js') %>
 
 <% if @console.id == 3 %>
   <script>

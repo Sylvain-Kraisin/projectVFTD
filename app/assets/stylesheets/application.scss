@@ -304,6 +304,10 @@ html, body {
   margin-left: 5px;
 }
 
+.margin-bottom50 {
+  margin-bottom: 50px;
+}
+
 .select_button {
   background: #d3d9de;
   background-image: -webkit-linear-gradient(top, #d3d9de, #636363);
@@ -313,13 +317,15 @@ html, body {
   background-image: linear-gradient(to bottom, #d3d9de, #636363);
   -webkit-border-radius: 15;
   -moz-border-radius: 15;
-  border-radius: 15px;
+  border-radius: 10px;
   text-shadow: 1px 1px 3px #666666;
   color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  font-size: 18px;
+  // padding: 10px 10px;
   text-decoration: none;
-  //margin-top: 20px;
+  width: 115px;
+  height: 45px;
+  margin-right: 5px
 }
 
 .select_button:hover {

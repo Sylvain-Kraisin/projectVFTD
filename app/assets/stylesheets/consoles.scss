@@ -13,3 +13,29 @@
 
   color: white;
 }
+
+.flipped {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.arrow_size {
+  width: 64px
+}
+
+// .start_button {
+//   position:absolute;
+//   top: 0%;
+//   // padding:5px;
+//   // margin:0;
+//   // z-index:100;
+//   // font-size:3rem;
+//   // cursor:pointer;
+//   // color:#555;
+//   right: 50%;
+//
+// }

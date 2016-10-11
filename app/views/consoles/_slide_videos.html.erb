@@ -1,0 +1,39 @@
+<% i = 0 %>
+<% @videos.each do |video| %>
+<div>
+  <div class="col-sm-12">
+    <div class="hidden-xs col-sm-6 text-left">
+      <div class="infogame pull-right">
+        <% i += 1 %>
+        <h1 class="feutretext"><%= i %>) <%= video.title %></h1>
+
+        <h3 class="feutretext"><strong>Console :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= @console.title %></h3>
+        <h3 class="feutretext"><strong>Sortie (Fr) :&nbsp; &nbsp; &nbsp;</strong> <%= l(video.release, format: "%B %Y" ) %></h3>
+        <h3 class="feutretext"><strong>Genre :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.genre %></h3>
+        <h3 class="feutretext"><strong>Joueur(s) :&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</strong> <%= video.player %></h3>
+        <h3 class="feutretext"><strong>Développeur :&nbsp; &nbsp; &nbsp;</strong> <%= video.developer %></h3>
+      </div>
+    </div>
+    <br>
+
+    <div class="col-xs-12 col-sm-6 text-center">
+      <div class="<%= video.style %>" >
+          <p><%= image_tag video.video_img.url(:medium), class:"#{video.style} hover img-responsive center-block" %><p>
+      </div>
+    </div>
+
+    <div class="col-xs-12 text-center margin_top20">
+      <span class="select_button_bis">
+        <button class='select_button'>SELECT</button>
+      </span>
+      <span class="start_button">
+        <%= link_to video_path(video.id) do %>
+          <button class="select_button" >START</button>
+        <% end %>
+      </span>
+    </div>
+
+
+  </div>
+</div>
+<% end %>
