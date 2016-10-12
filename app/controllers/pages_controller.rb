@@ -77,7 +77,7 @@ layout :resolve_layout
         @user.update presence: 1
 
       elsif @user.role != "admin" && @user.updated_at != Time.now
-      @user.update presence: @user.presence + 1
+        @user.update presence: @user.presence + 1
       end
 
     end
