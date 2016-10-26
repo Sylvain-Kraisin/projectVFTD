@@ -53,7 +53,7 @@ layout :resolve_layout
     @posts = Post.all.order("created_at DESC")
     @visits = Visit.all.order("created_at DESC").limit(50)
     @videos = Video.all.order("created_at DESC")
-    @comments = Comment.all.order("created_at DESC")
+    @comments = Comment.all.order("created_at DESC").limit(50)
     @consoles = Console.all.order("created_at DESC")
     @tests = Test.all.order("created_at DESC")
     @reponsesacorriger = Reponse.where(total: nil)
@@ -64,7 +64,7 @@ layout :resolve_layout
   end
 
   def halloffame
-    @tophundred = User.where(["average is NOT NULL"]).where(role:nil).order('score desc').first(100)
+    @tophundred = User.where(["average is NOT NULL"]).where(role:nil).order('score desc').limit(100)
   end
 
   private
