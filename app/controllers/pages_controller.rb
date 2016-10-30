@@ -47,6 +47,9 @@ layout :resolve_layout
   def cooperative
   end
 
+  def cartable_numerique
+  end
+
   def adminpage
 
     @users = User.all.order("created_at DESC")

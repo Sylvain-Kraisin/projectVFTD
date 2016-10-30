@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'pages/halloffame' => 'pages#halloffame'
   get 'pages/faq' => 'pages#faq'
   get 'pages/cooperative' => 'pages#cooperative'
+  get 'pages/cartable_numerique' => 'pages#cartable_numerique'
   get 'pages/adminpage' => 'pages#adminpage'
   get 'pages/correspondances' => 'pages#correspondances'
   post 'videos/publish' => 'videos#publish'

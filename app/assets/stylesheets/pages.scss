@@ -1,7 +1,7 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.index, .cooperative, .correspondances, .halloffame, .faq, .pages.videos {
+.index, .cooperative, .correspondances, .halloffame, .faq, .pages.videos, .cartable_numerique {
   background-image: asset_url('blackboard.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -17,10 +17,6 @@
   background-size: cover;
   background-position: top center !important;
 }
-
-// .faq {
-//   background-color: #1a1a1a
-// }
 
 .doors {
   width: 128px;
@@ -159,4 +155,19 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color='#6565', Direction=135, St
 
 #margin_left_faq {
   margin-left: 20px;
+}
+
+.animate_image:hover {
+    -webkit-animation: tada 1.2s;
+    animation: tada 1.2s;
+}
+
+.animate_papako:hover {
+    -webkit-animation: shake 1.2s;
+    animation: shake 1.2s;
+}
+
+.animate_pulse:hover {
+    -webkit-animation: pulse 1.2s;
+    animation: pulse 1.2s;
 }

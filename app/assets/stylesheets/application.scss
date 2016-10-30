@@ -28,6 +28,9 @@
      background: rgba(242, 242, 242, 0);
      border: none !important;
    }
+
+   a {color: red; text-decoration: none !important}
+   a:hover {color: #f48c42}
  }
 
 
@@ -176,7 +179,7 @@ html, body {
     margin: 0 auto;
 }
 .bouton {
-  // width: 85px;
+  width: 85px;
   height: 85px;
   margin: 0 auto;
 }
@@ -298,6 +301,10 @@ html, body {
 
 .margin_bot20 {
   margin-bottom: 20px;
+}
+
+.margin_bot150 {
+  margin-bottom: 150px;
 }
 
 .margin_left_5 {
