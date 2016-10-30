@@ -79,38 +79,40 @@ html, body {
     }
   }
 
- /* xl (mac full size)*/
-@media (min-width: 1200px) and (max-width: 1300px) {
-  .navbar-nav, .navbar-brand {
-    margin-top: 15px;
+   /* xl (mac full size)*/
+  @media (min-width: 1200px) and (max-width: 1300px) {
+    .navbar-nav, .navbar-brand {
+      margin-top: 15px;
+    }
+  }
+
+
+
+  /* lg */
+  @media (min-width: 992px) and (max-width: 1199px) {
+
+
+  }
+
+  /* md */
+  @media (min-width: 768px) and (max-width: 991px) {
+      padding-bottom: 200px !important;
+  }
+
+  /* sm */
+  @media (max-width: 767px) {
+
+
+  }
+
+  /* xs */
+  @media (max-width: 480px) {
+    .cleanslate.cc-widget.cc-widget-bottom {
+      height: 40px !important;
+    }
   }
 }
 
-
-
-/* lg */
-@media (min-width: 992px) and (max-width: 1199px) {
-
-
-}
-
-/* md */
-@media (min-width: 768px) and (max-width: 991px) {
-    padding-bottom: 200px !important;
-}
-
-/* sm */
-@media (max-width: 767px) {
-
-
-}
-
-/* xs */
-@media (max-width: 480px) {
-
-
-}
-}
 /* end html; body css */
 
 
