@@ -57,6 +57,7 @@ gem 'bootbox-rails', '~>0.4'
 gem 'aasm'
 #mailchimp api
 gem 'gibbon'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
