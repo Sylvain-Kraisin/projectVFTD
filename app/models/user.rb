@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
    end
 
   def add_user_to_mailchimp_mailing_list
-    User.order(created_at: :asc).offset(94).each do |user|
+    User.order(created_at: :asc).offset(106).each do |user|
       AddUserToMailchimpMailingListJob.perform_later(user)
     end
   end
