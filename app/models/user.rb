@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   after_validation :add_bonus_to_score, if: :bonus_changed?
+  after_create :add_user_to_mailchimp_mailing_list
   after_commit :add_classroom, unless: :classroom?
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ":style/avatar.png"
@@ -34,6 +35,12 @@ class User < ActiveRecord::Base
    def add_bonus_to_score
      self.score = ((average * self.reponses.where("total is NOT NULL").count) * 1000) + bonus
    end
+
+  def add_user_to_mailchimp_mailing_list
+    User.where(newsletter:true).each do |user|
+      AddUserToMailchimpMailingListJob.perform_later(user)
+    end
+  end
 
   def add_classroom
     if User.order(created_at: :asc).limit(32).pluck(:id).include? self.id
@@ -75,7 +82,6 @@ class User < ActiveRecord::Base
     else
       self.classroom = 'à définir'
     end
-
   end
 
 end
