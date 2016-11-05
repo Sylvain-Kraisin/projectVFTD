@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   after_validation :add_bonus_to_score, if: :bonus_changed?
   after_create :add_user_to_mailchimp_mailing_list
   after_commit :add_classroom, unless: :classroom?
+  before_destroy :remove_user_from_mailchimp_list
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ":style/avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -39,6 +40,11 @@ class User < ActiveRecord::Base
   def add_user_to_mailchimp_mailing_list
     AddUserToMailchimpMailingListJob.perform_later(self)
   end
+
+  def remove_user_from_mailchimp_list
+    RemoveUserFromMailchimpMailingListJob.perform_later(self)
+  end
+
 
   def add_classroom
     if User.order(created_at: :asc).limit(32).pluck(:id).include? self.id
