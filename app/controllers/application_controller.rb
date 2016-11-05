@@ -23,10 +23,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :presence
     devise_parameter_sanitizer.for(:sign_up) << :female
 
-    devise_parameter_sanitizer.for(:account_update) << :role
     devise_parameter_sanitizer.for(:account_update) << :avatar
     devise_parameter_sanitizer.for(:account_update) << :bio
     devise_parameter_sanitizer.for(:account_update) << :newsletter
+    devise_parameter_sanitizer.for(:account_update) << :mail_correction
+    devise_parameter_sanitizer.for(:account_update) << :mail_new_test
+    devise_parameter_sanitizer.for(:account_update) << :mail_new_post
     devise_parameter_sanitizer.for(:account_update) << :birthdate
     devise_parameter_sanitizer.for(:account_update) << :female
 

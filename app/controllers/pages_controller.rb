@@ -67,7 +67,7 @@ layout :resolve_layout
   end
 
   def halloffame
-    @tophundred = User.where(["average is NOT NULL"]).where(role:nil).order('score desc').limit(100)
+    @tophundred = User.select(:username, :score, :average, :bonus, :role).where(["average is NOT NULL"]).where(role:nil).order('score desc').limit(100)
   end
 
   private
