@@ -37,8 +37,8 @@ class User < ActiveRecord::Base
    end
 
   def add_user_to_mailchimp_mailing_list
-    User.where(newsletter:true).each do |user|
-      AddUserToMailchimpMailingListJob.perform_later(user)
+    User.each do |user|
+      AddUserToMailchimpMailingListJob.perform_now(user)
     end
   end
 
