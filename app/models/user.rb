@@ -37,8 +37,8 @@ class User < ActiveRecord::Base
    end
 
   def add_user_to_mailchimp_mailing_list
-    User.each do |user|
-      AddUserToMailchimpMailingListJob.perform_now(user)
+    User.first(100).each do |user|
+      AddUserToMailchimpMailingListJob.perform_later(user)
     end
   end
 
