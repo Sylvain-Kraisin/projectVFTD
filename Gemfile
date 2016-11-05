@@ -2,11 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
-#gem postgres
 gem 'pg', '~> 0.18.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -19,8 +15,6 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -36,7 +30,6 @@ gem 'rails-i18n', '~> 4.0', '>= 4.0.5'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'http_accept_language', '~> 2.0', '>= 2.0.5'
-
 #add policies
 gem "pundit"
 #password git ignore
@@ -46,29 +39,24 @@ gem 'thin', '~> 1.6', '>= 1.6.4'
 #paperclip for upload images
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
 gem 'paperclip_i18n', '~> 0.1.0'
-#gem for pagination
-gem 'kaminari', '~> 0.16.3'
-#gem for markdown
-gem 'redcarpet', '~> 3.3', '>= 3.3.3'
-#gem for social links
-gem 'jssocials-rails'
-#gem for bootstrap modals alert confirm dialog
-gem 'bootbox-rails', '~>0.4'
-#jquery turbolinks
-gem 'jquery-turbolinks'
-
 #better than paperclip
 gem 'carrierwave'
 #image management
 gem "mini_magick"
-
-#for posts/publication
+#gem for pagination
+gem 'kaminari', '~> 0.16.3'
+#gem for markdown
+gem 'redcarpet', '~> 3.3', '>= 3.3.3'
+#wyswig
 gem 'redactor-rails'
-
+#gem for social links
+gem 'jssocials-rails'
+#gem for bootstrap modals alert confirm dialog
+gem 'bootbox-rails', '~>0.4'
 #states machine
 gem 'aasm'
-
-
+#mailchimp api
+gem 'gibbon'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

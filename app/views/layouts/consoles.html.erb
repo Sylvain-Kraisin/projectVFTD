@@ -30,13 +30,13 @@
 
   <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
   <title>ViensFaireTesDevoirs</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
   </head>
 
-<body class="<%= controller.controller_name %> <%= controller.action_name %>" data-no-turbolink="true">
+<body class="<%= controller.controller_name %> <%= controller.action_name %>">
 
   <nav class="navbar navbar-default">
     <div class="container-fluid">

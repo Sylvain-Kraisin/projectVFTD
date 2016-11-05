@@ -41,9 +41,9 @@
     <a href="http://viensfairetesdevoirs.com/pages/faq#answer8"/><h4>(DONT <%= @user.bonus %> BONS POINTS)</h4></a>
     <h4><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></h4>
     <% if @user.female? %>
-      <h4> INSCRITE DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span></h4>
+      <h4> INSCRITE DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y") %></span></h4>
     <% else %>
-      <h4> INSCRIT DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y" ) %></span></h4>
+      <h4> INSCRIT DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y") %></span></h4>
     <% end %>
   </div>
 
