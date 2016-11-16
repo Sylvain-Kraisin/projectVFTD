@@ -36,7 +36,7 @@
 
   </head>
 
-  <body class="<%= controller.controller_name %> <%= controller.action_name %>">
+  <body class="<%= controller.controller_name %> <%= controller.action_name %>" data-no-turbolink="true">
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -57,7 +57,16 @@
 
     <%= render 'navbar' %>
 
-    <div class="alert-success text-center"><strong><%= notice %><%= alert %></strong></div>
+    <div class="alert-success text-center">
+      <strong>
+        <%= notice %>
+      </strong>
+    </div>
+    <div class="alert-danger text-center">
+      <strong>
+        <%= alert %>
+      </strong>
+    </div>
 
     <div class="container margin_bottom_ipad_portrait">
       <%= yield %>
