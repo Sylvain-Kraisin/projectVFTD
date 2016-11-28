@@ -14,7 +14,7 @@
 
           <h4>
           <% if @reponse.appreciation? %>
-            <p style="color:red" class="craietext"><%= @reponse.appreciation.upcase %></p>
+            <p style="color:red" class="craietext"><%= @reponse.appreciation.mb_chars.upcase %></p>
           <% end %>
           <!-- <div class="hidden-xs col-lg-12">
             <br>

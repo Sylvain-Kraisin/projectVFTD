@@ -2,142 +2,108 @@
 <html>
   <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- for Google -->
-  <meta name="description" content="Ecole de Retrogaming" />
-  <meta name="keywords" content="retrogaming ecole mario zelda nintendo dst" />
-  <meta name="author" content="VFTD" />
-  <meta name="copyright" content="Sylvain Kraisin" />
-  <meta name="application-name" content="ViensFaireTesDevoirs" />
-  <title>Coopérative - Viens Faire Tes Devoirs</title>
-<!-- for Facebook -->
-  <%= content_for :facebook %>
-  <!-- <meta property="og:title" content="L'Ecole du Retrogaming" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="<%= asset_path('pixelsite.png') %>" />
-  <meta property="og:url" content="http://viensfairetesdevoirs.com" />
-  <meta property="og:description" content="Rejoins la première école de retrogaming du net" /> -->
-<!-- for Twitter -->
-  <meta name="twitter:card" content="L'Ecole du Retrogaming" />
-  <meta name="twitter:title" content="Ecole de Retrogaming" />
-  <meta name="twitter:description" content="La 1ere école de Retrogaming du net" />
-  <meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
-<!-- for favicon -->
-  <%= render 'favicon' %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- for Google -->
+    <meta name="description" content="Ecole de Retrogaming" />
+    <meta name="keywords" content="retrogaming ecole mario zelda nintendo dst" />
+    <meta name="author" content="VFTD" />
+    <meta name="copyright" content="Sylvain Kraisin" />
+    <meta name="application-name" content="ViensFaireTesDevoirs" />
+    <title>Coopérative - Viens Faire Tes Devoirs</title>
+    <!-- for Facebook -->
+    <%= content_for :facebook %>
+    <!-- <meta property="og:title" content="L'Ecole du Retrogaming" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="<%= asset_path('pixelsite.png') %>" />
+    <meta property="og:url" content="http://viensfairetesdevoirs.com" />
+    <meta property="og:description" content="Rejoins la première école de retrogaming du net" /> -->
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="L'Ecole du Retrogaming" />
+    <meta name="twitter:title" content="Ecole de Retrogaming" />
+    <meta name="twitter:description" content="La 1ere école de Retrogaming du net" />
+    <meta name="twitter:image" content="<%= asset_path('mudorapost.png') %>" />
+    <!-- for favicon -->
+    <%= render 'favicon' %>
 
 
-  <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
-  <title>ViensFaireTesDevoirs</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="<%= asset_path('animate.min.css') %>" />
+    <title>ViensFaireTesDevoirs</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
   </head>
 
-<body class="<%= controller.controller_name %> <%= controller.action_name %>">
-  <!--<script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '755784447865139',
-        xfbml      : true,
-        version    : 'v2.6'
-      });
-    };
+  <body class="<%= controller.controller_name %> <%= controller.action_name %>">
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/fr_FR/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to t('accueil').upcase, root_path, class: "navbar-brand craietext", style: "color: white", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %>
+        </div>
 
-     FB.ui({
-  method: 'share_open_graph',
-  action_type: 'og.likes',
-  action_properties: JSON.stringify({
-    object:'http://www.viensfairetesdevoirs.com',
-  })
-}, function(response){
-  // Debug response (optional)
-  console.log(response);
-});
-  </script>-->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to t('accueil').upcase, root_path, class: "navbar-brand craietext", style: "color: white", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %>
-      </div>
+            <% if user_signed_in? %>
+              <li class="text-center"><%= link_to t('deconnexion').upcase, destroy_user_session_path, method: :delete, style: "color: white", class: "craietext", onmouseover: "this.style.color='#ff471a'", onmouseout: "this.style.color='white'" %></li>
+            <% else %>
+              <li class="text-center"><%= link_to t('connexion').upcase, new_user_session_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
+              <li class="text-center"><%= link_to t("s_inscrire").upcase, new_user_registration_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#e5e600'", onmouseout: "this.style.color='white'" %></li>
+            <% end %>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-left">
+          </ul>
 
-          <% if user_signed_in? %>
-            <li class="text-center"><%= link_to t('deconnexion').upcase, destroy_user_session_path, method: :delete, style: "color: white", class: "craietext", onmouseover: "this.style.color='#ff471a'", onmouseout: "this.style.color='white'" %></li>
-          <% else %>
-            <li class="text-center"><%= link_to t('connexion').upcase, new_user_session_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
-            <li class="text-center"><%= link_to t("s_inscrire").upcase, new_user_registration_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#e5e600'", onmouseout: "this.style.color='white'" %></li>
-          <% end %>
-
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li class="text-center"><%= link_to "COURS", pages_videos_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
-            <li class="text-center"><%= link_to "C.D.I", posts_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
-          <% if user_signed_in? %>
-            <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com/login" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
-          <% else %>
-            <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
-          <% end %>
-            <li class="text-center"><%= link_to "CASIER", pages_casier_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#ff471a'", onmouseout: "this.style.color='white'" %></li>
-            <li class="text-center"><%= link_to "F.A.Q", pages_faq_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
-            <li class="text-center"><%= link_to "COOPERATIVE", pages_cooperative_path, style: "color: #33cc33", class: "craietext" %></li>
-        </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="text-center"><%= link_to "COURS", pages_videos_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
+              <li class="text-center"><%= link_to "C.D.I", posts_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#33cc33'", onmouseout: "this.style.color='white'" %></li>
+            <% if user_signed_in? %>
+              <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com/login" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
+            <% else %>
+              <li class="text-center"><a href="http://discourse.viensfairetesdevoirs.com" style="color:white" class="craietext" onmouseover="this.style.color='#e5e600'" onmouseout="this.style.color='white'">RECRE</a></li>
+            <% end %>
+              <li class="text-center"><%= link_to "CASIER", pages_casier_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#ff471a'", onmouseout: "this.style.color='white'" %></li>
+              <li class="text-center"><%= link_to "F.A.Q", pages_faq_path, style: "color: white", class: "craietext", onmouseover: "this.style.color='#3399ff'", onmouseout: "this.style.color='white'" %></li>
+              <li class="text-center"><%= link_to "COOPERATIVE", pages_cooperative_path, style: "color: #33cc33", class: "craietext" %></li>
+          </ul>
 
 
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
-  <div class="alert-success text-center">
-    <strong>
-      <%= notice %>
-    </strong>
-  </div>
-  <div class="alert-danger text-center">
-    <strong>
-      <%= alert %>
-    </strong>
-  </div>
+    <div class="alert-success text-center">
+      <strong>
+        <%= notice %>
+      </strong>
+    </div>
+    <div class="alert-danger text-center">
+      <strong>
+        <%= alert %>
+      </strong>
+    </div>
 
-  <div class="container">
-    <%= yield %>
-  </div>
+    <div class="container">
+      <%= yield %>
+    </div>
 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-74415551-1 ', 'auto');
-  ga('send', 'pageview');
-
-  </script>
-
-</body>
-
+      ga('create', 'UA-74415551-1 ', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
 </html>
