@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  before_create :set_default_score
   has_many :visits
   has_many :comments
   has_many :reponses, dependent: :destroy
@@ -9,6 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   after_validation :add_bonus_to_score, if: :bonus_changed?
+  before_create :set_default_score
   after_create :add_user_to_mailchimp_mailing_list
   after_commit :add_classroom, unless: :classroom?
   before_destroy :remove_user_from_mailchimp_list
