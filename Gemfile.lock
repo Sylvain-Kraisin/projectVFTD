@@ -40,6 +40,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.6.0)
       execjs
+    awesome_print (1.7.0)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -216,6 +217,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  awesome_print
   bootbox-rails (~> 0.4)
   bootstrap-sass (~> 3.3.5.1)
   byebug
