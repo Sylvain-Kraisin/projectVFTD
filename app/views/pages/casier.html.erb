@@ -1,9 +1,9 @@
 <div style="color:white" class="row transtext craietext text-center">
-  <h2 ><em>CASIER DE "<%= @user.username.upcase %>"</em></h2>
+  <h2 ><em>CASIER DE "<%= @user.username.mbr_chars.upcase %>"</em></h2>
   <% if @user.classroom.present? %>
-    <h4>CLASSE <%= @user.classroom.upcase %></h4>
+    <h4>CLASSE <%= @user.classroom.mbr_chars.upcase %></h4>
   <% end %>
-  <%= link_to "MODIFIER SON PROFIL".upcase, edit_user_registration_path %>
+  <%= link_to "MODIFIER SON PROFIL".mbr_chars.upcase, edit_user_registration_path %>
 
   <br>
   <br>
@@ -62,7 +62,7 @@
     <div>
 
       <% @console = Console.find(reponse.console_id) %>
-      <h4><%= image_tag @console.console_img.url, class:"consoleimg_small" %><%= @test.video_title.upcase %> = <span style="color:red"><%= number_to_human(reponse.total) %>/10</span><br><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a></h4>
+      <h4><%= image_tag @console.console_img.url, class:"consoleimg_small" %><%= @test.video_title.mbr_chars.upcase %> = <span style="color:red"><%= number_to_human(reponse.total) %>/10</span><br><a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a></h4>
 
       <!-- <h5><span style="color:red"><%= number_to_human(reponse.total) %>/10</span> - <a href="/tests/<%= reponse.test_id %>/reponses/<%= reponse.id %>">VOIR CORRECTION</a></h5> -->
     </div>
@@ -91,7 +91,7 @@
     <% @lastpost = Post.where(id: @uservisits.last.post_id).last %>
     <h4>DERNIER LIVRE EMPRUNTE : </h4>
     <h4><a href="/posts/<%= @lastpost.id %>"><%= image_tag @lastpost.post_img.url(:post_show), class:"img-responsive center-block" %></a></h4>
-    <h4><%= @lastpost.title.upcase %></h4>
+    <h4><%= @lastpost.title.mbr_chars.upcase %></h4>
     <% end %>
 
   <br>
