@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment_size :avatar, :in => 0.megabytes..1.megabytes
 
-
-
   validates :username,
     presence: true,
     uniqueness: {
@@ -30,7 +28,6 @@ class User < ActiveRecord::Base
 
    def set_default_score
      self.score  ||= 0
-     #self.score = true if self.score.nil?
    end
 
    def add_bonus_to_score
@@ -44,7 +41,6 @@ class User < ActiveRecord::Base
   def remove_user_from_mailchimp_list
     RemoveUserFromMailchimpMailingListJob.perform_later(self)
   end
-
 
   def add_classroom
     if User.order(created_at: :asc).limit(32).pluck(:id).include? self.id
