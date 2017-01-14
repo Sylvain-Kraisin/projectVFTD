@@ -5,9 +5,9 @@
     <a href="/pages/casier">
       <p><%= image_tag @user.avatar.url(:medium), class:"img-responsive center-block" %></p>
     </a>
-    <h4 class="craietext" style="color:white"><em><%= @user.username.mbr_chars.upcase %><br>
+    <h4 class="craietext" style="color:white"><em><%= @user.username.mb_chars.upcase %><br>
       <% if @user.classroom.present? %>
-        <h4>CLASSE <%= @user.classroom.mbr_chars.upcase %></h4>
+        <h4>CLASSE <%= @user.classroom.mb_chars.upcase %></h4>
       <% end %>
       <% if @user.score == nil || @user.score == 0  %>
         <span style="color:#bfbfbf"> 0 PTS</span></em></h4>
@@ -127,7 +127,7 @@
         <% if Video.exists? %>
         <div class="lasttext lastblue col-sm-12">
           <h4 class="craietext">DERNIER COURS</h4>
-          <p class="craietext"><%= @video.title.mbr_chars.upcase %> <%= image_tag @console.console_img.url, class:"consoleimg_small" %></p>
+          <p class="craietext"><%= @video.title.mb_chars.upcase %> <%= image_tag @console.console_img.url, class:"consoleimg_small" %></p>
           <br>
         </div>
         <% end %>
