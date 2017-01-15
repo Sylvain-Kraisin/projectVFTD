@@ -1,6 +1,8 @@
 <p>
   <% @useravatar = User.where(username: comment.user_username).first %>
-  <span><%= image_tag @useravatar.avatar.url(:thumb) %></span>
+  <% if @useravatar.present? %>
+    <span><%= image_tag @useravatar.avatar.url(:thumb) %></span>
+  <% end %>
   &nbsp;
   <strong><em><%= comment.user_username %></strong></em>
   <%=raw markdown.render comment.content %>
