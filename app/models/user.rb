@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :visits
+  has_many :posts
   has_many :comments
   has_many :reponses, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -24,6 +25,10 @@ class User < ActiveRecord::Base
     }
   validates :bio, length: {maximum: 2500}, allow_blank: true
 
+  def is_admin?
+    self.role == 'admin'
+  end
+  
   private
 
    def set_default_score

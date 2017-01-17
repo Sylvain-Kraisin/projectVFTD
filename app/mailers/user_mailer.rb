@@ -28,13 +28,35 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: @subject
   end
 
-  #TO DO def new_post_available (post, user)
+  ### POST mailer ############################
+  def new_post_available (post, user)
+    @post = post
+    @user = user
+    @subject = 'Un nouveau livre intitulé ' + @post.title + ' est disponible au C.D.I'
+    mail to: user.email, subject: @subject
+  end
 
-  def notify_author comment
+  def new_post_request (post, user)
+    @post = post
+    @user = user
+    @subject = 'Un nouveau livre intitulé ' + @post.title + ' est à valider'
+    mail to: "viensfairetesdevoirs@gmail.com", subject: @subject
+  end
+
+  def post_refused (post, user)
+    @post = post
+    @user = user
+    @subject = 'Votre livre intitulé ' + @post.title + ' à été refusé'
+    mail to: user.email, subject: @subject
+  end
+
+  def notify_author (comment)
     @comment = comment
     @post = comment.post
     @author_email = User.find_by(username:@post.author).email
     @subject =  comment.user_username + ' à annoté ton livre'
     mail to: @author_email, subject: @subject
   end
+  ### end POST mailers ############################
+
 end

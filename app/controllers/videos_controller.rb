@@ -44,8 +44,8 @@ before_action :find_video, only: [:show, :edit, :update]
   def publish
     @video = Video.find(params[:id])
 
-    @video.run!
-    flash[:notice] = "La vidéo #{@video.title} est maintenant publié"
+    @video.run! unless @video.online?
+    flash[:notice] = "La vidéo #{@video.title} est maintenant en ligne"
     redirect_to pages_adminpage_path
   end
 

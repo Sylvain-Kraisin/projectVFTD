@@ -1,13 +1,13 @@
 <%= simple_form_for @post do |f| %>
-<label style="color:#FFFFFF">TITRE</label>
-<%= f.input :title, label: false, input_html: {maxlength: 50} %>
-<label style="color:#FFFFFF">CONTENU</label>
-<%= f.input :content, as: :text, input_html: {maxlength: 999999, rows: 15, class:'redactor'}, label: false %>
-<label style="color:#FFFFFF">AUTEUR</label>
-<%= f.input :author, input_html: {value: current_user.username}, label: false  %>
-<label style="color:#FFFFFF">IMAGE DE L'ARTICLE</label>
-<%= f.file_field :post_img, label: false %>
-<label style="color:#FFFFFF">CATEGORIE</label>
-<%= f.association :category, prompt:("Choisir la matière"), label: false %>
-<%= f.button :submit %>
+  <label style="color:#FFFFFF">TITRE</label>
+  <%= f.input :title, label: false, input_html: {maxlength: 50} %>
+  <label style="color:#FFFFFF">CONTENU</label>
+  <%= f.input :content, as: :text, input_html: {maxlength: 999999, rows: 15, class:'redactor'}, label: false %>
+  <label style="color:#FFFFFF">AUTEUR</label>
+  <p style="color:#FFFFFF"><%= current_user.username %></p>
+  <!-- <label style="color:#FFFFFF">IMAGE DE L'ARTICLE</label>
+  <p><%= f.file_field :post_img, label: false, style:"color:#FFFFFF" %></p> -->
+  <label style="color:#FFFFFF">CATEGORIE</label>
+  <%= f.association :category, prompt:("Choisir la matière"), label: false %>
+  <%= f.button :submit, 'Sauvegarder' %>
 <% end %>

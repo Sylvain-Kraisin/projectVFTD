@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'pages/adminpage' => 'pages#adminpage'
   get 'pages/correspondances' => 'pages#correspondances'
   post 'videos/publish' => 'videos#publish'
+  post 'posts/submit_accept_or_refuse' => 'posts#submit_accept_or_refuse'
+
 
 
   get 'discourse/sso' => 'discourse_sso#sso'

@@ -29,7 +29,7 @@
       <% @posts.each do |post| %>
         <div class="col-sm-2  col-xs-6 ">
           <a href="/posts/<%= post.id %>">
-            <p><%= image_tag post.post_img.url(:post_index), class:"img-responsive center-block mudora_index" %></p>
+            <p><%= image_tag (post.category.name.downcase + '.png'), class:"img-responsive center-block mudora_index" %></p>
           </a>
             <span class="hidden-sm hidden-lg hidden-md">
               <h5 style="color:white" class="height_30 craietext"><%= post.title.mb_chars.upcase %></h5>
@@ -52,11 +52,11 @@
 
 <div class="col-xs-12 text-center">
 <br>
-<p class="craietext" style="color:#ffffff">VOUS VOULEZ AJOUTER VOTRE ARTICLE ?<br> ENVOYER LE A VIENSFAIRETESDEVOIRS@GMAIL.COM</p>
+<p class="craietext" style="color:#ffffff">TU VEUX AJOUTER TON LIVRE AU C.D.I ?</p>
 <% if user_signed_in? %>
-  <% if current_user.role == "admin" || current_user.role == 'bibliothequaire'  %>
-    <%= link_to "Créér un article", new_post_path %>
-  <% end %>
+  <p><%= link_to "Créér un article", new_post_path, class:"btn btn-default" %></p>
+<% else %>
+  <p><%= link_to "Inscription requise", new_user_registration_path, class:"btn btn-default" %></p>
 <% end %>
 <br>
 <br>
