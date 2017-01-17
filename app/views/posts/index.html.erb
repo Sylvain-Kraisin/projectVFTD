@@ -53,8 +53,10 @@
 <div class="col-xs-12 text-center">
 <br>
 <p class="craietext" style="color:#ffffff">TU VEUX AJOUTER TON LIVRE AU C.D.I ?</p>
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.reponses.count >= 2 %>
   <p><%= link_to "Créér un article", new_post_path, class:"btn btn-default" %></p>
+<% elsif user_signed_in? %>
+  <p><%= link_to "Passe au moins 2 Devoirs avant de pouvoir participer", pages_videos_path, class:"btn btn-default" %></p>
 <% else %>
   <p><%= link_to "Inscription requise", new_user_registration_path, class:"btn btn-default" %></p>
 <% end %>

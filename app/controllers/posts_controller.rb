@@ -16,6 +16,8 @@ class PostsController < ApplicationController
   end
 
   def new
+    redirect_to root_path unless current_user.reponses.count >= 2 || current_user.is_admin?
+
     @post = Post.new
   end
 
@@ -53,7 +55,7 @@ class PostsController < ApplicationController
   end
 
   def post_author?
-    user_signed_in? && @post.user_id == current_user.id
+    user_signed_in? && current_user.reponses.count >= 2 && @post.user_id == current_user.id
   end
 
   def submit_accept_or_refuse
