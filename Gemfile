@@ -43,6 +43,8 @@ gem 'paperclip_i18n', '~> 0.1.0'
 gem 'carrierwave'
 #image management
 gem "mini_magick"
+#for amazonS3 with carrierwave
+gem "fog-aws"
 #gem for pagination
 gem 'kaminari', '~> 0.16.3'
 #gem for markdown

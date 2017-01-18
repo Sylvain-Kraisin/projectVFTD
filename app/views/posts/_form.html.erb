@@ -6,7 +6,7 @@
   <label style="color:#FFFFFF">AUTEUR</label>
   <p style="color:#FFFFFF"><%= current_user.username %></p>
   <!-- <label style="color:#FFFFFF">IMAGE DE L'ARTICLE</label>
-  <p><%= f.file_field :post_img, label: false, style:"color:#FFFFFF" %></p> -->
+  <p><%= f.file_field :image, label: false, style:"color:#FFFFFF" %></p> -->
   <label style="color:#FFFFFF">CATEGORIE</label>
   <%= f.association :category, prompt:("Choisir la matière"), label: false %>
   <%= f.button :submit, 'Sauvegarder' %>

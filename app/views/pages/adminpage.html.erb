@@ -40,6 +40,16 @@
       <% end %>
   </div>
 
+  <div class= "col-xs-6 col-md-2" >
+    <h3>A Valider</h3>
+    <% if Post.pending.exists? %>
+      <% Post.pending.each do |post| %>
+        <p><%= post.id %> - <%= post.title %> - <%= post.author %></p>
+        <a href="/posts/<%= post.id %>">Lire</a>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class= "col-xs-6 col-md-4" >
     <h3>Comments List</h3>
     <% if Comment.exists? %>

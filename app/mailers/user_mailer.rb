@@ -16,8 +16,8 @@ class UserMailer < ApplicationMailer
   def acorriger reponse
     @reponse = reponse
     @test = Test.find(@reponse.test_id)
-    @user = @reponse.user_username
-    @subject = 'Nouveau DST de ' + @user + ' à corriger'
+    @user = @reponse.user
+    @subject = 'Nouveau DST de ' + @user.username + ' à corriger'
     mail to: "viensfairetesdevoirs@gmail.com", subject: @subject
   end
 
