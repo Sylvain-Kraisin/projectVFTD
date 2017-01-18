@@ -1,13 +1,15 @@
 <%= simple_form_for @post do |f| %>
   <label style="color:#FFFFFF">TITRE</label>
   <%= f.input :title, label: false, input_html: {maxlength: 50} %>
-  <label style="color:#FFFFFF">CONTENU</label>
+  <label style="color:#FFFFFF">CONTENU ( les images ne doivent pas depasser 500Ko. Largeur min: 200px / Largeur max:700px )</label>
   <%= f.input :content, as: :text, input_html: {maxlength: 999999, rows: 15, class:'redactor'}, label: false %>
-  <label style="color:#FFFFFF">AUTEUR</label>
-  <p style="color:#FFFFFF"><%= current_user.username %></p>
   <!-- <label style="color:#FFFFFF">IMAGE DE L'ARTICLE</label>
   <p><%= f.file_field :image, label: false, style:"color:#FFFFFF" %></p> -->
   <label style="color:#FFFFFF">CATEGORIE</label>
   <%= f.association :category, prompt:("Choisir la matière"), label: false %>
-  <%= f.button :submit, 'Sauvegarder' %>
+  <label style="color:#FFFFFF">AUTEUR</label>
+  <p style="color:#FFFFFF"><%= current_user.username %></p>
+  <div class="text-center margin_bot20">
+    <p><%= f.button :submit, 'Sauvegarder' %></p>
+  </div>
 <% end %>

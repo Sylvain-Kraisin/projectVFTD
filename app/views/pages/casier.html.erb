@@ -45,6 +45,17 @@
     <% else %>
       <h4> INSCRIT DEPUIS LE <span style="color:#bfbfbf"><%= l(@user.created_at, format: "%e %m %Y") %></span></h4>
     <% end %>
+    <br>
+    <br>
+    <% if @user.posts.draft.count > 0 %>
+      <h4>MES LIVRES EN COURS D'ECRITURE :</h4>
+      <% @user.posts.draft.each do |post| %>
+        <%= link_to post_path(post) do %>
+          <%= image_tag (post.category.name.downcase + '.png'), class:"img-responsive center-block mudora_index" %>
+          <h4><%= post.title.mb_chars.upcase %></h4>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 
   <br>
@@ -84,14 +95,14 @@
 
   <br>
     <% if @uservisits.count == 0 %>
-    <h4>DERNIER LIVRE EMPRUNTE : </h4>
-    <h4 style="color:red">AUCUN</h4>
-    <a href="/posts"> <h5>EMPRUNTER UN LIVRE AU C.D.I</h5></a>
+      <h4>DERNIER LIVRE EMPRUNTE : </h4>
+      <h4 style="color:red">AUCUN</h4>
+      <a href="/posts"> <h5>EMPRUNTER UN LIVRE AU C.D.I</h5></a>
     <% else %>
-    <% @lastpost = Post.where(id: @uservisits.last.post_id).last %>
-    <h4>DERNIER LIVRE EMPRUNTE : </h4>
-    <h4><a href="/posts/<%= @lastpost.id %>"><%= image_tag @lastpost.post_img.url(:post_show), class:"img-responsive center-block" %></a></h4>
-    <h4><%= @lastpost.title.mb_chars.upcase %></h4>
+      <% @lastpost = Post.where(id: @uservisits.last.post_id).last %>
+      <h4>DERNIER LIVRE EMPRUNTE : </h4>
+      <%= image_tag (@lastpost.category.name.downcase + '.png'), class:"img-responsive center-block mudora_index" %>
+      <h4><%= @lastpost.title.mb_chars.upcase %></h4>
     <% end %>
 
   <br>

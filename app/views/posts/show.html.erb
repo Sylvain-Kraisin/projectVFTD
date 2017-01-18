@@ -39,11 +39,15 @@
         <% if current_user.is_admin? %>
           <p><%= link_to "Modifier", edit_post_path(@post), class:'btn btn-default' %></p>
           <p><%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppression de cet article ?"}, class:'btn btn-default' %></p>
+          <% if @post.user_id == current_user.id %>
+            <p><%= button_to "Publier l'article", {controller: :posts, action: 'submit_accept_or_refuse', id: @post.id, choice:"accept" }, :method => :post, class:'btn btn-default'  %></p>
+          <% end %>
         <% end %>
         <% if @post.user_id == current_user.id || current_user.is_admin?  %>
           <% if @post.draft? && !current_user.is_admin? %>
             <p><%= link_to "Modifier", edit_post_path(@post), class:'btn btn-default' %></p>
-            <p><%= button_to 'Soumettre mon article', {controller: :posts, action: 'submit_accept_or_refuse', id: @post.id, choice:"submit" }, :method => :post, class:'btn btn-default'  %></p>
+            <p><%= button_to 'Soumettre mon article', {controller: :posts, action: 'submit_accept_or_refuse', id: @post.id, choice:"submit" }, :method => :post, class:'btn btn-success'  %></p>
+            <p><%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppression de cet article ?"}, class:'btn btn-danger' %></p>
           <% elsif @post.pending? && current_user.is_admin? %>
             <p><%= button_to "Refuser l'article", {controller: :posts, action: 'submit_accept_or_refuse', id: @post.id, choice:"refuse" }, :method => :post, class:'btn btn-default'  %></p>
             <p><%= button_to "Publier l'article", {controller: :posts, action: 'submit_accept_or_refuse', id: @post.id, choice:"accept" }, :method => :post, class:'btn btn-default'  %></p>
@@ -100,23 +104,24 @@
       <% end %>
     </div>
     <br>
-    <div id="annotations" class="annotations text-justify">
+    <% if @post.published? %>
+      <div id="annotations" class="annotations text-justify">
 
-      <a href="https://www.facebook.com/sharer/sharer.php?u=http://viensfairetesdevoirs.com/posts/<%= @post.id %>" target="_blank">
-        <button class="btn btn-primary">
-          <i class="fa fa-facebook"></i> Partager
-        </button>
-      </a>
-      <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au C.D.I" %>&url=http://viensfairetesdevoirs.com/posts/<%= @post.id %>&via=ViensFTD" target="blank" class="decoration_none">
-        <button class="btn btn-info">
-          <i class="fa fa-twitter"></i> Twitter
-        </button>
-      </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://viensfairetesdevoirs.com/posts/<%= @post.id %>" target="_blank">
+          <button class="btn btn-primary">
+            <i class="fa fa-facebook"></i> Partager
+          </button>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au C.D.I" %>&url=http://viensfairetesdevoirs.com/posts/<%= @post.id %>&via=ViensFTD" target="blank" class="decoration_none">
+          <button class="btn btn-info">
+            <i class="fa fa-twitter"></i> Twitter
+          </button>
+        </a>
 
-      <p><%= render @post.comments.order('created_at ASC' ) %><p>
-      <p><%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %></p>
-
-    </div>
+        <p><%= render @post.comments.order('created_at ASC' ) %><p>
+        <p><%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %></p>
+      </div>
+    <% end %>
   </div>
 </div>
 
