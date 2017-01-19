@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    redirect_to root_path unless current_user.reponses.count >= 2 || current_user.is_admin?
+    redirect_to root_path unless current_user.reponses.count >= 2 || current_user.role == "admin"
 
     @post = Post.new
   end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    redirect_to root_path unless @post.published? || post_author? || current_user.is_admin?
+    redirect_to root_path unless @post.published? || post_author? || current_user && current_user.role == "admin"
     # @split = @post.content.split(" ")
   end
 
