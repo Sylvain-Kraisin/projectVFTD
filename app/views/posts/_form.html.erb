@@ -1,7 +1,7 @@
 <%= simple_form_for @post do |f| %>
   <label style="color:#FFFFFF">TITRE</label>
   <%= f.input :title, label: false, input_html: {maxlength: 50} %>
-  <label style="color:#FFFFFF">CONTENU ( les images ne doivent pas depasser 500Ko. Largeur min: 200px / Largeur max:700px )</label>
+  <label style="color:#FFFFFF">CONTENU ( les images ne doivent pas dépasser 500Ko)</label>
   <%= f.input :content, as: :text, input_html: {maxlength: 999999, rows: 15, class:'redactor'}, label: false %>
   <!-- <label style="color:#FFFFFF">IMAGE DE L'ARTICLE</label>
   <p><%= f.file_field :image, label: false, style:"color:#FFFFFF" %></p> -->
