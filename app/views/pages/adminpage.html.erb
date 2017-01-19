@@ -22,7 +22,7 @@
   </div>
 
   <div class= "col-xs-6 col-md-2" >
-    <h3>A Corriger</h3>
+    <h3>DST à corriger</h3>
     <% if Reponse.exists? %>
       <% @reponsesacorriger.each do |reponse| %>
 
@@ -41,9 +41,19 @@
   </div>
 
   <div class= "col-xs-6 col-md-2" >
-    <h3>A Valider</h3>
+    <h3>Articles à valider</h3>
     <% if Post.pending.exists? %>
       <% Post.pending.each do |post| %>
+        <p><%= post.id %> - <%= post.title %> - <%= post.author %></p>
+        <a href="/posts/<%= post.id %>">Lire</a>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class= "col-xs-6 col-md-2" >
+    <h3>Articles en cours de créa</h3>
+    <% if Post.draft.exists? %>
+      <% Post.draft.each do |post| %>
         <p><%= post.id %> - <%= post.title %> - <%= post.author %></p>
         <a href="/posts/<%= post.id %>">Lire</a>
       <% end %>
