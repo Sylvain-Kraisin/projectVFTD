@@ -16,20 +16,20 @@
 					"delete-column": "Delete column",
 					"delete-row": "Delete row",
 					"delete-table": "Delete table"
-				}
-        // fr: {
-        //   "table": "Table",
-        //   "insert-table": "Insert table",
-        //   "insert-row-above": "Insert row above",
-        //   "insert-row-below": "Insert row below",
-        //   "insert-column-left": "Insert column left",
-        //   "insert-column-right": "Insert column right",
-        //   "add-head": "Add head",
-        //   "delete-head": "Delete head",
-        //   "delete-column": "Delete column",
-        //   "delete-row": "Delete row",
-        //   "delete-table": "Delete table"
-        // }
+				};
+        fr: {
+          "table": "Table",
+          "insert-table": "Insert table",
+          "insert-row-above": "Insert row above",
+          "insert-row-below": "Insert row below",
+          "insert-column-left": "Insert column left",
+          "insert-column-right": "Insert column right",
+          "add-head": "Add head",
+          "delete-head": "Delete head",
+          "delete-column": "Delete column",
+          "delete-row": "Delete row",
+          "delete-table": "Delete table"
+        }
 			},
 			init: function()
 			{

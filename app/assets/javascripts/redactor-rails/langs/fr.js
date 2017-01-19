@@ -62,7 +62,5 @@
     "header3": "Titre 3",
     "header4": "Titre 4",
     "header5": "Titre 5"
-
-};
-
+	};
 })(jQuery);

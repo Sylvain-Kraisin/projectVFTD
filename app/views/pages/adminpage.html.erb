@@ -135,7 +135,7 @@
   <div class= "col-xs-6 col-md-4" >
     <h3>Posts List</h3>
     <% if Post.exists? %>
-      <% @posts.each do |post| %>
+      <% Post.published.each do |post| %>
         <p><%= post.id %> - <%= post.title %></p>
         <p><%= post.category.name %></p>
           <p><% if user_signed_in? %>
