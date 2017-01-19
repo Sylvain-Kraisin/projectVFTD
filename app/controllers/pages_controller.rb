@@ -10,7 +10,7 @@ layout :resolve_layout
     @user = current_user
     @video = Video.online.last
     @console = @video.console
-    @post = Post.last
+    @post = Post.published.last
     @comment = Comment.last
     @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
 
