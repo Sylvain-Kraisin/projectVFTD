@@ -101,8 +101,10 @@
     <% else %>
       <% @lastpost = Post.where(id: @uservisits.last.post_id).last %>
       <h4>DERNIER LIVRE EMPRUNTE : </h4>
-      <%= image_tag (@lastpost.category.name.downcase + '.png'), class:"img-responsive center-block mudora_index" %>
-      <h4><%= @lastpost.title.mb_chars.upcase %></h4>
+      <%= link_to post_path(@lastpost) do %>
+        <%= image_tag (@lastpost.category.name.downcase + '.png'), class:"img-responsive center-block mudora_index" %>
+        <h4><%= @lastpost.title.mb_chars.upcase %></h4>
+      <% end %>
     <% end %>
 
   <br>
