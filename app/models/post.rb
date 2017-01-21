@@ -38,9 +38,8 @@ class Post < ActiveRecord::Base
       success do
         user = self.user
         user.update bonus:user.bonus + 200
-        User.find_each do |user|
-          next unless user.mail_new_post?
-          UserMailer.new_post_available(self, user).deliver_later
+        User.want_new_post_email.each do |user|
+          UserMailer.new_post_available(self, user).deliver_now
         end
       end
     end

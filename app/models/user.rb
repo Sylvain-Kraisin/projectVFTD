@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :want_new_post_email, ->{where(mail_new_post:true)}
+  scope :want_new_test_email, ->{where(mail_new_test:true)}
+  scope :want_correction_email, ->{where(mail_correction:true)}
+
+
+
   after_validation :add_bonus_to_score, if: :bonus_changed?
   before_create :set_default_score
   after_create :add_user_to_mailchimp_mailing_list
@@ -28,7 +34,7 @@ class User < ActiveRecord::Base
   def is_admin?
     self.role == 'admin'
   end
-  
+
   private
 
    def set_default_score
