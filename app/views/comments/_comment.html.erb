@@ -5,7 +5,7 @@
     <span><%= image_tag ('thumb/avatar.png') %></span>
   <% end %>
   &nbsp;
-  <strong><em><%= comment.user.username %></strong></em>
+  <strong><em><%= comment.user_username %></strong></em>
   <%=raw markdown.render comment.content %>
   <% if user_signed_in? %>
     <% if current_user.id == comment.user_id %>

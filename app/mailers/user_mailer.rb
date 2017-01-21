@@ -54,7 +54,7 @@ class UserMailer < ApplicationMailer
     @comment = comment
     @post = comment.post
     @author_email = comment.user.email
-    @subject =  comment.user.username + ' à annoté ton livre'
+    @subject =  comment.user_username + ' à annoté ton livre'
     mail to: @author_email, subject: @subject
   end
   ### end POST mailers ############################

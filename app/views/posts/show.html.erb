@@ -65,7 +65,7 @@
       <% if @visits.count == 2 %>
             <br>
             <p>Emprunté le  <%= l(@visits.offset(1).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visits.offset(1).last.user.username %></p>
+            <p>par  <%= @visits.offset(1).last.user_username %></p>
             <p>Emprunté le  __________</p>
             <p>par  __________</p>
             <p>Emprunté le  __________</p>
@@ -74,20 +74,20 @@
       <% elsif @visits.count == 3 %>
             <br>
             <p>Emprunté le  <%= l(@visits.offset(1).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visits.offset(1).last.user.username %></p>
+            <p>par  <%= @visits.offset(1).last.user_username %></p>
             <p>Emprunté le  <%= l(@visits.offset(2).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visits.offset(2).last.user.username %></p>
+            <p>par  <%= @visits.offset(2).last.user_username %></p>
             <p>Emprunté le  __________</p>
             <p>par  __________</p>
             <br>
       <% elsif @visits.count >= 4 %>
             <br>
             <p>Emprunté le  <%= l(@visits.offset(1).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visits.offset(1).last.user.username %></p>
+            <p>par  <%= @visits.offset(1).last.user_username %></p>
             <p>Emprunté le  <%= l(@visits.offset(2).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visits.offset(2).last.user.username %></p>
+            <p>par  <%= @visits.offset(2).last.user_username %></p>
             <p>Emprunté le  <%= l(@visits.offset(3).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visits.offset(3).last.user.username %></p>
+            <p>par  <%= @visits.offset(3).last.user_username %></p>
             <br>
       <% else  %>
         <br>
