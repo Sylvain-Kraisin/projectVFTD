@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  has_many :visits
   has_many :posts
   has_many :comments
   has_many :reponses, dependent: :destroy
+  has_many :visits, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
