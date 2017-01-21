@@ -23,13 +23,10 @@
       <h2 class="posttitle text-center"><%= @post.title %></h2>
       <br>
       <div class="texte text-justify">
-      <p><%= @post.content.html_safe %></p>
-      <!-- <p><%= @post.content.length %></p> -->
-
-
-      <br>
-      <h5 class="text-center"><em>écrit par <%= @post.author %> le <%= l(@post.created_at, format: "%e %B %Y" ) %></em></h5>
-
+        <p><%= @post.content.html_safe %></p>
+        <!-- <p><%= @post.content.length %></p> -->
+        <br>
+        <h5 class="text-center"><em>écrit par <%= @post.author %> le <%= l(@post.created_at, format: "%e %B %Y" ) %></em></h5>
       </div>
     </article>
 
@@ -65,32 +62,32 @@
     <div class="fichecdi">
       <br>
       <h4>Fiche C.D.I</h4>
-      <% if @visit.count == 2 %>
+      <% if @visits.count == 2 %>
             <br>
-            <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visit.offset(1).last.user_username %></p>
+            <p>Emprunté le  <%= l(@visits.offset(1).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visits.offset(1).last.user.username %></p>
             <p>Emprunté le  __________</p>
             <p>par  __________</p>
             <p>Emprunté le  __________</p>
             <p>par  __________</p>
             <br>
-      <% elsif @visit.count == 3 %>
+      <% elsif @visits.count == 3 %>
             <br>
-            <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visit.offset(1).last.user_username %></p>
-            <p>Emprunté le  <%= l(@visit.offset(2).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visit.offset(2).last.user_username %></p>
+            <p>Emprunté le  <%= l(@visits.offset(1).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visits.offset(1).last.user.username %></p>
+            <p>Emprunté le  <%= l(@visits.offset(2).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visits.offset(2).last.user.username %></p>
             <p>Emprunté le  __________</p>
             <p>par  __________</p>
             <br>
-      <% elsif @visit.count >= 4 %>
+      <% elsif @visits.count >= 4 %>
             <br>
-            <p>Emprunté le  <%= l(@visit.offset(1).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visit.offset(1).last.user_username %></p>
-            <p>Emprunté le  <%= l(@visit.offset(2).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visit.offset(2).last.user_username %></p>
-            <p>Emprunté le  <%= l(@visit.offset(3).last.updated_at, format: "%d %b %y") %></p>
-            <p>par  <%= @visit.offset(3).last.user_username %></p>
+            <p>Emprunté le  <%= l(@visits.offset(1).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visits.offset(1).last.user.username %></p>
+            <p>Emprunté le  <%= l(@visits.offset(2).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visits.offset(2).last.user.username %></p>
+            <p>Emprunté le  <%= l(@visits.offset(3).last.updated_at, format: "%d %b %y") %></p>
+            <p>par  <%= @visits.offset(3).last.user.username %></p>
             <br>
       <% else  %>
         <br>

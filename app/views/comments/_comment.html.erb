@@ -1,12 +1,11 @@
 <p>
-  <% @useravatar = User.where(username: comment.user_username).first %>
-  <% if @useravatar.present? %>
-    <span><%= image_tag @useravatar.avatar.url(:thumb) %></span>
+  <% if comment.user.present? %>
+    <span><%= image_tag comment.user.avatar.url(:thumb) %></span>
   <% else %>
     <span><%= image_tag ('thumb/avatar.png') %></span>
   <% end %>
   &nbsp;
-  <strong><em><%= comment.user_username %></strong></em>
+  <strong><em><%= comment.user.username %></strong></em>
   <%=raw markdown.render comment.content %>
   <% if user_signed_in? %>
     <% if current_user.id == comment.user_id %>

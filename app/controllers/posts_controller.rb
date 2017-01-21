@@ -92,15 +92,16 @@ class PostsController < ApplicationController
     end
 
     def create_visit
-      @visit = Visit.where(post_id: @post)
+      @visits = Visit.by_user.where(post_id: @post)
 
       if user_signed_in?
-        if current_user.role != "admin" && current_user.username != @post.author
-          if !@visit.exists? || @visit.last.user_username != current_user.username
-              Visit.create post_id: @post.id, user_username: current_user.username
-
+        if current_user.role != "admin" && current_user.id != @post.user_id
+          if !@visits.exists? || @visits.last.user_id != current_user.id
+              Visit.create post_id: @post.id, user_id: current_user.id
           end
         end
+      else
+        Visit.create post_id: @post.id
       end
     end
 

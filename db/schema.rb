@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121204007) do
+ActiveRecord::Schema.define(version: 20170121221902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,10 @@ ActiveRecord::Schema.define(version: 20170121204007) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "post_id"
-    t.string   "user_username"
   end
 
   create_table "consoles", force: :cascade do |t|
@@ -76,13 +75,12 @@ ActiveRecord::Schema.define(version: 20170121204007) do
 
   create_table "reponses", force: :cascade do |t|
     t.integer  "test_id"
-    t.string   "user_username"
     t.string   "reponse_1"
     t.string   "reponse_2"
     t.string   "reponse_3"
     t.string   "reponse_4"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.float    "note_1"
     t.float    "note_2"
     t.float    "note_3"
@@ -172,11 +170,10 @@ ActiveRecord::Schema.define(version: 20170121204007) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "post_id"
-    t.string   "user_username"
-    t.string   "user_id"
+    t.integer  "user_id"
   end
 
 end

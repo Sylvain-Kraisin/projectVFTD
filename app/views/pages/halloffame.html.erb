@@ -67,7 +67,7 @@
 <div class="col-xs-12 arcadetext pad_bot">
 
   <% @tophundred.each_with_index do |user, index| %>
-  <% @dst_notnill = Reponse.where("total is NOT NULL").where(user_username: user.username) %>
+  <% @dst_notnill = user.reponses.where("total is NOT NULL") %>
 
   <div class="hidden-xs hidden-sm">
     <div class="col-xs-2 text-center">

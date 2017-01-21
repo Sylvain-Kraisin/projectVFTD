@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
+  has_many :visits
   has_many :reponses, dependent: :destroy
-  has_many :visits, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
   scope :want_new_post_email, ->{where(mail_new_post:true)}
   scope :want_new_test_email, ->{where(mail_new_test:true)}
   scope :want_correction_email, ->{where(mail_correction:true)}
-
-
 
   after_validation :add_bonus_to_score, if: :bonus_changed?
   before_create :set_default_score
@@ -89,6 +87,9 @@ class User < ActiveRecord::Base
       save
     elsif User.order(created_at: :asc).offset(352).limit(32).pluck(:id).include? self.id
       self.classroom = 'Koopa'
+      save
+    elsif User.order(created_at: :asc).offset(384).limit(32).pluck(:id).include? self.id
+      self.classroom = 'Wario'
       save
     else
       self.classroom = 'à définir'

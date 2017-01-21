@@ -35,7 +35,7 @@ before_filter :admin?, only: [:new, :create, :edit, :update]
 
   private
     def test_params
-      params.require(:test).permit(:user_username, :video_id, :video_title, :question_1, :answer_1, :question_2, :answer_2, :question_3, :answer_3, :question_4, :answer_4, :console_id)
+      params.require(:test).permit(:video_id, :video_title, :question_1, :answer_1, :question_2, :answer_2, :question_3, :answer_3, :question_4, :answer_4, :console_id)
     end
 
     def find_test

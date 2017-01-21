@@ -23,7 +23,6 @@ before_filter :authenticate_user!, only: [:new, :create, :show]
       @reponse = Reponse.new(reponse_params)
       @reponse.test_id = @test.id
       @reponse.user_id = current_user.id
-      @reponse.user_username = current_user.username
       @reponse.email = current_user.email
       @reponse.console_id = @test.console_id
 
@@ -56,7 +55,7 @@ before_filter :authenticate_user!, only: [:new, :create, :show]
   private
 
     def reponse_params
-      params.require(:reponse).permit(:test_id, :user_username, :reponse_1, :reponse_2, :reponse_3, :reponse_4, :note_1, :note_2, :note_3, :note_4, :total, :email, :appreciation)
+      params.require(:reponse).permit(:reponse_1, :reponse_2, :reponse_3, :reponse_4, :note_1, :note_2, :note_3, :note_4, :total, :email, :appreciation)
     end
 
     def find_test
@@ -66,16 +65,5 @@ before_filter :authenticate_user!, only: [:new, :create, :show]
     def find_reponse
       @reponse = Reponse.find(params[:id])
     end
-
-=begin
-    def user_average
-      @user = User.where(username: @reponse.user_username).first
-      @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
-
-        if @userreponse.count >= 2
-          @user.update average: @userreponse.average(:total).round(2)
-        end
-    end
-=end
 
 end

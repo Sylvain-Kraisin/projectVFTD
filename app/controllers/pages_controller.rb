@@ -12,13 +12,13 @@ layout :resolve_layout
     @console = @video.console
     @post = Post.published.last
     @comment = Comment.last
-    @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
+    @goodreponses = Reponse.where("total is NOT NULL").where.not(user_id:1 )
 
     @topten = User.order('score desc').where(role:nil).first(10)
     #@topten2 = @topten.order('score asc')
 
     if signed_in?
-      @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
+      @userreponse = current_user.reponses.where(["total is NOT NULL"])
     end
   end
 
@@ -27,9 +27,8 @@ layout :resolve_layout
 
   def casier
     @user = current_user
-    @userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: @user.username)
-    @goodreponses = Reponse.where("total is NOT NULL").where("user_username != 'Papako'" )
-    @uservisits = Visit.where(user_username: @user.username)
+    @userreponse = @user.reponses.where(["total is NOT NULL"])
+    @goodreponses = Reponse.where("total is NOT NULL").where.not(user_id:1 )
     @goodusers = User.where(["average is NOT NULL"]).where(role:nil)
     @goodusers_two = User.where(role:nil)
     @rank = @goodusers_two.order('sign_in_count desc').index(@user)
@@ -54,7 +53,7 @@ layout :resolve_layout
 
     @users = User.all.order("created_at DESC")
     @posts = Post.all.order("created_at DESC")
-    @visits = Visit.all.order("created_at DESC").limit(50)
+    @visits = Visit.by_user.order("created_at DESC").limit(50)
     @videos = Video.all.order("created_at DESC")
     @comments = Comment.all.order("created_at DESC").limit(50)
     @consoles = Console.all.order("created_at DESC")

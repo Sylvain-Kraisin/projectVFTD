@@ -26,8 +26,8 @@
     <% if Reponse.exists? %>
       <% @reponsesacorriger.each do |reponse| %>
 
-        <% if User.where(username: reponse.user_username).exists? %>
-        <p><%= reponse.id %> - test_id :<%= reponse.test_id %> - <%= reponse.user_username %></p>
+        <% if reponse.user.present? %>
+          <p><%= reponse.id %> - test_id :<%= reponse.test_id %> - <%= reponse.user.username %></p>
 
           <p><% if user_signed_in? %>
               <% if current_user.role == "admin" %>
@@ -65,7 +65,7 @@
     <% if Comment.exists? %>
       <% @comments.first(10).each do |comment| %>
         <p><%= comment.content %></p>
-        <p><%= comment.user_username %></p>
+        <p><%= comment.user.username %></p>
         <p><% if user_signed_in? %>
              <% if current_user.role == "admin" %>
              <a href="/posts/<%= comment.post_id %>/comments/<%= comment.id %>/edit">Editer</a>
@@ -80,7 +80,7 @@
     <h3>Posts_visits List</h3>
     <% if Visit.exists? %>
       <% @visits.first(10).each do |visit| %>
-        <p><%= visit.id %> - <%= visit.post_id %> - <%= visit.user_username %> - <%= visit.updated_at %></p>
+        <p><%= visit.id %> - <%= visit.post_id %> - <%= visit.user.username %> - <%= visit.updated_at %></p>
       <% end %>
     <% end %>
   </div>

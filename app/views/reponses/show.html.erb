@@ -6,7 +6,7 @@
 
       <div id="dstshowtext">
         <div class="noteimg">
-        <% if @user.username == @reponse.user_username || @user.role == "admin" %>
+        <% if @user.id == @reponse.user_id || @user.role == "admin" %>
           <h3 class="craietext"> <%= number_to_human(@reponse.total) %>/10</h3>
 
           </div>

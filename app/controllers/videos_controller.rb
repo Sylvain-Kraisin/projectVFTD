@@ -9,8 +9,10 @@ before_action :find_video, only: [:show, :edit, :update]
     @test = @video.test
 
     if user_signed_in?
-      if Reponse.exists?(test_id: @test.id, user_username: @user.username)
-        @reponse = Reponse.find_by(test_id: @test.id, user_username: @user.username)
+      if Reponse.exists?(test_id: @test.id, user_id: @user.id)
+        @reponse = Reponse.find_by(test_id: @test.id, user_id: @user.id)
+      else
+        redirect_to root_path
       end
     end
   end

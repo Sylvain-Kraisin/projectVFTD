@@ -14,7 +14,7 @@ belongs_to :user, dependent: :destroy
   validates :reponse_4, length: { minimum: 2, maximum: 120 }
 
   #un meme user ne peut creer 2 fois une reponse avec le meme test_id
-  validates :user_username, uniqueness: { scope: [:user_username, :test_id], message: 'Tu as déjà passé ce DST !'}
+  validates :user_id, uniqueness: { scope: [:user_id, :test_id], message: 'Tu as déjà passé ce DST !'}
 
   after_create :acorriger
 
@@ -42,20 +42,20 @@ belongs_to :user, dependent: :destroy
   end
 
   def user_average
-    user = User.where(username:self.user_username).first
-    userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: user.username)
+    user = self.user
+    reponses = user.reponses.where(["total is NOT NULL"])
 
-    if userreponse.count >= 2
-      user.update average:(userreponse.average(:total).round(2))
+    if reponses.count >= 2
+      user.update average:(reponses.average(:total).round(2))
     end
   end
 
   def update_score
-    user = User.where(username:self.user_username).first
-    userreponse = Reponse.where(["total is NOT NULL"]).where(user_username: user.username)
+    user = self.user
+    reponses = user.reponses.where(["total is NOT NULL"])
 
     if user.average != nil
-      user.update score:(((user.average * userreponse.count) * 1000) + user.bonus)
+      user.update score:(((user.average * reponses.count ) * 1000) + user.bonus)
     end
   end
 

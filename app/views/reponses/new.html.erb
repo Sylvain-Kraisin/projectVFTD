@@ -4,7 +4,7 @@
     <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="center-block" id="dstshowlink">
       <div id="dstshowtext">
         <%= simple_form_for ([@test, @reponse]) do |f| %>
-        <p id="submitdst2" class="text-center"><%= @reponse.errors[:user_username].first %></p>
+        <p id="submitdst2" class="text-center"><%= @reponse.errors[:user_id].first %></p>
         <h4>
           Q1 : <%= @test.question_1 %>
           <p><%= f.input :reponse_1, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput', class:'stylotext'} %></p>
