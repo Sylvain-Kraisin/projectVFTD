@@ -97,7 +97,7 @@ class PostsController < ApplicationController
       if user_signed_in?
         if current_user.role != "admin" && current_user.id != @post.user_id
           if !@visits.exists? || @visits.last.user_id != current_user.id
-              Visit.create post_id: @post.id, user_id: current_user.id
+              Visit.create post_id: @post.id, user_id: current_user.id, user_username: current_user.username
           end
         end
       else
