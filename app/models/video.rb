@@ -16,9 +16,8 @@ class Video < ActiveRecord::Base
     event :run do
       transitions from: :draft, to: :online
       success do
-        User.find_each do |user|
-          next unless user.mail_new_test?
-          UserMailer.new_test_available(self, user).deliver_later
+        User.want_new_test_email.each do |user|
+          UserMailer.new_test_available(self, user).deliver_now
         end
       end
     end
