@@ -53,7 +53,7 @@ class UserMailer < ApplicationMailer
   def notify_author (comment)
     @comment = comment
     @post = comment.post
-    @author_email = post.user.email
+    @author_email = @post.user.email
     @subject =  comment.user_username + ' à annoté ton livre'
     mail to: @author_email, subject: @subject
   end
