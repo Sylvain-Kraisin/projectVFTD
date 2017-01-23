@@ -61,6 +61,8 @@ gem 'aasm'
 gem 'gibbon'
 #better console display
 gem 'awesome_print'
+#send mail if error in production
+gem 'exception_notification'
 
 
 # Use ActiveModel has_secure_password

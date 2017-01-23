@@ -62,6 +62,12 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[VFTD] ",
+    :sender_address => %{"notifier" <ne-pas-repondre@notifier.com>},
+    :exception_recipients => %w{sylvain.kraisin@gmail.com}
+  }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'http://viensfairetesdevoirs.com' }
