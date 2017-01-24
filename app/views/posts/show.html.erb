@@ -11,7 +11,7 @@
 <% content_for :facebook do %>
   <meta property="og:title" content="<%= @post.title %>" />
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://viensfairetesdevoirs.com/assets/histoire-785cf127ea702fb47ef58923cfa871eefa7e2c76d6df5373789926cf0695c814.png" />
+  <meta property="og:image" content="<%= asset_path('' + @post.category.name.downcase + '.png') %>" />
   <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
 <% end %>
 
