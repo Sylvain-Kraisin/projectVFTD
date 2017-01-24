@@ -14,6 +14,12 @@
   <!-- <meta property="og:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" /> -->
   <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
 <% end %>
+<% content_for :twitter do %>
+  <meta name="twitter:card" content="L'Ecole du Retrogaming" />
+  <meta name="twitter:title" content="<%= @post.title %>" />
+  <meta name="twitter:description" content="<%= @post.content.html_safe.truncate(50) %>" />
+  <meta name="twitter:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" />
+<% end %>
 
 
 <div class ="row">
