@@ -15,7 +15,7 @@
   <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
 <% end %>
 <% content_for :twitter do %>
-  <meta name="twitter:card" content="L'Ecole du Retrogaming" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="<%= @post.title %>" />
   <meta name="twitter:site" content="@ViensFTD" />
   <meta name="twitter:description" content="<%= @post.content.html_safe.truncate(50) %>" />
