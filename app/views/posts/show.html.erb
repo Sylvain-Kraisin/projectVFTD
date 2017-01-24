@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="<%= @post.title %>" />
   <meta name="twitter:site" content="@ViensFTD" />
-  <meta name="twitter:description" content='Lire le livre' />
+  <meta name="twitter:description" content='<%= @post.content %>' />
   <meta name="twitter:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" />
 <% end %>
 
