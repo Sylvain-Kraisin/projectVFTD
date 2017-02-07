@@ -42,20 +42,17 @@ belongs_to :user, dependent: :destroy
   end
 
   def user_average
-    user = self.user
-    reponses = user.reponses.where(["total is NOT NULL"])
-
-    if reponses.count >= 2
-      user.update average:(reponses.average(:total).round(2))
+    if self.user.reponses.where(["total is NOT NULL"]).count >= 2
+      user.update average:(userreponse.average(:total).round(2))
     end
   end
 
   def update_score
     user = self.user
-    reponses = user.reponses.where(["total is NOT NULL"])
+    reponses_count = user.reponses.where(["total is NOT NULL"]).count
 
     if user.average != nil
-      user.update score:(((user.average * reponses.count ) * 1000) + user.bonus)
+      user.update score:(((user.average * reponses_count ) * 1000) + user.bonus)
     end
   end
 

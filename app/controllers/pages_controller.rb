@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
 before_action :update_presence, only: [:index]
-before_filter :admin?, only: [:adminpage]
+before_action :admin?, only: [:adminpage]
 before_action :authenticate_user!, only: [:casier]
-before_filter :nanda, only: [:correspondances]
+before_action :nanda, only: [:correspondances]
 layout :resolve_layout
 
 

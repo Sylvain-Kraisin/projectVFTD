@@ -1,5 +1,5 @@
 class ConsolesController < ApplicationController
-  before_filter :admin?, only: [:new, :edit, :draft]
+  before_action :admin?, only: [:new, :edit, :draft]
   before_action :find_console, only: [:edit, :update, :destroy]
 
   def index

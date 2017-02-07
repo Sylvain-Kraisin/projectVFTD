@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update]
-  before_filter :admin?, only: [:destroy]
-  before_filter :author_can_edit_post?, only: [:edit, :update]
+  before_action :admin?, only: [:destroy]
+  before_action :author_can_edit_post?, only: [:edit, :update]
   before_action :create_visit, only: [:show]
 
   def index

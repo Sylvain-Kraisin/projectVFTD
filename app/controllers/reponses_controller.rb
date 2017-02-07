@@ -1,8 +1,8 @@
 class ReponsesController < ApplicationController
 before_action :find_test
 before_action :find_reponse, only: [:edit, :update, :show]
-before_filter :admin?, only: [:edit, :update, :destroy]
-before_filter :authenticate_user!, only: [:new, :create, :show]
+before_action :admin?, only: [:edit, :update, :destroy]
+before_action :authenticate_user!, only: [:new, :create, :show]
 #before_action :user_average, only: [:show]
 
 

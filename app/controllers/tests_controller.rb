@@ -1,7 +1,7 @@
 class TestsController < ApplicationController
 before_action :find_test, only: [:show, :edit, :update]
 before_action :authenticate_user!, only: [:show]
-before_filter :admin?, only: [:new, :create, :edit, :update]
+before_action :admin?, only: [:new, :create, :edit, :update]
 
 
   def new
