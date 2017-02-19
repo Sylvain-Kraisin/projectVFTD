@@ -4,7 +4,7 @@ before_action :find_video, only: [:show, :edit, :update]
 
   def show
     if @video.draft?
-      redirect_to root_path unless current_user.role == 'admin'
+      redirect_to root_path unless user_signed_in? && current_user.role == 'admin'
     end
 
     @user = current_user
