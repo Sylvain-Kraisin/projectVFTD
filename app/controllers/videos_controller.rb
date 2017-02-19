@@ -3,18 +3,16 @@ before_action :admin?, only: [:new, :edit, :update, :publish]
 before_action :find_video, only: [:show, :edit, :update]
 
   def show
-    if @video.draft?
-      redirect_to root_path unless user_signed_in? && current_user.role == 'admin'
-    end
-
     @user = current_user
     @test = @video.test
+
+    if @video.draft?
+      redirect_to root_path unless user_signed_in? && @user.role == 'admin'
+    end
 
     if user_signed_in?
       if Reponse.exists?(test_id: @test.id, user_id: @user.id)
         @reponse = Reponse.find_by(test_id: @test.id, user_id: @user.id)
-      else
-        redirect_to root_path
       end
     end
   end
