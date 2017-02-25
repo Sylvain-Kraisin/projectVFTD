@@ -17,13 +17,12 @@ Rails.application.routes.draw do
 
   get 'discourse/sso' => 'discourse_sso#sso'
 
-  post 'videos/publish' => 'videos#publish'
-  post 'posts/submit_accept_or_refuse' => 'posts#submit_accept_or_refuse'
 
   resources :consoles
   get 'consoles/draft/:id', to: 'consoles#draft', as: 'draft_videos_show'
 
   resources :videos
+  post 'videos/publish' => 'videos#publish'
 
   resources :tests do
     resources :reponses
@@ -32,5 +31,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+  post 'posts/submit_accept_or_refuse' => 'posts#submit_accept_or_refuse'
 
 end
