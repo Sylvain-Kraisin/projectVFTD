@@ -43,9 +43,6 @@
         <% if current_user.is_admin? %>
           <p><%= link_to "Modifier", edit_post_path(@post), class:'btn btn-default' %></p>
           <p><%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppression de cet article ?"}, class:'btn btn-danger' %></p>
-          <% if @post.user_id == current_user.id %>
-            <p><%= button_to "Publier l'article", {controller: :posts, action: 'submit_accept_or_refuse', id: @post.id, choice:"accept" }, :method => :post, class:'btn btn-success'  %></p>
-          <% end %>
         <% end %>
         <% if @post.user_id == current_user.id || current_user.is_admin?  %>
           <% if @post.draft? && !current_user.is_admin? %>
