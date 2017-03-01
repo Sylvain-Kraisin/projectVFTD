@@ -55,6 +55,17 @@
           <h4><%= post.title.mb_chars.upcase %></h4>
         <% end %>
       <% end %>
+    <br>
+    <% end %>
+    <% if @user.posts.published.count > 0 %>
+      <h4>MES LIVRES PUBLIES :</h4>
+      <% @user.posts.published.each do |post| %>
+        <%= link_to post_path(post) do %>
+          <%= image_tag (post.category.name.downcase + '.png'), class:"img-responsive center-block mudora_index" %>
+          <h4><%= post.title.mb_chars.upcase %></h4>
+        <% end %>
+        <p>A ETE LU <%= post.visits.count %> FOIS</p>
+      <% end %>
     <% end %>
   </div>
 
