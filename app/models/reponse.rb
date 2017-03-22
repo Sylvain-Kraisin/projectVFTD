@@ -42,8 +42,10 @@ class Reponse < ActiveRecord::Base
   end
 
   def user_average
-    if self.user.reponses.where(["total is NOT NULL"]).count >= 2
-      user.update average:(userreponse.average(:total).round(2))
+    users_reponses = self.user.reponses.where(["total is NOT NULL"])
+
+    if users_reponses.count >= 2
+      user.update average:(users_reponses.average(:total).round(2))
     end
   end
 
