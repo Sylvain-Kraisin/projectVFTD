@@ -52,47 +52,14 @@ class User < ActiveRecord::Base
   end
 
   def add_classroom
-    if User.order(created_at: :asc).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Hanafuda'
-      save
-    elsif User.order(created_at: :asc).offset(32).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Game&Watch'
-      save
-    elsif User.order(created_at: :asc).offset(64).limit(32).pluck(:id).include? self.id
-      self.classroom = 'DonkeyKong'
-      save
-    elsif User.order(created_at: :asc).offset(96).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Jumpman'
-      save
-    elsif User.order(created_at: :asc).offset(128).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Excitebike'
-      save
-    elsif User.order(created_at: :asc).offset(160).limit(32).pluck(:id).include? self.id
-      self.classroom = 'DuckHunt'
-      save
-    elsif User.order(created_at: :asc).offset(192).limit(32).pluck(:id).include? self.id
-      self.classroom = 'R.O.B'
-      save
-    elsif User.order(created_at: :asc).offset(224).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Luigi'
-      save
-    elsif User.order(created_at: :asc).offset(256).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Metroid'
-      save
-    elsif User.order(created_at: :asc).offset(288).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Zelda'
-      save
-    elsif User.order(created_at: :asc).offset(320).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Link'
-      save
-    elsif User.order(created_at: :asc).offset(352).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Koopa'
-      save
-    elsif User.order(created_at: :asc).offset(384).limit(32).pluck(:id).include? self.id
-      self.classroom = 'Wario'
-      save
-    else
-      self.classroom = 'à définir'
+    classrooms = ['Hanafuda', 'Game&Watch', 'DonkeyKong', 'Jumpman', 'Excitebike', 'DuckHunt', 'R.O.B',
+      'Luigi', 'Metroid', 'Zelda', 'Link', 'Koopa', 'Wario', 'à définir']
+
+    classrooms.size.times do |i|
+      if User.where(classroom:classrooms[i]).count < 32
+        self.classroom = classrooms[i]
+        break
+      end
     end
   end
 
