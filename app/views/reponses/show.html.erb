@@ -16,16 +16,7 @@
           <% if @reponse.appreciation? %>
             <p style="color:red" class="craietext"><%= @reponse.appreciation.mb_chars.upcase %></p>
           <% end %>
-          <!-- <div class="hidden-xs col-lg-12">
-            <br>
-            <br>
 
-            <p class="col-md-12 text-left stylotext margin-left-minus">
-              <%= l(@reponse.created_at, format: "%e/%m/%Y") %><br><br>
-              <%= @reponse.user.classroom %><br><br>
-              <%= @reponse.user.username %>
-            <p>
-          </div> -->
           <br>
             <p>Q1 : <%= @test.question_1 %></p>
             <p class="stylotext"><%= @reponse.reponse_1 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_1) %></span></p>

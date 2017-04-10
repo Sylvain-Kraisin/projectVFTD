@@ -3,6 +3,8 @@
   <div class="image">
     <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="center-block" id="dstshowlink">
       <div id="dstshowtext">
+        <h3 class="text-center">DST N°<%= @test.id %> - <%= @test.video_title %></h3>
+
         <%= simple_form_for ([@test, @reponse]) do |f| %>
         <p id="submitdst2" class="text-center"><%= @reponse.errors[:user_id].first %></p>
         <h4>

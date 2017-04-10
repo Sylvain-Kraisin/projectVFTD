@@ -34,11 +34,7 @@ layout :resolve_layout
     @rank = @goodusers_two.order('sign_in_count desc').index(@user)
     @ranknote = @goodusers.order('score desc').index(@user)
     @camarades = User.where(classroom:@user.classroom).where.not(username:@user.username)
-
   end
-
-  #def forum
-  #end
 
   def faq
   end
@@ -85,7 +81,6 @@ layout :resolve_layout
     end
   end
 
-
   def nanda
     if signed_in?
       redirect_to root_path unless current_user.role == "admin" || current_user.role == "nanda"
@@ -93,7 +88,6 @@ layout :resolve_layout
       redirect_to root_path
     end
   end
-
 
   def resolve_layout
     case action_name

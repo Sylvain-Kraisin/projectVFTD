@@ -3,7 +3,8 @@
   width: 80%;
 
   @media (max-width: 480px) {
-    width: 100%
+    width: 100%;
+    min-height: 600px;
     }
 }
 
@@ -20,7 +21,7 @@
 
    @media (max-width: 480px) {
      position: absolute;
-     top: 3%;
+     top: 2%;
      left: 17%;
      width: 82%;
      h4 {
@@ -33,12 +34,12 @@
   color: red;
   position: absolute;
   right: 5%;
-  top: -7%;
+  top: -10%;
 
   @media (max-width: 480px) {
     position: absolute;
     right: 5%;
-    top: -4%;
+    top: 1%;
 
   }
 }
@@ -49,6 +50,11 @@
   -webkit-background-size: cover;
   background-size: cover;
   background-position: top center !important;
+  &.show, &.new {
+    .container {
+      padding: 0 5px 20px 5px;
+    }
+  }
 }
 
 #dstshowinput, #dstshowinput2, #dstshowinput3, #dstshowinput4 {
