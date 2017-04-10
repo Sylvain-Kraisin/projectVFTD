@@ -65,7 +65,7 @@ Rails.application.configure do
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[VFTD] ",
-    :sender_address => %{"notifier" <ne-pas-repondre@notifier.com>},
+    :sender_address => %{"notifier" <ne-pas-repondre@viensfairetesdevoirs.com>},
     :exception_recipients => %w{sylvain.kraisin@gmail.com}
   }
 
