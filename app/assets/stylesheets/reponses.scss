@@ -1,9 +1,8 @@
 #dstshowlink {
-  width: 80%;
+  width: 100%;
   min-height: 800px;
 
   @media (max-width: 480px) {
-    width: 100%;
     min-height: 600px;
   }
 }
