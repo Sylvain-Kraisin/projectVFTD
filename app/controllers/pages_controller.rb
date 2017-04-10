@@ -59,7 +59,7 @@ layout :resolve_layout
   end
 
   def correspondances
-    raise "error"
+    # raise "error"
   end
 
   def halloffame
