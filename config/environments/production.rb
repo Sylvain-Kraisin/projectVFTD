@@ -68,7 +68,10 @@ Rails.application.configure do
     :sender_address => %{"notifier" <ne-pas-repondre@notifier.com>},
     :exception_recipients => %w{sylvain.kraisin@gmail.com}
   }
+
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'http://viensfairetesdevoirs.com' }
   config.action_mailer.smtp_settings = {
