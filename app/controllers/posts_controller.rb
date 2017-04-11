@@ -10,8 +10,8 @@ class PostsController < ApplicationController
     if params[:category].blank?
       @posts = Post.published.page(params[:page]).per(48).order("created_at DESC")
     else
-      @category_id = Category.find_by(name: params[:category]).id
-      @posts = Post.published.where(:category_id => @category_id).page(params[:page]).per(48).order("created_at DESC")
+      @category = Category.find_by(name: params[:category])
+      @posts = Post.published.where(:category_id => @category.id).page(params[:page]).per(48).order("created_at DESC")
     end
   end
 
