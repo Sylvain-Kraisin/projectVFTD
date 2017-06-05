@@ -2,7 +2,7 @@ class Video < ActiveRecord::Base
   include AASM
 
   belongs_to :console
-  has_one :test, dependent: :destroy
+  has_one :test
 
   validates :title, :console_id, :link, :style, :release, :genre, :player, :developer, :video_img, presence: true
 
@@ -17,7 +17,7 @@ class Video < ActiveRecord::Base
       transitions from: :draft, to: :online
       success do
         User.want_new_test_email.each do |user|
-          UserMailer.new_test_available(self, user).deliver_now
+          UserMailer.new_test_available(self, user).deliver_later
         end
       end
     end

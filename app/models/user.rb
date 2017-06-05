@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :visits
-  has_many :reponses
+  has_many :reponses, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -44,11 +44,15 @@ class User < ActiveRecord::Base
    end
 
   def add_user_to_mailchimp_mailing_list
-    AddUserToMailchimpMailingListJob.perform_later(self)
+    if Rails.env.production?
+      AddUserToMailchimpMailingListJob.perform_later(self)
+    end
   end
 
   def remove_user_from_mailchimp_list
-    RemoveUserFromMailchimpMailingListJob.perform_later(self)
+    if Rails.env.production?
+      RemoveUserFromMailchimpMailingListJob.perform_later(self)
+    end
   end
 
   def add_classroom

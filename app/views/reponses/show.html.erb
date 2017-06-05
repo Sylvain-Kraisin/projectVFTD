@@ -3,43 +3,41 @@
   <div class="image">
     <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="center-block" id="dstshowlink">
 
-
-      <div id="dstshowtext">
+    <div id="dstshowtext">
+      <% if @user.id == @reponse.user_id || @user.role == "admin" %>
         <div class="noteimg">
-        <% if @user.id == @reponse.user_id || @user.role == "admin" %>
           <h3 class="craietext"> <%= number_to_human(@reponse.total) %>/10</h3>
+        </div>
 
-          </div>
 
-
-          <h4>
+        <h4>
           <% if @reponse.appreciation? %>
             <p style="color:red" class="craietext"><%= @reponse.appreciation.mb_chars.upcase %></p>
           <% end %>
-
           <br>
-            <p>Q1 : <%= @test.question_1 %></p>
-            <p class="stylotext"><%= @reponse.reponse_1 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_1) %></span></p>
-            <p class="reponsedst"><%= @test.answer_1 %> </p><br>
-            <p>Q2 : <%= @test.question_2 %></p>
-            <p class="stylotext"><%= @reponse.reponse_2 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_2) %></span></p>
-            <p class="reponsedst"><%= @test.answer_2 %> </p><br>
-            <p>Q3 : <%= @test.question_3 %></p>
-            <p class="stylotext"><%= @reponse.reponse_3 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_3) %></span></p>
-            <p class="reponsedst"><%= @test.answer_3 %> </p><br>
-            <p>Q4 : <%= @test.question_4 %></p>
-            <p class="stylotext"><%= @reponse.reponse_4 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_4) %></span></p>
-            <p class="reponsedst"><%= @test.answer_4 %> </p>
-          </h4>
+          <p>Q1 : <%= @test.question_1 %></p>
+          <p class="stylotext"><%= @reponse.reponse_1 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_1) %></p>
+          <p class="reponsedst"><%= @test.answer_1 %> </p><br>
+          <p>Q2 : <%= @test.question_2 %></p>
+          <p class="stylotext"><%= @reponse.reponse_2 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_2) %></span></p>
+          <p class="reponsedst"><%= @test.answer_2 %> </p><br>
+          <p>Q3 : <%= @test.question_3 %></p>
+          <p class="stylotext"><%= @reponse.reponse_3 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_3) %></span></p>
+          <p class="reponsedst"><%= @test.answer_3 %> </p><br>
+          <p>Q4 : <%= @test.question_4 %></p>
+          <p class="stylotext"><%= @reponse.reponse_4 %>&nbsp;<span style="color:red" class="craietext"><%= number_to_human(@reponse.note_4) %></span></p>
+          <p class="reponsedst"><%= @test.answer_4 %> </p>
+        </h4>
+
+      <% else %>
+        <% if @user.female? %>
+          <h2 style="color:red" class="craietext"><%= "Ce n'est pas ton devoir, petite curieuse !".upcase %></h2>
         <% else %>
-          <% if @user.female? %>
-            <h2 style="color:red" class="craietext"><%= "Ce n'est pas ton devoir, petite curieuse !".upcase %></h2>
-          <% else %>
-            <h2 style="color:red" class="craietext"><%= "Ce n'est pas ton devoir, petit curieux !".upcase %></h2>
-          <% end %>
+          <h2 style="color:red" class="craietext"><%= "Ce n'est pas ton devoir, petit curieux !".upcase %></h2>
         <% end %>
-        <br>
-        <br>
-      </div>
+      <% end %>
+      <br>
+      <br>
+    </div>
   </div>
 </div>

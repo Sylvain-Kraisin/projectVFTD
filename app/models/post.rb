@@ -21,7 +21,7 @@ class Post < ActiveRecord::Base
     event :submit do
       transitions from: :draft, to: :pending
       success do
-        UserMailer.new_post_request(self, self.user).deliver_later
+        UserMailer.new_post_request(self, self.user).deliver_now
       end
     end
 
@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
     event :refuse do
       transitions from: :pending, to: :draft
       success do
-        UserMailer.post_refused(self, self.user).deliver_later
+        UserMailer.post_refused(self, self.user).deliver_now
       end
     end
 
@@ -39,7 +39,7 @@ class Post < ActiveRecord::Base
         user = self.user
         user.update bonus:user.bonus + 200
         User.want_new_post_email.each do |user|
-          UserMailer.new_post_available(self, user).deliver_now
+          UserMailer.new_post_available(self, user).deliver_later
         end
       end
     end

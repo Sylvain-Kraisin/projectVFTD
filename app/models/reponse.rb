@@ -1,6 +1,6 @@
 class Reponse < ActiveRecord::Base
   belongs_to :test
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   #ne valide que les notes entre 0 et 4
   validates :note_1, inclusion: {in: 0..4, only_float: true, allow_blank: true}

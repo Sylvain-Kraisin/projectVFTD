@@ -16,7 +16,7 @@ unless Rails.env.production?
     aasm_state: "online"
   )
 
-  category = Category.create(name: "Catgorie 1")
+  category = Category.create(name: "Categorie 1")
 
   Post.create(
     :title => "Post 1",

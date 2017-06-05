@@ -31,7 +31,6 @@ before_action :find_video, only: [:show, :edit, :update]
     @video = Video.new
   end
 
-
   def edit
   end
 

@@ -1,30 +1,26 @@
 <br>
 <div>
   <div class="image">
+
     <img src="<%= asset_path( 'dstsheet.png' ) %>" alt="DST" class="center-block" id="dstshowlink">
-      <div id="dstshowtext">
-        <h3 class="text-center">DST N°<%= @test.id %> - <%= @test.video_title %></h3>
-        <br>
-        <%= simple_form_for ([@test, @reponse]) do |f| %>
-        <p id="submitdst2" class="text-center"><%= @reponse.errors[:user_id].first %></p>
-        <h4>
-          Q1 : <%= @test.question_1 %>
-          <p><%= f.input :reponse_1, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput', class:'stylotext'} %></p>
-          Q2 : <%= @test.question_2 %>
-          <p><%= f.input :reponse_2, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput2', class:'stylotext'} %></p>
-          Q3 : <%= @test.question_3 %>
-          <p><%= f.input :reponse_3, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput3', class:'stylotext'} %></p>
-          Q4 : <%= @test.question_4 %>
-          <p><%= f.input :reponse_4, label: false, placeholder: "Votre réponse", :input_html => {maxlength: 100, id: 'dstshowinput4', class:'stylotext'} %></p>
-        </h4>
-        <br>
-        <br>
-        <p id="submitdst" class="text-center"><%= f.button :submit, 'Rendre sa copie' %></p>
+
+    <div id="dstshowtext">
+      <h4 class="text-center stylotext">DST N°<%= @test.id %> - <%= @test.video_title %></h4>
+      <br>
+      <%= simple_form_for ([@test, @reponse]) do |f| %>
+      <p id="submitdst2" class="text-center"><%= @reponse.errors[:user_id].first %></p>
+      <h4>
+        <% 4.times do |i| %>
+          <% i += 1 %>
+          Q<%= i %> : <%= eval("@test.question_#{i}") %>
+          <p><%= f.input ("reponse_#{i}").to_sym, label: false, placeholder: "Tape ta réponse ici...", :input_html => {maxlength: 120, id: 'dstshowinput', class:'stylotext'} %></p>
         <% end %>
-      </div>
+      </h4>
       <br>
       <br>
-      <br>
-      <br>
+      <p id="submitdst" class="text-center"><%= f.button :submit, 'Rendre sa copie' %></p>
+      <% end %>
+    </div>
+
   </div>
 </div>
