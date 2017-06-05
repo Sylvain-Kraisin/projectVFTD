@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require imgmodal
 //= require bootbox
 //= require owl.carrousel
 //= require konami
