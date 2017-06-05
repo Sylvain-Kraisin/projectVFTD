@@ -71,4 +71,16 @@ article img {
   #imagemodal .modal-dialog {
     width: 100%;
   }
+  #imagepreview {
+    max-width: 100%;
+    min-width: 400px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #imagepreview {
+    width: 100%;
+    height: auto;
+  }
 }
