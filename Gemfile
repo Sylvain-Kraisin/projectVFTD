@@ -70,6 +70,7 @@ gem 'exception_notification'
 
 # asynchronous stuff
 gem 'delayed_job_active_record'
+gem 'daemons'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
