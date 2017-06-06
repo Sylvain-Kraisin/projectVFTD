@@ -16,6 +16,9 @@
   background-size: cover;
   background-position: top center !important;
   background-repeat: no-repeat !important;
+  &.show {
+    background: black;
+  }
 }
 
 .article {
