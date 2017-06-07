@@ -18,6 +18,10 @@
   background-repeat: no-repeat !important;
   &.show {
     background: black;
+    font-size: 1.5em;
+    .annotations {
+      font-size: 1.3em;
+    }
   }
 }
 
