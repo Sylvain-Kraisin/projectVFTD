@@ -16,6 +16,7 @@ class Post < ActiveRecord::Base
   aasm do
     state :draft, initial: true
     state :pending
+    state :validated
     state :published
 
     event :submit do
@@ -34,7 +35,14 @@ class Post < ActiveRecord::Base
     end
 
     event :accept do
-      transitions from: :pending, to: :published
+      transitions from: :pending, to: :validated
+    end
+
+    event :publish do
+      transitions from: :validated, to: :published
+      before do
+        self.update published_at: Time.zone.now
+      end
       success do
         user = self.user
         user.update bonus:user.bonus + 200

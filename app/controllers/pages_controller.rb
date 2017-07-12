@@ -10,7 +10,7 @@ layout :resolve_layout
     @user = current_user
     @video = Video.online.last
     @console = @video.console
-    @post = Post.published.last
+    @post = Post.published.order('published_at DESC').first
     @comment = Comment.last
     @goodreponses = Reponse.where("total is NOT NULL").where.not(user_id:1 )
 

@@ -8,10 +8,10 @@ class PostsController < ApplicationController
   def index
     @categories = Category.all
     if params[:category].blank?
-      @posts = Post.published.page(params[:page]).per(48).order("created_at DESC")
+      @posts = Post.published.page(params[:page]).per(48).order("published_at DESC")
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @posts = Post.published.where(:category_id => @category_id).page(params[:page]).per(48).order("created_at DESC")
+      @posts = Post.published.where(:category_id => @category_id).page(params[:page]).per(48).order("published_at DESC")
     end
   end
 
@@ -67,7 +67,7 @@ class PostsController < ApplicationController
         redirect_to root_path
       elsif params[:choice] == "accept"
         @post.accept!
-        flash[:notice] = "L'article '#{@post.title}' est maintenant publié"
+        flash[:notice] = "L'article '#{@post.title}' a été ajouté à la liste des articles en attente de publication"
         redirect_to admin_path
       elsif params[:choice] == "refuse"
         @post.refuse!

@@ -32,7 +32,9 @@
         <p><%= @post.content.html_safe %></p>
         <!-- <p><%= @post.content.length %></p> -->
         <br>
-        <h5 class="text-center"><em>écrit par <%= @post.author %> le <%= l(@post.created_at, format: "%e %B %Y" ) %></em></h5>
+        <h5 class="text-center">
+          <em>écrit par <a href="http://discourse.viensfairetesdevoirs.com/u/<%= @post.author %>/summary"><strong><%= @post.author %></strong></a><br>publié le <%= l(@post.published_at, format: "%e %B %Y" ) %></em>
+        </h5>
       </div>
     </article>
 

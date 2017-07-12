@@ -71,6 +71,7 @@ gem 'exception_notification'
 # asynchronous stuff
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'whenever', :require => false
 
 # Use Unicorn as the app server
 # gem 'unicorn'
