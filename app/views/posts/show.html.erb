@@ -33,7 +33,13 @@
         <!-- <p><%= @post.content.length %></p> -->
         <br>
         <h5 class="text-center">
-          <em>écrit par <a href="http://discourse.viensfairetesdevoirs.com/u/<%= @post.author %>/summary"><strong><%= @post.author %></strong></a><br>publié le <%= l(@post.published_at, format: "%e %B %Y" ) %></em>
+          <em>
+            écrit par <a href="http://discourse.viensfairetesdevoirs.com/u/<%= @post.author %>/summary"><strong><%= @post.author %></strong></a>
+            <br>
+            <% if @post.published_at.present? %>
+              publié le <%= l(@post.published_at, format: "%e %B %Y" ) %>
+            <% end %>
+          </em>
         </h5>
       </div>
     </article>
