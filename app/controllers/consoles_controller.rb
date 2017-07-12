@@ -9,7 +9,7 @@ class ConsolesController < ApplicationController
     @console = Console.new(console_params)
 
     if @console.save
-      redirect_to pages_adminpage_path
+      redirect_to admin_path
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class ConsolesController < ApplicationController
 
   def update
     if @console.update(console_params)
-      redirect_to pages_adminpage_path
+      redirect_to admin_path
     else
       render 'edit'
     end

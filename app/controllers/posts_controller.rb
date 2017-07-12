@@ -68,11 +68,11 @@ class PostsController < ApplicationController
       elsif params[:choice] == "accept"
         @post.accept!
         flash[:notice] = "L'article '#{@post.title}' est maintenant publié"
-        redirect_to pages_adminpage_path
+        redirect_to admin_path
       elsif params[:choice] == "refuse"
         @post.refuse!
         flash[:notice] = "L'article '#{@post.title}' a été refusé"
-        redirect_to pages_adminpage_path
+        redirect_to admin_path
       end
     end
   end

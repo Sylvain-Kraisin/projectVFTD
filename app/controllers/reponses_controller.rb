@@ -47,7 +47,7 @@ before_action :authenticate_user!, only: [:new, :create, :show]
 
     def destroy
       @reponse.destroy
-      redirect_to pages_adminpage_path
+      redirect_to admin_path
     end
 
 

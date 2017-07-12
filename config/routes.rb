@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get 'pages/faq' => 'pages#faq'
   get 'pages/cooperative' => 'pages#cooperative'
   get 'pages/cartable_numerique' => 'pages#cartable_numerique'
-  get 'pages/adminpage' => 'pages#adminpage'
+  get '/admin', to: 'pages#adminpage'
+
   get 'pages/correspondances' => 'pages#correspondances'
 
   get 'discourse/sso' => 'discourse_sso#sso'

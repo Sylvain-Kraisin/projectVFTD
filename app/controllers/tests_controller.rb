@@ -13,7 +13,7 @@ before_action :admin?, only: [:new, :create, :edit, :update]
     @test.video_title = Video.find(@test.video_id).title
 
     if @test.save
-      redirect_to pages_adminpage_path
+      redirect_to admin_path
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ before_action :admin?, only: [:new, :create, :edit, :update]
 
   def update
     if @test.update(test_params)
-      redirect_to pages_adminpage_path
+      redirect_to admin_path
     else
       render 'edit'
     end

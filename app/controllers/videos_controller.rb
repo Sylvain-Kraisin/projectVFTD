@@ -21,7 +21,7 @@ before_action :find_video, only: [:show, :edit, :update]
     @video = Video.new(video_params)
 
     if @video.save
-      redirect_to pages_adminpage_path
+      redirect_to admin_path
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ before_action :find_video, only: [:show, :edit, :update]
 
   def update
     if @video.update(video_params)
-      redirect_to pages_adminpage_path
+      redirect_to admin_path
     else
       render 'edit'
     end
@@ -47,7 +47,7 @@ before_action :find_video, only: [:show, :edit, :update]
 
     @video.run! unless @video.online?
     flash[:notice] = "La vidéo #{@video.title} est maintenant en ligne"
-    redirect_to pages_adminpage_path
+    redirect_to admin_path
   end
 
   private
