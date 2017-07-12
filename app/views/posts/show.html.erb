@@ -7,13 +7,13 @@
   <title><%= @post.title %> - Viens Faire Tes Devoirs</title>
 <% end %>
 
-
 <% content_for :facebook do %>
   <meta property="og:title" content="<%= @post.title %>" />
   <meta property="og:type" content="article" />
   <!-- <meta property="og:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" /> -->
   <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
 <% end %>
+
 <% content_for :twitter do %>
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="<%= @post.title %>" />
@@ -21,7 +21,6 @@
   <meta name="twitter:description" content='<%= @post.content %>' />
   <meta name="twitter:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" />
 <% end %>
-
 
 <div class ="row">
   <div class= "article col-md-9 col-xs-12">
@@ -120,13 +119,14 @@
         </a>
 
         <p><%= render @post.comments.order('created_at ASC' ) %><p>
-        <p><%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %></p>
+        <p>
+          <%= link_to "Annoter le livre", new_post_comment_path(@post), class: "btn btn-default", role: "button" %>
+          <a class="btn btn-default" href="/posts" role="button">Retour</a>
+        </p>
       </div>
     <% end %>
   </div>
 </div>
-
-<p><a class="btn btn-default" href="/posts" role="button">Retour</a></p>
 
 <!-- Creates the bootstrap modal where the image will appear -->
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
