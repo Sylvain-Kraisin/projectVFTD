@@ -39,10 +39,12 @@ class Post < ActiveRecord::Base
     end
 
     event :publish do
-      transitions from: :validated, to: :published
       before do
         self.update published_at: Time.zone.now
       end
+
+      transitions from: :validated, to: :published
+
       success do
         user = self.user
         user.update bonus:user.bonus + 200
