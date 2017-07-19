@@ -105,12 +105,12 @@
     <% end %>
 
   <br>
-    <% if @user.visits.count == 0 %>
+    <% if @user.visits.count == 0 || !Post.published.where(id: @user.visits.last.post_id).present? %>
       <h4>DERNIER LIVRE EMPRUNTE : </h4>
       <h4 style="color:red">AUCUN</h4>
       <a href="/posts"> <h5>EMPRUNTER UN LIVRE AU C.D.I</h5></a>
     <% else %>
-      <% @lastpost = Post.find_by(id: @user.visits.last.post_id) %>
+      <% @lastpost = Post.published.find(@user.visits.last.post_id) %>
       <h4>DERNIER LIVRE EMPRUNTE : </h4>
       <%= link_to post_path(@lastpost) do %>
         <%= image_tag (@lastpost.category.name.downcase + '.png'), class:"img-responsive center-block mudora_index" %>

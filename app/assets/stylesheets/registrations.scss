@@ -6,3 +6,15 @@
   background-position: top center !important;
   background-repeat: no-repeat !important;
 }
+
+.registrations.edit {
+  background-image: asset_url('casier.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
+
+  input[type="file"] {
+    display: inline-block;
+  }
+}

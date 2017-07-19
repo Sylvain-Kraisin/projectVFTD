@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every :wednesday, :at => '1pm' do
-  runner "Post.validated.order('created_at ASC').first.try(:publish)"
+  runner "Post.validated.order('created_at ASC').first.try(:publish!)"
 end

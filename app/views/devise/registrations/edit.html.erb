@@ -1,53 +1,40 @@
 <br>
+<div style="color:white" class="row transtext craietext text-center">
+  <br>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="login-form">
 
-<div class="col-md-6 col-md-offset-3">
-  <div class="login-form">
+      <h2 id="h2devise" class="craietext text-center">Editer mon profil <% resource_name.to_s.humanize %></h2>
+      <br>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
 
-<h2 id="h2devise" class="craietext text-center">Editer mon profil <% resource_name.to_s.humanize %></h2>
-<br>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+        <div class="form-inputs">
 
-  <div class="form-inputs">
+          <p class="text-center"><%= f.input :avatar, label: "Changer mon avatar (taille max: 1 Mo)"%>
+          </p>
 
-    <%= f.input :avatar, label: "Changer mon avatar"%>
-    <p>Taille Max : 1 Mo</p>
+          <%= f.input :female, as: :radio_buttons, collection: [['Féminin', true ],['Masculin', false]], label: "Je me conjugue au" %>
 
-    <%= f.input :female, as: :radio_buttons, collection: [['Féminin', true ],['Masculin', false]], label: "Je me conjugue au" %>
+          <%= f.input :bio, input_html: {maxlength: 2500, rows: 6}, label: "Mon message de présentation" %>
 
-    <%= f.input :bio, input_html: {maxlength: 2500, rows: 6}, label: "Mon message de présentation" %>
+          <%= f.input :birthdate, start_year: Date.today.year - 6, end_year: Date.today.year - 100, label: "Ma date de naissance" %>
 
-    <%= f.input :birthdate, start_year: Date.today.year - 6, end_year: Date.today.year - 100, label: "Ma date de naissance" %>
+          <%= f.input :newsletter, label: "Recevoir mon bulletin mensuel" %>
 
-    <%= f.input :newsletter, label: "Recevoir mon bulletin mensuel" %>
-
-    <%= f.input :mail_correction, label: "Recevoir un mail quand mon devoir est corrigé" %>
-    <%= f.input :mail_new_test, label: "Recevoir un mail quand un nouveau cours est disponible" %>
-    <%= f.input :mail_new_post, label: "Recevoir un mail quand un nouveau livre est disponible" %>
-
-
-<br>
-
-
-
+          <%= f.input :mail_correction, label: "Recevoir un mail quand mon devoir est corrigé" %>
+          <%= f.input :mail_new_test, label: "Recevoir un mail quand un nouveau cours est disponible" %>
+          <%= f.input :mail_new_post, label: "Recevoir un mail quand un nouveau livre est disponible" %>
+        </div>
+        <br>
+        <div class="form-actions text-center">
+          <%= f.button :submit, t('.update'), class:"btn btn-default" %>
+          <%= link_to "Retour", pages_casier_path, class:"btn btn-default" %>
+        </div>
+      <% end %>
+      <br>
+      <br>
+      <p class="craietext"><%= t('.unhappy') %> ? <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+    </div>
   </div>
-<br>
-  <div class="form-actions text-center">
-    <%= f.button :submit, t('.update') %>
-
-  </div>
-
-<% end %>
-<br>
-<p class="craietext"><%= t('.unhappy') %> ? <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
-
-<p class="craietext"><%= link_to "Retour", pages_casier_path %></p>
-
 </div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
