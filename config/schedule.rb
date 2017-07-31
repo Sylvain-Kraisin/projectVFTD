@@ -35,7 +35,7 @@ set :env_path,    '"/home/koan_dev/.rbenv/shims":"/home/koan_dev/.rbenv/bin"'
 # job_type :command, ":task :output"
 
 # job_type :rake,   %q{ cd :path && PATH=:env_path:"$PATH" RAILS_ENV=:environment bundle exec rake :task --silent :output }
-job_type :runner, %q{ cd :path && PATH=:env_path:"$PATH" script/rails runner -e :environment ':task' :output }
+job_type :runner, %q{ cd :path && PATH=:env_path:"$PATH" bin/rails runner -e :environment ':task' :output }
 # job_type :script, %q{ cd :path && PATH=:env_path:"$PATH" RAILS_ENV=:environment bundle exec script/:task :output }
 
 # tasks
