@@ -24,17 +24,19 @@
 #   Whenever: https://github.com/javan/whenever
 #   rbenv:    https://github.com/sstephenson/rbenv
 
-if Rails.env.production?
-  set :path, "/home/koan_dev/www/projectVFTD"
-  set :env_path,    '"/home/koan_dev/.rbenv/shims":"/home/koan_dev/.rbenv/bin"'
+# Schedule script for using Whenever toghether with rbenv
+#
+#   Whenever: https://github.com/javan/whenever
+#   rbenv:    https://github.com/sstephenson/rbenv
 
-  # doesn't need modifications
-  # job_type :command, ":task :output"
+set :env_path,    '"/home/koan_dev/.rbenv/shims":"/home/koan_dev/.rbenv/bin"'
 
-  job_type :rake,   %q{ cd :path && PATH=:env_path:"$PATH" RAILS_ENV=:environment bundle exec rake :task --silent :output }
-  job_type :runner, %q{ cd :path && PATH=:env_path:"$PATH" script/rails runner -e :environment ':task' :output }
-  job_type :script, %q{ cd :path && PATH=:env_path:"$PATH" RAILS_ENV=:environment bundle exec script/:task :output }
-end
+# doesn't need modifications
+# job_type :command, ":task :output"
+
+# job_type :rake,   %q{ cd :path && PATH=:env_path:"$PATH" RAILS_ENV=:environment bundle exec rake :task --silent :output }
+job_type :runner, %q{ cd :path && PATH=:env_path:"$PATH" script/rails runner -e :environment ':task' :output }
+# job_type :script, %q{ cd :path && PATH=:env_path:"$PATH" RAILS_ENV=:environment bundle exec script/:task :output }
 
 # tasks
 every :wednesday, :at => '1pm' do
