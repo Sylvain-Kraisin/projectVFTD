@@ -42,7 +42,3 @@ job_type :runner, %q{ cd :path && PATH=:env_path:"$PATH" bin/rails runner -e :en
 every :wednesday, :at => '1pm' do
   runner "Post.validated.order('created_at ASC').first.try(:publish!)"
 end
-
-every 1.minute do
-  runner "User.last.update female:true"
-end
