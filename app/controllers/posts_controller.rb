@@ -80,7 +80,7 @@ class PostsController < ApplicationController
   private
 
     def author_can_edit_post?
-      redirect_to root_path unless @post.draft? && post_author? || (current_user.role == "admin") || (current_user.librarian? && @post.user_id == current_user.id)
+      redirect_to root_path unless (@post.draft? && post_author?) || (current_user.role == "admin") || (current_user.librarian?)
     end
 
     def post_params

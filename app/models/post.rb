@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
 
   validates :title, :content, :category_id, presence: true
   validates :title, length: { minimum: 5, maximum: 50 }
+  validates :content, length: { minimum: 2000 }
+
 
   has_attached_file :post_img, styles: { post_index: "180x216>", post_show: "90x108>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :post_img, content_type: /\Aimage\/.*\Z/

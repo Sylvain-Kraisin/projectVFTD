@@ -51,7 +51,7 @@
           <p><%= link_to "Modifier", edit_post_path(@post), class:'btn btn-default' %></p>
           <p><%= link_to "Supprimer", post_path(@post), method: :delete, data: { confirm: "Confirmez vous la suppression de cet article ?"}, class:'btn btn-danger' %></p>
         <% end %>
-        <% if current_user.librarian? && (@post.user_id == current_user.id) %>
+        <% if current_user.librarian? %>
           <p><%= link_to "Modifier", edit_post_path(@post), class:'btn btn-default' %></p>
         <% end %>
         <% if @post.user_id == current_user.id || current_user.is_admin?  %>
