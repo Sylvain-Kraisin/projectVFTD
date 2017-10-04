@@ -1,6 +1,6 @@
 <% content_for :google do%>
-  <meta name="description" content="Le C.D.I" />
-  <meta name="keywords" content="ecole retrogaming mario zelda nintendo cdi" />
+  <meta name="description" content="Le CDI" />
+  <meta name="keywords" content="ecole devoirs retrogaming mario zelda nintendo cdi" />
   <meta name="author" content="<%= @post.author %>" />
   <meta name="copyright" content="Sylvain Kraisin" />
   <meta name="application-name" content="ViensFaireTesDevoirs" />
@@ -11,14 +11,14 @@
   <meta property="og:title" content="<%= @post.title %>" />
   <meta property="og:type" content="article" />
   <!-- <meta property="og:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" /> -->
-  <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre disponible au C.D.I" />
+  <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre de <%= @post.author %> dispo au C.D.I" />
 <% end %>
 
 <% content_for :twitter do %>
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="<%= @post.title %>" />
   <meta name="twitter:site" content="@ViensFTD" />
-  <meta name="twitter:description" content='<%= @post.content.truncate(160) %>' />
+  <meta name="twitter:description" content="<%= @post.category.name.upcase %> | Un livre de <%= @post.author %> dispo au C.D.I" />
   <meta name="twitter:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" />
 <% end %>
 
