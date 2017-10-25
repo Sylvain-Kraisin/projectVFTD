@@ -11,14 +11,14 @@
   <meta property="og:title" content="<%= @post.title %>" />
   <meta property="og:type" content="article" />
   <!-- <meta property="og:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" /> -->
-  <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre de <%= @post.author %> dispo au C.D.I" />
+  <meta property="og:description" content="<%= @post.category.name.upcase %> | Un livre de <%= @post.author %> dispo au CDI" />
 <% end %>
 
 <% content_for :twitter do %>
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="<%= @post.title %>" />
   <meta name="twitter:site" content="@ViensFTD" />
-  <meta name="twitter:description" content="<%= @post.category.name.upcase %> | Un livre de <%= @post.author %> dispo au C.D.I" />
+  <meta name="twitter:description" content="<%= @post.category.name.upcase %> | Un livre de <%= @post.author %> dispo au CDI" />
   <meta name="twitter:image" content="http://viensfairetesdevoirs.com<%= asset_path('' + @post.category.name.downcase + '.png') %>" />
 <% end %>
 
@@ -123,7 +123,7 @@
             <i class="fa fa-facebook"></i> Partager
           </button>
         </a>
-        <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au C.D.I" %>&url=http://viensfairetesdevoirs.com/posts/<%= @post.id %>&via=ViensFTD" target="blank" class="decoration_none">
+        <a href="https://twitter.com/intent/tweet?text=<%= "J'ai lu '" + @post.title + "' au #CDI" %>&url=http://viensfairetesdevoirs.com/posts/<%= @post.id %>&via=ViensFTD" target="blank" class="decoration_none">
           <button class="btn btn-info">
             <i class="fa fa-twitter"></i> Twitter
           </button>

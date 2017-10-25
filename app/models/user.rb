@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   after_validation :add_bonus_to_score, if: :bonus_changed?
   before_create :set_default_score
-  after_create :add_user_to_mailchimp_mailing_list
+  after_commit :add_user_to_mailchimp_mailing_list, on: :create
   after_commit :add_classroom, unless: :classroom?
   before_destroy :remove_user_from_mailchimp_list
 

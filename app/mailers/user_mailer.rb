@@ -32,7 +32,7 @@ class UserMailer < ApplicationMailer
   def new_post_available (post, user)
     @post = post
     @user = user
-    @subject = 'Un nouveau livre intitulé ' + @post.title + ' est disponible au C.D.I'
+    @subject = 'Un nouveau livre intitulé ' + @post.title + ' est disponible au CDI'
     mail to: user.email, subject: @subject
   end
 
