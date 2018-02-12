@@ -170,7 +170,12 @@
     </div>
   </div>
 
-  <div class="fb-customerchat" page_id="897102440354122" ref="get_started" minimized="true"></div>
+  <div class="fb-customerchat"
+    page_id="897102440354122"
+    minimized="true"
+    logged_in_greeting: "greetings logged"
+    logged_out_greeting: "greetings not logged">
+  </div>
 
 <script>
   var audio = new Audio('<%= audio_path('starfox_titlescreen.mp3') %>');
