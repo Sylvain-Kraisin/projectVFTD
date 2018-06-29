@@ -46,7 +46,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = :warn
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -81,7 +81,8 @@ Rails.application.configure do
     user_name:            'sylvain.kraisin@gmail.com',
     password:             ENV["MANDRILL_API_KEY"],
     authentication:       'login',
-    enable_starttls_auto: true  }
+    enable_starttls_auto: true
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

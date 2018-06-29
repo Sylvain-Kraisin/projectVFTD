@@ -1,8 +1,7 @@
 class TestsController < ApplicationController
-before_action :find_test, only: [:show, :edit, :update]
-before_action :authenticate_user!, only: [:show]
-before_action :admin?, only: [:new, :create, :edit, :update]
-
+  before_action :find_test, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:show]
+  before_action :admin?, only: [:new, :create, :edit, :update]
 
   def new
     @test = Test.new
@@ -41,8 +40,5 @@ before_action :admin?, only: [:new, :create, :edit, :update]
     def find_test
       @test = Test.find(params[:id])
     end
-
-
-
 
 end

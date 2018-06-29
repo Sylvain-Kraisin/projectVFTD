@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
 
   def add_classroom
     classrooms = ['Hanafuda', 'Game&Watch', 'DonkeyKong', 'Jumpman', 'Excitebike', 'DuckHunt', 'R.O.B',
-      'Luigi', 'Metroid', 'Zelda', 'Link', 'Koopa', 'Wario', 'Tetris', 'à définir']
+      'Luigi', 'Metroid', 'Zelda', 'Link', 'Koopa', 'Wario', 'Tetris', 'Pong', 'Alleway', 'PacMan']
 
     classrooms.size.times do |i|
       if User.where(classroom:classrooms[i]).count < 32

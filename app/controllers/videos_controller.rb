@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
-before_action :admin?, only: [:new, :edit, :update, :publish]
-before_action :find_video, only: [:show, :edit, :update]
+  before_action :admin?, only: [:new, :edit, :update, :publish]
+  before_action :find_video, only: [:show, :edit, :update]
 
   def show
     @user = current_user
