@@ -48,9 +48,7 @@ class ReponsesController < ApplicationController
     redirect_to admin_path
   end
 
-
-
-private
+  private
 
   def reponse_params
     params.require(:reponse).permit(:reponse_1, :reponse_2, :reponse_3, :reponse_4, :note_1, :note_2, :note_3, :note_4, :total, :email, :appreciation)
@@ -63,5 +61,4 @@ private
   def find_reponse
     @reponse = Reponse.find(params[:id])
   end
-
 end
